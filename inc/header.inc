@@ -1,10 +1,13 @@
 <div id="page-wrapper">
-	<div id="header-wrapper" class=""><!-- container-fluid -->
-		<header id="main-header" class="container">
+	<div id="header-wrapper" class="">
+		<header id="main-header" class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="logo-wrapper hidden-xs hidden-sm visible-md visible-lg">
-						<a href="index.html" class="site-logo"><img src="images/logo/main-logo.png" alt="logo"></a>
+						<a href="index.html" class="site-logo">
+							<img src="images/logo/main-logo.png" alt="logo">
+							<span>STRAND HOTEL SINGAPORE</span>
+						</a>
 					</div>
 					<div id="menu-wrapper">
 						<nav id="nav-main">
