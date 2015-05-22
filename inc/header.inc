@@ -37,7 +37,7 @@
 									<a href="contact.html">CONTACT</a>
 								</li>
 								<li>
-									<a href="reservation.html">RESERVATIONS</a>
+									<a href="reservation.html" class="reservation">RESERVATIONS</a>
 								</li>
 							</ul>
 							<!-- <i class="fa fa-bars icon-font mobile-menu-btn hidden-md hidden-lg"></i>
@@ -75,4 +75,44 @@
 				</div>
 			</div>
 		</header>
+	</div>
+	<div class="reservation-widget">
+		<form id="reservation-form" action="" method="POST" role="form">
+			<div class="form-group form-border has-feedback">
+				<label for="check-in">CHECK IN:</label>
+				<input type="text" name="check-in" class="check-in-input">
+				<i class="form-control-feedback"></i>
+			</div>
+			<div class="form-group form-border has-feedback">
+				<label for="check-out">CHECK OUT:</label>
+				<input type="text" name="check-out" class="check-out-input">
+				<i class="form-control-feedback"></i>
+			</div>
+			<div class="form-group">
+				<div class="dropdown">
+				    <select class="room-type" name="room-type">
+				    	<option>Select room type</option>
+				    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="small-input">
+					<label for="rooms">ROOMS</label>
+					<input type="text" name="rooms">
+				</div>
+
+				<div class="small-input">
+					<label for="adults">ADULTS</label>
+					<input type="text" name="adults">
+				</div>
+
+				<div class="small-input">
+					<label for="children">CHILDREN</label>
+					<input type="text" name="children">
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-default check-availability">CHECK AVAILABILITY</button>
+			<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
+		</form>
 	</div>

@@ -453,7 +453,7 @@ html, body {
   margin:0;
   padding:0;
 }
-#page-wrapper{
+#page-wrapper {
   height: 100%;
   position:relative;
 
@@ -461,11 +461,11 @@ html, body {
     position: fixed;
     top: 0px;
     width: 100%;
-    z-index: 9999;
-    background: @dark-grey;      
+    z-index: 9999;          
     header#main-header {
       padding-left: 20px;
       padding-right: 20px;
+      background: @dark-grey;
       @media all and (max-width: 992px) {
         padding: 0px;
       }
@@ -474,6 +474,117 @@ html, body {
     
     &.shadow, &.permanent-shadow {
       box-shadow: 1px 1px 16px #EAEAEA;
+    }
+  }
+
+  .reservation-widget {
+    display: none;
+    background: rgba(40,40,40,0.8);
+    position: fixed;
+    top: 50px;
+    right: 25px;
+    z-index: 1;
+    width: 280px;
+    // height: 370px;
+    padding: 45px 20px 30px 20px;
+
+    .form-control-feedback {
+      top: 17px!important;
+      background: url("../images/icons/calendar-icon.png") no-repeat;
+      right: -10px;
+      z-index: 10;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 23px;
+      }
+    }
+
+    .form-border {
+      border-top: 1px solid #77787c;      
+      padding-top: 15px;
+      
+      &:nth-of-type(2) {
+        border-bottom: 1px solid #77787c;
+        padding-bottom: 15px;  
+      }
+    }
+
+    label, input, select {
+      .brandon-grotesque-medium;
+      letter-spacing: 0.025em;
+      font-size: 11px;
+      color: #77787c;      
+    }
+    input, select {
+      color: @dark-blue;
+      background: none;
+    }
+    input[name="check-in"] {
+      padding-left: 35px!important;
+    }
+    input[name="check-in"], input[name="check-out"] {
+      border: none;
+      padding-left: 25px;
+      .brandon-grotesque-medium;
+      font-size: 12px;
+      width: 70%;
+    }
+
+    select {
+      .brandon-grotesque-regular;
+      font-size: 14px;
+      color: @dark-blue;
+      height: 30px;
+    }
+
+    .small-input {
+      width: 70px;
+      margin-right: 11px;
+      text-align: center;
+      display: inline-block;
+      &:last-child {
+        margin-right: 0px;
+      }
+      input {
+        width: 100%;
+        border: 1px solid #77787c;
+        width: 73px;
+        height: 30px;
+        text-align: center;
+        .brandon-grotesque-regular;
+        font-size: 14px;
+      }
+    }
+
+    button.check-availability {
+      width: 166px;
+      // height: 25px;
+      .brandon-grotesque-bold;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: @white;  
+      background: #77787c;
+      border: none;
+      .round(0);
+      text-shadow: none;
+      display: block;
+      margin: 0 auto;
+      .transition;
+      &:hover {
+        background: @light-grey;
+      }
+    }
+
+    a.modify-cancel {
+      .brandon-grotesque-regular;
+      font-size: 14px;
+      color: #77787c;
+      display: block;
+      text-align: center;      
+      margin-top: 20px;
     }
   }
 
@@ -704,7 +815,7 @@ html, body {
   }
 
   #footer-wrapper {
-      height: auto; 
+      height: auto;
       width:100%;
       left: 0;
       bottom: 48px;
@@ -744,18 +855,22 @@ html, body {
   div.dropdown {
     display: inline-block;
     position: relative;
+    width: 100%;    
     &:before {
       content: '';
-      width:20px; 
-      height:20px;
-      background:url(../images/icons/dropdown.png) no-repeat 0px 11px;
+      width:33px; 
+      height:30px;
+      background:url(../images/icons/dropdown-icon.png) no-repeat center;
       position:absolute;
       display:block;
       right: 0px;
       pointer-events:none;
+
     }
     select {
-      
+      width: 100%;
+      padding-left: 10px;
+      border: 1px solid #77787C;
       .appearance(none);
       .round(0px);
     }
@@ -810,6 +925,91 @@ html, body {
       letter-spacing: 0.03em;
     }
     
+  }  
+}
+
+.ui-datepicker {
+  width: 242px;
+  height: auto;
+  padding: 30px;
+  font: 9pt Arial, sans-serif;
+  background: rgba(40,40,40,0.9);
+
+  a {
+    text-decoration: none;
+  }
+
+  .ui-datepicker-header {    
+    .ui-datepicker-title {
+      .harriet-display-regular-italic;
+      font-size: 15px;
+      text-align: center;
+      color: @white;
+      text-shadow: none;
+    }
+    .ui-datepicker-prev, .ui-datepicker-next {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      cursor: pointer;      
+      line-height: 600%;
+      overflow: hidden;
+    }
+    .ui-datepicker-prev {
+      background-image: url('../images/icons/left-calendar-arrow.png');
+      background-repeat: no-repeat;
+      float: left;
+      background-position: center;
+      &:hover {
+        background-position: center;
+      }
+    }
+    .ui-datepicker-next {
+      background-image: url('../images/icons/right-calendar-arrow.png');
+      background-repeat: no-repeat;
+      float: right;
+      background-position: center;
+      &:hover {
+        background-position: center;
+      }
+    }  
+  }  
+
+  th {
+    color: @white;
+  }
+
+  td {
+    a {
+      color: @white;
+      .brandon-grotesque-regular;
+      font-size: 12px;
+      line-height: 26px;
+      text-align: center;
+      padding: 0px;
+
+      &.ui-state-hover {
+        color: @dark-blue;
+        outline: 1px solid @dark-blue;
+        // height: 25px;
+        padding: 0px;
+        margin: 0px;
+      }
+      &.ui-state-active {
+        outline: 1px solid @dark-blue;
+        color: @dark-blue;
+      }      
+    }
+    &.ui-state-disabled {
+      span {
+        color: #555;
+        font-size: 12px;
+        line-height: 26px;
+        text-align: center;
+        padding: 0px;  
+      }      
+    }
   }
 }
 
@@ -1793,6 +1993,7 @@ p {
         }
 
         .selected-date {
+          display: none;
           padding-top: 10px;
         }
 

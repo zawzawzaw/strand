@@ -12,12 +12,17 @@
 <!-- CSS -->
 <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.min.css" />
 <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/vendors/jquery-ui/jquery-ui.min.css" />
 <link rel="stylesheet" href="css/font-awesome.min.css" />
 <link rel="stylesheet" href="css/style.css" />
 
 <!-- JS -->
 <script type="text/javascript" src="js/vendors/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/vendors/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/plugins/imagesloaded.pkgd.min.js"></script>
 <script type="text/javascript" src="js/plugins/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+
+<script src="//use.typekit.net/uju4utq.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
