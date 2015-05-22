@@ -19,5 +19,5 @@
 <script type="text/javascript" src="js/vendors/jquery/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/plugins/imagesloaded.pkgd.min.js"></script>
-<script type="text/javascript" src="js/plugins/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/plugins/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>

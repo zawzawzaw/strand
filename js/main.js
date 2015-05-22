@@ -25,15 +25,4 @@ $(document).ready(function(){
 
     $('.carousel').carousel();
 
-    var $container = $('.grid');
-
-    $container.imagesLoaded(function(){
-        $container.isotope({
-            itemSelector: '.grid-item',
-            masonry: {
-              columnWidth: 100
-            }
-        });      
-    });
-
 });

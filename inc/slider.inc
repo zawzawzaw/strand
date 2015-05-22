@@ -22,6 +22,9 @@
 					<hr class="small"></hr>
 					<p>Discover bespoke journeys and voyages of discovery provide unique insights into the history, culture, cuisine and the lifestyle of Strand destination.</p>
 				</div>				
+			</div>
+			<div class="item-cta">
+				<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
 			</div>	
 		</div>
 	</div>
