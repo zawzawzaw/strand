@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <title></title>
+  <meta name="viewport" content="width=device-width">
+  <style>
+  * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  body {
+    font-family: sans-serif;
+  }
+
+
+  /* ---- grid ---- */
+
+  .grid {
+    background: #DDD;
+    max-width: 660px;
+  }
+
+  /* clear fix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  /* ---- .grid-item ---- */
+
+  .grid-item {
+    float: left;
+    width: 230px;
+    height: 160px;
+    background: #0D8;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.7);
+  }
+
+  .grid-item--width2 { width: 440px; }
+  .grid-item--height2 { height: 330px; }
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Isotope - masonry layout mode</h1>
+
+  <div class="grid">
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item grid-item--width2"></div>
+    <div class="grid-item grid-item--height2"></div>
+    
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+  </div>
+
+</body>
+<script>
+  // external js: isotope.pkgd.js
+
+  $(document).ready( function() {
+    
+    $('.grid').isotope({
+      itemSelector: '.grid-item',
+      masonry: {
+        columnWidth: 230
+      }
+    });
+
+  });
+</script>
+</html>
