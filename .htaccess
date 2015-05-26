@@ -1,5 +1,12 @@
-# http://www.cyberciti.biz/faq/why-my-apache-server-side-include-ssi-is-not-working/
-Options +Includes
 
-AddType text/html .html
-AddHandler server-parsed .html
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
