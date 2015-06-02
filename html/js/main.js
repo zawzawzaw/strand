@@ -36,7 +36,8 @@ $(document).ready(function(){
             inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        minDate: 0
+        minDate: 0,
+        dateFormat: 'yy-mm-dd'
     });
     $('.check-out-input').datepicker({
         beforeShow: function(input, inst)
@@ -44,7 +45,8 @@ $(document).ready(function(){
             inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        minDate: 0
+        minDate: 0,
+        dateFormat: 'yy-mm-dd'
     });
 
     $('.form-control-feedback').on('click', function(e){

@@ -45,11 +45,7 @@ $(document).ready(function(){
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0
-    });
-
-    $('.form-control-feedback').on('click', function(e){
-        console.log('hi')
-    });
+    });    
 
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 

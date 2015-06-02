@@ -1,0 +1,194 @@
+
+html, body, h1, h2, h3, h4, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+table{
+	border-spacing:0px; 
+	border-collapse:collapse;	
+}
+
+body {
+	text-align: center;
+	color: #74653D;
+	margin:0px;
+	overflow-x:hidden;
+	font-family:Verdana, Tahoma, serif;
+	font-size:11px;
+	background-color:#FFF;
+	color:#000 !important;
+	line-height:20px;
+	text-align:left;
+}
+
+#body{
+	padding:10px;
+}
+
+#wrapper{
+	margin-bottom:10px;
+	float:left;
+	margin-top:25px;
+}
+
+.printbutton{
+	border-top: 5px solid #000000;
+	position: fixed;
+	text-align: right;
+	width: 100%;
+}
+
+.printbutton input[type="button"]{
+	border-left: 2px solid #000000;
+	border-right: 2px solid #000000;
+	border-top: none;
+	margin-right: 5px;
+	padding: 5px;
+}
+
+.print{
+	display:none	
+}
+
+.qikres_final_confirm{
+	width:95%; 
+	border-right:0px	
+}
+
+.qikres_print_header{
+	height: 150px;
+	width: 200px;
+	margin:auto;
+	display:table;
+	border:0px none
+}
+
+.qikres_print_div{
+	margin:auto;
+	width:99%;
+	text-align:center;
+	float:left
+}
+
+.qikres_final_confirm .qikres_conf_data{
+	float: left;
+	width: 97%;
+}
+
+.qikres_print_footer {
+	width: 97%;	
+	height: 393px;
+	float:left;
+	margin-bottom:100px
+}
+
+.qikres_footer_image {
+	height: 393px;
+	width: 400px;
+	background:url(../images/body/map.png);
+	display:table;
+	margin:auto;
+	border:0px none
+}
+
+.qikres_final_confirm table{
+	width:100%
+}
+
+.qikres_final_confirm td.label, .qikres_final_confirm td.price{
+	width:20%;
+	font-weight:bold;
+	vertical-align:top;
+	text-align:right;
+	padding-right:10px
+}
+
+.qikres_final_confirm td.value{
+	width:30%;
+	vertical-align:top;
+	color:#000 !important
+}
+
+.qikres_conf_payment, .qikres_conf_detail, .qikres_conf_terms{
+	margin-bottom:10px; 
+	float:left; 
+	width:99%;
+}
+
+.qikres_final_confirm td.price, .qikres_final_confirm td.value{
+	color:#000;
+}
+
+.qikres_content{
+	margin: auto;
+	width: 900px;
+	padding:10px;
+	color:#000 !important;
+}
+
+.qikres_conf_number{
+	float: left;
+	margin: 0px 0px 10px 0px;
+	width: 100%;
+}
+
+.qikres_conf_number h2{
+	font-weight:bold;
+	color:#000	
+}
+
+.qikres_conf_number .qikres_body_table table tr td h1{
+	font-size: 25px;
+	margin: 10px;
+}
+
+.qikres_conf_number .qikres_body_table{
+	height:auto
+}
+
+.qikres_conf_address{
+	margin-bottom:10px; 
+	float:left; 
+	width:100%
+}
+
+.qikres_conf_address .qikres_body_table table td.label{
+	text-align:left
+}
+
+.qikres_conf_address .qikres_body_table table td.value{
+	width:20%
+}
+
+.qikres_odd_row{
+	border-bottom:1px dashed #333;
+	padding:5px 0px 5px 0px
+}
+
+.qikres_even_row {
+	border-bottom:1px dashed #333;
+	padding:5px 0px 5px 0px
+}
+
+.qikres_header_table{
+	width:auto; 
+	padding:5px;
+	display:inline-block; 
+	color:#000;
+	width:auto
+}
+
+.qikres_body_table{
+	float:left; 
+	width:100%;
+	border-top:1px dashed #999; 
+	padding:5px 0px 5px 0px;
+	text-align:justify;
+}
+
+.qikres_conf_detail span{
+	color:#000;
+	font-size:14px;
+	font-weight:bold
+}

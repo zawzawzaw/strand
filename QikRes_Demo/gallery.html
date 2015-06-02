@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Banner Pages</title>
+      <link rel="stylesheet" href="http://192.168.0.211/wbe/css/jquery.fancybox-1.3.4.css" type="text/css"/>
+	  <link rel="stylesheet" href="http://192.168.0.211/wbe/themes/DEPALMA/css/public.css" type="text/css"/>
+	  <link rel="stylesheet" href="http://192.168.0.211/wbe/themes/DEPALMA/jquery-ui-1.8.24.custom.css" type="text/css"/>
+      <script src="http://192.168.0.211/wbe/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+      <script src="http://192.168.0.211/wbe/js/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+      <script src="http://192.168.0.211/wbe/js/jquery.fancybox-1.3.4.pack.js" type="text/javascript" ></script>
+      <script>
+	  	  alert(test);
+ 
+	  $(document).ready(function() {
+        $('a[rel="fancybox"]').fancybox();
+         	$(".image-stack").on('mouseenter', 'img', function() {	
+         		if ($(this).hasClass('stackphotos')) {
+         			var $parent = $(this).parent();
+         			$parent.find('.photo1').addClass('rotate1');
+         			$parent.find('.photo2').addClass('rotate2');
+         			$parent.find('.photo3').addClass('rotate3');
+         			$parent.find('.photo1').css("left","50px");
+         			$parent.find('.photo3').css("left","-50px");
+         		}
+         	}).on('mouseleave', 'img', function() {
+         		$('.photo1').removeClass('rotate1');
+         			$('.photo2').removeClass('rotate2');
+         			$('.photo3').removeClass('rotate3');
+         			$('.photo1').css("left","");
+         			$('.photo3').css("left","");
+         	});	
+		});
+      </script>
+   </head>
+   <body>
+      <h4>De Palma Ampang</h4>
+      <div class="category">
+         <div class="albumwrapper">
+            <div class="image-stack pics">
+               <ul class="pics">
+                  <li>
+                     <a title="IMG_1995.JPG" rel="fancybox" href="/wbe/dynamicImage/imagePath.action?externalID=28566&amp;externalType=CodeValue&amp;fileName=IMG_1995.JPG&amp;mode=ORIGINAL" style="display:none">
+                     </a>                                                      
+                  </li>
+               </ul>
+            </div>
+            <div class="albumname">Awards and Achivements<br>(1&nbsp;photo)</div>
+         </div>
+         <div class="albumwrapper">
+            <div class="image-stack pics">
+               <a href="javascript:goTo('http://192.168.0.211/wbe/property/galleryDetail.action?selectedImgGaleryIndex=1&amp;internalPropCode=DPHA')">
+               <img style="" class="stackphotos photo1" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28565&amp;externalType=CodeValue&amp;fileName=Screen+Shot+2013-04-11+at+9.53.24+AM.png&amp;mode=THUMBNAIL" alt="Screen Shot 2013-04-11 at 9.53.24 AM.png">
+               <img class="stackphotos photo2" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28565&amp;externalType=CodeValue&amp;fileName=124.jpg&amp;mode=THUMBNAIL" alt="Screen Shot 2013-04-11 at 9.53.24 AM.png">
+               <img style="" class="stackphotos photo3" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28565&amp;externalType=CodeValue&amp;fileName=125.jpg&amp;mode=THUMBNAIL" alt="Screen Shot 2013-04-11 at 9.53.24 AM.png">
+               </a>
+            </div>
+            <div class="albumname">De Palma Hotels in the news<br>(6&nbsp;photos)</div>
+         </div>
+         <div class="albumwrapper">
+            <div class="image-stack pics">
+               <a href="javascript:goTo('http://192.168.0.211/wbe/property/galleryDetail.action?selectedImgGaleryIndex=2&amp;internalPropCode=DPHA')">
+               <img style="" class="stackphotos photo1" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28564&amp;externalType=CodeValue&amp;fileName=fo1.jpg&amp;mode=THUMBNAIL" alt="fo1.jpg">
+               <img class="stackphotos photo2" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28564&amp;externalType=CodeValue&amp;fileName=IMG_2082.JPG&amp;mode=THUMBNAIL" alt="fo1.jpg">
+               <img style="" class="stackphotos photo3" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28564&amp;externalType=CodeValue&amp;fileName=IMG_2126.JPG&amp;mode=THUMBNAIL" alt="fo1.jpg">
+               </a>
+            </div>
+            <div class="albumname">Facilities<br>(5&nbsp;photos)</div>
+         </div>
+         <div class="albumwrapper">
+            <div class="image-stack pics">
+               <a href="javascript:goTo('http://192.168.0.211/wbe/property/galleryDetail.action?selectedImgGaleryIndex=3&amp;internalPropCode=DPHA')">
+               <img style="" class="stackphotos photo1" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28563&amp;externalType=CodeValue&amp;fileName=Meeting+3.gif&amp;mode=THUMBNAIL" alt="Meeting 3.gif">
+               <img class="stackphotos photo2" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28563&amp;externalType=CodeValue&amp;fileName=Meeting+2.jpg&amp;mode=THUMBNAIL" alt="Meeting 3.gif">
+               <img style="" class="stackphotos photo3" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28563&amp;externalType=CodeValue&amp;fileName=IMG_2066.JPG&amp;mode=THUMBNAIL" alt="Meeting 3.gif">
+               </a>
+            </div>
+            <div class="albumname">Meeting Facilities<br>(4&nbsp;photos)</div>
+         </div>
+         <div class="albumwrapper">
+            <div class="image-stack pics">
+               <a href="javascript:goTo('http://192.168.0.211/wbe/property/galleryDetail.action?selectedImgGaleryIndex=4&amp;internalPropCode=DPHA')">
+               <img style="" class="stackphotos photo1" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28562&amp;externalType=CodeValue&amp;fileName=Business+Queen.jpeg&amp;mode=THUMBNAIL" alt="Business Queen.jpeg">
+               <img class="stackphotos photo2" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28562&amp;externalType=CodeValue&amp;fileName=Bus+Room+Twin1.JPG&amp;mode=THUMBNAIL" alt="Business Queen.jpeg">
+               <img style="" class="stackphotos photo3" src="http://192.168.0.211/wbe/dynamicImage/imagePath.action?externalID=28562&amp;externalType=CodeValue&amp;fileName=IMG_2151.JPG&amp;mode=THUMBNAIL" alt="Business Queen.jpeg">
+               </a>
+            </div>
+            <div class="albumname">Rooms<br>(7&nbsp;photos)</div>
+         </div>
+      </div>
+   </body>
+</html>

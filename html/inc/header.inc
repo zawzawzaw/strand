@@ -77,15 +77,16 @@
 		</header>
 	</div>
 	<div class="reservation-widget">
-		<form id="reservation-form" action="" method="POST" role="form">
+		<div id="templatemo_content"></div>
+		<form id="reservation-form" action="" method="POST" role="form" >
 			<div class="form-group form-border has-feedback">
 				<label for="check-in">CHECK IN:</label>
-				<input type="text" name="check-in" class="check-in-input">
+				<input type="text" name="check-in" id="checkInDate" class="check-in-input" placeholder="DD/MM/YYYY">
 				<i class="form-control-feedback"></i>
 			</div>
 			<div class="form-group form-border has-feedback">
 				<label for="check-out">CHECK OUT:</label>
-				<input type="text" name="check-out" class="check-out-input">
+				<input type="text" name="check-out" id="checkOutDate" class="check-out-input" placeholder="DD/MM/YYYY">
 				<i class="form-control-feedback"></i>
 			</div>
 			<div class="form-group">
@@ -112,7 +113,7 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-default check-availability">CHECK AVAILABILITY</button>
+			<button type="submit" class="btn btn-default check-availability" onclick="javascript:checkAvailability('WBE');return false;">CHECK AVAILABILITY</button>
 			<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
 		</form>
 	</div>

@@ -1,0 +1,110 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<!--> 
+<html class=""> 
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Strand</title>
+	<meta name="description" content="Strand">
+	<meta name="keywords" content="Strand">
+
+	<!--#include virtual="inc/head.inc" -->
+</head>
+<body>
+	
+	<!--#include virtual="inc/header.inc" -->
+
+	<div id="carousel" class="slider-wrapper carousel slide" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item bg about-bg1 active">			
+				<div class="carousel-caption">
+					<div class="caption-text">
+						<h5>DISCOVER US</h5>
+						<h1>Finding Infinity</h1>
+						<hr class="small"></hr>
+						<p>Discover bespoke journeys and voyages of discoveryprovide unique insights into the history, culture, cuisine andthe lifestyle of Strand destination.</p>
+					</div>				
+				</div>	
+				<div class="item-cta">
+					<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<div id="content-wrapper" class="about">
+
+		<div class="discover-us">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-content">
+							<h3>DISCOVER US</h3>
+							<h2>About Your Stay</h2>
+							<hr class="small">
+							<h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit aenean commodo ligula eget dolor.</h4>
+
+							<p>Past the bustles of Orchard Road rests a welcome retreat that promises a home away from home. With 24 hours personalised service and friendly staff, Strand Hotel is appropriately appointed for both the business and leisure traveler, with its full complement of amenities that rain comfort and convenience upon you.</p>
+
+							<p>Cocooned in major shopping and entertainment districts, you can anticipate a stay bursting with funfilled days of excitement. With the best of Singapore by your doorstep, you can choose to send taste buds on an adventure with the ethnic cuisines of nearby Little India or Chinatown, embark on a shopping escapade in renowned Orchard Road or simply immerse yourself in the Lion City's rich history and heritage at the Singapore Art Museum and National Museum. </p>
+
+							<h4 class="quote">“It’s really fantastic that we’re <br>attracting guests who are adding their <br> touches to the hotel. And at the end of <br>the day, it is about the guest.”</h4>
+
+							<hr class="x-small">
+
+							<h5>STRAND HOTEL SINGAPORE</h5>
+						</div>
+						<div class="img-content">
+							<div id='about-masonry'>
+								<div class="about-masonry-item large"><img src="images/content/about-1.jpg"></div>
+								<div class="about-masonry-item medium"><img src="images/content/about-2.jpg"></div>
+								<div class="about-masonry-item"><img src="images/content/about-3.jpg"></div>	  
+								<div class="about-masonry-item"><img src="images/content/about-4.jpg"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<div class="book-your-stay">
+			<div class="caption">
+				<div class="caption-text">					
+					<h3>STAY WITH US</h3>
+					<h2>Book Your Stay</h2>
+					<hr class="small"></hr>
+					<p>Lorem ipsum dolor sit amet get a consectetuer the adipiscing elite. Aenean commod ligula eget aces dolor aenean massa. Tum socis the natoque penatibus magnis dis parturient montes nascetur ridiculus.</p>
+					<a href="#" class="book-a-room">BOOK A ROOM</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="trip-advisor">
+			<img src="images/logo/tripadvisor.png">
+		</div>
+
+	</div>
+
+	<!-- <div class="space100"></div> -->
+
+
+	<!--#include virtual="inc/footer.inc" -->
+
+	<script>	
+	$(document).ready(function(){
+		var container = document.querySelector('#about-masonry');
+		var msnry = new Masonry( container, {
+		  columnWidth: 50,
+		  itemSelector: '.about-masonry-item'
+		});
+	});
+	</script>
+		
+</body>
+</html>

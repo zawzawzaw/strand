@@ -25,25 +25,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 	<!-- FONT -->	
-	<!--<script src="//use.typekit.net/fwh2axv.js"></script>
-	<script>try{Typekit.load();}catch(e){}</script>-->
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="css/vendors/bootstrap/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/vendors/bootstrap/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="css/vendors/jquery-ui/jquery-ui.min.css" />
-	<link rel="stylesheet" href="css/font-awesome.min.css" />
-	<link rel="stylesheet" href="css/style.css" />
-
-	<!-- JS -->
-	<script type="text/javascript" src="js/vendors/jquery/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="js/vendors/jquery/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/vendors/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/plugins/imagesloaded.pkgd.min.js"></script>
-	<script type="text/javascript" src="js/plugins/masonry.pkgd.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />	
+	<script src="//use.typekit.net/jyp3xci.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 		
 	<!-- ICONS -->
 	<!-- <link rel="shortcut icon" href="img/icons/favicon.ico">
@@ -55,3 +38,74 @@
 
 </head>
 <body <?php body_class(); ?>>
+	<div id="page-wrapper">
+		<div id="header-wrapper" class="">
+			<header id="main-header" class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="logo-wrapper hidden-xs hidden-sm visible-md visible-lg">
+							<a href="<?php echo home_url(); ?>" class="site-logo">
+								<img src="<?php echo IMG; ?>/logo/main-logo.png" alt="<?php bloginfo("name"); ?>">
+								<span><?php bloginfo("name"); ?></span>
+							</a>
+						</div>
+						<div id="menu-wrapper">
+							<nav id="nav-main">
+								<?php
+
+									$defaults = array(
+										'echo' => true,
+										'container' => false,
+										'theme_location'  => 'main-menu',
+										'menu_class'      => 'main-menu hidden-xs hidden-sm'
+									);
+
+
+									wp_nav_menu($defaults);
+								?>								
+							</nav>
+						</div>					
+					</div>
+				</div>
+			</header>
+		</div>
+		<div class="reservation-widget">
+			<form id="reservation-form" action="" method="POST" role="form">
+				<div class="form-group form-border has-feedback">
+					<label for="check-in">CHECK IN:</label>
+					<input type="text" name="check-in" class="check-in-input" placeholder="DD/MM/YYYY">
+					<i class="form-control-feedback"></i>
+				</div>
+				<div class="form-group form-border has-feedback">
+					<label for="check-out">CHECK OUT:</label>
+					<input type="text" name="check-out" class="check-out-input" placeholder="DD/MM/YYYY">
+					<i class="form-control-feedback"></i>
+				</div>
+				<div class="form-group">
+					<div class="dropdown">
+					    <select class="room-type" name="room-type">
+					    	<option>Select room type</option>
+					    </select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="small-input">
+						<label for="rooms">ROOMS</label>
+						<input type="text" name="rooms">
+					</div>
+
+					<div class="small-input">
+						<label for="adults">ADULTS</label>
+						<input type="text" name="adults">
+					</div>
+
+					<div class="small-input">
+						<label for="children">CHILDREN</label>
+						<input type="text" name="children">
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-default check-availability">CHECK AVAILABILITY</button>
+				<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
+			</form>
+		</div>

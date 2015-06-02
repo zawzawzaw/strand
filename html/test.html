@@ -35,15 +35,17 @@
 
   .grid-item {
     float: left;
-    width: 230px;
-    height: 160px;
+    width: 295px;
+    height: 195px;
     background: #0D8;
     border: 2px solid #333;
     border-color: hsla(0, 0%, 0%, 0.7);
+    margin-right: 10px;
+    margin-bottom: 10px;
   }
 
-  .grid-item--width2 { width: 440px; }
-  .grid-item--height2 { height: 330px; }
+  .grid-item--large { width: 600px; height: 380px; }
+  .grid-item--medium { width: 295px; height: 400px; }
 
   </style>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -52,14 +54,10 @@
     <h1>Isotope - masonry layout mode</h1>
 
   <div class="grid">
+    <div class="grid-item grid-item--large"></div>
+    <div class="grid-item grid-item--medium"></div>
     <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item grid-item--width2"></div>
-    <div class="grid-item grid-item--height2"></div>
-    
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
+    <div class="grid-item"></div>    
   </div>
 
 </body>
@@ -71,7 +69,7 @@
     $('.grid').isotope({
       itemSelector: '.grid-item',
       masonry: {
-        columnWidth: 230
+        columnWidth: 50
       }
     });
 

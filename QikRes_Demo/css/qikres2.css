@@ -1,0 +1,346 @@
+.qikres_steps{
+	background:#30445A;
+}
+
+.qikres_steps_navigation{
+	margin:0px;
+	padding:3px 0px 8px 18px;
+	font-size:14px;
+	font-weight: bold;
+}
+
+ul.qikres_steps_navigation li a.selected {
+	background:url(../images/steps/nav-bg-left.png) no-repeat 0 -32px !important;
+	color:#000;
+}
+
+ul.qikres_steps_navigation li a span {
+	position:absolute;
+	top:0px;
+	right:-15px;
+	width:15px;
+	height:32px;
+	background:url(../images/steps/nav-bg-right.png) no-repeat top right;
+	z-index:5;
+}
+
+ul.qikres_steps_navigation li a {
+	color: #fff;
+	display:block;
+	position:relative;
+	padding:8px 8px 8px 23px;
+	background:url(../images/steps/nav-bg-left.png) no-repeat 0 0;
+}
+
+.qikres_content{
+	background-color: #30445A;
+}
+
+.qikres_modify{
+	border-bottom:3px solid #000;
+	border-top:3px solid #000;	
+	background-color: #FFFFCC;
+	color:#000;
+}
+
+.qikres_result_summary{
+	padding: 10px 0 10px 10px;
+	float:left;
+}
+
+.qikres_modify_search{
+	color:#000;
+	float: left;
+	width: 950px;	
+}
+
+.qikres_modify_title{
+	padding: 5px 0px 5px 10px; 
+	font-size: 14px; 	
+	font-weight: bold; 
+	color: #000;	
+	background-color:#C8D5F2;
+}
+
+.qikres_property_image{
+	cursor: pointer;
+	margin:0px 10px 5px 0px	
+}
+
+.qikres_property_image img{
+	border: 3px solid #FFF;	
+}
+
+.qikres_property_info{
+	float: right;	
+}
+.qikres_result{
+	float:left;
+	padding:10px;
+	background-color:#446282;
+}
+
+.qikres_odd_row {
+	background: #C8D5F2;
+}
+
+.qikres_even_row {
+	background: #dadada;
+}
+
+.qikres_odd_row .qikres_room_type,.qikres_even_row .qikres_room_type {
+	font-size: 14px;
+	color: #036;
+	font-weight:bold;
+}
+
+.qikres_result h3{
+	color:#0CF	
+}
+
+.qikres_less_property_desc{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color:#FFF
+}
+
+.qikres_less_property_desc a{
+	color: #FFCC00;
+    font-weight: normal;	
+}
+
+.qikres_more_property_desc{
+	display:none;
+	color:#FFF
+}
+
+.qikres_more_property_desc a{
+	color: #FFCC00;
+    font-weight: normal;	
+}
+
+.qikres_property_desc a:hover{
+	color: #FFF;
+    font-weight: normal;	
+}
+
+.qikres_table {
+	float:left;
+	font-size:11px;
+	text-align:left;
+	border: 1px solid #09F;
+	border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px; 
+	border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px; 
+}
+
+.qikres_header_table{
+	background: #2b6794;
+	color: #fff; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0; 
+	padding: 5px; 
+	text-shadow: 1px 1px #333;
+	border-top-right-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px; 
+
+	border-top-left-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px; 
+}
+
+.qikres_body_table{
+	background: #BDCCE1;
+	color:#000 !important;
+}
+
+.qikres_body_table h2{
+	margin: 0; 
+	padding: 0; 
+	font-size: 14px; 
+	font-weight: bold; 
+	font-family: Arial, Helvetica, sans-serif; 
+	color: #000;
+}
+
+.qikres_body_table input[type="text"], .qikres_body_table textarea, .qikres_body_table select{
+	border-radius:5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border:1px solid #999;
+	font-family:Tahoma, Verdana;
+	font-size:11px;
+	padding:5px;
+	resize: none;
+}
+
+.qikres_room_type {
+	font-size: 14px;
+	color: #036;
+	font-weight:bold;
+}
+
+.qikres_sub_room_type{
+	background-color: #B0D3E6;
+    border: 2px solid #30445A;
+    margin: auto;
+    padding: 10px;
+    width: 95%;
+	color: #000 !important
+}
+
+.qikres_room_description {
+	color: #000000 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.qikres_more{
+	color: #CC0000;
+}
+
+.qikres_more_rates, .qikres_more_rates a, .qikres_more_rates a:hover {
+	font-size: 11px;
+	color: navy;
+	font-weight:bold;
+	cursor:pointer;
+	vertical-align:bottom;
+}
+
+.qikres_detail{
+	background-color:#EEEEEE	
+}
+
+.qikres_detail_rates{
+	color:#000;
+	font-weight:bold	
+}
+
+.qikres_result_item_found{
+	float: left;	
+	color:#FFF
+}
+
+.qikres_pagination{
+	float:right;
+	color:#FFF
+}
+
+.qikres_reservation_detail {
+	font-size: 12px; 
+	font-weight: bold; 
+	color:#000;
+	display:block; 
+}
+
+.qikres_policy {
+	margin:0;
+	padding-left:12px;
+	list-style-type:none;
+	margin-bottom: 15px;
+}
+
+.qikres_billing_addr{
+	border-bottom:1px dashed #036; 
+	margin-bottom:10px
+}
+
+/* --- login -- */
+
+.qikres_login_page, .qikres_forgot_page, .qikres_register_page{
+	background-color: #446282;
+	float:left;
+	width: 709px;
+}
+
+.qikres_login, .qikres_forgot, .qikres_register{
+	font-size:11px;
+	text-align:left;
+	border: 1px solid #09F;
+	margin:10px;
+	width: auto;
+	border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px; 
+	border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px; 
+}
+
+.qikres_login_header, .qikres_forgot_header, .qikres_register_header{
+	background: #2b6794;
+	color: #fff; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0; 
+	padding: 5px; 
+	text-shadow: 1px 1px #333;
+	border-top-right-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px; 
+
+	border-top-left-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px; 
+}
+
+.qikres_login_body, .qikres_forgot_body, .qikres_register_body{
+	background: #BDCCE1;
+	color:#000 !important;
+    width: auto;
+	padding:20px;	
+}
+
+.qikres_personal_info{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 1px solid #5592C1;
+    color: #333333 !important;
+    float: left;
+    width: auto;
+	padding-right: 7px;
+}
+
+.qikres_billing_info, .qikres_membership, .qikres_security, .qikres_reservation{
+	background: #FFF;
+	color:#333 !important;
+    width: 708px;
+	float:left;
+	border-right:1px solid #5592C1	
+}
+
+.qikres_billing_info_desc, .qikres_membership_desc, .qikres_security_desc{
+	float:left; 
+	width:auto; 
+	padding:15px
+}
+
+.qikres_login_body input[type="text"], .qikres_body_table textarea, .qikres_body_table select, .qikres_login_body input[type="password"],
+.qikres_forgot_body input[type="text"], .qikres_forgot_body input[type="password"],
+.qikres_register_body input[type="text"], .qikres_register_body input[type="password"], .qikres_register_body select
+{
+	border-radius:5px;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+	border:1px solid #999;
+	font-family:Tahoma, Verdana;
+	font-size:11px;
+	padding:5px;
+	resize: none;
+}
+
+/* --- login -- */
+
+/* -- ads -- */
+.qikres_ads {
+    float: right;
+	/*width: auto;*/
+    width: 237px;
+	height:100%
+}
+/* -- ads -- */
