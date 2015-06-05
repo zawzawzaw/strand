@@ -14,6 +14,17 @@ if($post->post_parent !== 0) {
 $current_slug = get_post( $post )->post_name;
 ?>
 
+<?php if($parent_slug=='whats-nearby'): ?>
+	<style>
+		#page-wrapper .slider-wrapper div.item div.carousel-caption {
+			width: 800px!important;
+		}
+		#page-wrapper .slider-wrapper div.item div.carousel-caption div.caption-text p {
+			width: 450px!important;
+		}
+	</style>
+<?php endif; ?>
+
 <div id="carousel" class="slider-wrapper carousel slide" data-ride="carousel">
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">

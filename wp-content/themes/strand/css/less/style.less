@@ -778,6 +778,14 @@ html, body {
         background-image:url('../images/content/about-banner.jpg');
         background-position: center center;
       }
+      .whats-nearby-bg1 {
+        background-image:url('../images/content/whats-nearby-banner.jpg');
+        background-position: top center;
+      }
+      .shopping-bg1 {
+        background-image:url('../images/content/shopping-banner.jpg');
+        background-position: center center;
+      }
       .item {
         background-color: #777;
         .carousel-caption {
@@ -1186,6 +1194,66 @@ p {
     width: 100%;
     margin-bottom: 50px;
     margin-top: 50px;
+  }
+}
+
+#templatemo_content {
+  position: absolute;
+  z-index: 9999;
+  background-color: #eee;
+  top: 0px;
+  width: 100%;
+}
+
+span.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+// google map info box
+.infoBox {
+  background:@white;
+  color:@black;  
+
+  .infoBox-text {
+    padding: 15px;
+
+    h5 {
+      .brandon-grotesque-bold;
+      font-size: 13px;
+      line-height: 13px;
+      letter-spacing: 0.05em;
+      color: @black;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    p {
+      .brandon-grotesque-regular;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      color: @grey;
+      margin-bottom: 18px;
+    }
+
+    a {
+      .brandon-grotesque-medium;
+      font-size: 10px;
+      line-height: 17px;
+      letter-spacing: 0.075em;
+      color: @dark-blue;
+    }
+    .arrow-down {
+      width: 0; 
+      height: 0; 
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid @white;
+      position: absolute;
+      bottom: -10px;
+    }
   }
 }
 
@@ -1824,7 +1892,36 @@ p {
         padding-left: 30px;
         width: 285px;
         height: 170px;
-        vertical-align: middle;
+        vertical-align: middle;        
+      }
+
+      .inner-2 {
+        display: table-cell;
+        padding-left: 30px;
+        width: 285px;
+        height: 170px;
+        vertical-align: bottom;
+
+        hr {
+          border-top: 2px solid @dark-blue;
+          width: 40px;
+        }
+
+        i {
+          color: @dark-blue;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        h5 {
+          .harriet-display-regular-italic;
+          font-size: 12px;
+          line-height: 15px;
+          color: @dark-blue;
+          display: inline-block;
+          width: 170px;
+          vertical-align: top;
+        }
       }
     }
 
@@ -2476,6 +2573,400 @@ p {
   } 
 }
 
+// WHAT'S NEARBY
+
+.whats-nearby, .shopping {
+  .first-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    .container {
+      padding: 0px;
+    }
+
+    .content-section {
+      margin-bottom: 70px;
+
+      &:nth-child(2) {
+        .text-content {
+          margin-left: 19px;
+          margin-right: 0px;
+          &:after {
+            content: " ";
+            background: url("../images/content/stamp.png") no-repeat top right;
+            width: 148px;
+            height: 170px;
+            display: block;
+            position: absolute;
+            top: -33px;
+            right: -35px;
+          }
+        }
+        .img-content {
+          margin-right: 50px; 
+          padding-left: 0px;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .text-content {
+      display: inline-block;
+      width: 445px;
+      margin-right: 50px;
+      // float: left;
+      vertical-align: middle;
+      h3 {
+        .brandon-grotesque-bold;                
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.08em;
+        color: @dark-blue;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      h2 {
+        .harriet-display-medium-italic;
+        font-size: 39px;
+        line-height: 39px;
+        color: @black;
+        text-align: center;
+
+      }
+      hr {
+        border-bottom: 4px solid @black;
+        width: 90px;
+        margin: 20px auto;
+        margin-bottom: 37px;
+      }      
+      p {
+        .brandon-grotesque-regular;
+        font-size: 16px;
+        line-height: 23px;
+        color: @grey;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      a.discover-more {
+        background-color: @light-grey;
+        .brandon-grotesque-bold;
+        font-size: 11px;
+        line-height: 11px;
+        letter-spacing: 0.08em;
+        color: @white;
+        text-align: center;
+        vertical-align: middle;
+        padding: 8px 10px;
+        margin-top: 20px;
+        display: block;
+        margin: 0 auto;
+        width: 126px;
+        &:hover {
+          background-color: @black;
+        }
+      }
+      a.see-location {
+        .brandon-grotesque-bold;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: 0.08em;
+        color: @dark-blue;
+        text-align: center;
+        display: block;
+
+        i {
+          font-size: 20px;
+          line-height: 20px;
+          color: @dark-blue;
+          margin-right: 4px;
+          .transition();
+        }
+
+        &:hover {
+          color: @black;
+          i {
+            color: @black;
+          }
+        }
+      }
+    }
+    .img-content {
+      display: inline-block;
+      width: 640px;
+      padding-left: 19px;      
+      vertical-align: middle;
+    }
+  }
+
+
+  .neighborhood {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #f1efed;
+
+    .container {
+      padding: 0px;
+    }
+
+    .heading {
+      h3 {
+        .brandon-grotesque-bold;
+        font-size: 18px;
+        line-height: 18px;
+        letter-spacing: 0.08em;
+        text-align: center;
+        color: @dark-blue;
+        margin-bottom: 20px;
+      }
+      h2 {
+        .harriet-display-medium-italic;
+        font-size: 39px;
+        line-height: 39px;
+        text-align: center;        
+        color: @black;
+      }
+      hr.small {
+        width: 88px;
+        border-top: 4px solid @black;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 56px;
+      }
+      p {
+        .brandon-grotesque-regular;
+        font-size: 16px;
+        line-height: 22px;
+        color: @grey;
+        text-align: center;
+        margin-bottom: 52px;
+      }
+    }
+
+    .map {
+      width: 100%;
+      height: 640px;
+      display: inline-block;
+      border: 1px solid #242424;
+      z-index: 1;
+      position: relative;      
+      padding: 45px 40px;
+      overflow: visible!important;
+      // padding: 32px 22px;
+
+      &:before {
+        content: " ";
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border: 3px solid #242424;
+        z-index: -10;
+      }
+    }
+
+    .places {
+      margin-top: 45px;
+      .each-place {
+        display: inline-block;
+        width: 390px;
+        text-align: center;
+
+        h4 {
+          .harriet-display-regular-italic;
+          font-size: 16px;
+          line-height: 16px;
+          color: @dark-blue;
+          margin-bottom: 11px;
+        }
+
+        h5 {
+          .brandon-grotesque-bold;
+          font-size: 17px;
+          line-height: 17px;
+          letter-spacing: 0.08em;
+          color: @black;
+          margin-bottom: 16px;
+        }
+
+        img {
+          display: block;
+          text-align: center;
+          margin: 0 auto;
+          margin-bottom: 16px;
+        }
+
+        ul {
+          margin-bottom: 18px;
+          li {
+            a {
+              .brandon-grotesque-regular;
+              font-size: 16px;
+              line-height: 22px;
+              color: @grey;
+
+              &:hover {
+                color: @black;
+              }
+            }
+          }
+        }
+
+        a.learn-more {
+          background-color: @light-grey;
+          .brandon-grotesque-bold;
+          font-size: 11px;
+          line-height: 11px;
+          letter-spacing: 0.08em;
+          color: @white;
+          text-align: center;
+          vertical-align: middle;
+          padding: 8px 10px;
+          margin-top: 20px;
+          display: block;
+          margin: 0 auto;
+          width: 103px;
+          &:hover {
+            background-color: @black;
+          }
+        }
+      }
+    }
+  }
+}
+
+// SHOPPING
+
+.shopping {
+  .first-content {
+    .content-section {
+      &:nth-of-type(2) {
+        border-bottom: 1px solid #000;
+
+        &:after {
+          content: "";
+          border-bottom: 4px solid #000;
+          display: block;
+          height: 4px;
+          width: 100%;
+          padding-bottom: 70px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+
+  .where-to-shop {
+    padding-bottom: 70px;
+
+    .container {
+      padding: 0px;
+    }
+
+    .heading {
+      h3 {
+        text-align: center;
+        color: @dark-blue;
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 17px;      
+      }
+      h2 {
+        text-align: center;
+        font-size: 38px;
+        line-height: 38px;
+      }
+      hr.small {
+        width: 88px;
+        border-top: 4px solid @black;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 65px;
+      }
+    }
+
+    .shopping-spots {
+      .each-shopping-spot {
+        width: 371px;
+        display: inline-block;
+        margin-right: 29px;
+        text-align: left;
+        vertical-align: top;
+        border: 1px solid #e1e1e1;
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        img {
+          margin-bottom: 30px;
+        }
+
+        .shopping-spot-info {
+          padding-right: 20px;
+          padding-left: 20px;
+          h3 {
+            .brandon-grotesque-bold;
+            font-size: 17px;
+            letter-spacing: 0.08em;
+            color: @black;         
+          }
+          hr.small {
+            width: 30px;
+            border-top: 2px solid @black;
+            margin-top: 15px;
+            margin-bottom: 15px;
+          }
+          p {
+            .brandon-grotesque-light;
+            font-size: 16px;
+            line-height: 19px;
+            color: @grey;
+            margin-bottom: 15px;
+          }
+          a {
+            .brandon-grotesque-medium;
+            font-size: 11px;
+            letter-spacing: 0.075em;
+            color: @dark-blue;
+            display: block;
+            margin-bottom: 30px;
+            &:hover {
+              color: @black;
+            }
+          }               
+        }
+        a.see-on-map {          
+          .brandon-grotesque-bold;
+          font-size: 12px;          
+          letter-spacing: 0.075em;
+          color: @dark-blue;
+          text-align: center;            
+          display: block;
+          border-top: 1px solid #e1e1e1;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          i {
+            font-size: 20px;
+            line-height: 20px;
+            color: @dark-blue;
+            .transition();
+            margin-right: 4px;
+          }
+
+          &:hover {
+            color: @black;
+            i {
+              color: @black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 //   _____ ___   ___ _____ _____ ____  
 //  |  ___/ _ \ / _ \_   _| ____|  _ \ 

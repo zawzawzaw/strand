@@ -15,7 +15,8 @@ define("CSS", THEMEROOT."/css");
 
 function register_my_menus(){
 	register_nav_menus(array(
-		'main-menu' => __('Main Menu', 'strand')
+		'main-menu' => __('Main Menu', 'strand'),
+    'footer-menu' => __('Footer Menu', 'strand')
 	));
 }
 
@@ -38,7 +39,7 @@ function load_scripts(){
     wp_enqueue_script('jquery-ui', THEMEROOT.'/js/vendors/jquery/jquery-ui.min.js', array('$'), '', true);
     wp_enqueue_script('carousel', THEMEROOT.'/js/vendors/bootstrap/bootstrap.min.js', array('$'), '', true);
     wp_enqueue_script('imagesloaded', THEMEROOT.'/js/plugins/imagesloaded.pkgd.min.js', array('$'), '', true);
-    wp_enqueue_script('masonry', THEMEROOT.'/js/plugins/masonry.pkgd.min.js', array('$'), '', true);
+    wp_enqueue_script('masonry', THEMEROOT.'/js/plugins/masonry.pkgd.min.js', array('$'), '', true);    
     wp_enqueue_script('mainjs', THEMEROOT.'/js/main.js', array('$'), '', true);
 
     if(is_home()) {
@@ -52,6 +53,11 @@ function load_scripts(){
     }
     if(is_page('about')) {
         wp_enqueue_script('aboutjs', THEMEROOT.'/js/about.js', array('$'), '', true);
+    }
+    if(is_page('whats-nearby')) {        
+        wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', true);
+        wp_enqueue_script('infobox', THEMEROOT.'/js/plugins/infobox.js', array('$'), '', true);
+        wp_enqueue_script('whatsnearby', THEMEROOT.'/js/whatsnearby.js', array('$'), '', true);
     }
 }
 
@@ -204,6 +210,8 @@ include (TEMPLATEPATH . "/lib/ptype-rooms.php");
 include (TEMPLATEPATH . "/lib/ptype-events.php");
 include (TEMPLATEPATH . "/lib/ptype-roomtypes.php");
 include (TEMPLATEPATH . "/lib/ptype-about.php");
+include (TEMPLATEPATH . "/lib/ptype-whatsnearby.php");
+include (TEMPLATEPATH . "/lib/ptype-places.php");
 
 // Include Shortcodes
 include (TEMPLATEPATH . "/lib/shortcodes.php");

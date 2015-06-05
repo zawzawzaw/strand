@@ -106,6 +106,13 @@ function ptype_rooms_register_meta_box()
 					),
 
 					array(
+						'name' => 'Ultimate experience Images HTML 2',
+						'desc' => '',
+						'id' => $prefix . 'ultimate_experience_img_html_2',
+						'type' => 'textarea'
+					),
+
+					array(
 						'name' => 'Ultimate experience Heading H3',
 						'desc' => '',
 						'id' => $prefix . 'ultimate_experience_heading_h3',

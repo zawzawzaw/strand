@@ -37,7 +37,7 @@ $(document).ready(function(){
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'dd/mm/yy'
     });
     $('.check-out-input').datepicker({
         beforeShow: function(input, inst)
@@ -46,7 +46,7 @@ $(document).ready(function(){
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,
-        dateFormat: 'yy-mm-dd'
+        dateFormat: 'dd/mm/yy'
     });
 
     $('.form-control-feedback').on('click', function(e){
@@ -100,4 +100,9 @@ $(document).ready(function(){
         $(this).parent().find(".hasDatepicker").datepicker("show");
     });    
 
+    $(".check-availability").on('click', function(e){
+        e.preventDefault();
+        checkAvailability('WBE');
+    });    
+    
 });

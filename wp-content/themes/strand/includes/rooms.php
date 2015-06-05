@@ -11,6 +11,7 @@
       $headingParagraphHTML = get_post_meta($post->ID, 'ptype_rooms_heading_paragraph_html', true);
       $ultimateExperienceIcons = rwmb_meta( 'ptype_rooms_ultimate_experience_icon', 'type=image' );  
       $ultimateExperienceHTML = get_post_meta($post->ID, 'ptype_rooms_ultimate_experience_img_html', true);
+      $ultimateExperienceHTML2 = get_post_meta($post->ID, 'ptype_rooms_ultimate_experience_img_html_2', true);
       $images = rwmb_meta( 'ptype_rooms_ultimate_experience_img', 'type=image' );  
       $ultimateExperienceH3 = get_post_meta($post->ID, 'ptype_rooms_ultimate_experience_heading_h3', true);
       $ultimateExperienceH4 = get_post_meta($post->ID, 'ptype_rooms_ultimate_experience_heading_h4', true);
@@ -68,7 +69,12 @@
                 else echo "<div class='rooms-masonry-item'><img src='{$image['full_url']}'></div>";                     
                 $i++;
               }
-            ?>                        
+            ?>
+            <div class="rooms-masonry-item small">
+              <div class="inner-2">
+                <?php echo $ultimateExperienceHTML2; ?>
+              </div>
+            </div>
           </div>
 
           <div class="ultimate-experience">

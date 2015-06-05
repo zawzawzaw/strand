@@ -584,6 +584,14 @@ body {
   background-image: url('../images/content/about-banner.jpg');
   background-position: center center;
 }
+#page-wrapper .slider-wrapper .carousel-inner .whats-nearby-bg1 {
+  background-image: url('../images/content/whats-nearby-banner.jpg');
+  background-position: top center;
+}
+#page-wrapper .slider-wrapper .carousel-inner .shopping-bg1 {
+  background-image: url('../images/content/shopping-banner.jpg');
+  background-position: center center;
+}
 #page-wrapper .slider-wrapper .carousel-inner .item {
   background-color: #777;
 }
@@ -973,6 +981,63 @@ p {
     margin-bottom: 50px;
     margin-top: 50px;
   }
+}
+#templatemo_content {
+  position: absolute;
+  z-index: 9999;
+  background-color: #eee;
+  top: 0px;
+  width: 100%;
+}
+span.close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.infoBox {
+  background: #ffffff;
+  color: #242424;
+}
+.infoBox .infoBox-text {
+  padding: 15px;
+}
+.infoBox .infoBox-text h5 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: 0.05em;
+  color: #242424;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.infoBox .infoBox-text p {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: #636363;
+  margin-bottom: 18px;
+}
+.infoBox .infoBox-text a {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 17px;
+  letter-spacing: 0.075em;
+  color: #427e9a;
+}
+.infoBox .infoBox-text .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ffffff;
+  position: absolute;
+  bottom: -10px;
 }
 .space10 {
   height: 10px;
@@ -1615,6 +1680,31 @@ p {
   width: 285px;
   height: 170px;
   vertical-align: middle;
+}
+.rooms .rooms-suites .img-content .inner-2 {
+  display: table-cell;
+  padding-left: 30px;
+  width: 285px;
+  height: 170px;
+  vertical-align: bottom;
+}
+.rooms .rooms-suites .img-content .inner-2 hr {
+  border-top: 2px solid #427e9a;
+  width: 40px;
+}
+.rooms .rooms-suites .img-content .inner-2 i {
+  color: #427e9a;
+  display: inline-block;
+  margin-right: 5px;
+}
+.rooms .rooms-suites .img-content .inner-2 h5 {
+  font-family: "HarrietDisplay-RegularItalic", Verdana, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #427e9a;
+  display: inline-block;
+  width: 170px;
+  vertical-align: top;
 }
 .rooms .rooms-suites .ultimate-experience {
   display: inline-block;
@@ -2322,6 +2412,415 @@ p {
 }
 .about .book-your-stay a:hover {
   background: #959595;
+}
+.whats-nearby .first-content,
+.shopping .first-content {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.whats-nearby .first-content .container,
+.shopping .first-content .container {
+  padding: 0px;
+}
+.whats-nearby .first-content .content-section,
+.shopping .first-content .content-section {
+  margin-bottom: 70px;
+}
+.whats-nearby .first-content .content-section:nth-child(2) .text-content,
+.shopping .first-content .content-section:nth-child(2) .text-content {
+  margin-left: 19px;
+  margin-right: 0px;
+}
+.whats-nearby .first-content .content-section:nth-child(2) .text-content:after,
+.shopping .first-content .content-section:nth-child(2) .text-content:after {
+  content: " ";
+  background: url("../images/content/stamp.png") no-repeat top right;
+  width: 148px;
+  height: 170px;
+  display: block;
+  position: absolute;
+  top: -33px;
+  right: -35px;
+}
+.whats-nearby .first-content .content-section:nth-child(2) .img-content,
+.shopping .first-content .content-section:nth-child(2) .img-content {
+  margin-right: 50px;
+  padding-left: 0px;
+}
+.whats-nearby .first-content .content-section:last-child,
+.shopping .first-content .content-section:last-child {
+  margin-bottom: 0px;
+}
+.whats-nearby .first-content .text-content,
+.shopping .first-content .text-content {
+  display: inline-block;
+  width: 445px;
+  margin-right: 50px;
+  vertical-align: middle;
+}
+.whats-nearby .first-content .text-content h3,
+.shopping .first-content .text-content h3 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+  color: #427e9a;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.whats-nearby .first-content .text-content h2,
+.shopping .first-content .text-content h2 {
+  font-family: "HarrietDisplay-MediumItalic", Verdana, sans-serif;
+  font-size: 39px;
+  line-height: 39px;
+  color: #242424;
+  text-align: center;
+}
+.whats-nearby .first-content .text-content hr,
+.shopping .first-content .text-content hr {
+  border-bottom: 4px solid #242424;
+  width: 90px;
+  margin: 20px auto;
+  margin-bottom: 37px;
+}
+.whats-nearby .first-content .text-content p,
+.shopping .first-content .text-content p {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: #636363;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.whats-nearby .first-content .text-content a.discover-more,
+.shopping .first-content .text-content a.discover-more {
+  background-color: #959595;
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px 10px;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+  width: 126px;
+}
+.whats-nearby .first-content .text-content a.discover-more:hover,
+.shopping .first-content .text-content a.discover-more:hover {
+  background-color: #242424;
+}
+.whats-nearby .first-content .text-content a.see-location,
+.shopping .first-content .text-content a.see-location {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.08em;
+  color: #427e9a;
+  text-align: center;
+  display: block;
+}
+.whats-nearby .first-content .text-content a.see-location i,
+.shopping .first-content .text-content a.see-location i {
+  font-size: 20px;
+  line-height: 20px;
+  color: #427e9a;
+  margin-right: 4px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.whats-nearby .first-content .text-content a.see-location:hover,
+.shopping .first-content .text-content a.see-location:hover {
+  color: #242424;
+}
+.whats-nearby .first-content .text-content a.see-location:hover i,
+.shopping .first-content .text-content a.see-location:hover i {
+  color: #242424;
+}
+.whats-nearby .first-content .img-content,
+.shopping .first-content .img-content {
+  display: inline-block;
+  width: 640px;
+  padding-left: 19px;
+  vertical-align: middle;
+}
+.whats-nearby .neighborhood,
+.shopping .neighborhood {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #f1efed;
+}
+.whats-nearby .neighborhood .container,
+.shopping .neighborhood .container {
+  padding: 0px;
+}
+.whats-nearby .neighborhood .heading h3,
+.shopping .neighborhood .heading h3 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #427e9a;
+  margin-bottom: 20px;
+}
+.whats-nearby .neighborhood .heading h2,
+.shopping .neighborhood .heading h2 {
+  font-family: "HarrietDisplay-MediumItalic", Verdana, sans-serif;
+  font-size: 39px;
+  line-height: 39px;
+  text-align: center;
+  color: #242424;
+}
+.whats-nearby .neighborhood .heading hr.small,
+.shopping .neighborhood .heading hr.small {
+  width: 88px;
+  border-top: 4px solid #242424;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 56px;
+}
+.whats-nearby .neighborhood .heading p,
+.shopping .neighborhood .heading p {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #636363;
+  text-align: center;
+  margin-bottom: 52px;
+}
+.whats-nearby .neighborhood .map,
+.shopping .neighborhood .map {
+  width: 100%;
+  height: 640px;
+  display: inline-block;
+  border: 1px solid #242424;
+  z-index: 1;
+  position: relative;
+  padding: 45px 40px;
+  overflow: visible!important;
+}
+.whats-nearby .neighborhood .map:before,
+.shopping .neighborhood .map:before {
+  content: " ";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border: 3px solid #242424;
+  z-index: -10;
+}
+.whats-nearby .neighborhood .places,
+.shopping .neighborhood .places {
+  margin-top: 45px;
+}
+.whats-nearby .neighborhood .places .each-place,
+.shopping .neighborhood .places .each-place {
+  display: inline-block;
+  width: 390px;
+  text-align: center;
+}
+.whats-nearby .neighborhood .places .each-place h4,
+.shopping .neighborhood .places .each-place h4 {
+  font-family: "HarrietDisplay-RegularItalic", Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  color: #427e9a;
+  margin-bottom: 11px;
+}
+.whats-nearby .neighborhood .places .each-place h5,
+.shopping .neighborhood .places .each-place h5 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 17px;
+  letter-spacing: 0.08em;
+  color: #242424;
+  margin-bottom: 16px;
+}
+.whats-nearby .neighborhood .places .each-place img,
+.shopping .neighborhood .places .each-place img {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+.whats-nearby .neighborhood .places .each-place ul,
+.shopping .neighborhood .places .each-place ul {
+  margin-bottom: 18px;
+}
+.whats-nearby .neighborhood .places .each-place ul li a,
+.shopping .neighborhood .places .each-place ul li a {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #636363;
+}
+.whats-nearby .neighborhood .places .each-place ul li a:hover,
+.shopping .neighborhood .places .each-place ul li a:hover {
+  color: #242424;
+}
+.whats-nearby .neighborhood .places .each-place a.learn-more,
+.shopping .neighborhood .places .each-place a.learn-more {
+  background-color: #959595;
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 11px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  padding: 8px 10px;
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+  width: 103px;
+}
+.whats-nearby .neighborhood .places .each-place a.learn-more:hover,
+.shopping .neighborhood .places .each-place a.learn-more:hover {
+  background-color: #242424;
+}
+.shopping .first-content .content-section:nth-of-type(2) {
+  border-bottom: 1px solid #000;
+}
+.shopping .first-content .content-section:nth-of-type(2):after {
+  content: "";
+  border-bottom: 4px solid #000;
+  display: block;
+  height: 4px;
+  width: 100%;
+  padding-bottom: 70px;
+  margin-bottom: 4px;
+}
+.shopping .where-to-shop {
+  padding-bottom: 70px;
+}
+.shopping .where-to-shop .container {
+  padding: 0px;
+}
+.shopping .where-to-shop .heading h3 {
+  text-align: center;
+  color: #427e9a;
+  margin-bottom: 20px;
+  font-size: 17px;
+  line-height: 17px;
+}
+.shopping .where-to-shop .heading h2 {
+  text-align: center;
+  font-size: 38px;
+  line-height: 38px;
+}
+.shopping .where-to-shop .heading hr.small {
+  width: 88px;
+  border-top: 4px solid #242424;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 65px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot {
+  width: 371px;
+  display: inline-block;
+  margin-right: 29px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #e1e1e1;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot:last-child {
+  margin-right: 0px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot img {
+  margin-bottom: 30px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info h3 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+  color: #242424;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info hr.small {
+  width: 30px;
+  border-top: 2px solid #242424;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info p {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #636363;
+  margin-bottom: 15px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.075em;
+  color: #427e9a;
+  display: block;
+  margin-bottom: 30px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a:hover {
+  color: #242424;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot a.see-on-map {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.075em;
+  color: #427e9a;
+  text-align: center;
+  display: block;
+  border-top: 1px solid #e1e1e1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot a.see-on-map i {
+  font-size: 20px;
+  line-height: 20px;
+  color: #427e9a;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  margin-right: 4px;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot a.see-on-map:hover {
+  color: #242424;
+}
+.shopping .where-to-shop .shopping-spots .each-shopping-spot a.see-on-map:hover i {
+  color: #242424;
 }
 div#footer-wrapper h4 {
   font-family: "brandon-grotesque", sans-serif;

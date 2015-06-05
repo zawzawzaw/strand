@@ -36,7 +36,8 @@ $(document).ready(function(){
             inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        minDate: 0
+        minDate: 0,
+        dateFormat: 'dd/mm/yy'
     });
     $('.check-out-input').datepicker({
         beforeShow: function(input, inst)
@@ -44,8 +45,13 @@ $(document).ready(function(){
             inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        minDate: 0
-    });    
+        minDate: 0,
+        dateFormat: 'dd/mm/yy'
+    });
+
+    $('.form-control-feedback').on('click', function(e){
+        console.log('hi')
+    });
 
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -93,5 +99,10 @@ $(document).ready(function(){
         e.preventDefault();
         $(this).parent().find(".hasDatepicker").datepicker("show");
     });    
+
+    $(".check-availability").on('click', function(e){
+        e.preventDefault();
+        checkAvailability('WBE');
+    });
 
 });

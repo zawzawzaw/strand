@@ -76,8 +76,7 @@
 			</div>
 		</header>
 	</div>
-	<div class="reservation-widget">
-		<div id="templatemo_content"></div>
+	<div class="reservation-widget">		
 		<form id="reservation-form" action="" method="POST" role="form" >
 			<div class="form-group form-border has-feedback">
 				<label for="check-in">CHECK IN:</label>
@@ -92,7 +91,10 @@
 			<div class="form-group">
 				<div class="dropdown">
 				    <select class="room-type" name="room-type">
-				    	<option>Select room type</option>
+				    	<option value="">Select room type</option>
+				    	<option value="Deluxe Room">Deluxe Room</option>
+						<option value="Standard Room">Standard Room</option>
+						<option value="Family Room">Family Room</option>
 				    </select>
 				</div>
 			</div>
@@ -104,16 +106,17 @@
 
 				<div class="small-input">
 					<label for="adults">ADULTS</label>
-					<input type="text" name="adults">
+					<input type="text" name="adults" id="adults">
 				</div>
 
 				<div class="small-input">
 					<label for="children">CHILDREN</label>
-					<input type="text" name="children">
+					<input type="text" name="children" id="children">
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-default check-availability" onclick="javascript:checkAvailability('WBE');return false;">CHECK AVAILABILITY</button>
+			<button type="submit" class="btn btn-default check-availability">CHECK AVAILABILITY</button>
 			<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
 		</form>
 	</div>
+	<div id="templatemo_content"></div>

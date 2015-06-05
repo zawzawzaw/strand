@@ -42,3 +42,29 @@ function theme_shortcode_about($attr, $content)
     ob_end_clean();  
     return $ret;    
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* What's Nearby
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('whatsnearby', 'theme_shortcode_whatsnearby');   
+function theme_shortcode_whatsnearby($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/whatsnearby');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Places
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('places', 'theme_shortcode_places');   
+function theme_shortcode_places($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/places');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}

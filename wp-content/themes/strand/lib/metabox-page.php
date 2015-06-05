@@ -15,7 +15,7 @@ function page_register_meta_box()
 			'priority' => 'high',
 			'fields' => array(
 					array(
-						'name' => 'Page Headline H5',
+						'name' => 'Page Headline H3',
 						'desc' => '',
 						'id' => $prefix . 'tagline_H5',
 						'type' => 'text'
@@ -45,5 +45,28 @@ function page_register_meta_box()
 				 )
 			);
     new RW_Meta_Box( $meta_box );
+
+	$meta_box_2 = array(
+		'id' => 'places-settings',
+		'title' => "Places Settings (What's Nearby Inside Page Only)",
+		'pages' => array( 'page' ),
+		'context' => 'normal',
+		'priority' => 'high',
+		'fields' => array(
+			array(
+				'name' => 'Other Places Headline H3',
+				'desc' => '',
+				'id' => $prefix . 'other_place_headline_H3',
+				'type' => 'text'
+			),
+			array(
+				'name' => 'Other Places Headline H2',
+				'desc' => '',
+				'id' => $prefix . 'other_place_headline_H2',
+				'type' => 'text'
+			)
+	 	)
+	);
+	new RW_Meta_Box( $meta_box_2 );
 }
 ?>

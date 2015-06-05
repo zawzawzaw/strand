@@ -32,7 +32,7 @@
 	<!-- <link rel="shortcut icon" href="img/icons/favicon.ico">
 	<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-touch-icon-72x72-precomposed.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114-precomposed.png" /> -->
+	<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114-precomposed.png" /> -->	
 
 	<?php wp_head(); ?>
 
@@ -73,18 +73,29 @@
 			<form id="reservation-form" action="" method="POST" role="form">
 				<div class="form-group form-border has-feedback">
 					<label for="check-in">CHECK IN:</label>
-					<input type="text" name="check-in" class="check-in-input" placeholder="DD/MM/YYYY">
+					<input type="text" name="check-in" class="check-in-input" id="checkInDate" placeholder="DD/MM/YYYY">
 					<i class="form-control-feedback"></i>
 				</div>
 				<div class="form-group form-border has-feedback">
 					<label for="check-out">CHECK OUT:</label>
-					<input type="text" name="check-out" class="check-out-input" placeholder="DD/MM/YYYY">
+					<input type="text" name="check-out" class="check-out-input" id="checkOutDate" placeholder="DD/MM/YYYY">
 					<i class="form-control-feedback"></i>
 				</div>
 				<div class="form-group">
 					<div class="dropdown">
 					    <select class="room-type" name="room-type">
 					    	<option>Select room type</option>
+					    	<?php 
+						    	$section_query = new WP_Query('post_type=ptype_room_types&orderby=menu_order&order=ASC&posts_per_page=-1');
+
+								while ($section_query->have_posts()) : $section_query->the_post(); 
+									$this_room_type_title = get_the_title();
+							?>
+									<option value="<?php echo $this_room_type_title; ?>"><?php echo $this_room_type_title; ?></option>
+							<?php
+								endwhile;
+								wp_reset_query(); 
+					    	?>
 					    </select>
 					</div>
 				</div>
@@ -96,12 +107,12 @@
 
 					<div class="small-input">
 						<label for="adults">ADULTS</label>
-						<input type="text" name="adults">
+						<input type="text" name="adults" id="adults">
 					</div>
 
 					<div class="small-input">
 						<label for="children">CHILDREN</label>
-						<input type="text" name="children">
+						<input type="text" name="children" id="children">
 					</div>
 				</div>
 
@@ -109,3 +120,4 @@
 				<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
 			</form>
 		</div>
+		<div id="templatemo_content"></div>
