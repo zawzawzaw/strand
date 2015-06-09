@@ -21,7 +21,7 @@ $i = 1;
 					<?php if(has_post_thumbnail()) : ?>
 						<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>						
 						<div class="item <?php echo ($i==1) ? 'active' : ''; ?>">
-							<img src="<?php echo $url; ?>" alt="Deluxe Room Slider <?php echo $i; ?>">
+							<img src="<?php echo get_home_url().'/timthumb.php?src='.$url.'&h=640&w=1180&zc=0'; ?>">
 							<div class="carousel-caption">
 								<?php the_content(); ?>
 							</div>

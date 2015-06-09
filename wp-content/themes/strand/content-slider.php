@@ -29,15 +29,19 @@
 				<?php endif; ?>	
 		<?php endwhile; ?>		
 	</div>
+	<a href="#content-wrapper" class="scroll-to-content"><div class="arrow animated infinite fadeInDown" style="display: block;"></div></a>
 
 	<!-- Indicators -->
 	  <ol class="carousel-indicators">
-		  	<?php $i = 0;
-			if ( $query1->have_posts() ) while ( $query1->have_posts() ) : $query1->the_post(); ?>
-				<?php if(has_post_thumbnail()) : ?>
-					<li data-target="#carousel" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i==0) ? 'active' : ''; ?>"></li>
-					<?php $i++; ?>		
-				<?php endif; ?>	
-			<?php endwhile; ?>	    
+		  	<?php 
+			if($query1->found_posts > 1):
+		  		$i = 0;
+				if ( $query1->have_posts() ) while ( $query1->have_posts() ) : $query1->the_post(); 
+						if(has_post_thumbnail()) : ?>
+							<li data-target="#carousel" data-slide-to="<?php echo $i; ?>" class="<?php echo ($i==0) ? 'active' : ''; ?>"></li>
+							<?php $i++; 
+						endif; 
+				endwhile; 
+			endif; ?>	    
 	  </ol>
 </div>

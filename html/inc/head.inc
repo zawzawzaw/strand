@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/vendors/bootstrap/bootstrap-theme.min.css" />
 <link rel="stylesheet" href="css/vendors/jquery-ui/jquery-ui.min.css" />
 <link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/animate.css" />
 <link rel="stylesheet" href="css/style.css" />
 
 <!-- JS -->

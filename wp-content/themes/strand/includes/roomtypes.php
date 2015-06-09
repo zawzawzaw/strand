@@ -99,9 +99,9 @@
 								<?php
 				                  $i = 0;
 				                  foreach ( $roomFeatureImages as $roomFeatureImage )
-				                  {
-				                    if($i==0) echo "<div class='rooms-masonry-item large'><img src='{$roomFeatureImage['full_url']}'></div>"; 					                    
-				                    else echo "<div class='rooms-masonry-item'><img src='{$roomFeatureImage['full_url']}'></div>";                     
+				                  {				                  	
+				                    if($i==0) echo "<div class='rooms-masonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$roomFeatureImage['full_url']."&h=350&w=240&zc=0'></div>"; 					                    
+				                    else echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$roomFeatureImage['full_url']."&h=170&w=250&zc=0'></div>";                     
 				                    $i++;
 				                  }
 				                ?>									

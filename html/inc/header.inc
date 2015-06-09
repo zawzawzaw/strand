@@ -1,10 +1,10 @@
 <div id="page-wrapper">
-	<div id="header-wrapper" class="">
+	<div id="header-wrapper" class="animated zoomIn">
 		<header id="main-header" class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="logo-wrapper hidden-xs hidden-sm visible-md visible-lg">
-						<a href="index.html" class="site-logo">
+						<a href="index.html" class="site-logo">							
 							<img src="images/logo/main-logo.png" alt="logo">
 							<span>STRAND HOTEL SINGAPORE</span>
 						</a>

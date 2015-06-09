@@ -103,6 +103,47 @@ $(document).ready(function(){
     $(".check-availability").on('click', function(e){
         e.preventDefault();
         checkAvailability('WBE');
+    });  
+
+    /////
+    /////
+    ///// 
+
+    function myScroller()  {
+        var scrollPos = $(window).scrollTop();
+        
+        if( ( scrollPos != 0 ) ) {
+            console.log('scrolling')
+            $('.arrow').hide();
+            if(scrolled==false && initialLoad==false) {
+                scrolled = true;               
+            }
+                
+        }       
+        else if( ( scrollPos === 0 ) && (scrolled == true) ) {
+            scrolled = false;
+            $('#header-wrapper').removeClass('shadow');
+            $('.arrow').show();
+        }
+    }
+
+    var initialLoad = true;
+    // home page first scroll
+    var scrolled = false;
+    $(window).on('scroll', function() {
+       myScroller();
     });
 
+    myScroller();
+
+    initialLoad = false;
+
+    $('.scroll-to-content').on('click', function(e){
+        e.preventDefault();
+        var currentId = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(currentId).offset().top - 50
+        }, 800);
+    });
+    
 });

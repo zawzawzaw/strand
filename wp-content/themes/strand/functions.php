@@ -32,6 +32,7 @@ function load_scripts(){
     wp_enqueue_style( 'bootstrap', THEMEROOT.'/css/vendors/bootstrap/bootstrap.min.css' );
     wp_enqueue_style( 'bootstrap-theme', THEMEROOT.'/css/vendors/bootstrap/bootstrap-theme.min.css' );
     wp_enqueue_style( 'jquery-ui', THEMEROOT.'/css/vendors/jquery-ui/jquery-ui.min.css' );
+    wp_enqueue_style( 'font-awesome', THEMEROOT.'/css/animate.css' );
     wp_enqueue_style( 'font-awesome', THEMEROOT.'/css/font-awesome.min.css' );
     wp_enqueue_style( 'stylecss', get_stylesheet_uri() );
 
@@ -48,7 +49,7 @@ function load_scripts(){
     if(is_page('rooms')) {
         wp_enqueue_script('roomsjs', THEMEROOT.'/js/rooms.js', array('$'), '', true);
     }
-    if(is_page('deluxe-room')) {
+    if(is_page('deluxe-room') || is_page('family-room') || is_page('standard-room')) {
         wp_enqueue_script('deluxeroomjs', THEMEROOT.'/js/deluxe-room.js', array('$'), '', true);
     }
     if(is_page('about')) {
@@ -58,6 +59,11 @@ function load_scripts(){
         wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', true);
         wp_enqueue_script('infobox', THEMEROOT.'/js/plugins/infobox.js', array('$'), '', true);
         wp_enqueue_script('whatsnearby', THEMEROOT.'/js/whatsnearby.js', array('$'), '', true);
+    }
+    if(is_page('contact')) {        
+        wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', true);
+        wp_enqueue_script('infobox', THEMEROOT.'/js/plugins/infobox.js', array('$'), '', true);
+        wp_enqueue_script('contact', THEMEROOT.'/js/contact.js', array('$'), '', true);
     }
 }
 
@@ -212,6 +218,8 @@ include (TEMPLATEPATH . "/lib/ptype-roomtypes.php");
 include (TEMPLATEPATH . "/lib/ptype-about.php");
 include (TEMPLATEPATH . "/lib/ptype-whatsnearby.php");
 include (TEMPLATEPATH . "/lib/ptype-places.php");
+include (TEMPLATEPATH . "/lib/ptype-amenities.php");
+include (TEMPLATEPATH . "/lib/ptype-contacts.php");
 
 // Include Shortcodes
 include (TEMPLATEPATH . "/lib/shortcodes.php");
@@ -269,4 +277,19 @@ function hide_admin_bar_from_front_end(){
   return false;
 }
 add_filter( 'show_admin_bar', 'hide_admin_bar_from_front_end' );
+
+function my_wpcf7_form_elements($html) {
+  function ov3rfly_replace_include_blank($name, $text, &$html) {
+    $matches = false;
+    preg_match('/<select name="' . $name . '"[^>]*>(.*)<\/select>/iU', $html, $matches);
+    if ($matches) {
+      $select = str_replace('<option value="">---</option>', '<option value="">' . $text . '</option>', $matches[0]);
+      $html = preg_replace('/<select name="' . $name . '"[^>]*>(.*)<\/select>/iU', $select, $html);
+    }
+  }
+  ov3rfly_replace_include_blank('title', '* SALUTATIONS', $html);
+  ov3rfly_replace_include_blank('country', '* CHOOSE YOUR COUNTRY', $html);
+  return $html;
+}
+add_filter('wpcf7_form_elements', 'my_wpcf7_form_elements');
 ?>

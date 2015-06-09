@@ -118,7 +118,21 @@ function ptype_places_register_meta_box()
 						'desc' => '',
 						'id' => $prefix . 'place_image',
 						'type' => 'image_advanced'
-					),			
+					),	
+
+					array(
+						'name' => 'Extra Content Image (for feature place only)',
+						'desc' => '',
+						'id' => $prefix . 'extra_content_image',
+						'type' => 'image_advanced'
+					),
+
+					array(
+						'name' => 'Extra Content Paragraph HTML (for feature place only)',
+						'desc' => '',
+						'id' => $prefix . 'extra_content_paragraph_html',
+						'type' => 'textarea'
+					),
 				)
 			);
     new RW_Meta_Box( $meta_box );

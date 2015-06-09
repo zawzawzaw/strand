@@ -114,6 +114,20 @@ function ptype_sections_register_meta_box()
 				'desc' => '',
 				'id' => $prefix . 'discover_us_img_1',
 				'type' => 'image_advanced'
+			),
+
+			array(
+				'name' => 'Discover Us Images HTML',
+				'desc' => '',
+				'id' => $prefix . 'discover_us_img_html',
+				'type' => 'textarea'
+			),
+
+			array(
+				'name' => 'Discover Us Images HTML 2',
+				'desc' => '',
+				'id' => $prefix . 'discover_us_img_html_2',
+				'type' => 'textarea'
 			)
 	 	)
 	);

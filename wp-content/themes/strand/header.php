@@ -39,7 +39,7 @@
 </head>
 <body <?php body_class(); ?>>
 	<div id="page-wrapper">
-		<div id="header-wrapper" class="">
+		<div id="header-wrapper" class="animated slideInDown">
 			<header id="main-header" class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">

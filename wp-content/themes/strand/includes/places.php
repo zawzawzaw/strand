@@ -8,10 +8,9 @@
   $section_query = new WP_Query('post_type=ptype_places&orderby=menu_order&order=ASC&posts_per_page=-1');    
 ?>
   <div class="first-content">
-    <div class="container">
+    <div class="container">      
       <?php 
       $i=1;
-
       while ($section_query->have_posts()) : $section_query->the_post(); 
         $terms = wp_get_post_terms( $post->ID, 'placetype' );
         $place_type = ucfirst($terms[0]->name); 
@@ -20,38 +19,21 @@
           $post_id = $post->ID;
           $headingH2 = get_post_meta($post->ID, 'ptype_places_place_name_heading_h2', true);
           $featurePlace = get_post_meta($post->ID, 'ptype_places_feature_place', true);
-          $paragraphP = get_post_meta($post->ID, 'ptype_places_place_paragraph_html', true);
+          $paragraphP = get_post_meta($post->ID, 'ptype_places_place_paragraph_html', true);          
           $locationLinkText = get_post_meta($post->ID, 'ptype_places_place_location_link_text', true);
           $locationLink = get_post_meta($post->ID, 'ptype_places_place_location_link', true);
+
+          $extraContentImages = rwmb_meta( 'ptype_places_extra_content_image', 'type=image' );
+          $extraContentParagraphP = get_post_meta($post->ID, 'ptype_places_extra_content_paragraph_html', true);
 
           $placeImg = wp_get_attachment_image_src(get_post_meta($post->ID, 'ptype_places_place_image', true), 'full');
 
           if($featurePlace==1):
             $featureTitleHeadingH3 = get_post_meta($post->ID, 'ptype_places_feature_title_heading_h3', true);
-            if($i==2):
-      ?>
+      ?>      
               <div class="content-section">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="img-content">
-                      <img src="<?php echo $placeImg[0]; ?>" alt="<?php echo $headingH2; ?>">
-                    </div>
-                    <div class="text-content">
-                      <h3><?php echo $featureTitleHeadingH3; ?></h3>
-                      <h2><?php echo $headingH2; ?></h2>
-                      <hr class="small">
-                      <?php echo $paragraphP; ?>
-                      <a href="<?php echo $locationLink; ?>" target="_blank" class="see-location"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText; ?></a>
-                    </div>            
-                  </div>
-                </div>
-              </div>
-      <?php
-            else:
-      ?>
-              <div class="content-section">
-                <div class="row">
-                  <div class="col-md-12">
+                <div class="row actual-content" <?php if(empty($extraContentParagraphP)){ ?>style="padding-bottom:0px;"<?php } ?>>
+                  <div class="col-md-12">             
                     <div class="text-content">
                       <h3><?php echo $featureTitleHeadingH3; ?></h3>
                       <h2><?php echo $headingH2; ?></h2>
@@ -60,19 +42,37 @@
                       <a href="<?php echo $locationLink; ?>" target="_blank" class="see-location"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText; ?></a>
                     </div>
                     <div class="img-content">
-                      <img src="<?php echo $placeImg[0]; ?>" alt="<?php echo $headingH2; ?>">
+                      <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=640&zc=0'; ?>
+                      <img src="<?php echo $edited_placeImg; ?>" alt="<?php echo $headingH2; ?>">
                     </div>
                   </div>
                 </div>
-              </div>
+                <?php if(!empty($extraContentParagraphP)): ?>
+                <div class="row extra-content">
+                  <div class="col-md-12">
+                    <div class="img-content">
+                      <?php 
+                      foreach ( $extraContentImages as $extraContentImage ):
+                      ?>
+                        <img src="<?php echo $extraContentImage['full_url']; ?>" alt="<?php echo $headingH2; ?>">
+                      <?php
+                      endforeach;
+                      ?>
+                    </div>
+                    <div class="text-content">
+                      <?php echo $extraContentParagraphP; ?>
+                    </div>
+                  </div>
+                </div>   
+                <?php endif; ?>
+              </div>           
             <?php
-            endif;
             $i++;
           endif;
         endif;        
       endwhile; 
       wp_reset_query(); 
-      ?>
+      ?>      
     </div>
   </div>
 
@@ -109,14 +109,22 @@
                   if($i<=3):                
             ?>
                     <div class="each-shopping-spot">
-                      <img src="<?php echo $placeImg[0]; ?>">
+                      <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=370&zc=0'; ?>
+                      <img src="<?php echo $edited_placeImg; ?>">
                       <div class="shopping-spot-info">                  
                         <h3><?php echo $headingH2; ?></h3>
                         <hr class="small">
                         <?php echo $paragraphP; ?>
-                        <a href="<?php echo $websiteLink; ?>" target="_blank" class="visit-website"><?php echo $websiteLinkText ?> <i class="fa fa-chevron-circle-right"></i></a>
+                        <a href="<?php echo $websiteLink; ?>" target="_blank" class="visit-website"><?php echo $websiteLinkText ?> <i class="fa fa-chevron-circle-right"></i></a>                      
+                        <hr class="first">
+                        <hr class="second">
+                        <div class="center">
+                          <div class="v-align">
+                            <a href="<?php echo $locationLink; ?>" target="_blank" class="see-on-map"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText ?></a>
+                          </div>                    
+                        </div>
                       </div>
-                      <a href="<?php echo $locationLink; ?>" target="_blank" class="see-on-map"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText ?></a>
+                      
                     </div>
                   <?php
                   $i++;

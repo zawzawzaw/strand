@@ -68,3 +68,29 @@ function theme_shortcode_places($attr, $content)
     ob_end_clean();  
     return $ret;    
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Amenities
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('amenities', 'theme_shortcode_amenities');   
+function theme_shortcode_amenities($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/amenities');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Contact
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('contact', 'theme_shortcode_contact');   
+function theme_shortcode_contact($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/contact');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}

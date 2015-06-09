@@ -45,9 +45,9 @@
               $i = 0;
               foreach ( $images as $image )
               {
-                if($i==0) echo "<div class='about-masonry-item large'><img src='{$image['full_url']}'></div>"; 
-                elseif($i==1) echo "<div class='about-masonry-item medium'><img src='{$image['full_url']}'></div>";
-                else echo "<div class='about-masonry-item'><img src='{$image['full_url']}'></div>";
+                if($i==0) echo "<div class='about-masonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=380&w=600&zc=0'></div>"; 
+                elseif($i==1) echo "<div class='about-masonry-item medium'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=395&w=295&zc=0'></div>";
+                else echo "<div class='about-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=195&w=300&zc=0'></div>";
                 $i++;
               }
             ?>            

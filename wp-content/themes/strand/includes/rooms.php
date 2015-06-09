@@ -59,14 +59,14 @@
             <?php
               $i = 0;
               foreach ( $images as $image )
-              {
-                if($i==0) echo "<div class='rooms-masonry-item'><img src='{$image['full_url']}'></div>"; 
-                elseif($i==1) echo "<div class='rooms-masonry-item large'><img src='{$image['full_url']}'></div>"; 
-                elseif($i==2) echo "<div class='rooms-masonry-item medium'><img src='{$image['full_url']}'></div>";
-                elseif($i==3) echo "<div class='rooms-masonry-item small-2'><img src='{$image['full_url']}'></div>"; 
-                elseif($i==4) echo "<div class='rooms-masonry-item'><img src='{$image['full_url']}'></div>"; 
-                elseif($i==5) echo "<div class='rooms-masonry-item small'><img src='{$image['full_url']}'></div>"; 
-                else echo "<div class='rooms-masonry-item'><img src='{$image['full_url']}'></div>";                     
+              {               
+                if($i==0) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
+                elseif($i==1) echo "<div class='rooms-masonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=220&zc=0'></div>"; 
+                elseif($i==2) echo "<div class='rooms-masonry-item medium'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=230&zc=0'></div>";
+                elseif($i==3) echo "<div class='rooms-masonry-item small-2'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=160&w=230&zc=0'></div>"; 
+                elseif($i==4) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
+                elseif($i==5) echo "<div class='rooms-masonry-item small'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=220&zc=0'></div>"; 
+                else echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>";                     
                 $i++;
               }
             ?>
@@ -95,21 +95,21 @@
       <div class="col-md-12">
         <div class="rooms-list">
           <div class="each-room">
-            <img src="<?php echo $room1Img[0]; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$room1Img[0].'&h=281&w=370&zc=0'; ?>">
             <div class="room-info">
               <?php echo $room1ImgHtml; ?>
               <a href="<?php echo $room1Link; ?>" class="learn-more">LEARN MORE</a>
             </div>
           </div>
           <div class="each-room">
-            <img src="<?php echo $room2Img[0]; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$room2Img[0].'&h=281&w=370&zc=0'; ?>">
             <div class="room-info">
               <?php echo $room2ImgHtml; ?>               
               <a href="<?php echo $room2Link; ?>" class="learn-more">LEARN MORE</a>
             </div>
           </div>
           <div class="each-room">
-            <img src="<?php echo $room3Img[0]; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$room3Img[0].'&h=281&w=370&zc=0'; ?>">
             <div class="room-info">
               <?php echo $room3ImgHtml; ?>
               <a href="<?php echo $room3Link; ?>" class="learn-more">LEARN MORE</a>

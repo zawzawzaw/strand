@@ -71,7 +71,7 @@
             <a href="<?php echo $whereToShopLink; ?>" class="discover-more"><?php echo $whereToShopLinkText; ?></a>             
           </div>
           <div class="img-content">
-            <img src="<?php echo $whereToShopImg[0]; ?>" alt="<?php echo $whereToShopHeadingH3; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$whereToShopImg[0].'&h=400&w=640&zc=0'; ?>" alt="<?php echo $whereToShopHeadingH3; ?>">
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="img-content">
-            <img src="<?php echo $exploreAttractionImg[0]; ?>" alt="<?php echo $exploreAttractionHeadingH3; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$exploreAttractionImg[0].'&h=400&w=640&zc=0'; ?>" alt="<?php echo $exploreAttractionHeadingH3; ?>">
           </div>
           <div class="text-content">
             <h3><?php echo $exploreAttractionHeadingH3; ?></h3>
@@ -102,10 +102,10 @@
             <h2><?php echo $eatDrinkHeadingH2; ?></h2>
             <hr class="small">
             <?php echo $eatDrinkHeadingParagraphHTML ?>
-            <a href="<?php echo $exploreAttractionLink; ?>" class="discover-more"><?php echo $eatDrinkLinkText; ?></a>             
+            <a href="<?php echo $eatDrinkLink; ?>" class="discover-more"><?php echo $eatDrinkLinkText; ?></a>             
           </div>
           <div class="img-content">
-            <img src="<?php echo $eatDrinkImg[0]; ?>" alt="<?php echo $eatDrinkHeadingH3; ?>">
+            <img src="<?php echo get_home_url().'/timthumb.php?src='.$eatDrinkImg[0].'&h=400&w=640&zc=0'; ?>" alt="<?php echo $eatDrinkHeadingH3; ?>">
           </div>
         </div>
       </div>

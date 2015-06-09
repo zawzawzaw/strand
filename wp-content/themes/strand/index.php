@@ -13,7 +13,9 @@
 			$listItem2ParagraphP = get_post_meta($post->ID, 'ptype_sections_list_item_2_paragraph_p', true);
 			$listItem3HeadingH3 = get_post_meta($post->ID, 'ptype_sections_list_item_3_heading_h3', true);
 			$listItem3ParagraphP = get_post_meta($post->ID, 'ptype_sections_list_item_3_paragraph_p', true);						
-			$images = rwmb_meta( 'ptype_sections_discover_us_img_1', 'type=image' );	
+			$images = rwmb_meta( 'ptype_sections_discover_us_img_1', 'type=image' );
+			$discoverUsImgHtml = get_post_meta($post->ID, 'ptype_sections_discover_us_img_html', true);
+			$discoverUsImgHtml2 = get_post_meta($post->ID, 'ptype_sections_discover_us_img_html_2', true);
 		
 			$nearByHeadingH2 = get_post_meta($post->ID, 'ptype_sections_whats_nearby_heading_h2', true);
 			$nearByHeadingH3 = get_post_meta($post->ID, 'ptype_sections_whats_nearby_heading_h3', true);
@@ -97,9 +99,16 @@
 									$i = 0;
 									foreach ( $images as $image )
 									{
-										if($i==2) echo "<div class='mansonry-item large'><img src='{$image['full_url']}'></div>";	
-										else if($i==3) echo "<div class='mansonry-item medium'><img src='{$image['full_url']}'></div>";	
-										else echo "<div class='mansonry-item'><img src='{$image['full_url']}'></div>";
+										if($i==0) echo "<div class='mansonry-item'>
+															{$discoverUsImgHtml}
+														</div>";
+
+										else if($i==2) echo "<div class='mansonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=325&w=215&zc=0'></div>";	
+										else if($i==3) echo "<div class='mansonry-item medium'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=160&w=435&zc=0'></div>";	
+										else if($i==6) echo "<div class='mansonry-item'>
+																{$discoverUsImgHtml2}
+															</div>";	
+										else echo "<div class='mansonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=160&w=215&zc=0'></div>";
 										$i++;
 									}
 								?>								
@@ -126,13 +135,14 @@
 								$i = 0;
 								foreach ( $event_images as $event_image )
 								{
-									if($i==0) echo "<div class='mansonry-2-item x-large'><img src='{$event_image['full_url']}'></div>";	
-									elseif($i==1) echo "<div class='mansonry-2-item medium'><img src='{$event_image['full_url']}'></div>";
-									elseif($i==2) echo "<div class='mansonry-2-item small'><img src='{$event_image['full_url']}'></div>";	
+
+									if($i==0) echo "<div class='mansonry-2-item x-large'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=460&w=290&zc=0'></div>";	
+									elseif($i==1) echo "<div class='mansonry-2-item medium'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=190&w=285&zc=0'></div>";
+									elseif($i==2) echo "<div class='mansonry-2-item small'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=190&w=190&zc=0'></div>";	
 									else echo "<div class='mansonry-2-item large'>
 													{$whatsNearByImgHtml2}
 												</div>
-												<div class='mansonry-2-item'><img src='{$event_image['full_url']}'></div>";
+												<div class='mansonry-2-item'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=140&w=190&zc=0'></div>";
 									$i++;
 								}
 							?>									 						
@@ -166,19 +176,19 @@
 
 						<div class="deals">							
 							<div class="each-deal">
-								<img src='<?php echo $deal1Img[0]; ?>'>
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal1Img[0].'&h=280&w=370&zc=0'; ?>">
 								<div class="deal-info">
 									<?php echo $deal1ImgHtml; ?>
 								</div>
 							</div>
 							<div class="each-deal">
-								<img src="<?php echo $deal2Img[0]; ?>">
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal2Img[0].'&h=280&w=370&zc=0'; ?>">
 								<div class="deal-info">
 									<?php echo $deal2ImgHtml; ?>
 								</div>
 							</div>
 							<div class="each-deal">
-								<img src="<?php echo $deal3Img[0]; ?>">
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal3Img[0].'&h=280&w=370&zc=0'; ?>">
 								<div class="deal-info">
 									<?php echo $deal3ImgHtml; ?>
 								</div>
