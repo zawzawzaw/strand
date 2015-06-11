@@ -212,7 +212,7 @@
 		</div>
 
 		<div class="trip-advisor">
-			<img src="<?php echo IMG; ?>/logo/tripadvisor.png">
+			<a href="http://www.tripadvisor.com.sg/Hotel_Review-g294265-d338340-Reviews-Strand_Hotel-Singapore.html" target="_blank"><img src="<?php echo IMG; ?>/logo/tripadvisor.png"></a>
 		</div>
 
 	</div>

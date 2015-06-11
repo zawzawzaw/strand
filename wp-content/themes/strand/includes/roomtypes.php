@@ -51,7 +51,7 @@
 				<?php include(locate_template('content-eachroom-slider.php')); ?>
 
 				<div class="second-content">
-					<div class="check-availability">
+					<div class="check-availability-container">
 						<h4><?php echo $checkAvailabilityH4; ?></h4>
 						<h3><?php echo $checkAvailabilityH3; ?></h3>
 						<hr class="small"></hr>
@@ -76,7 +76,7 @@
 
 						<p><?php echo $checkAvailabilityP; ?></p>
 
-						<a href="#" class="check-availablity">CHECK AVAILABILITY</a>
+						<a href="#" class="room-page-check-availability">CHECK AVAILABILITY</a>
 					</div>
 
 					<div class="deluxe-room-info">

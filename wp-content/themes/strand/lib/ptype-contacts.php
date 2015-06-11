@@ -22,7 +22,7 @@ function ptype_contacts_post_type() {
 		'public' => true,
 		'has_archive' => true,
 		'hierarchical' => false,	
-		'menu_position' => 20,
+		'menu_position' => 100,
 		'supports' => array( 'title', 'page-attributes', 'thumbnail' ), 
 		'rewrite'  => array( 'slug' => 'event', 'with_front' => true ),
 		'menu_icon' => 'dashicons-businessman',  // Icon Path

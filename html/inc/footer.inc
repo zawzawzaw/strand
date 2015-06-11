@@ -24,7 +24,7 @@
 
 						<div class="form-group has-feedback">
 							<input type="text" name="email" placeholder="Your Email Address" />
-							<i class="fa fa-envelope-o form-control-feedback"></i>
+							<i class="fa fa-envelope-o subscribe-it"></i>
 						</div>
 
 						<h5>CONNECT WITH US</h5>

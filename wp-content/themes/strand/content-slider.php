@@ -22,7 +22,7 @@
 							</div>				
 						</div>	
 						<div class="item-cta">
-							<img src="<?php echo IMG; ?>/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
+							<!-- <img src="<?php echo IMG; ?>/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a> -->
 						</div>
 					</div>
 					<?php $i++; ?>		

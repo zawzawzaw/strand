@@ -43,7 +43,7 @@
 			<header id="main-header" class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="logo-wrapper hidden-xs hidden-sm visible-md visible-lg">
+						<div class="logo-wrapper">
 							<a href="<?php echo home_url(); ?>" class="site-logo">
 								<img src="<?php echo IMG; ?>/logo/main-logo.png" alt="<?php bloginfo("name"); ?>">
 								<span><?php bloginfo("name"); ?></span>
@@ -57,12 +57,19 @@
 										'echo' => true,
 										'container' => false,
 										'theme_location'  => 'main-menu',
-										'menu_class'      => 'main-menu hidden-xs hidden-sm'
+										'menu_class'      => 'main-menu'
 									);
 
 
 									wp_nav_menu($defaults);
-								?>								
+								?>
+								<div class="toggleMenu hidden-lg hidden-md">
+									<a href="javascript:void(0)"> 
+										<span class="nav-bar"></span> 
+										<span class="nav-bar"></span> 
+										<span class="nav-bar"></span> 
+									</a> 
+								</div>							
 							</nav>
 						</div>					
 					</div>
@@ -81,7 +88,7 @@
 					<input type="text" name="check-out" class="check-out-input" id="checkOutDate" placeholder="DD/MM/YYYY">
 					<i class="form-control-feedback"></i>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<div class="dropdown">
 					    <select class="room-type" name="room-type">
 					    	<option>Select room type</option>
@@ -98,12 +105,12 @@
 					    	?>
 					    </select>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="small-input">
+				</div> -->
+				<div class="form-group" style="text-align:center;">
+					<!-- <div class="small-input">
 						<label for="rooms">ROOMS</label>
 						<input type="text" name="rooms">
-					</div>
+					</div> -->
 
 					<div class="small-input">
 						<label for="adults">ADULTS</label>
@@ -117,7 +124,7 @@
 				</div>
 
 				<button type="submit" class="btn btn-default check-availability">CHECK AVAILABILITY</button>
-				<a href="#" class="modify-cancel">Modify / Cancel reservation</a>
+				<!-- <a href="#" class="modify-cancel">Modify / Cancel reservation</a> -->
 			</form>
 		</div>
 		<div id="templatemo_content"></div>

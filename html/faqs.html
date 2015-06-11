@@ -1,0 +1,151 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<!--> 
+<html class=""> 
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Strand</title>
+	<meta name="description" content="Strand">
+	<meta name="keywords" content="Strand">
+
+	<!--#include virtual="inc/head.inc" -->
+</head>
+<body>
+	
+	<!--#include virtual="inc/header.inc" -->
+
+	<div id="carousel" class="slider-wrapper carousel slide" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item bg faqs-bg1 active">			
+				<div class="carousel-caption">
+					<div class="caption-text">
+						<h5>JUST FOR YOU</h5>
+						<h1>Frequently Asked Questions</h1>
+						<hr class="small"></hr>					
+					</div>				
+				</div>	
+				<div class="item-cta">
+					<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<div id="content-wrapper" class="faqs">
+		<div class="first-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="heading">
+							<h3>JUST FOR YOU</h3>
+							<h2>Frequently Asked Questions</h2>
+							<hr class="small">							
+						</div>
+
+						<div class="questions">
+							<div class="each-question">
+								<h5>General Hotel Information</h5>
+								<hr class="small">
+								<ul>
+									<li>Is there a swimming pool in the hotel?</li>
+									<li>How do I get to the hotel from the airport?</li>
+									<li>How far is the nearest hospital to the hotel?</li>
+									<li>What is the currency in Singapore?</li>
+									<li>At what time do the banks open?</li>
+									<li>What voltage do you use in Singapore?</li>
+									<li>Is it safe to drink tap water in Singapore?<li>
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+							<div class="each-question">
+								<h5>Rooms & Rates</h5>
+								<hr class="small">
+								<ul>
+									<li>Are your hotel rates per room or per person?</li>
+									<li>How many people can stay in one room?</li>
+									<li>Does the internet rate include breakfast?</li>
+									<li>What are the standard check-in and check-out
+									times of the hotel?</li>
+									<li>Do you have rooms with a bathtub?</li>
+									<li>Do you have non-smoking rooms?</li>
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+							<div class="each-question">
+								<h5>WINE & DINE</h5>
+								<hr class="small">
+								<ul>
+									<li>Where is breakfast served and at what times?</li>
+									<li>How many restaurants and bars do you have and what are they?</li>
+									<li>Is vegetarian cuisine available in the restaurants?</li>
+									<li>Is a special menu available for children?</li>									
+									<li>Do you have 24-hour room service?</li>
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+							<div class="each-question">
+								<h5>SHOPPING AND TOURIST FACILITIES</h5>
+								<hr class="small">
+								<ul>
+									<li>Are there any shopping centres near the hotel and if so, where are they?</li>
+									<li>How far is the hotel from the downtown shopping areas?</li>
+									<li>Are you close to the theatres/entertainment venues?</li>
+									<li>What are the local tourist attractions?</li>
+									<li>What is the best way to see the city of Singapore?</li>									
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+							<div class="each-question">
+								<h5>TRAVELLING WITH CHILDREN</h5>
+								<hr class="small">								
+								<ul>
+									<li>Is a babysitting service available?</li>
+									<li>What facilities are available for children?</li>
+									<li>Are baby cots available for the rooms?</li>
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+							<div class="each-question">
+								<h5>Business Travellers’ Section</h5>
+								<hr class="small">								
+								<ul>
+									<li>Can I connect my laptop in the room?</li>
+									<li>What newspapers does the hotel receive and can these be delivered to my room? </li>
+								</ul>
+								<a href="#" class="see-more-questions">SEE MORE QUESTIONS <i class="fa fa-chevron-circle-right"></i></a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<div class="trip-advisor">
+			<img src="images/logo/tripadvisor.png">
+		</div>
+
+	</div>
+
+	<!-- <div class="space100"></div> -->
+
+	<!--#include virtual="inc/footer.inc" -->
+
+	<script>	
+	$(document).ready(function(){
+		var container = document.querySelector('#rooms-masonry');
+		var msnry = new Masonry( container, {
+		  columnWidth: 60,
+		  itemSelector: '.rooms-masonry-item'
+		});
+	});
+	</script>
+		
+</body>
+</html>

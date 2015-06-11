@@ -14,7 +14,7 @@
 				<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
 			</div>
 		</div>
-		<div class="item bg bg2">			
+		<!-- <div class="item bg bg2">			
 			<div class="carousel-caption">
 				<div class="caption-text">
 					<h5>adventurer paradise 2</h5>
@@ -26,12 +26,12 @@
 			<div class="item-cta">
 				<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
 			</div>	
-		</div>
+		</div> -->
 	</div>
 
 	<!-- Indicators -->
 	  <ol class="carousel-indicators">
-	    <li data-target="#carousel" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel" data-slide-to="1"></li>
+	    <!-- <li data-target="#carousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#carousel" data-slide-to="1"></li> -->
 	  </ol>
 </div>

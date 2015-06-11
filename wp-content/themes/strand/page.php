@@ -38,7 +38,7 @@ $current_slug = get_post( $post )->post_name;
 				</div>				
 			</div>	
 			<div class="item-cta">
-				<img src="<?php echo IMG; ?>/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
+				<!-- <img src="<?php echo IMG; ?>/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a> -->
 			</div>
 		</div>
 	</div>	
@@ -54,7 +54,7 @@ $current_slug = get_post( $post )->post_name;
 	<?php endif; ?>	
 
 	<div class="trip-advisor">
-	  <img src="<?php echo IMG; ?>/logo/tripadvisor.png">
+	  <a href="http://www.tripadvisor.com.sg/Hotel_Review-g294265-d338340-Reviews-Strand_Hotel-Singapore.html" target="_blank"><img src="<?php echo IMG; ?>/logo/tripadvisor.png"></a>
 	</div>
 
 </div>

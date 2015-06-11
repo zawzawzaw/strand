@@ -1,0 +1,130 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<!--> 
+<html class=""> 
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Strand</title>
+	<meta name="description" content="Strand">
+	<meta name="keywords" content="Strand">
+
+	<!--#include virtual="inc/head.inc" -->
+</head>
+<body>
+	
+	<!--#include virtual="inc/header.inc" -->
+
+	<div id="carousel" class="slider-wrapper carousel slide" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item bg faqs-bg1 active">			
+				<div class="carousel-caption">
+					<div class="caption-text">
+						<h5>JUST FOR YOU</h5>
+						<h1>Frequently Asked Questions</h1>
+						<hr class="small"></hr>					
+					</div>				
+				</div>	
+				<div class="item-cta">
+					<img src="images/icons/post-icon.png"><a href="#">SHARE AS A POSTCARD</a>
+				</div>
+			</div>
+		</div>		
+	</div>
+
+	<div id="content-wrapper" class="faqs">
+		<div class="first-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="side-menu">
+							<ul>
+								<li><a href="#" class="active">GENERAL HOTEL INFORMATION</a></li>
+								<li><a href="#">ROOMS & RATES</a></li>
+								<li><a href="#">WINE & DINE</a></li>
+								<li><a href="#">SHOPPING & TOURIST FACILITIES</a></li>
+								<li><a href="#">TRAVELLING WITH CHILDREN</a></li>
+								<li><a href="#">BUSINESS TRAVELLERS' SECTION</a></li>
+							</ul>
+						</div>
+						<div class="info-content">
+							<h5>GENERAL HOTEL INFORMATION</h5>
+							<hr class="small">	
+							
+							<ul>
+								<li>Is there a swimming pool in the hotel?</li>
+								<li><p>No.</p></li>
+							</ul>											
+
+							<ul>
+								<li>How do I get to the hotel from the airport?</li>
+								<li><p>Taxi, 20mins away. About SGD25. Public bus service 36. Stop at SMU and walk. Train, stop at tanah and transfer to the train heading towards the city. Stop at City Hall and walk.</p></li>
+							</ul>											
+
+							<ul>
+								<li>How far is the nearest hospital to the hotel?</li>
+								<li><p>Nearest hospital is Raffle hospital. It`s about 1.2 km or 15mins walk from the hotel.</p></li>
+							</ul>							
+
+							<ul>
+								<li>What is the currency in Singapore?</li>
+								<li><p>Currency is Singapore Dollars(SGD)</p></li>
+							</ul>
+							
+							<ul>
+								<li>At what time do the banks open?</li>
+								<li><p>Banks open as early as 8.30am</p></li>
+							</ul>						
+							
+							<ul>
+								<li>What voltage do you use in Singapore?</li>
+								<li><p>220/240V, 50hz</p></li>
+							</ul>							
+							
+							<ul>
+								<li>Is it safe to drink tap water in Singapore?</li>
+								<li><p>Yes.</p></li>
+							</ul>
+
+							<ul>
+								<li>What is the weather like at different times of the year?</li>
+								<li><p>Sunny mostly with heavy showers towards the end of the year.</p></li>
+							</ul>
+
+							<ul>
+								<li>What should I wear in Singapore?</li>
+								<li><p>Lightwear such as t-shirts and shorts is reccommended to brave the humidity. </p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<div class="trip-advisor">
+			<img src="images/logo/tripadvisor.png">
+		</div>
+
+	</div>
+
+	<!-- <div class="space100"></div> -->
+
+	<!--#include virtual="inc/footer.inc" -->
+
+	<script>	
+	$(document).ready(function(){
+		var container = document.querySelector('#rooms-masonry');
+		var msnry = new Masonry( container, {
+		  columnWidth: 60,
+		  itemSelector: '.rooms-masonry-item'
+		});
+	});
+	</script>
+		
+</body>
+</html>

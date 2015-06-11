@@ -78,8 +78,9 @@
 							<h5>JOIN OUR MAILING LIST</h5>
 
 							<div class="form-group has-feedback">
-								<input type="text" name="email" placeholder="Your Email Address" />
-								<i class="fa fa-envelope-o form-control-feedback"></i>
+                                <?php echo do_shortcode("[mc4wp_form]"); ?>
+								<!-- <input type="text" name="email" placeholder="Your Email Address" />
+								<i class="fa fa-envelope-o form-control-feedback"></i> -->
 							</div>
 
 							<h5>CONNECT WITH US</h5>
@@ -128,31 +129,34 @@
 
         var checkInDateArr = jQuery( "#checkInDate" ).val().split('/');
         var formatted_checkInDate = checkInDateArr[2] + '-' + checkInDateArr[1] + '-' + checkInDateArr[0];
+        if(!formatted_checkInDate) formatted_checkInDate = "";
 
         var checkOutDateArr = jQuery( "#checkOutDate" ).val().split('/');
         var formatted_checkOutDate = checkOutDateArr[2] + '-' + checkOutDateArr[1] + '-' + checkOutDateArr[0];
+        if(!formatted_checkInDate) formatted_checkOutDate = "";
 
-        // console.log(formatted_checkInDate)
-        // console.log(formatted_checkOutDate)
+        var NoOfAdult = jQuery( "#adults" ).val();
+        var NoOfChildren = jQuery( "#children" ).val();
 
-        // return false;
+        if(!NoOfAdult) NoOfAdult = "";
+        if(!NoOfChildren) NoOfChildren = 0;
         
-        var requireSafariFix = Qikres.fixForSafari({
-            checkInDate: formatted_checkInDate,
-            checkOutDate: formatted_checkOutDate,
-            url:"http://210.1.224.42/wbe/jsp/safarifix_loading.jsp"
-        }); 
+        // var requireSafariFix = Qikres.fixForSafari({
+        //     checkInDate: formatted_checkInDate,
+        //     checkOutDate: formatted_checkOutDate,
+        //     url:"http://210.1.224.42/wbe/jsp/safarifix_loading.jsp"
+        // }); 
         
-        if(requireSafariFix ==1)
-            return;
+        // if(requireSafariFix ==1)
+        //     return;
             
         Qikres.render({
-            propertyCode: 'BHS',
+            propertyCode: 'LUXURY',
             checkInDate: formatted_checkInDate,
             checkOutDate: formatted_checkOutDate,
-            adult: jQuery( "#adults" ).val(),
-            children: jQuery( "#children" ).val(),
-            customerID: '0064152669',   
+            adult: NoOfAdult,
+            children: NoOfChildren,
+            customerID: 'LUXURY',   
             window: 'embedded', // embedded | popup
             embeddedContainer: "templatemo_content", // defined if embedded,
             // style: "http://192.168.0.88:8080/wbe/crossroads.css",

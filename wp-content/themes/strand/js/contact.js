@@ -217,6 +217,13 @@ $(document).ready(function(){
 		var service = new google.maps.places.PlacesService(map);
 
 		/////
+		// LAT LNG
+		/////
+		var DhobyGhautMRTLatlng = setMarkerLatLng(1.298593,103.845909);
+		var BraBasahMRTLatlng = setMarkerLatLng(1.296931,103.850631);
+
+
+		/////
 		// INFOBOX
 		/////
 
@@ -247,11 +254,19 @@ $(document).ready(function(){
 		      title: title,
 		      icon: '../wp-content/themes/strand/images/icons/'+icon+'.png'
 		    });
-		}
-
-		var strandPlaceId = 'ChIJF-8-srwZ2jERhn9mpTQylp4';
+		}		
 
 		createGoogleMarker('StrandMarker', StrandLatlng, 'strand', 'The Strand Hotel');
+		createGoogleMarker('DhobyGhautMRTMarker', DhobyGhautMRTLatlng, 'mrt', 'Dhoby Ghaut MRT');
+		createGoogleMarker('BraBasahMRTMarker', BraBasahMRTLatlng, 'mrt', 'Bras Basah MRT');
+
+		///////
+		//// Place Info
+		///////
+
+		var strandPlaceId = 'ChIJF-8-srwZ2jERhn9mpTQylp4';
+		var dhobyGhautMRTPlaceId = 'ChIJeVeAS70Z2jERGFSY4egTJIA';
+		var braBasahMRTPlaceId = 'ChIJSa3-naQZ2jERLE62C7okX-I';
 
 		requestObj = {};
 
@@ -262,6 +277,8 @@ $(document).ready(function(){
 		}
 
 		createRequestObj('strandRequest', strandPlaceId);
+		createRequestObj('dhobyGhautMRTRequest', dhobyGhautMRTPlaceId);
+		createRequestObj('braBasahMRTRequest', braBasahMRTPlaceId);
 
 		/////
 		// EVENTS
@@ -287,6 +304,8 @@ $(document).ready(function(){
 		}
 
 		events(markersObj['StrandMarker'], StrandLatlng, requestObj['strandRequest']);
+		events(markersObj['DhobyGhautMRTMarker'], DhobyGhautMRTLatlng, requestObj['dhobyGhautMRTRequest']);
+		events(markersObj['BraBasahMRTMarker'], BraBasahMRTLatlng, requestObj['braBasahMRTRequest']);
 
 	}
 	initialize();

@@ -94,3 +94,30 @@ function theme_shortcode_contact($attr, $content)
     ob_end_clean();  
     return $ret;    
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* FAQs
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('faqs', 'theme_shortcode_faqs');   
+function theme_shortcode_faqs($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/faqs');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}
+
+
+/*-----------------------------------------------------------------------------------*/
+/* FAQ
+/*-----------------------------------------------------------------------------------*/
+add_shortcode('faq', 'theme_shortcode_faq');   
+function theme_shortcode_faq($attr, $content)
+{        
+    ob_start();
+    get_template_part('/includes/faq');  
+    $ret = ob_get_contents();  
+    ob_end_clean();  
+    return $ret;    
+}

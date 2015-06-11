@@ -49,8 +49,8 @@ $(document).ready(function(){
         dateFormat: 'dd/mm/yy'
     });
 
-    $('.form-control-feedback').on('click', function(e){
-        console.log('hi')
+    $('.subscribe-it').on('click', function(e){        
+        $('#subscribeBtn').trigger('click');
     });
 
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -72,6 +72,8 @@ $(document).ready(function(){
             $(this).parent().find('.selected-date').find('.day').text(day);
             $(this).parent().find('.selected-date').show();
             $(this).parent().find('.select-date').hide();
+
+            jQuery( "#checkInDate" ).val(("0" + day).slice(-2)+'/'+("0" + (month + 1)).slice(-2)+'/'+year);
         }
     });
 
@@ -92,6 +94,8 @@ $(document).ready(function(){
             $(this).parent().find('.selected-date').find('.day').text(day);
             $(this).parent().find('.selected-date').show();
             $(this).parent().find('.select-date').hide();
+
+            jQuery( "#checkOutDate" ).val(("0" + day).slice(-2)+'/'+("0" + (month + 1)).slice(-2)+'/'+year);
         }
     });
 
@@ -103,7 +107,17 @@ $(document).ready(function(){
     $(".check-availability").on('click', function(e){
         e.preventDefault();
         checkAvailability('WBE');
-    });  
+    });
+
+    $(".room-page-select-date").on('click', function(e){
+        e.preventDefault();
+        $(this).parent().find(".hasDatepicker").datepicker("show");
+    });    
+
+    $(".room-page-check-availability").on('click', function(e){
+        $( "#adults" ).val('1');
+        checkAvailability('WBE');
+    });
 
     /////
     /////
@@ -144,6 +158,14 @@ $(document).ready(function(){
         $('html, body').animate({
             scrollTop: $(currentId).offset().top - 50
         }, 800);
+    });
+
+    ///////
+    ///////
+    ///////
+
+    $(".toggleMenu").on('click', function(e){
+        $(this).prev('ul').toggleClass('mobile-menu');
     });
     
 });

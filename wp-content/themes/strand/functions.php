@@ -32,7 +32,7 @@ function load_scripts(){
     wp_enqueue_style( 'bootstrap', THEMEROOT.'/css/vendors/bootstrap/bootstrap.min.css' );
     wp_enqueue_style( 'bootstrap-theme', THEMEROOT.'/css/vendors/bootstrap/bootstrap-theme.min.css' );
     wp_enqueue_style( 'jquery-ui', THEMEROOT.'/css/vendors/jquery-ui/jquery-ui.min.css' );
-    wp_enqueue_style( 'font-awesome', THEMEROOT.'/css/animate.css' );
+    wp_enqueue_style( 'animate', THEMEROOT.'/css/animate.css' );
     wp_enqueue_style( 'font-awesome', THEMEROOT.'/css/font-awesome.min.css' );
     wp_enqueue_style( 'stylecss', get_stylesheet_uri() );
 
@@ -220,6 +220,7 @@ include (TEMPLATEPATH . "/lib/ptype-whatsnearby.php");
 include (TEMPLATEPATH . "/lib/ptype-places.php");
 include (TEMPLATEPATH . "/lib/ptype-amenities.php");
 include (TEMPLATEPATH . "/lib/ptype-contacts.php");
+include (TEMPLATEPATH . "/lib/ptype-faqs.php");
 
 // Include Shortcodes
 include (TEMPLATEPATH . "/lib/shortcodes.php");
@@ -287,9 +288,19 @@ function my_wpcf7_form_elements($html) {
       $html = preg_replace('/<select name="' . $name . '"[^>]*>(.*)<\/select>/iU', $select, $html);
     }
   }
-  ov3rfly_replace_include_blank('title', '* SALUTATIONS', $html);
+  ov3rfly_replace_include_blank('title', '* SALUTATION', $html);
   ov3rfly_replace_include_blank('country', '* CHOOSE YOUR COUNTRY', $html);
   return $html;
 }
 add_filter('wpcf7_form_elements', 'my_wpcf7_form_elements');
+
+// remove post from admin sidebar menu
+
+function remove_from_menu()      //creating functions remove_from_menu for removing menu item
+{ 
+   remove_menu_page('edit.php');
+   remove_menu_page( 'edit-comments.php' );
+}
+
+add_action('admin_menu', 'remove_from_menu');
 ?>

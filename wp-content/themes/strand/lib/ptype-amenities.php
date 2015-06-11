@@ -22,7 +22,7 @@ function ptype_amenities_post_type() {
 		'public' => true,
 		'has_archive' => true,
 		'hierarchical' => false,	
-		'menu_position' => 20,
+		'menu_position' => 5,
 		'supports' => array( 'title', 'page-attributes', 'thumbnail' ), 
 		'rewrite'  => array( 'slug' => 'about_section', 'with_front' => true ),
 		'menu_icon' => 'dashicons-tag',  // Icon Path
