@@ -176,19 +176,19 @@
 
 						<div class="deals">							
 							<div class="each-deal">
-								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal1Img[0].'&h=280&w=370&zc=0'; ?>">
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal1Img[0].'&h=280&w=370&zc=0'; ?>" class="img-responsive">
 								<div class="deal-info">
 									<?php echo $deal1ImgHtml; ?>
 								</div>
 							</div>
 							<div class="each-deal">
-								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal2Img[0].'&h=280&w=370&zc=0'; ?>">
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal2Img[0].'&h=280&w=370&zc=0'; ?>" class="img-responsive">
 								<div class="deal-info">
 									<?php echo $deal2ImgHtml; ?>
 								</div>
 							</div>
 							<div class="each-deal">
-								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal3Img[0].'&h=280&w=370&zc=0'; ?>">
+								<img src="<?php echo get_home_url().'/timthumb.php?src='.$deal3Img[0].'&h=280&w=370&zc=0'; ?>" class="img-responsive">
 								<div class="deal-info">
 									<?php echo $deal3ImgHtml; ?>
 								</div>

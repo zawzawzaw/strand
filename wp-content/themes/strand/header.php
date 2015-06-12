@@ -77,7 +77,7 @@
 			</header>
 		</div>
 		<div class="reservation-widget">
-			<form id="reservation-form" action="" method="POST" role="form">
+			<form id="reservation-form" action="<?php echo get_permalink(get_page_by_title('reservations')); ?>" method="POST" role="form" target="_blank">
 				<div class="form-group form-border has-feedback">
 					<label for="check-in">CHECK IN:</label>
 					<input type="text" name="check-in" class="check-in-input" id="checkInDate" placeholder="DD/MM/YYYY">

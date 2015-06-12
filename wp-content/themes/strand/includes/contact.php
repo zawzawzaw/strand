@@ -49,47 +49,46 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="heading">
-					<h2>Get in Touch</h2>
-					<hr class="small">
-				</div>
-				
-				<div class="contact-form">
+				<div class="center-content">
+					<div class="heading">
+						<h2>Get in Touch</h2>
+						<hr class="small">
+					</div>
+					
+					<div class="contact-form">
+						<?php echo do_shortcode( '[contact-form-7 id="211" title="Contact form 1"]' ) ?>						
+					</div>
+					
+					<div class="contact-info">
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading1h5; ?></h5>
+							<?php echo $firstContentHeading1HTML; ?>
+						</div>
+						
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading2h5; ?></h5>
+							<?php echo $firstContentHeading2HTML; ?>
+						</div>
+						
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading3h5; ?></h5>
+							<?php echo $firstContentHeading3HTML; ?>
+						</div>
+						
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading4h5; ?></h5>
+							<?php echo $firstContentHeading4HTML; ?>
+						</div>
+						
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading5h5; ?></h5>
+							<?php echo $firstContentHeading5HTML; ?>
+						</div>
 
-					<?php echo do_shortcode( '[contact-form-7 id="211" title="Contact form 1"]' ) ?>
-
-					
-				</div>
-				
-				<div class="contact-info">
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading1h5; ?></h5>
-						<?php echo $firstContentHeading1HTML; ?>
-					</div>
-					
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading2h5; ?></h5>
-						<?php echo $firstContentHeading2HTML; ?>
-					</div>
-					
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading3h5; ?></h5>
-						<?php echo $firstContentHeading3HTML; ?>
-					</div>
-					
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading4h5; ?></h5>
-						<?php echo $firstContentHeading4HTML; ?>
-					</div>
-					
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading5h5; ?></h5>
-						<?php echo $firstContentHeading5HTML; ?>
-					</div>
-
-					<div class="each-info">
-						<h5><?php echo $firstContentHeading6h5; ?></h5>
-						<?php echo $firstContentHeading6HTML; ?>
+						<div class="each-info">
+							<h5><?php echo $firstContentHeading6h5; ?></h5>
+							<?php echo $firstContentHeading6HTML; ?>
+						</div>
 					</div>
 				</div>
 			</div>

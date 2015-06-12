@@ -75,22 +75,25 @@
 							</ul>
 						</div>
 						<div class="mailing-list">
-							<h5>JOIN OUR MAILING LIST</h5>
+                            <div class="mailing-list-form-container">
+    							<h5>JOIN OUR MAILING LIST</h5>
 
-							<div class="form-group has-feedback">
-                                <?php echo do_shortcode("[mc4wp_form]"); ?>
-								<!-- <input type="text" name="email" placeholder="Your Email Address" />
-								<i class="fa fa-envelope-o form-control-feedback"></i> -->
-							</div>
-
-							<h5>CONNECT WITH US</h5>
-							<ul>
-								<li><a class="social facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a class="social twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a class="social instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-								<li><a class="social pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-								<li><a class="social googleplus" href="#"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
+    							<div class="form-group has-feedback">
+                                    <?php echo do_shortcode("[mc4wp_form]"); ?>
+    								<!-- <input type="text" name="email" placeholder="Your Email Address" />
+    								<i class="fa fa-envelope-o form-control-feedback"></i> -->
+    							</div>
+                            </div>
+                            <div class="connect">
+    							<h5>CONNECT WITH US</h5>
+    							<ul>
+    								<li><a class="social facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+    								<li><a class="social twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+    								<li><a class="social instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+    								<li><a class="social pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+    								<li><a class="social googleplus" href="#"><i class="fa fa-google-plus"></i></a></li>
+    							</ul>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -105,8 +108,8 @@
 						<p>&copy; <?php echo date('Y'); ?> The Strand Hotel Singapore. All Rights Reserved.</p>		
 
 						<ul>
-							<li><a href="<?php $this_page_info = get_page_by_title('Terms of use'); echo get_permalink($this_page_info->ID); ?>">TERMS & CONDITIONS</a></li>
-							<li><a href="<?php $this_page_info = get_page_by_title('Privacy Policy'); echo get_permalink($this_page_info->ID); ?>">PRIVACY POLICY</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_title('Terms and Condition')); ?>">TERMS & CONDITIONS</a></li>
+							<li><a href="<?php echo get_permalink(get_page_by_title('Privacy Policy')); ?>">PRIVACY POLICY</a></li>
 						</ul>
 						<div class="clearfix"></div>	
 					</div>
@@ -125,18 +128,34 @@
     /////////
 
     var test = true;
-    function checkAvailability(module) {
+    function checkAvailability(module, checkInDate, checkOutDate, adults, children) {
 
-        var checkInDateArr = jQuery( "#checkInDate" ).val().split('/');
+        if (typeof checkInDate === 'undefined') { 
+            var checkInDate = jQuery( "#checkInDate" ).val();
+        }
+
+        if (typeof checkOutDate === 'undefined') { 
+            var checkOutDate = jQuery( "#checkOutDate" ).val();
+        }
+
+        if (typeof adults === 'undefined') { 
+            var adults = jQuery( "#adults" ).val();
+        }
+
+        if (typeof children === 'undefined') { 
+            var children = jQuery( "#children" ).val();
+        }
+        
+        var checkInDateArr = checkInDate.split('/');        
         var formatted_checkInDate = checkInDateArr[2] + '-' + checkInDateArr[1] + '-' + checkInDateArr[0];
         if(!formatted_checkInDate) formatted_checkInDate = "";
 
-        var checkOutDateArr = jQuery( "#checkOutDate" ).val().split('/');
+        var checkOutDateArr = checkOutDate.split('/');
         var formatted_checkOutDate = checkOutDateArr[2] + '-' + checkOutDateArr[1] + '-' + checkOutDateArr[0];
         if(!formatted_checkInDate) formatted_checkOutDate = "";
 
-        var NoOfAdult = jQuery( "#adults" ).val();
-        var NoOfChildren = jQuery( "#children" ).val();
+        var NoOfAdult = adults;
+        var NoOfChildren = children;
 
         if(!NoOfAdult) NoOfAdult = "";
         if(!NoOfChildren) NoOfChildren = 0;
@@ -166,15 +185,14 @@
             external : 1,
             popupFullScreen : true,
         });
-
-        $('#templatemo_content').prepend('<span class="close">Close X</span>');
         
         $('#content_left').hide();
 
-        $(document).on('click', '.close', function(){
-        	console.log('closing');
-        	$(this).parent().html('');
-        });
+        // $('#templatemo_content').prepend('<span class="close">Close X</span>');
+        // $(document).on('click', '.close', function(){
+        // 	console.log('closing');
+        // 	$(this).parent().html('');
+        // });
     };
 
     function showPromotion() {

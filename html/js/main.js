@@ -30,7 +30,7 @@ $(document).ready(function(){
         $('.reservation-widget').slideToggle();
     });
 
-    $('.check-in-input').datepicker({        
+    $('.check-in-input').datepicker({
         beforeShow: function(input, inst)
         {
             inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
@@ -49,7 +49,7 @@ $(document).ready(function(){
         dateFormat: 'dd/mm/yy'
     });
 
-    $('.subscribe-it').on('click', function(e){        
+    $('.subscribe-it').on('click', function(e){
         $('#subscribeBtn').trigger('click');
     });
 
@@ -106,7 +106,8 @@ $(document).ready(function(){
 
     $(".check-availability").on('click', function(e){
         e.preventDefault();
-        checkAvailability('WBE');
+        // checkAvailability('WBE');
+        $('#reservation-form').submit();
     });
 
     $(".room-page-select-date").on('click', function(e){
@@ -116,7 +117,9 @@ $(document).ready(function(){
 
     $(".room-page-check-availability").on('click', function(e){
         $( "#adults" ).val('1');
-        checkAvailability('WBE');
+        // checkAvailability('WBE');
+        $('#reservation-form').submit();
+        
     });
 
     /////

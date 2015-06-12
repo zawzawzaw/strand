@@ -467,7 +467,7 @@ html, body {
   height:100%;
   margin:0;
   padding:0;
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 1024px) {
     overflow-x: hidden;
   }
 }
@@ -652,7 +652,7 @@ html, body {
         padding-left: 6px;       
         text-transform: uppercase;
       }
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         span {
           font-size: 12px;
         }
@@ -722,7 +722,7 @@ html, body {
           }              
         }
 
-        @media all and (max-width: 1000px) {            
+        @media all and (max-width: 992px) {            
             opacity: 0;            
             .transition(0.4s);
             background: none repeat scroll 0 0 @dark-grey;
@@ -761,7 +761,7 @@ html, body {
             }
         }
       }
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         li {
           a {
             font-size: 10px!important;
@@ -805,7 +805,7 @@ html, body {
 
   .carousel, .item {
     height: 98%;
-    @media all and (max-width: 1200px) {       
+    @media all and (max-width: 992px) {       
       height: 690px;
     }
   }
@@ -814,7 +814,7 @@ html, body {
     margin-top: 50px;
     .carousel-inner {
       height:100%;
-      @media all and (max-width: 1200px) {       
+      @media all and (max-width: 992px) {       
         height: 690px;
       }
       .bg {
@@ -908,7 +908,7 @@ html, body {
       height: 30px;
       background: url(../images/icons/down-arrow.png) no-repeat;
       background-size: contain;
-      @media all and (max-width: 992px) {
+      @media all and (max-width: 1024px) {
         display: none!important;
       }
     }
@@ -959,8 +959,8 @@ html, body {
             text-shadow: none;
           }        
         }
-        @media all and (max-width: 1000px) {          
-          width: 400px!important;
+        @media all and (max-width: 1024px) {          
+          width: 450px!important;
           top: 18%!important;
           div.caption-text {
             p {
@@ -968,8 +968,8 @@ html, body {
             }
           }          
         }
-        @media all and (max-width: 450px) {
-          width: 250px!important;   
+        @media all and (max-width: 420px) {
+          width: 320px!important;   
           div.caption-text {
             h5 {
               font-size: 13px!important;
@@ -977,7 +977,7 @@ html, body {
             }
             h1 {
               font-size: 42px;
-              line-height: 42px;
+              line-height: 55px;
             }
             hr {
               margin: 28px auto;
@@ -987,6 +987,9 @@ html, body {
               line-height: 21px;
             }
           }                 
+        }
+        @media all and (max-width: 320px) {
+          width: 310px!important;
         }
       }     
     }
@@ -1305,7 +1308,7 @@ p {
   width: 1px;
   margin: 0 auto;
   margin-right: 50px;
-  @media all and (max-width: 992px) {
+  @media all and (max-width: 1024px) {
     border-left: 0px;
     border-bottom: 1px solid #ccc;
     height: 1px;
@@ -1471,7 +1474,7 @@ span.close {
               right: -17px;
               top: 18px;
             }
-            @media all and (max-width: 992px) {              
+            @media all and (max-width: 1024px) {              
               &:after {
                 right: -8px;  
               }              
@@ -1481,7 +1484,7 @@ span.close {
             display: inline-block;
             margin-left: 22px;
             padding-top: 10px;
-            @media all and (max-width: 992px) {              
+            @media all and (max-width: 1024px) {              
               margin-left: 9px;          
             }
           }
@@ -1499,7 +1502,7 @@ span.close {
           }
         }
       }
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         h3 {
           font-size: 13px;          
           margin-bottom: 5px;
@@ -1525,7 +1528,7 @@ span.close {
               }
             }
             .text {
-              width: 225px;
+              width: 285px;
               margin-left: 20px;
             }
             h3 {
@@ -1533,6 +1536,25 @@ span.close {
             }
             p {
               font-size: 14px;
+            }
+          }
+        }
+      }
+      @media all and (max-width: 375px) {
+        ul {
+          li {
+            .text {
+              width: 280px;
+            }
+          }
+        }
+      }
+      @media all and (max-width: 320px) {
+        ul {
+          li {
+            .text {
+              width: 230px;
+              margin-left: 15px;
             }
           }
         }
@@ -1567,7 +1589,7 @@ span.close {
       }
 
       .inner {
-        display: block;
+        display: table-cell;
         padding-left: 25px;
         // width: 100%;
         // height: 100%;
@@ -1622,7 +1644,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1200px) {
+    @media all and (max-width: 1024px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -1650,6 +1672,7 @@ span.close {
         float: none;
         margin: 0 auto;
         text-align: center;
+        padding-left: 0px;
         // .scale(0.4);
       }
     }
@@ -1684,7 +1707,7 @@ span.close {
         margin-top: 15px;
         margin-bottom: 65px;
       }
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         h3 {
           font-size: 13px;          
           margin-bottom: 5px;
@@ -1808,6 +1831,11 @@ span.close {
         border-top: 2px solid @black;
         width: 35px;
         margin: 19px auto;
+        display: block;
+        text-align: center;
+        // @media all and (max-width: 1024px) {
+        //   display: block;
+        // }
       }
 
       ul {
@@ -1844,7 +1872,7 @@ span.close {
             float: right;
           }
 
-          @media all and (max-width: 450px) {
+          @media all and (max-width: 420px) {
             h5 {
               font-size: 12px;
             }
@@ -1872,7 +1900,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1200px) {
+    @media all and (max-width: 1024px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -1920,7 +1948,7 @@ span.close {
         margin-top: 20px;
         margin-bottom: 65px;
       }
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         h3 {
           font-size: 13px;          
           margin-bottom: 5px;
@@ -1964,7 +1992,7 @@ span.close {
           text-align: center;
           color: @grey;
           line-height: 19px;
-          @media all and (max-width: 450px) {
+          @media all and (max-width: 420px) {
             font-size: 14px;
           }
         }
@@ -1991,28 +2019,31 @@ span.close {
             background-color: @black;
           }
         }
-      }
-    
-      @media all and (max-width: 1200px) {
+      }          
+      @media all and (max-width: 1024px) {
         .each-deal {
-          display: block;
-          width: 100%;
-          float: none;
-          margin-bottom: 35px;
-
+          width: 290px;          
           img {
             margin-left: auto;
             margin-right: auto;
           }
         }        
       }
+      @media all and (max-width: 992px) {
+        .each-deal {
+          display: block;
+          width: 100%;
+          float: none;
+          margin-bottom: 35px;
+        }
+      }
     }
 
-    @media all and (max-width: 1200px) {
+    @media all and (max-width: 1024px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
-      } 
+      }   
     }
 
   }
@@ -2037,7 +2068,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1200px) {
+    @media all and (max-width: 1024px) {
       .caption {
         width: 450px;
       }
@@ -2047,7 +2078,7 @@ span.close {
         width: 350px;
       }
     }
-    @media all and (max-width: 450px) {
+    @media all and (max-width: 420px) {
       .caption {
         width: 250px;
         top: 16%;
@@ -2080,7 +2111,7 @@ span.close {
       text-align: center;
       color: @white;
       line-height: 23px;
-      @media all and (max-width: 450px) {
+      @media all and (max-width: 420px) {
         font-size: 15px;
       }
     }
@@ -2151,15 +2182,38 @@ span.close {
         line-height: 22px;
         color: @grey;
         margin-bottom: 55px;
+      }      
+    }
+
+    @media all and (max-width: 420px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .heading {
+        h3 {
+          font-size: 13px;          
+          margin-bottom: 5px;
+        }
+        h2 {
+          font-size: 30px;          
+        }
+        hr {
+          border-top: 2px solid @black!important;
+          width: 81px!important;
+          margin-top: 13px!important;
+          margin-bottom: 27px!important;
+        }
       }
     }    
 
     .rooms-img-slider {
-      height: 618px!important;
+      height: auto!important;
       .carousel-inner {
-        height: 618px;
+        height: auto;
         .item {
-          height: 618px!important;
+          height: auto!important;
         }
       }
       .carousel-caption {
@@ -2171,6 +2225,13 @@ span.close {
         text-align: left;
         padding-left: 40px;
         padding-right: 40px;
+        @media all and (max-width: 1024px) {
+          left: auto!important;
+          right: 0px!important;
+        }
+        @media all and (max-width: 420px) {
+          display: none;
+        }
         p {
           .harriet-display-light-italic;
           font-size: 13px;
@@ -2302,6 +2363,11 @@ span.close {
       padding: 45px 40px;
       vertical-align: middle;
 
+      @media all and (max-width: 1024px) {
+        width: 100%;
+        margin-top: 30px;
+      }
+
       &:before {
         content: " ";
         position: absolute;
@@ -2326,7 +2392,7 @@ span.close {
         text-align: left;
         .brandon-grotesque-bold;
         font-size: 24px;
-        line-height: 23px;
+        line-height: 30px;
         letter-spacing: 0.08em;
         color: @black;
       }
@@ -2350,14 +2416,19 @@ span.close {
     }
   }
 
-  .available-rooms {
-    height:100%;
+  .available-rooms {    
     background-repeat:no-repeat;
     background-size:cover;
     background-image:url('../images/content/wooden-bg.jpg');
     background-position: center top;
     height: 650px;
     position: relative;
+
+    @media all and (max-width: 420px) {
+      height: 100%;
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
 
     .container {
       padding: 0px;
@@ -2376,9 +2447,30 @@ span.close {
         display: inline-block;        
         margin-right: 30px;
         text-align: center;
+
         &:last-child {
           margin-right: 0px;
         }
+
+        @media all and (max-width: 1024px) {
+          width: 303px;
+          img {
+            width: 100%;
+          }
+          &:last-child {
+            margin-right: auto;
+          }      
+        }
+
+        @media all and (max-width: 420px) {
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+          margin-bottom: 30px;
+          img {
+            width: 90%;
+          }              
+        }        
 
         h3 {
           text-align: center;
@@ -2408,6 +2500,11 @@ span.close {
           padding-right: 25px;
           padding-left: 25px;
           margin-top: -4px;
+          @media all and (max-width: 420px) {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: -4px;
+          }
         }
         .learn-more {
           background-color: @light-grey;
@@ -2445,6 +2542,9 @@ span.close {
         vertical-align: top;
         padding: 30px 35px;
         vertical-align: top;
+        @media all and (max-width: 420px) {
+          width: 100%;
+        }
 
         &:before {
           content: " ";
@@ -2502,6 +2602,9 @@ span.close {
 
           &.arrival {
             margin-right: 30px;
+            @media all and (max-width: 375px) {
+              margin-right: 18px;
+            }
           }
           
           legend {
@@ -2579,6 +2682,17 @@ span.close {
         vertical-align: top;
         margin-left: 90px;
 
+        @media all and (max-width: 1024px) {
+          width: 540px;
+          margin-left: 60px;
+        }
+
+        @media all and (max-width: 420px) {
+          width: 100%;
+          margin-left: 0px;
+          margin-top: 50px;
+        }
+
         h3 {
           .brandon-grotesque-bold;
           font-size: 24px;
@@ -2619,6 +2733,9 @@ span.close {
               color: @grey;
               display: inline-block;
               width: 140px;
+              @media all and (max-width: 375px) {
+                width: 120px;
+              }
             }
 
             p {
@@ -2663,6 +2780,10 @@ span.close {
         padding: 30px 35px;
         vertical-align: top;
 
+        @media all and (max-width: 1024px) {
+          text-align: left;
+        }
+
         &:before {
           content: " ";
           position: absolute;
@@ -2679,6 +2800,9 @@ span.close {
           display: inline-block;
           margin-right: 55px;
           vertical-align: top;
+          @media all and (max-width: 1024px) {
+            margin-right: 19px;
+          }
           .rooms-masonry-item {
             width: 250px;
             height: 171px;
@@ -2702,6 +2826,13 @@ span.close {
           display: inline-block;
           vertical-align: top;
 
+          @media all and (max-width: 1024px) {
+            width: 380px;
+          }
+          @media all and (max-width: 420px) {
+            width: 100%;
+          }
+
           .panel-group {
             .panel {
               border: 0px;
@@ -2723,6 +2854,7 @@ span.close {
           h3 {
             .harriet-display-bold-italic;
             font-size: 20px;
+            line-height: 24px;
             color: @dark-blue;         
             padding-top: 20px;   
             padding-bottom: 20px;   
@@ -2736,6 +2868,12 @@ span.close {
             color: @black;
             display: inline-block;
             text-align: left;
+            @media all and (max-width: 420px) {
+              font-size: 12px;
+            }
+            @media all and (max-width: 375px) {
+              font-size: 11px;
+            }
           }
           a {
             .brandon-grotesque-medium;
@@ -2746,6 +2884,12 @@ span.close {
             float: right;
             &:hover {
               color: @dark-blue;
+            }
+            @media all and (max-width: 420px) {
+              font-size: 10px;
+            }
+            @media all and (max-width: 375px) {
+              font-size: 9px;
             }
           }
           ul {
@@ -2768,6 +2912,9 @@ span.close {
                 width: 510px;
                 vertical-align: top;
                 padding-left: 10px;
+                @media all and (max-width: 1024px) {
+                  width: 100%;
+                }
               }
             }
           }
@@ -2876,6 +3023,50 @@ span.close {
       .about-masonry-item.large { width: 600px; height: 380px; }      
       .about-masonry-item.medium { width: 295px; height: 395px; }      
     }
+
+    @media all and (max-width: 1024px) {
+      margin-top: 70px;
+      margin-bottom: 70px;
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .text-content {
+        display: block;
+        width: 100%;
+        margin-bottom: 70px;
+      }
+      .img-content {
+        display: block;
+        width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    @media all and (max-width: 420px) {
+      .text-content {
+        h3 {
+          font-size: 13px;          
+          margin-bottom: 5px;
+        }
+        h2 {
+          font-size: 30px;          
+        }
+        hr {
+          border-top: 2px solid @black!important;
+          width: 81px!important;
+          margin-top: 13px!important;
+          margin-bottom: 27px!important;
+        }
+        h4 {
+          font-size: 15px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    }
   }
   .book-your-stay {
     height:100%;
@@ -2894,6 +3085,23 @@ span.close {
       .caption-text {
         position: relative; 
         left: -50%;
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      .caption {
+        width: 450px;
+      }
+    }
+    @media all and (max-width: 600px) {
+      .caption {
+        width: 350px;
+      }
+    }
+    @media all and (max-width: 420px) {
+      .caption {
+        width: 270px;
+        top: 16%;
       }
     }
 
@@ -2969,11 +3177,25 @@ span.close {
             position: absolute;
             top: -33px;
             right: -35px;
+
+            @media all and (max-width: 1024px) {
+              top: -55px;
+              right: -1px;
+            }
+            @media all and (max-width: 420px) {
+              background: none;
+            }
           }
         }
         .img-content {
           margin-right: 50px; 
           padding-left: 0px;
+        }
+        @media all and (max-width: 420px) {
+          .text-content {            
+            margin: 0 auto;
+            margin-top: 30px;
+          }
         }
       }
 
@@ -3068,6 +3290,38 @@ span.close {
       padding-left: 19px;      
       vertical-align: middle;
     }
+
+    @media all and (max-width: 1024px) {
+      .img-content {
+        width: 440px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    @media all and (max-width: 414px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .text-content {
+        width: 100%;
+        margin-bottom: 30px;
+        a {
+          margin-bottom: 30px;
+        }
+      }
+
+      .img-content {
+        width: 100%;
+        padding: 0px;
+        img {
+          width: 100%;          
+        }
+      }
+    }
   }
 
 
@@ -3078,6 +3332,10 @@ span.close {
 
     .container {
       padding: 0px;
+      @media all and (max-width: 1024px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
     .heading {
@@ -3125,6 +3383,16 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
+      @media all and (max-width: 1024px) {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+
+      @media all and (max-width: 420px) {
+        width: 90%;
+      }
+
       &:before {
         content: " ";
         position: absolute;
@@ -3143,6 +3411,13 @@ span.close {
         display: inline-block;
         width: 390px;
         text-align: center;
+        @media all and (max-width: 1024px) {
+          width: 305px;
+        }
+        @media all and (max-width: 420px) {
+          width: 100%;
+          margin-bottom: 50px;
+        }
 
         h4 {
           .harriet-display-regular-italic;
@@ -3216,6 +3491,10 @@ span.close {
 
     .container {
       padding: 0px;
+      @media all and (max-width: 1024px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
     .content-section {
@@ -3257,7 +3536,17 @@ span.close {
           width: 450px;
           margin-right: 86px;
           // float: left;
-          vertical-align: middle;
+          vertical-align: middle;    
+
+          @media all and (max-width: 1024px) {
+            margin-right: 45px;
+            width: 250px;
+          }
+
+          @media all and (max-width: 420px) {
+            width: 100%;
+          }
+
           h3 {
             .brandon-grotesque-bold;                
             font-size: 17px;
@@ -3315,6 +3604,9 @@ span.close {
             color: @dark-blue;
             text-align: center;
             display: block;
+            @media all and (max-width: 420px) {
+              margin-bottom: 50px;
+            }
 
             i {
               font-size: 20px;
@@ -3338,6 +3630,10 @@ span.close {
           // width: 640px;
           // padding-left: 19px;      
           vertical-align: middle;
+
+          img {
+            width: 100%;
+          }
         } 
       }
 
@@ -3345,16 +3641,34 @@ span.close {
         .img-content {
           display: inline-block;
           margin-right: 40px;
-          vertical-align: middle;
+          vertical-align: middle;           
+          
           img {
             margin-right: 20px;
+            @media all and (max-width: 1024px) {
+              width: 100%;
+              display: block;
+              margin-bottom: 30px;
+            }
           }
+
+          @media all and (max-width: 420px) {            
+            width: 100%!important;
+            img {
+              width: 100%!important;
+            }      
+          }
+
         }
         .text-content {
           display: inline-block;
           width: 430px;
           vertical-align: middle;
           position: relative;         
+
+          @media all and (max-width: 420px) {       
+            width: 100%;
+          }
 
           h5 {
             .brandon-grotesque-bold;                
@@ -3394,6 +3708,15 @@ span.close {
             bottom: 0px;
             right: 4px;
 
+            @media all and (max-width: 420px) {
+              left: 170px;
+            }
+            @media all and (max-width: 375px) {
+              position: static;
+              margin-top: 25px;
+              display: block;
+            }
+
             hr {
               border-top: 2px solid @dark-blue;
               width: 40px;
@@ -3423,6 +3746,16 @@ span.close {
         padding-bottom: 0px;
         margin-bottom: 0px;
 
+        .extra-content {
+          .img-content {
+            @media all and (max-width: 1024px) {            
+              margin-right: 25px;
+              vertical-align: middle;
+              width: 480px;      
+            }            
+          }
+        }
+
         &:after {
           border: 0px;
         }
@@ -3438,6 +3771,10 @@ span.close {
 
     .container {
       padding: 0px;
+      @media all and (max-width: 1024px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
     }
 
     .heading {
@@ -3471,12 +3808,24 @@ span.close {
         vertical-align: top;
         // border: 1px solid #e1e1e1;
         background: @white;
+        @media all and (max-width: 1024px) {
+          width: 300px;
+        }
+        @media all and (max-width: 420px) {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+
+
         &:last-child {
           margin-right: 0px;
         }
 
         img {
           margin-bottom: 30px;
+          @media all and (max-width: 1024px) {
+            width: 100%;
+          }
         }
 
         .shopping-spot-info {
@@ -3572,9 +3921,19 @@ span.close {
     padding: 0px;
   }
 
+  @media all and (max-width: 1024px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
   .first-content, .last-content {
     padding-top: 70px;
     padding-bottom: 70px;
+    // @media all and (max-width: 420px) {
+    //   padding-bottom: 70px;
+    // }
 
     .content-section {
       // padding-bottom: 70px;
@@ -3644,6 +4003,28 @@ span.close {
           // padding-left: 19px;      
           vertical-align: middle;
         } 
+
+        @media all and (max-width: 1024px) {
+          .img-content {
+            width: 400px;
+          } 
+        }
+
+        @media all and (max-width: 420px) {
+          padding-bottom: 10px;
+          .text-content {
+            display: block;
+            width: 100%;
+          }
+          .img-content {
+            width: 100%;
+            display: block;
+            img {
+              width: 100%;
+              margin: 0 auto;
+            }
+          }          
+        }
       }
 
       .extra-content {        
@@ -3653,6 +4034,18 @@ span.close {
           vertical-align: middle;
           img {
             margin-right: 20px;
+            @media all and (max-width: 1024px) {
+              margin-bottom: 10px;
+            }            
+          }
+          @media all and (max-width: 420px) {
+            width: 100%;
+            display: block;
+            img {
+              width: 100%;
+              margin: 0 auto;
+              margin-bottom: 10px;
+            }
           }
         }
         .text-content {
@@ -3731,6 +4124,28 @@ span.close {
               vertical-align: top;
             }
           }
+
+          @media all and (max-width: 420px) {
+            width: 100%;
+            display: block;
+            .child-text-content {
+              margin-bottom: 20px;
+              &:first-child {
+                margin-top: 40px;
+                margin-bottom: 20px;
+              }
+              &:last-child {
+                right: -10px;
+              }
+            }
+          }
+          @media all and (max-width: 320px) {
+            .child-text-content {
+              &:last-child {
+                position: static;
+              }
+            }
+          }
         }
       }       
     }
@@ -3740,12 +4155,28 @@ span.close {
     background-color: #f0efed;
     padding-top: 70px;
     padding-bottom: 70px;
+    @media all and (max-width: 420px) {
+      padding-bottom: 0px;
+    }
     .img-content {
       display: inline-block;
       margin-right: 40px;
-      vertical-align: middle;
+      vertical-align: middle;      
+
       img {
         margin-right: 20px;
+      }
+
+      @media all and (max-width: 1024px) {
+        display: inline-block;
+        margin-right: 50px;
+        width: 400px;
+        img {
+          width: 100%;
+        }
+      }
+      @media all and (max-width: 420px) {
+        width: 100%;
       }
     }
     .text-content {
@@ -3764,6 +4195,10 @@ span.close {
         position: absolute;
         top: -50px;
         right: -70px;
+        @media all and (max-width: 420px) {
+          content: "";
+          background: none;
+        }
       }
 
       h3 {
@@ -3802,7 +4237,14 @@ span.close {
         color: @grey;
         text-align: left;
         margin-bottom: 30px;
-      }       
+      }
+
+      @media all and (max-width: 420px) {
+        width: 100%;
+        height: 100%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }   
     }
   }
 
@@ -3812,10 +4254,54 @@ span.close {
         .text-content {
           margin-right: 45px;
         }
+        @media all and (max-width: 1024px) {
+          .img-content {
+            width: 400px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        @media all and (max-width: 420px) {
+          .text-content {
+            margin-bottom: 30px;
+          }
+          .img-content {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+        }
       }
       .extra-content {
         .text-content {
           height: 250px;
+        }
+        @media all and (max-width: 1024px) {
+          .img-content {
+            width: 400px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        @media all and (max-width: 420px) {
+          .img-content {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        @media all and (max-width: 320px) {
+          .text-content {
+            height: 100%;
+            .inner-2 {
+              position: static;
+              display: block;
+            }
+          }
         }
       }
     }
@@ -3834,6 +4320,13 @@ span.close {
   .first-content {
     padding-top: 70px;
     padding-bottom: 70px;    
+
+    @media all and (max-width: 1024px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
 
     .heading {
       h3 {
@@ -3880,6 +4373,12 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
+      @media all and (max-width: 1024px) {
+        width: 85%;
+        display: block;
+        margin: 0 auto;
+      }
+
       &:before {
         content: " ";
         position: absolute;
@@ -3896,6 +4395,28 @@ span.close {
   .last-content {
     // padding-top: 70px;
     padding-bottom: 70px;    
+
+    @media all and (max-width: 1024px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .center-content {
+        width: 85%;
+        margin: 0 auto;
+      }
+    }
+    @media all and (max-width: 375px) {
+      .center-content {
+        width: 95%
+      }
+    }
+    @media all and (max-width: 320px) {
+      .center-content {
+        width: 100%
+      }
+    }
 
     .heading {
       h2 {
@@ -3915,8 +4436,19 @@ span.close {
 
     .contact-form {
       display: inline-block;
-      width: 640px;
+      width: 640px;      
       vertical-align: top;
+      @media all and (max-width: 1024px) {
+        width: 320px;
+      }
+
+      @media all and (max-width: 320px) {
+        width: 100%;
+      }
+
+      .center-text {
+        width: 100%;
+      }
 
       .each-field {
         display: inline-block;
@@ -3970,6 +4502,9 @@ span.close {
           font-size: 15px;
           margin-top: -15px;
           float: left;
+          @media all and (max-width: 1024px) {
+            margin-top: 8px;
+          }
         }
 
         .send {
@@ -4037,6 +4572,10 @@ span.close {
       vertical-align: top;
       margin-left: 95px;
 
+      @media all and (max-width: 1024px) {
+        margin-left: 15px;
+      }
+
       h5 {
         .brandon-grotesque-bold;
         font-size: 15px;
@@ -4082,14 +4621,21 @@ span.close {
 
 // FAQs
 
-.faqs {
+.faqs, .privacy-policy, .terms-and-condition {
   .container {
     padding: 0px;
-  }
+  }  
 
   .first-content {
     padding-top: 70px;
     padding-bottom: 70px;
+
+    @media all and (max-width: 620px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }      
+    }
 
     .heading {
       h3 {
@@ -4121,6 +4667,16 @@ span.close {
         margin-right: 45px;
         margin-bottom: 80px;
 
+        @media all and (max-width: 1024px) {
+          width: 320px;
+          margin-right: 0px;
+          margin-bottom: 50px;
+        }
+        @media all and (max-width: 420px) {
+          width: 100%;
+          margin-right: 0px;
+        }
+
         &:nth-of-type(3n) {
           margin-right: 0px;
         }
@@ -4141,6 +4697,9 @@ span.close {
           display: inline-block;
           vertical-align: top;
           margin-right: 68px;
+          @media all and (max-width: 420px) {
+            margin-right: 0px;
+          }
           li {
             .brandon-grotesque-regular;
             font-size: 16px;
@@ -4160,10 +4719,65 @@ span.close {
       }
     }
 
+    .policies {
+      .each-policy {
+        margin-bottom: 30px;
+        h5 {
+          .brandon-grotesque-bold;                
+          font-size: 16px;
+          line-height: 23px;
+          letter-spacing: 0.08em;
+          color: @black;
+          text-transform: uppercase;
+        }
+        hr.small {
+          border-top: 2px solid @black;
+          width: 40px;
+        }
+        p {
+          .brandon-grotesque-regular;
+          font-size: 16px;
+          line-height: 27px;
+          color: @grey;            
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    .terms {
+      .each-term {
+        margin-bottom: 30px;
+        h5 {
+          .brandon-grotesque-bold;                
+          font-size: 16px;
+          line-height: 23px;
+          letter-spacing: 0.08em;
+          color: @black;
+          text-transform: uppercase;
+        }
+        hr.small {
+          border-top: 2px solid @black;
+          width: 40px;
+        }
+        p {
+          .brandon-grotesque-regular;
+          font-size: 16px;
+          line-height: 27px;
+          color: @grey;            
+          margin-bottom: 15px;
+        }
+      }
+    }
+
     .side-menu {
       width: 320px;
       display: inline-block;        
       vertical-align: top;
+
+      @media all and (max-width: 420px) {
+        width: 100%;
+        text-align: center; 
+      }
 
       ul {
         li {
@@ -4194,9 +4808,17 @@ span.close {
       padding-left: 120px;   
       border-left: 1px solid #d7d7d7;
 
+      @media all and (max-width: 420px) {
+        width: 100%;
+        padding-left: 0px;
+        border-left: 0px;
+        margin-top: 50px;
+      }
+
       h5 {
         .brandon-grotesque-bold;
         font-size: 19px;
+        line-height: 23px;
         letter-spacing: 0.08em;
         color: @black;
       }
@@ -4211,6 +4833,11 @@ span.close {
           vertical-align: top;
           margin-right: 68px;
           margin-bottom: 15px;
+            
+          @media all and (max-width: 420px) {
+            margin-right: 0px;
+          }
+
           li {
             .brandon-grotesque-regular;
             font-size: 16px;
@@ -4225,6 +4852,14 @@ span.close {
         }
     }
   }
+}
+
+.privacy-policy {
+  margin-top: 50px;
+}
+
+.terms-and-condition {
+  margin-top: 50px;
 }
 
 //   _____ ___   ___ _____ _____ ____  
@@ -4242,6 +4877,10 @@ div#footer-wrapper {
     font-size: 16px;
     line-height: 22px;
     letter-spacing: 0.2em;
+
+    @media all and (max-width: 320px) {
+      font-size: 15px;
+    }
   }
 
   .links {
@@ -4264,6 +4903,12 @@ div#footer-wrapper {
             color: @white;
           }
         }
+      }
+      @media all and (max-width: 420px){
+        margin-right: 45px;
+      }
+      @media all and (max-width: 375p ){
+        margin-right: 30px;
       }
     }
   }
@@ -4360,7 +5005,26 @@ div#footer-wrapper {
     }    
   }
 
-  @media all and (max-width: 1200px) {
+  @media all and (max-width: 992px) {
+    .links {
+      float: none;
+    }
+    .mailing-list {
+      width: 100%;
+      float: none;
+      margin-top: 30px;
+      .mailing-list-form-container {
+        display: inline-block;
+        float: left;
+      }
+      .connect {
+        display: inline-block;
+        float: right;
+      }
+    }
+  }
+
+  @media all and (max-width: 420px) {
     .links {
       width: 100%;
       display: block;
@@ -4371,8 +5035,31 @@ div#footer-wrapper {
       width: 100%;
       display: block;
       float: none;
+      .mailing-list-form-container {
+        display: block;
+        float: none;
+      }
+      .connect {
+        display: block;
+        float: none;
+      }
     }
-    
+  } 
+
+  @media all and (max-width: 375px) {    
+    .mailing-list {
+      width: 100%;
+      display: block;
+      float: none;
+      .mailing-list-form-container {
+        display: block;
+        float: none;
+      }
+      .connect {
+        display: block;
+        float: none;
+      }
+    }
   }  
 }
 
@@ -4392,15 +5079,14 @@ div#copyright-wrapper {
     font-size: 13px;
     color: @light-grey;
     float: left;
-    line-height: 40px;
+    line-height: 16px;
+    margin-top: 10px;
   }
 
   ul {
-    float: right;
-
+    float: right;    
     li {
       display: inline-block;
-
       a {
         .brandon-grotesque-light;
         font-size: 11px;
@@ -4414,6 +5100,15 @@ div#copyright-wrapper {
         a {
           border-right: 0px; 
           padding-left: 10px;
+        }
+      }
+    }
+
+    @media all and (max-width: 1024px) {
+      float: none;
+      li {
+        a {
+          font-size: 10px;
         }
       }
     }

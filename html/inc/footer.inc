@@ -20,21 +20,25 @@
 						</ul>
 					</div>
 					<div class="mailing-list">
-						<h5>JOIN OUR MAILING LIST</h5>
+						<div class="form">
+							<h5>JOIN OUR MAILING LIST</h5>
 
-						<div class="form-group has-feedback">
-							<input type="text" name="email" placeholder="Your Email Address" />
-							<i class="fa fa-envelope-o subscribe-it"></i>
+							<div class="form-group has-feedback">
+								<input type="text" name="email" placeholder="Your Email Address" />
+								<i class="fa fa-envelope-o subscribe-it"></i>
+							</div>
 						</div>
-
-						<h5>CONNECT WITH US</h5>
-						<ul>
-							<li><a class="social facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a class="social twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a class="social instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a class="social pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
-							<li><a class="social googleplus" href="#"><i class="fa fa-google-plus"></i></a></li>
-						</ul>
+						
+						<div class="connect">
+							<h5>CONNECT WITH US</h5>
+							<ul>
+								<li><a class="social facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a class="social twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a class="social instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a class="social pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+								<li><a class="social googleplus" href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
