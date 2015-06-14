@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <title></title>
+  <meta name="viewport" content="width=device-width">
+  <style>
+  * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  body {
+    font-family: sans-serif;
+  }
+
+
+  /* ---- grid ---- */
+
+  .grid {
+    /*background: #DDD;*/
+    max-width: 680px;
+  }
+
+  /* clear fix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  /* ---- .grid-item ---- */
+
+  .grid-item {
+    float: left;
+    width: 215px;
+    height: 160px;
+    display: block;
+    margin-right: 5px;    
+  }
+  img {
+    width: 100%;
+  }
+
+  .grid-item--medium { 
+    width: 435px;     
+  }
+  .grid-item--large {     
+    height: 325px;
+  }
+
+  .inner {
+    display: table-cell;
+    padding-left: 25px;
+    // width: 100%;
+    // height: 100%;
+    width: 215px;
+    /*height: 160px;*/
+    background-color: #afc7cd;
+    vertical-align: middle;
+  }
+
+  i.globe {
+    background: url('images/icons/globe-icon.png') no-repeat;
+    display: block;
+    width: 34px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    /*.harriet-display-regular-italic;*/
+    font-size: 17px;
+    line-height: 22px;
+    color: @white;
+  }
+  .inner-2 {
+    display: table-cell;
+    padding-left: 30px;
+    width: 215px;
+    height: 160px;
+    vertical-align: bottom;
+  }
+
+  /*.grid-item--medium { 
+    width: 50%; 
+    height: 50%;
+  }*/
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/plugins/masonry.pkgd.min.js"></script>
+</head>
+<body>
+    <h1>Isotope - masonry layout mode</h1>
+
+  <!-- <div class="grid">
+    <div class="grid-item grid-item--large"></div>
+    <div class="grid-item grid-item--medium"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>    
+  </div> -->
+
+  <div id='grid'>
+    <div class="grid-item">
+      <div class="inner">
+        <i class="globe"></i>
+        <h4>See where people are travelling, all around Singapore.</h4>
+      </div>
+    </div>
+    <div class="grid-item"><img src="images/content/discover-1.png"></div>
+    <div class="grid-item grid-item--large"><img src="images/content/discover-2.png"></div>    
+    <div class="grid-item grid-item--medium"><img src="images/content/discover-3.png"></div>
+    <div class="grid-item"><img src="images/content/discover-4.png"></div>
+    <div class="grid-item"><img src="images/content/discover-5.png"></div>
+    <div class="grid-item">
+      <div class="inner-2">
+        <hr class="small">
+        <i class="fa fa-map-marker"></i>
+        <h5>You’ll follow your friends and make new ones as you discover the Strand destination.</h5>
+      </div>
+    </div>    
+  </div>
+
+
+</body>
+<script>
+  // external js: isotope.pkgd.js
+
+  $(document).ready( function() {
+    
+    var container = document.querySelector('#grid');
+      var msnry = new Masonry( container, {
+        columnWidth: 220,
+        itemSelector: '.mansonry-item'
+      });
+
+  });
+</script>
+</html>

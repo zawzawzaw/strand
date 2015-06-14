@@ -19,13 +19,13 @@
 
   /* ---- grid ---- */
 
-  .grid {
-    background: #DDD;
-    max-width: 100%;
+  #about-masonry {
+    /*background: #DDD;*/
+    max-width: 600px;
   }
 
   /* clear fix */
-  .grid:after {
+  .about-masonry:after {
     content: '';
     display: block;
     clear: both;
@@ -33,38 +33,36 @@
 
   /* ---- .grid-item ---- */
 
-  .grid-item {
+  .about-masonry-item {
     float: left;
     width: 50%;
-    height: 25%;
+    height: auto;
     display: block;
-    background: #0D8;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.7);
-    /*margin-right: 5px;*/
-    /*margin-bottom: 5px;*/
+    /*margin-bottom: 5px;    */
+  }
+  img {
+    width: 100%;
   }
 
-  .grid-item--large { 
-    width: 100%;
-    height: 50%; 
+  .large { 
+    width: 100%; height: auto;
   }
-  .grid-item--medium { 
-    width: 50%; 
-    height: 50%;
+  .medium { 
+    width: 49%; height: auto;
   }
 
   </style>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script src="js/plugins/masonry.pkgd.min.js"></script>
 </head>
 <body>
-    <h1>Isotope - masonry layout mode</h1>
 
-  <div class="grid">
-    <div class="grid-item grid-item--large"></div>
-    <div class="grid-item grid-item--medium"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>    
+  <div id='about-masonry'>
+    <div class="about-masonry-item large"><img src="images/content/about-1.jpg"></div>
+    <div class="about-masonry-item medium"><img src="images/content/about-2.jpg"></div>
+    <div class="about-masonry-item"><img src="images/content/about-3.jpg"></div>    
+    <div class="about-masonry-item"><img src="images/content/about-4.jpg"></div>
   </div>
 
 </body>
@@ -73,11 +71,13 @@
 
   $(document).ready( function() {
     
-    $('.grid').isotope({
-      itemSelector: '.grid-item',
-      masonry: {
-        columnWidth: 50
-      }
+    var $container = $('#about-masonry');
+
+    $container.imagesLoaded( function() {
+      $container.masonry({
+        columnWidth: 50,
+        itemSelector: '.about-masonry-item'
+      });
     });
 
   });

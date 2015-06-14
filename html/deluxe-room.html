@@ -241,11 +241,19 @@
 	<!--#include virtual="inc/footer.inc" -->
 
 	<script>
-	var container = document.querySelector('#rooms-masonry');
-	var msnry = new Masonry( container, {
-	  columnWidth: 50,
-	  itemSelector: '.rooms-masonry-item'
-	});
+	var $container = $('#rooms-masonry');
+
+    $container.imagesLoaded( function() {
+     $container.masonry({
+        columnWidth: 50,
+        itemSelector: '.rooms-masonry-item'
+     });
+    });
+	// var container = document.querySelector('#rooms-masonry');
+	// var msnry = new Masonry( container, {
+	//   columnWidth: 50,
+	//   itemSelector: '.rooms-masonry-item'
+	// });
 
 	$('.view-details').on('click', function(e){
 		// var that = $(this);
