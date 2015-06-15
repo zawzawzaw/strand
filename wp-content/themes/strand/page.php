@@ -16,12 +16,12 @@ $current_slug = get_post( $post )->post_name;
 
 <?php if($parent_slug=='whats-nearby'): ?>
 	<style>
-		#page-wrapper .slider-wrapper div.item div.carousel-caption {
+		/*#page-wrapper .slider-wrapper div.item div.carousel-caption {
 			width: 800px!important;
 		}
 		#page-wrapper .slider-wrapper div.item div.carousel-caption div.caption-text p {
 			width: 450px!important;
-		}
+		}*/
 	</style>
 <?php endif; ?>
 

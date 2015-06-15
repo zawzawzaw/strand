@@ -467,7 +467,7 @@ html, body {
   height:100%;
   margin:0;
   padding:0;
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     overflow-x: hidden;
   }
 }
@@ -789,6 +789,11 @@ html, body {
               background-color: #1E1E1E;
             }
           }
+          &:active {            
+            .nav-bar {
+              background-color: @white;
+            }
+          }
           .nav-bar {
             background-color: @white;
             border-radius: 1px;
@@ -908,7 +913,7 @@ html, body {
       height: 30px;
       background: url(../images/icons/down-arrow.png) no-repeat;
       background-size: contain;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         display: none!important;
       }
     }
@@ -959,7 +964,7 @@ html, body {
             text-shadow: none;
           }        
         }
-        @media all and (max-width: 1024px) {          
+        @media all and (max-width: 1200px) {          
           width: 450px!important;
           top: 18%!important;
           div.caption-text {
@@ -1308,7 +1313,7 @@ p {
   width: 1px;
   margin: 0 auto;
   margin-right: 50px;
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     border-left: 0px;
     border-bottom: 1px solid #ccc;
     height: 1px;
@@ -1324,6 +1329,8 @@ p {
   background-color: #eee;
   top: 0px;
   width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 span.close {
@@ -1474,7 +1481,7 @@ span.close {
               right: -17px;
               top: 18px;
             }
-            @media all and (max-width: 1024px) {              
+            @media all and (max-width: 1200px) {              
               &:after {
                 right: -8px;  
               }              
@@ -1484,7 +1491,7 @@ span.close {
             display: inline-block;
             margin-left: 22px;
             padding-top: 10px;
-            @media all and (max-width: 1024px) {              
+            @media all and (max-width: 1200px) {              
               margin-left: 9px;          
             }
           }
@@ -1565,7 +1572,6 @@ span.close {
       width: 680px;
       float: right;
       padding-left: 19px;
-      // .scale(0.4);
 
       .mansonry-item {
         width: 215px;
@@ -1580,12 +1586,10 @@ span.close {
       .mansonry-item.medium { 
         width: 435px; 
         // width: 65.5%; 
-        background: #A6E392
       }
       .mansonry-item.large {         
         // height: 64%;
         height: 325px; 
-        background: #D092E3
       }
 
       .inner {
@@ -1644,7 +1648,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -1673,10 +1677,43 @@ span.close {
         margin: 0 auto;
         text-align: center;
         padding-left: 0px;
-        // .scale(0.4);
+      }
+    }
+    @media all and (max-width: 420px) {
+      .img-content {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+        .mansonry-item {
+          width: 100%;
+          height: auto;        
+          float: left;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+
+        .mansonry-item.medium { 
+          width: 100%; 
+          display: none;
+        }
+        .mansonry-item.large {         
+          height: auto; 
+          display: none;
+        }
+        .inner,.inner-2 {
+          width: 100%;
+          height: auto;
+          padding: 18px;
+          h4, h5 {
+            text-align: left;
+          }
+        }
       }
     }
   }
+
+
 
   .whats-new {
     padding-top: 70px;
@@ -1790,7 +1827,7 @@ span.close {
           background-color: @black;
         }
       }
-    }
+    }    
 
     .whats-on {
       display: inline-block;
@@ -1833,7 +1870,7 @@ span.close {
         margin: 19px auto;
         display: block;
         text-align: center;
-        // @media all and (max-width: 1024px) {
+        // @media all and (max-width: 1200px) {
         //   display: block;
         // }
       }
@@ -1900,22 +1937,66 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
       } 
-      .img-content {
-        display: block;
-        width: 800px;
-        margin: 0 auto;
-        float: none;
-        margin-bottom: 30px;
-      }
       .whats-on {
         display: block;
         width: 100%;
         float: none;
+        margin-top: 30px;        
+      }   
+      .img-content {
+        display: block;
+        width: 800px;
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        padding-left: 0px;        
+      }
+    }
+    @media all and (max-width: 768px) {
+      .img-content {
+        display: block;
+        width: 680px;
+        float: none;
+        margin: 0 auto;
+        text-align: center;
+        padding-left: 0px;     
+
+        .mansonry-2-item.x-large { width: 100%; height: auto; display: none; }   
+      }
+    }
+    @media all and (max-width: 420px) {
+      .img-content {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+        .mansonry-2-item {
+          width: 100%;
+          height: auto;        
+          float: left;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+
+        .mansonry-2-item.thumb { width: 100%; height: auto; padding: 0px; padding-bottom: 10px; text-align: center; }
+        .mansonry-2-item.small { width: 100%; height: auto; display: none; }
+        .mansonry-2-item.medium { width: 100%; height: auto; }
+        .mansonry-2-item.large { width: 100%; height: auto; display: none; }
+        .mansonry-2-item.x-large { width: 100%; height: auto; display: none; }
+
+        .inner,.inner-2 {
+          width: 100%;
+          height: auto;
+          padding: 42px;
+          h4, h5 {
+            text-align: left;
+          }
+        }
       }
     }
   }
@@ -1970,6 +2051,7 @@ span.close {
         display: inline-block;
         margin-right: 30px;
         text-align: center;
+        vertical-align: top;
         &:last-child {
           margin-right: 0px;
         }
@@ -2020,7 +2102,7 @@ span.close {
           }
         }
       }          
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         .each-deal {
           width: 290px;          
           img {
@@ -2039,7 +2121,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -2068,7 +2150,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .caption {
         width: 450px;
       }
@@ -2185,6 +2267,13 @@ span.close {
       }      
     }
 
+    @media all and (max-width: 1200px) {
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
     @media all and (max-width: 420px) {
       .container {
         padding-left: 20px;
@@ -2224,14 +2313,7 @@ span.close {
         background: @dark-brown;
         text-align: left;
         padding-left: 40px;
-        padding-right: 40px;
-        @media all and (max-width: 1024px) {
-          left: auto!important;
-          right: 0px!important;
-        }
-        @media all and (max-width: 420px) {
-          display: none;
-        }
+        padding-right: 40px;        
         p {
           .harriet-display-light-italic;
           font-size: 13px;
@@ -2242,6 +2324,13 @@ span.close {
           width: 40px;
           margin-bottom: 15px;
           margin-top: 0px;
+        }
+        @media all and (max-width: 1200px) {
+          left: auto!important;
+          right: 0px!important;
+        }
+        @media all and (max-width: 420px) {
+          display: none;
         }
       }
       .carousel-control {
@@ -2290,7 +2379,7 @@ span.close {
       display: inline-block;
       width: 720px;
       margin-right: 10px;
-      vertical-align: middle;
+      vertical-align: middle;      
       
       .case {
         margin-bottom: 5px;
@@ -2353,6 +2442,52 @@ span.close {
       }
     }
 
+    @media all and (max-width: 1200px) {
+      .img-content {
+        display: block;
+        width: 720px;
+        margin: 0 auto;
+      }
+    }
+
+    @media all and (max-width: 420px) {
+      .img-content {
+        width: 100%!important;
+        img {
+          width: 100%;
+        }
+        .rooms-masonry-item {
+          width: 100%;
+          height: auto;        
+          float: left;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+
+        .rooms-masonry-item.medium { 
+          width: 100%; 
+          display: none;
+        }
+        .rooms-masonry-item.large {         
+          height: auto; 
+          display: none;
+        }
+        .rooms-masonry-item.small { width: 100%; height: auto; display: none; }
+        .rooms-masonry-item.small-2 { width: 100%; height: auto; display: none; }
+        .inner,.inner-2 {
+          width: 100%;
+          height: auto;
+          padding: 42px;
+          img {
+            width: auto;
+          }
+          h5 {
+            text-align: left;
+          }
+        }
+      }
+    }
+
     .ultimate-experience {
       display: inline-block;
       width: 440px;
@@ -2363,7 +2498,7 @@ span.close {
       padding: 45px 40px;
       vertical-align: middle;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 100%;
         margin-top: 30px;
       }
@@ -2424,7 +2559,7 @@ span.close {
     height: 650px;
     position: relative;
 
-    @media all and (max-width: 420px) {
+    @media all and (max-width: 992px) {
       height: 100%;
       padding-top: 70px;
       padding-bottom: 70px;
@@ -2437,22 +2572,31 @@ span.close {
     .col-md-12 {
       display: table;
       height: 650px;
+
+      @media all and (max-width: 992px) {
+        display: block;
+        height: 100%;
+      }
     }
 
     .rooms-list { 
       display: table-cell;
       vertical-align: middle;
+      @media all and (max-width: 992px) {
+        display: block;
+      }
       .each-room {
         width: 370px;
         display: inline-block;        
         margin-right: 30px;
         text-align: center;
+        vertical-align: top;
 
         &:last-child {
           margin-right: 0px;
         }
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 303px;
           img {
             width: 100%;
@@ -2462,14 +2606,18 @@ span.close {
           }      
         }
 
-        @media all and (max-width: 420px) {
-          width: 100%;
+        @media all and (max-width: 992px) {
+          width: 50%;
           display: block;
           margin: 0 auto;
           margin-bottom: 30px;
           img {
             width: 90%;
           }              
+        }   
+
+        @media all and (max-width: 420px) {
+          width: 100%;   
         }        
 
         h3 {
@@ -2500,7 +2648,7 @@ span.close {
           padding-right: 25px;
           padding-left: 25px;
           margin-top: -4px;
-          @media all and (max-width: 420px) {
+          @media all and (max-width: 992px) {
             width: 90%;
             margin: 0 auto;
             margin-top: -4px;
@@ -2541,10 +2689,7 @@ span.close {
         position: relative;
         vertical-align: top;
         padding: 30px 35px;
-        vertical-align: top;
-        @media all and (max-width: 420px) {
-          width: 100%;
-        }
+        vertical-align: top;        
 
         &:before {
           content: " ";
@@ -2591,6 +2736,11 @@ span.close {
           color: @grey;
           text-align: center;
           margin-top: 25px;
+        }
+
+        .inputs {
+          display: block;
+          text-align: center;
         }
 
         fieldset {
@@ -2674,24 +2824,31 @@ span.close {
             background-color: @black;
           }
         }
+
+        @media all and (max-width: 992px) {
+          width: 100%;
+
+          // .arrival {
+          //   display: block;
+          //   margin: 0 auto!important;
+          // }
+          // .departure {
+          //   display: block;
+          //   margin: 0 auto!important;
+          //   margin-top: 30px!important;
+          // }
+        }
+
+        @media all and (max-width: 420px) {
+          width: 100%;
+        }
       }
 
       .deluxe-room-info {
         display: inline-block;
         width: 740px;
         vertical-align: top;
-        margin-left: 90px;
-
-        @media all and (max-width: 1024px) {
-          width: 540px;
-          margin-left: 60px;
-        }
-
-        @media all and (max-width: 420px) {
-          width: 100%;
-          margin-left: 0px;
-          margin-top: 50px;
-        }
+        margin-left: 90px;       
 
         h3 {
           .brandon-grotesque-bold;
@@ -2745,8 +2902,22 @@ span.close {
               color: @grey;
               display: inline-block;
               padding-left: 30px;
+              @media all and (max-width: 420px) {
+                padding-left: 0px;
+              }
             }
           }
+        }
+
+        @media all and (max-width: 1200px) {
+          width: 490px;
+          margin-left: 60px;
+        }
+
+        @media all and (max-width: 992px) {
+          width: 100%;
+          margin-left: 0px;
+          margin-top: 50px;
         }
       }
     }
@@ -2780,10 +2951,6 @@ span.close {
         padding: 30px 35px;
         vertical-align: top;
 
-        @media all and (max-width: 1024px) {
-          text-align: left;
-        }
-
         &:before {
           content: " ";
           position: absolute;
@@ -2800,18 +2967,25 @@ span.close {
           display: inline-block;
           margin-right: 55px;
           vertical-align: top;
-          @media all and (max-width: 1024px) {
-            margin-right: 19px;
+          
+          &:after {
+            content: '';
+            display: block;
+            clear: both;
           }
+
           .rooms-masonry-item {
             width: 250px;
             height: 171px;
             float: left;
-            // margin-right: 5px;
             margin-bottom: 10px;
+            img {
+              width: 100%;
+            }
           }
 
           .rooms-masonry-item.large { width: 240px; height: 350px; }
+
           p {
             text-align: left;
             .harriet-display-light-italic;
@@ -2821,13 +2995,33 @@ span.close {
           }
         }
 
+        @media all and (max-width: 1200px) {
+          .img-content {
+            width: 500px;
+            margin: 0 auto;
+            display: block;            
+          } 
+        }
+
+        @media all and (max-width: 420px) {
+          text-align: left;
+          .img-content {
+            margin-bottom: 20px;
+            .rooms-masonry-item {
+              width: 100%;
+              height: auto!important;
+            }
+          }
+        }
+
         .feature-details {
           width: 540px;
           display: inline-block;
           vertical-align: top;
 
-          @media all and (max-width: 1024px) {
-            width: 380px;
+          @media all and (max-width: 1200px) {
+            width: 100%;
+            margin-top: 30px;
           }
           @media all and (max-width: 420px) {
             width: 100%;
@@ -2912,7 +3106,7 @@ span.close {
                 width: 510px;
                 vertical-align: top;
                 padding-left: 10px;
-                @media all and (max-width: 1024px) {
+                @media all and (max-width: 1200px) {
                   width: 100%;
                 }
               }
@@ -3013,30 +3207,38 @@ span.close {
 
       .about-masonry-item {
         float: left;
-        width: 300px;
+        width: 50%;
         height: 195px;
         // margin-right: 10px;
         margin-bottom: 5px;
-        background-color: @dark-blue;
-      }
+        /*background-color: @dark-blue;*/
 
-      .about-masonry-item.large { width: 600px; height: 380px; }      
-      .about-masonry-item.medium { width: 295px; height: 395px; }      
+        &.large { 
+          width: 100%; 
+          height: 380px; 
+        }      
+        &.medium { 
+          width: 49%; 
+          height: 395px; 
+        }      
+      }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       margin-top: 70px;
       margin-bottom: 70px;
+
       .container {
         padding-left: 20px;
         padding-right: 20px;
       }
-
+      
       .text-content {
         display: block;
         width: 100%;
         margin-bottom: 70px;
       }
+
       .img-content {
         display: block;
         width: 600px;
@@ -3045,6 +3247,7 @@ span.close {
     }
 
     @media all and (max-width: 420px) {
+      
       .text-content {
         h3 {
           font-size: 13px;          
@@ -3064,6 +3267,27 @@ span.close {
         }
         p {
           font-size: 15px;
+        }        
+      }
+
+      .img-content {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        img {
+          width: 100%;
+        }
+        .about-masonry-item {
+          width: 100%;
+          height: auto;
+          &.large { 
+            height: auto;
+          }
+          &.medium { 
+            width: 100%;
+            height: auto;
+            display: none;
+          }          
         }
       }
     }
@@ -3088,7 +3312,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .caption {
         width: 450px;
       }
@@ -3178,7 +3402,7 @@ span.close {
             top: -33px;
             right: -35px;
 
-            @media all and (max-width: 1024px) {
+            @media all and (max-width: 1200px) {
               top: -55px;
               right: -1px;
             }
@@ -3291,7 +3515,7 @@ span.close {
       vertical-align: middle;
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .img-content {
         width: 440px;
         img {
@@ -3300,7 +3524,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 414px) {
+    @media all and (max-width: 992px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -3317,6 +3541,7 @@ span.close {
       .img-content {
         width: 100%;
         padding: 0px;
+        margin-bottom: 30px;
         img {
           width: 100%;          
         }
@@ -3332,7 +3557,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3383,7 +3608,7 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 80%;
         display: block;
         margin: 0 auto;
@@ -3411,10 +3636,10 @@ span.close {
         display: inline-block;
         width: 390px;
         text-align: center;
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 305px;
         }
-        @media all and (max-width: 420px) {
+        @media all and (max-width: 992px) {
           width: 100%;
           margin-bottom: 50px;
         }
@@ -3491,7 +3716,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3514,8 +3739,35 @@ span.close {
               position: absolute;
               top: -22px;
               right: -90px;
+              @media all and (max-width: 992px) {
+                content: "";
+                background: none;
+              }
             }
           }
+        }
+      }
+
+      &:nth-child(2n) {
+        border: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+
+        .extra-content {
+          .img-content {
+            @media all and (max-width: 1200px) {            
+              margin-right: 25px;
+              vertical-align: middle;
+              width: 480px;      
+            }    
+            @media all and (max-width: 992px) {
+              width: 30%;
+            }
+          }
+        }
+
+        &:after {
+          border: 0px;
         }
       }
 
@@ -3527,7 +3779,7 @@ span.close {
         width: 100%;
         position: relative;
         top: 77px;
-      } 
+      }
 
       .actual-content {       
         padding-bottom: 50px;
@@ -3538,13 +3790,14 @@ span.close {
           // float: left;
           vertical-align: middle;    
 
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             margin-right: 45px;
             width: 250px;
           }
 
-          @media all and (max-width: 420px) {
+          @media all and (max-width: 992px) {
             width: 100%;
+            margin-bottom: 30px;
           }
 
           h3 {
@@ -3634,6 +3887,10 @@ span.close {
           img {
             width: 100%;
           }
+
+          @media all and (max-width: 992px) {
+            width: 100%;
+          }
         } 
       }
 
@@ -3644,12 +3901,19 @@ span.close {
           vertical-align: middle;           
           
           img {
-            margin-right: 20px;
-            @media all and (max-width: 1024px) {
+            margin-right: 20px;            
+          }
+
+          @media all and (max-width: 1200px) {
+            img {
               width: 100%;
               display: block;
               margin-bottom: 30px;
-            }
+            }            
+          }
+
+          @media all and (max-width: 992px) {
+            width: 30%;         
           }
 
           @media all and (max-width: 420px) {            
@@ -3664,7 +3928,11 @@ span.close {
           display: inline-block;
           width: 430px;
           vertical-align: middle;
-          position: relative;         
+          position: relative;    
+
+          @media all and (max-width: 992px) {
+            width: 60%;
+          }
 
           @media all and (max-width: 420px) {       
             width: 100%;
@@ -3739,28 +4007,7 @@ span.close {
             }
           }
         }
-      }     
-
-      &:nth-child(2n) {
-        border: 0px;
-        padding-bottom: 0px;
-        margin-bottom: 0px;
-
-        .extra-content {
-          .img-content {
-            @media all and (max-width: 1024px) {            
-              margin-right: 25px;
-              vertical-align: middle;
-              width: 480px;      
-            }            
-          }
-        }
-
-        &:after {
-          border: 0px;
-        }
-      }
-
+      }          
     }
   }
 
@@ -3771,7 +4018,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3800,6 +4047,9 @@ span.close {
     }
 
     .shopping-spots {
+      @media all and (max-width: 992px) {
+        text-align: center;
+      }
       .each-shopping-spot {
         width: 371px;
         display: inline-block;
@@ -3808,8 +4058,13 @@ span.close {
         vertical-align: top;
         // border: 1px solid #e1e1e1;
         background: @white;
-        @media all and (max-width: 1024px) {
-          width: 300px;
+        @media all and (max-width: 1200px) {
+          width: 31%;
+        }
+        @media all and (max-width: 992px) {
+          width: 50%;
+          margin-bottom: 30px;
+          margin-right: 0px;
         }
         @media all and (max-width: 420px) {
           width: 100%;
@@ -3823,7 +4078,7 @@ span.close {
 
         img {
           margin-bottom: 30px;
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             width: 100%;
           }
         }
@@ -3921,7 +4176,7 @@ span.close {
     padding: 0px;
   }
 
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     .container {
       padding-left: 20px;
       padding-right: 20px;
@@ -4004,13 +4259,16 @@ span.close {
           vertical-align: middle;
         } 
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
+            img {
+              width: 100%;
+            }
           } 
         }
 
-        @media all and (max-width: 420px) {
+        @media all and (max-width: 992px) {
           padding-bottom: 10px;
           .text-content {
             display: block;
@@ -4033,10 +4291,19 @@ span.close {
           margin-right: 40px;
           vertical-align: middle;
           img {
-            margin-right: 20px;
-            @media all and (max-width: 1024px) {
+            margin-right: 20px;            
+          }
+          @media all and (max-width: 1200px) {
+            width: 400px;
+            img {
               margin-bottom: 10px;
             }            
+          }            
+          @media all and (max-width: 992px) {
+            width: 30%;
+            img {
+              width: 100%;
+            }
           }
           @media all and (max-width: 420px) {
             width: 100%;
@@ -4125,6 +4392,10 @@ span.close {
             }
           }
 
+          @media all and (max-width: 992px) {
+            width: 60%;
+          }
+
           @media all and (max-width: 420px) {
             width: 100%;
             display: block;
@@ -4167,15 +4438,15 @@ span.close {
         margin-right: 20px;
       }
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         display: inline-block;
         margin-right: 50px;
         width: 400px;
         img {
           width: 100%;
         }
-      }
-      @media all and (max-width: 420px) {
+      }      
+      @media all and (max-width: 992px) {
         width: 100%;
       }
     }
@@ -4195,10 +4466,6 @@ span.close {
         position: absolute;
         top: -50px;
         right: -70px;
-        @media all and (max-width: 420px) {
-          content: "";
-          background: none;
-        }
       }
 
       h3 {
@@ -4237,13 +4504,19 @@ span.close {
         color: @grey;
         text-align: left;
         margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0px;
+        }
       }
 
-      @media all and (max-width: 420px) {
+      @media all and (max-width: 992px) {
         width: 100%;
         height: 100%;
         padding-top: 30px;
-        padding-bottom: 30px;
+        &:after {
+          content: "";
+          background: none;
+        }
       }   
     }
   }
@@ -4254,7 +4527,7 @@ span.close {
         .text-content {
           margin-right: 45px;
         }
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
             img {
@@ -4262,7 +4535,7 @@ span.close {
             }
           }
         }
-        @media all and (max-width: 420px) {
+        @media all and (max-width: 992px) {
           .text-content {
             margin-bottom: 30px;
           }
@@ -4278,13 +4551,22 @@ span.close {
         .text-content {
           height: 250px;
         }
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
             img {
               width: 100%;
             }
           }
+        }
+        @media all and (max-width: 992px) {
+          .text-content {
+            width: 60%;
+            height: 100%;
+          }
+          .img-content {
+            width: 30%;
+          }          
         }
         @media all and (max-width: 420px) {
           .img-content {
@@ -4321,7 +4603,7 @@ span.close {
     padding-top: 70px;
     padding-bottom: 70px;    
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -4373,7 +4655,7 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 85%;
         display: block;
         margin: 0 auto;
@@ -4396,7 +4678,7 @@ span.close {
     // padding-top: 70px;
     padding-bottom: 70px;    
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -4438,13 +4720,13 @@ span.close {
       display: inline-block;
       width: 640px;      
       vertical-align: top;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 320px;
       }
 
-      @media all and (max-width: 320px) {
+      @media all and (max-width: 992px) {
         width: 100%;
-      }
+      }      
 
       .center-text {
         width: 100%;
@@ -4455,6 +4737,10 @@ span.close {
         float: left;
         margin-bottom: 20px;
         margin-right: 39px;
+        @media all and (max-width: 992px) {
+          display: block;
+          width: 100%;
+        }
 
         &.last {
           display: block;
@@ -4476,6 +4762,9 @@ span.close {
           width: 300px!important;      
           background: none;
           border: 1px solid #d7d7d7!important;    
+          @media all and (max-width: 992px) {
+            width: 100%!important;
+          }
         }
 
         .dropdown {
@@ -4502,7 +4791,7 @@ span.close {
           font-size: 15px;
           margin-top: -15px;
           float: left;
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             margin-top: 8px;
           }
         }
@@ -4560,7 +4849,7 @@ span.close {
         }
 
         textarea#message {
-          width: 100%!important;
+          // width: 100%!important;
           display: block;
           padding-top: 5px;
         }
@@ -4572,7 +4861,7 @@ span.close {
       vertical-align: top;
       margin-left: 95px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         margin-left: 15px;
       }
 
@@ -4630,7 +4919,7 @@ span.close {
     padding-top: 70px;
     padding-bottom: 70px;
 
-    @media all and (max-width: 620px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -4667,10 +4956,14 @@ span.close {
         margin-right: 45px;
         margin-bottom: 80px;
 
-        @media all and (max-width: 1024px) {
-          width: 320px;
+        @media all and (max-width: 1200px) {
+          width: 33%;
           margin-right: 0px;
           margin-bottom: 50px;
+        }
+        @media all and (max-width: 992px) {
+          width: 49%;
+          margin-right: 0px;
         }
         @media all and (max-width: 420px) {
           width: 100%;
@@ -4907,7 +5200,7 @@ div#footer-wrapper {
       @media all and (max-width: 420px){
         margin-right: 45px;
       }
-      @media all and (max-width: 375p ){
+      @media all and (max-width: 375px){
         margin-right: 30px;
       }
     }
@@ -5104,7 +5397,7 @@ div#copyright-wrapper {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       float: none;
       li {
         a {

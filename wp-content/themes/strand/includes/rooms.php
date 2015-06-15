@@ -46,33 +46,35 @@
         <?php get_template_part( 'content', 'room-slider' ); ?>
 
         <div class="second-content">
-          <div id="rooms-masonry" class="img-content">
-            <div class="rooms-masonry-item">
-              <div class="inner">
-                <?php foreach ( $ultimateExperienceIcons as $ultimateExperienceIcon ): ?>
-                  <img src="<?php echo $ultimateExperienceIcon['full_url']; ?>  " class="case" />                
-                <?php endforeach; ?>
-                <?php echo $ultimateExperienceHTML; ?>  
+          <div class="img-content">
+            <div id="rooms-masonry">
+              <div class="rooms-masonry-item">
+                <div class="inner">
+                  <?php foreach ( $ultimateExperienceIcons as $ultimateExperienceIcon ): ?>
+                    <img src="<?php echo $ultimateExperienceIcon['full_url']; ?>  " class="case" />                
+                  <?php endforeach; ?>
+                  <?php echo $ultimateExperienceHTML; ?>  
+                </div>
+                
               </div>
-              
-            </div>
-            <?php
-              $i = 0;
-              foreach ( $images as $image )
-              {               
-                if($i==0) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
-                elseif($i==1) echo "<div class='rooms-masonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=220&zc=0'></div>"; 
-                elseif($i==2) echo "<div class='rooms-masonry-item medium'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=230&zc=0'></div>";
-                elseif($i==3) echo "<div class='rooms-masonry-item small-2'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=160&w=230&zc=0'></div>"; 
-                elseif($i==4) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
-                elseif($i==5) echo "<div class='rooms-masonry-item small'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=220&zc=0'></div>"; 
-                else echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>";                     
-                $i++;
-              }
-            ?>
-            <div class="rooms-masonry-item small">
-              <div class="inner-2">
-                <?php echo $ultimateExperienceHTML2; ?>
+              <?php
+                $i = 0;
+                foreach ( $images as $image )
+                {               
+                  if($i==0) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
+                  elseif($i==1) echo "<div class='rooms-masonry-item large'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=220&zc=0'></div>"; 
+                  elseif($i==2) echo "<div class='rooms-masonry-item medium'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=340&w=230&zc=0'></div>";
+                  elseif($i==3) echo "<div class='rooms-masonry-item small-2'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=160&w=230&zc=0'></div>"; 
+                  elseif($i==4) echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>"; 
+                  elseif($i==5) echo "<div class='rooms-masonry-item small'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=220&zc=0'></div>"; 
+                  else echo "<div class='rooms-masonry-item'><img src='".get_home_url().'/timthumb.php?src='.$image['full_url']."&h=170&w=230&zc=0'></div>";                     
+                  $i++;
+                }
+              ?>
+              <div class="rooms-masonry-item small">
+                <div class="inner-2">
+                  <?php echo $ultimateExperienceHTML2; ?>
+                </div>
               </div>
             </div>
           </div>

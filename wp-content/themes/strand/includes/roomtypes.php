@@ -55,24 +55,26 @@
 						<h4><?php echo $checkAvailabilityH4; ?></h4>
 						<h3><?php echo $checkAvailabilityH3; ?></h3>
 						<hr class="small"></hr>
-						<fieldset class="arrival">
-						    <legend class="arrival">ARRIVAL</legend>
-						    <input type="text" id="arrival-datepicker">
-						    <a href="#" class="select-date">Select a date</a>
-						    <div class="selected-date">
-							    <span class="month">April</span>
-							    <span class="day">21</span>
-						    </div>
-						</fieldset>
-						<fieldset class="departure">
-						    <legend class="departure">DEPARTURE</legend>
-						    <input type="text" id="departure-datepicker">
-						    <a href="#" class="select-date">Select a date</a>
-						    <div class="selected-date">
-							    <span class="month">April</span>
-							    <span class="day">23</span>
-						    </div>
-						</fieldset>
+						<div class="inputs">
+							<fieldset class="arrival">
+							    <legend class="arrival">ARRIVAL</legend>
+							    <input type="text" id="arrival-datepicker">
+							    <a href="#" class="select-date">Select a date</a>
+							    <div class="selected-date">
+								    <span class="month">April</span>
+								    <span class="day">21</span>
+							    </div>
+							</fieldset>
+							<fieldset class="departure">
+							    <legend class="departure">DEPARTURE</legend>
+							    <input type="text" id="departure-datepicker">
+							    <a href="#" class="select-date">Select a date</a>
+							    <div class="selected-date">
+								    <span class="month">April</span>
+								    <span class="day">23</span>
+							    </div>
+							</fieldset>
+						</div>
 
 						<p><?php echo $checkAvailabilityP; ?></p>
 

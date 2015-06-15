@@ -104,10 +104,63 @@ $(document).ready(function(){
         $(this).parent().find(".hasDatepicker").datepicker("show");
     });    
 
+    $(".selected-date").on('click', function(e){
+        e.preventDefault();
+        $(this).parent().find(".hasDatepicker").datepicker("show");
+    });    
+
     $(".check-availability").on('click', function(e){
         e.preventDefault();
-        // checkAvailability('WBE');
-        $('#reservation-form').submit();
+        var checkInUserInput = $('.check-in-input').val();
+        var checkOutUserInput = $('.check-out-input').val();
+        var valid = false;
+        var errMsg;
+
+        var checkInDateArr = checkInUserInput.split('/');
+        var checkOutDateArr = checkOutUserInput.split('/');
+        var currentDate = new Date();
+
+        var checkInDate = new Date(checkInDateArr[2], checkInDateArr[1] - 1, checkInDateArr[0], currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds());
+        var checkOutDate = new Date(checkOutDateArr[2], checkOutDateArr[1] - 1, checkOutDateArr[0], currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds());
+
+        var checkInAdvacedDate = new Date(); checkInAdvacedDate.setHours(0,0,0,0); checkInAdvacedDate.setHours(checkInAdvacedDate.getHours()+24);
+
+        var adults = $( "#adults" ).val();  
+        var children = $( "#children" ).val();        
+
+        if(adults=="" || isNaN(adults) || adults <= 0) {
+            valid = false; 
+            errMsg = "Enter no of guest for booking.";
+        }
+        else if(children!="" && isNaN(children)) {
+            valid = false;
+            errMsg = "Enter valid no of children for booking.";
+        }
+        else if(checkInUserInput=="") {
+            valid = false;
+            errMsg = "Enter valid check in date.";
+        }
+        else if(checkOutUserInput=="") {
+            valid = false;
+            errMsg = "Enter valid check out date.";
+        }
+        else if(checkInDate < checkInAdvacedDate) {
+            valid = false;
+            errMsg = "Reservations cannot be made 24 hours before arrival.";
+        }
+        else if (checkInDate >= checkOutDate) {
+            valid = false;
+            errMsg = "Check in date must be before check out date.";
+        }else {
+            valid = true;   
+            errMsg = "";
+        }
+
+        if(!valid) {
+            alert(errMsg);
+        }else {
+            $('#reservation-form').submit();
+        }
     });
 
     $(".room-page-select-date").on('click', function(e){
@@ -116,9 +169,9 @@ $(document).ready(function(){
     });    
 
     $(".room-page-check-availability").on('click', function(e){
+        e.preventDefault();
         $( "#adults" ).val('1');
-        // checkAvailability('WBE');
-        $('#reservation-form').submit();
+        $(".check-availability").trigger('click');
         
     });
 
