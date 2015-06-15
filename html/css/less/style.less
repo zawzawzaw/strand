@@ -467,7 +467,7 @@ html, body {
   height:100%;
   margin:0;
   padding:0;
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     overflow-x: hidden;
   }
 }
@@ -908,7 +908,7 @@ html, body {
       height: 30px;
       background: url(../images/icons/down-arrow.png) no-repeat;
       background-size: contain;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         display: none!important;
       }
     }
@@ -959,7 +959,7 @@ html, body {
             text-shadow: none;
           }        
         }
-        @media all and (max-width: 1024px) {          
+        @media all and (max-width: 1200px) {          
           width: 450px!important;
           top: 18%!important;
           div.caption-text {
@@ -1308,7 +1308,7 @@ p {
   width: 1px;
   margin: 0 auto;
   margin-right: 50px;
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     border-left: 0px;
     border-bottom: 1px solid #ccc;
     height: 1px;
@@ -1474,7 +1474,7 @@ span.close {
               right: -17px;
               top: 18px;
             }
-            @media all and (max-width: 1024px) {              
+            @media all and (max-width: 1200px) {              
               &:after {
                 right: -8px;  
               }              
@@ -1484,7 +1484,7 @@ span.close {
             display: inline-block;
             margin-left: 22px;
             padding-top: 10px;
-            @media all and (max-width: 1024px) {              
+            @media all and (max-width: 1200px) {              
               margin-left: 9px;          
             }
           }
@@ -1644,7 +1644,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -1821,7 +1821,7 @@ span.close {
           background-color: @black;
         }
       }
-    }
+    }    
 
     .whats-on {
       display: inline-block;
@@ -1864,7 +1864,7 @@ span.close {
         margin: 19px auto;
         display: block;
         text-align: center;
-        // @media all and (max-width: 1024px) {
+        // @media all and (max-width: 1200px) {
         //   display: block;
         // }
       }
@@ -1931,7 +1931,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -1947,6 +1947,26 @@ span.close {
         display: block;
         width: 100%;
         float: none;
+      }
+    }
+
+    @media all and (max-width: 420px) {
+      .img-content {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+        .mansonry-2-item {
+          width: 100%!important;
+          height: auto!important;       
+          float: left;
+          margin-right: 5px;
+          margin-bottom: 5px;
+        }
+        .inner {
+          width: 100%!important;
+          height: auto!important;
+        }
       }
     }
   }
@@ -2051,7 +2071,7 @@ span.close {
           }
         }
       }          
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         .each-deal {
           width: 290px;          
           img {
@@ -2070,7 +2090,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -2099,7 +2119,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .caption {
         width: 450px;
       }
@@ -2256,7 +2276,7 @@ span.close {
         text-align: left;
         padding-left: 40px;
         padding-right: 40px;
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           left: auto!important;
           right: 0px!important;
         }
@@ -2394,7 +2414,7 @@ span.close {
       padding: 45px 40px;
       vertical-align: middle;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 100%;
         margin-top: 30px;
       }
@@ -2483,7 +2503,7 @@ span.close {
           margin-right: 0px;
         }
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 303px;
           img {
             width: 100%;
@@ -2713,8 +2733,13 @@ span.close {
         vertical-align: top;
         margin-left: 90px;
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 540px;
+          margin-left: 60px;
+        }
+
+        @media all and (max-width: 992px) {
+          width: 440px;
           margin-left: 60px;
         }
 
@@ -2811,7 +2836,7 @@ span.close {
         padding: 30px 35px;
         vertical-align: top;
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           text-align: left;
         }
 
@@ -2831,10 +2856,10 @@ span.close {
           display: inline-block;
           margin-right: 55px;
           vertical-align: top;
-          @media all and (max-width: 1024px) {
+          /*@media all and (max-width: 1200px) {
             width: 100%;
             margin-right: 19px;
-          }
+          }*/
           
           &:after {
             content: '';
@@ -2881,7 +2906,7 @@ span.close {
           display: inline-block;
           vertical-align: top;
 
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             width: 100%;
           }
           @media all and (max-width: 420px) {
@@ -2967,7 +2992,7 @@ span.close {
                 width: 510px;
                 vertical-align: top;
                 padding-left: 10px;
-                @media all and (max-width: 1024px) {
+                @media all and (max-width: 1200px) {
                   width: 100%;
                 }
               }
@@ -3163,7 +3188,7 @@ span.close {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .caption {
         width: 450px;
       }
@@ -3253,7 +3278,7 @@ span.close {
             top: -33px;
             right: -35px;
 
-            @media all and (max-width: 1024px) {
+            @media all and (max-width: 1200px) {
               top: -55px;
               right: -1px;
             }
@@ -3366,7 +3391,7 @@ span.close {
       vertical-align: middle;
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .img-content {
         width: 440px;
         img {
@@ -3407,7 +3432,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3458,7 +3483,7 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 80%;
         display: block;
         margin: 0 auto;
@@ -3486,7 +3511,7 @@ span.close {
         display: inline-block;
         width: 390px;
         text-align: center;
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 305px;
         }
         @media all and (max-width: 420px) {
@@ -3566,7 +3591,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3613,7 +3638,7 @@ span.close {
           // float: left;
           vertical-align: middle;    
 
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             margin-right: 45px;
             width: 250px;
           }
@@ -3720,7 +3745,7 @@ span.close {
           
           img {
             margin-right: 20px;
-            @media all and (max-width: 1024px) {
+            @media all and (max-width: 1200px) {
               width: 100%;
               display: block;
               margin-bottom: 30px;
@@ -3823,7 +3848,7 @@ span.close {
 
         .extra-content {
           .img-content {
-            @media all and (max-width: 1024px) {            
+            @media all and (max-width: 1200px) {            
               margin-right: 25px;
               vertical-align: middle;
               width: 480px;      
@@ -3846,7 +3871,7 @@ span.close {
 
     .container {
       padding: 0px;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -3883,7 +3908,7 @@ span.close {
         vertical-align: top;
         // border: 1px solid #e1e1e1;
         background: @white;
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 300px;
         }
         @media all and (max-width: 420px) {
@@ -3898,7 +3923,7 @@ span.close {
 
         img {
           margin-bottom: 30px;
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             width: 100%;
           }
         }
@@ -3996,7 +4021,7 @@ span.close {
     padding: 0px;
   }
 
-  @media all and (max-width: 1024px) {
+  @media all and (max-width: 1200px) {
     .container {
       padding-left: 20px;
       padding-right: 20px;
@@ -4079,7 +4104,7 @@ span.close {
           vertical-align: middle;
         } 
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
           } 
@@ -4109,7 +4134,7 @@ span.close {
           vertical-align: middle;
           img {
             margin-right: 20px;
-            @media all and (max-width: 1024px) {
+            @media all and (max-width: 1200px) {
               margin-bottom: 10px;
             }            
           }
@@ -4242,7 +4267,7 @@ span.close {
         margin-right: 20px;
       }
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         display: inline-block;
         margin-right: 50px;
         width: 400px;
@@ -4329,7 +4354,7 @@ span.close {
         .text-content {
           margin-right: 45px;
         }
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
             img {
@@ -4353,7 +4378,7 @@ span.close {
         .text-content {
           height: 250px;
         }
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           .img-content {
             width: 400px;
             img {
@@ -4396,7 +4421,7 @@ span.close {
     padding-top: 70px;
     padding-bottom: 70px;    
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -4448,7 +4473,7 @@ span.close {
       overflow: visible!important;
       // padding: 32px 22px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 85%;
         display: block;
         margin: 0 auto;
@@ -4471,7 +4496,7 @@ span.close {
     // padding-top: 70px;
     padding-bottom: 70px;    
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       .container {
         padding-left: 20px;
         padding-right: 20px;
@@ -4513,7 +4538,7 @@ span.close {
       display: inline-block;
       width: 640px;      
       vertical-align: top;
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         width: 320px;
       }
 
@@ -4577,7 +4602,7 @@ span.close {
           font-size: 15px;
           margin-top: -15px;
           float: left;
-          @media all and (max-width: 1024px) {
+          @media all and (max-width: 1200px) {
             margin-top: 8px;
           }
         }
@@ -4647,7 +4672,7 @@ span.close {
       vertical-align: top;
       margin-left: 95px;
 
-      @media all and (max-width: 1024px) {
+      @media all and (max-width: 1200px) {
         margin-left: 15px;
       }
 
@@ -4742,7 +4767,7 @@ span.close {
         margin-right: 45px;
         margin-bottom: 80px;
 
-        @media all and (max-width: 1024px) {
+        @media all and (max-width: 1200px) {
           width: 320px;
           margin-right: 0px;
           margin-bottom: 50px;
@@ -5179,7 +5204,7 @@ div#copyright-wrapper {
       }
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 1200px) {
       float: none;
       li {
         a {
