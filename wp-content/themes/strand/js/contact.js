@@ -199,7 +199,7 @@ $(document).ready(function(){
 			return new google.maps.LatLng(lat, lng);
 		}
 
-		var StrandLatlng = setMarkerLatLng(1.298447,103.850022);
+		var StrandLatlng = setMarkerLatLng(1.309509,103.858058);
 		var mapOptions = {
 		  mapTypeControlOptions: {  
 		      mapTypeIds: ['Styled']  
@@ -219,8 +219,8 @@ $(document).ready(function(){
 		/////
 		// LAT LNG
 		/////
-		var DhobyGhautMRTLatlng = setMarkerLatLng(1.298593,103.845909);
-		var BraBasahMRTLatlng = setMarkerLatLng(1.296931,103.850631);
+		var lavendarMRTLatlng = setMarkerLatLng(1.307167,103.863007);
+		var farrerParkMRTLatlng = setMarkerLatLng(1.312426,103.854317);
 
 
 		/////
@@ -256,17 +256,17 @@ $(document).ready(function(){
 		    });
 		}		
 
-		createGoogleMarker('StrandMarker', StrandLatlng, 'strand', 'The Strand Hotel');
-		createGoogleMarker('DhobyGhautMRTMarker', DhobyGhautMRTLatlng, 'mrt', 'Dhoby Ghaut MRT');
-		createGoogleMarker('BraBasahMRTMarker', BraBasahMRTLatlng, 'mrt', 'Bras Basah MRT');
+		createGoogleMarker('StrandMarker', StrandLatlng, 'classique', 'The Classique Hotel');
+		createGoogleMarker('lavendarMRTMarker', lavendarMRTLatlng, 'mrt', 'Lavendar MRT');
+		createGoogleMarker('farrerParkMRTMarker', farrerParkMRTLatlng, 'mrt', 'Farrer Park MRT');
 
 		///////
 		//// Place Info
 		///////
 
-		var strandPlaceId = 'ChIJF-8-srwZ2jERhn9mpTQylp4';
-		var dhobyGhautMRTPlaceId = 'ChIJeVeAS70Z2jERGFSY4egTJIA';
-		var braBasahMRTPlaceId = 'ChIJSa3-naQZ2jERLE62C7okX-I';
+		var strandPlaceId = 'ChIJB3vSXMgZ2jERLjx4pOi6IGA';
+		var lavendarMRTPlaceId = 'ChIJ6X_R8LUZ2jERyA8cWVI1ITk';
+		var farrerParkMRTPlaceId = 'ChIJ2_fgd8YZ2jERjjZDjwfps_c';
 
 		requestObj = {};
 
@@ -277,8 +277,8 @@ $(document).ready(function(){
 		}
 
 		createRequestObj('strandRequest', strandPlaceId);
-		createRequestObj('dhobyGhautMRTRequest', dhobyGhautMRTPlaceId);
-		createRequestObj('braBasahMRTRequest', braBasahMRTPlaceId);
+		createRequestObj('lavendarMRTRequest', lavendarMRTPlaceId);
+		createRequestObj('farrerParkMRTRequest', farrerParkMRTPlaceId);
 
 		/////
 		// EVENTS
@@ -304,8 +304,8 @@ $(document).ready(function(){
 		}
 
 		events(markersObj['StrandMarker'], StrandLatlng, requestObj['strandRequest']);
-		events(markersObj['DhobyGhautMRTMarker'], DhobyGhautMRTLatlng, requestObj['dhobyGhautMRTRequest']);
-		events(markersObj['BraBasahMRTMarker'], BraBasahMRTLatlng, requestObj['braBasahMRTRequest']);
+		events(markersObj['lavendarMRTMarker'], lavendarMRTLatlng, requestObj['lavendarMRTRequest']);
+		events(markersObj['farrerParkMRTMarker'], farrerParkMRTLatlng, requestObj['farrerParkMRTRequest']);
 
 	}
 	initialize();

@@ -28,12 +28,15 @@ $(document).ready(function(){
     $('.reservation').on('click', function(e){
         e.preventDefault();
         $('.reservation-widget').slideToggle();
+        $(".toggleMenu").trigger('click');
     });
 
     $('.check-in-input').datepicker({
         beforeShow: function(input, inst)
         {
-            inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
+                inst.dpDiv.css({marginTop: -18 + 'px', marginLeft: - 305 + 'px'});
+            }            
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,
@@ -42,7 +45,9 @@ $(document).ready(function(){
     $('.check-out-input').datepicker({
         beforeShow: function(input, inst)
         {
-            inst.dpDiv.css({marginTop: -input.offsetHeight + 'px', marginLeft: - 305 + 'px'});
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
+                inst.dpDiv.css({marginTop: -67 + 'px', marginLeft: - 305 + 'px'});
+            }
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,
@@ -58,7 +63,9 @@ $(document).ready(function(){
     $('#arrival-datepicker').datepicker({
         beforeShow: function(input, inst)
         {
-            inst.dpDiv.css({marginTop: -159 + 'px', marginLeft: 305 + 'px'});
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
+                inst.dpDiv.css({marginTop: -158 + 'px', marginLeft: 305 + 'px'});
+            }
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,
@@ -80,7 +87,9 @@ $(document).ready(function(){
     $('#departure-datepicker').datepicker({
         beforeShow: function(input, inst)
         {
-            inst.dpDiv.css({marginTop: -159 + 'px', marginLeft: 155 + 'px'});
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) { 
+                inst.dpDiv.css({marginTop: -158 + 'px', marginLeft: 155 + 'px'});
+            }
         },
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         minDate: 0,

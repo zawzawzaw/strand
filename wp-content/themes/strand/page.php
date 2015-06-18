@@ -12,6 +12,10 @@ if($post->post_parent !== 0) {
 	$parent_slug = $post_data->post_name;
 }
 $current_slug = get_post( $post )->post_name;
+
+if($parent_slug=="rooms") {
+	$current_slug = "deluxe-room";
+}
 ?>
 
 <?php if($parent_slug=='whats-nearby'): ?>

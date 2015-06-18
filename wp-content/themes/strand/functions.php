@@ -36,7 +36,7 @@ function load_scripts(){
     wp_enqueue_style( 'font-awesome', THEMEROOT.'/css/font-awesome.min.css' );
     wp_enqueue_style( 'stylecss', get_stylesheet_uri() );
 
-    wp_enqueue_script('$', THEMEROOT.'/js/vendors/jquery/jquery-1.11.1.min.js', array(), '', true);
+    wp_enqueue_script('$', THEMEROOT.'/js/vendors/jquery/jquery-1.11.1.min.js', array(), '', false);
     wp_enqueue_script('jquery-ui', THEMEROOT.'/js/vendors/jquery/jquery-ui.min.js', array('$'), '', true);
     wp_enqueue_script('carousel', THEMEROOT.'/js/vendors/bootstrap/bootstrap.min.js', array('$'), '', true);
     wp_enqueue_script('imagesloaded', THEMEROOT.'/js/plugins/imagesloaded.pkgd.min.js', array('$'), '', true);
@@ -49,16 +49,16 @@ function load_scripts(){
     if(is_page('rooms')) {
         wp_enqueue_script('roomsjs', THEMEROOT.'/js/rooms.js', array('$'), '', true);
     }
-    if(is_page('deluxe-room') || is_page('family-room') || is_page('standard-room')) {
+    if(is_page('deluxe-room') || is_page('family-room') || is_page('standard-room') || is_page('superior-room')) {
         wp_enqueue_script('deluxeroomjs', THEMEROOT.'/js/deluxe-room.js', array('$'), '', true);
     }
     if(is_page('about')) {
         wp_enqueue_script('aboutjs', THEMEROOT.'/js/about.js', array('$'), '', true);
     }
     if(is_page('whats-nearby')) {        
-        wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', true);
-        wp_enqueue_script('infobox', THEMEROOT.'/js/plugins/infobox.js', array('$'), '', true);
-        wp_enqueue_script('whatsnearby', THEMEROOT.'/js/whatsnearby.js', array('$'), '', true);
+        wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', false);
+        wp_enqueue_script('infobox', THEMEROOT.'/js/plugins/infobox.js', array('$'), '', false);
+        // wp_enqueue_script('whatsnearby', THEMEROOT.'/js/whatsnearby.js', array('$'), '', true);
     }
     if(is_page('contact')) {        
         wp_enqueue_script('googlemap', '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places', array(), '', true);

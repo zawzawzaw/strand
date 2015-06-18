@@ -33,18 +33,32 @@
       ?>      
               <div class="content-section">
                 <div class="row actual-content" <?php if(empty($extraContentParagraphP)){ ?>style="padding-bottom:0px;"<?php } ?>>
-                  <div class="col-md-12">             
-                    <div class="text-content">
-                      <h3><?php echo $featureTitleHeadingH3; ?></h3>
-                      <h2><?php echo $headingH2; ?></h2>
-                      <hr class="small">
-                      <?php echo $paragraphP; ?>
-                      <a href="<?php echo $locationLink; ?>" target="_blank" class="see-location"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText; ?></a>
-                    </div>
-                    <div class="img-content">
-                      <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=640&zc=0'; ?>
-                      <img src="<?php echo $edited_placeImg; ?>" alt="<?php echo $headingH2; ?>">
-                    </div>
+                  <div class="col-md-12">
+                    <?php if(!empty($extraContentParagraphP) || $i % 2 !== 0): ?>             
+                      <div class="text-content">
+                        <h3><?php echo $featureTitleHeadingH3; ?></h3>
+                        <h2><?php echo $headingH2; ?></h2>
+                        <hr class="small">
+                        <?php echo $paragraphP; ?>
+                        <a href="<?php echo $locationLink; ?>" target="_blank" class="see-location"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText; ?></a>
+                      </div>
+                      <div class="img-content">
+                        <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=640&zc=0'; ?>
+                        <img src="<?php echo $edited_placeImg; ?>" alt="<?php echo $headingH2; ?>">
+                      </div>
+                    <?php elseif($i % 2 === 0): ?>
+                      <div class="img-content img-content-2">
+                        <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=640&zc=0'; ?>
+                        <img src="<?php echo $edited_placeImg; ?>" alt="<?php echo $headingH2; ?>">
+                      </div>
+                      <div class="text-content text-content-2">
+                        <h3><?php echo $featureTitleHeadingH3; ?></h3>
+                        <h2><?php echo $headingH2; ?></h2>
+                        <hr class="small">
+                        <?php echo $paragraphP; ?>
+                        <a href="<?php echo $locationLink; ?>" target="_blank" class="see-location"><i class="fa fa-map-marker"></i> <?php echo $locationLinkText; ?></a>
+                      </div>
+                    <?php endif; ?>
                   </div>
                 </div>
                 <?php if(!empty($extraContentParagraphP)): ?>
@@ -109,7 +123,7 @@
                   if($i<=3):                
             ?>
                     <div class="each-shopping-spot">
-                      <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=370&zc=0'; ?>
+                      <?php $edited_placeImg = get_home_url()."/timthumb.php?src=".$placeImg[0].'&w=370&h=270&zc=0'; ?>
                       <img src="<?php echo $edited_placeImg; ?>">
                       <div class="shopping-spot-info">                  
                         <h3><?php echo $headingH2; ?></h3>

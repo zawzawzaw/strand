@@ -138,7 +138,7 @@
 									{
 
 										if($i==0) echo "<div class='mansonry-2-item x-large'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=460&w=290&zc=0'></div>";	
-										elseif($i==1) echo "<div class='mansonry-2-item medium'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=190&w=285&zc=0'></div>";
+										elseif($i==1) echo "<div class='mansonry-2-item medium'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=220&w=285&zc=0'></div>";
 										elseif($i==2) echo "<div class='mansonry-2-item small'><img src='".get_home_url().'/timthumb.php?src='.$event_image['full_url']."&h=190&w=190&zc=0'></div>";	
 										else echo "<div class='mansonry-2-item large'>
 														{$whatsNearByImgHtml2}

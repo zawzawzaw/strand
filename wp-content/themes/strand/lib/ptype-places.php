@@ -133,6 +133,30 @@ function ptype_places_register_meta_box()
 						'id' => $prefix . 'extra_content_paragraph_html',
 						'type' => 'textarea'
 					),
+
+					array(
+						'name' => 'Place Latitude',
+						'desc' => '',
+						'id' => $prefix . 'place_latitude',
+						'type' => 'text',
+						'std' => ''
+					),
+
+					array(
+						'name' => 'Place Longitude',
+						'desc' => '',
+						'id' => $prefix . 'place_longitude',
+						'type' => 'text',
+						'std' => ''
+					),
+
+					array(
+						'name' => 'Place Google Map ID',
+						'desc' => '',
+						'id' => $prefix . 'place_google_map_id',
+						'type' => 'text',
+						'std' => ''
+					),
 				)
 			);
     new RW_Meta_Box( $meta_box );

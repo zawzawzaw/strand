@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<!-- saved from url=(0611)http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#http%3A%2F%2Fclients.manic.com.sg%2Fstrand%2Freservations%2F -->
+<html xmlns="http://www.w3.org/1999/xhtml" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="robots" content="index,follow">
+<meta name="robots" content="all"> 
+<title>Ubiqcomp Booking Engine</title>
+<meta charset="utf-8">
+
+	
+	
+
+
+<link id="publicCSS" rel="stylesheet" type="text/css" href="public.css">
+<link id="customCSS" rel="stylesheet" type="text/css" href="jquery-ui-1.8.24.custom.css">
+<link id="hostCSS" rel="stylesheet" href="reservation.css" type="text/css">
+<link rel="stylesheet" href="jquery.fancybox.css" type="text/css">
+<link rel="stylesheet" href="multiline-ellipsis.css" type="text/css">
+<script type="text/javascript" async="" src="ga.js"></script><script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-ui-1.8.21.custom.min.js"></script>
+<script src="ajaxExt.js" type="text/javascript"></script>
+<script src="simpleValidator.js" type="text/javascript"></script>
+<script src="wbemain.js" type="text/javascript"></script>
+<script src="URI.js" type="text/javascript"></script>
+<script src="xd.js" type="text/javascript"></script>
+<script src="jquery.jcarousel.min.js" type="text/javascript"></script>
+<script src="jquery.fancybox.js" type="text/javascript"></script>
+<script src="tooltip.jquery.js" type="text/javascript"></script>
+<script src="jquery.blockUI.js" type="text/javascript"></script>
+<script type="text/javascript" src="propertyFilters.js"></script>
+<script type="text/javascript" src="conversion_async.js" charset="utf-8"></script>
+
+
+
+<script src="jquery.ui.datepicker-en.js" type="text/javascript"></script>	
+
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var contents;
+var parent_url = decodeURIComponent(document.location.hash.replace(/^#/, ''));
+var historyURL;
+
+var returnToIndex = function(response) {
+	$('#wrapper').html(response);
+	$('#callerURL').val(historyURL);
+	return false;
+};
+
+var supports_html5_storage = function() {
+	try {
+    	return 'localStorage' in window && window['localStorage'] !== null;
+  	} catch (e) {
+    	return false;
+  	}
+};
+
+var applyHostCSS = function(css, defaultTheme) {
+	if (css === '' || css === undefined)
+		css = '/wbe/themes/'+defaultTheme+'/css/qikres.css';
+	$("#hostCSS").attr("href",css+"?1434426090874");
+	if (supports_html5_storage()) {
+		localStorage.setItem("defaultTheme", defaultTheme);
+	}
+};
+
+var loadContent = function(contentURL, css, callback) {
+	//$('#wrapper').css('height', '500px');
+	$("#wrapper").load(contentURL, function(response, status, xhr) {
+		if (status == "error") {
+			if (xhr.status == '500') {
+				returnToIndex(response);
+			} 
+		}else{
+			callback();	
+			resizeContent();
+		}
+		applyHostCSS(css, $('#defaultTheme').val());
+	}); 
+};
+
+var sideBottom, endBottom,urlSender;
+$(document).ready(function() {
+	if($('.booking')) {
+		$('.booking').hide();
+	}
+	contents = $("#contents");
+	var uri = new URI(window.location.href);
+	var queryString = URI.parseQuery(uri.query());
+	var contentUrl = queryString.src;
+	var css = queryString.cssPath;
+	historyURL = document.referrer;
+	var winHeight, popHeight, originalMargin;
+	urlSender = decodeURIComponent(document.location.hash).split("#");
+	var sum;
+	
+	if(contentUrl.indexOf('listOption.action') > 0) {
+		trackPage('/sellOption/listOption');
+	}
+	
+	if (typeof urlSender[1] == 'undefined') {
+		parent.location.replace(historyURL);
+	}
+	
+	XD.receiveMessage(function(message){
+		frameMsg = message.data;
+		if ((typeof message.data) == 'string') {
+			var msg = message.data;
+			frameMsg = JSON.parse(msg);
+		}
+		try{
+			if (frameMsg.type == "cart-height") winHeight = frameMsg.windowHeight;
+			if (frameMsg.type == "scrolltop") scrolltop = frameMsg.value;
+			if (frameMsg.type == "embedded"){
+				popHeight = "auto !important";
+				sum = parseInt($(".qikres_side_display").height()) + parseInt($(".qikres_side_display").offset().top);
+					$(".qikres_side_display").css({
+						"top":frameMsg.topPos+"px",
+						"margin-top":frameMsg.marginTop
+					});
+					sideDisplay = frameMsg.topPos;
+					
+				if(frameMsg.windowHeight > 0) {
+					parentScrollTop = frameMsg.parentScrollTop;
+					windowHeight = frameMsg.windowHeight;
+					iframeTop = frameMsg.iframeTop;
+					qikinnLoaderH =  $('#qikinn_loader').height();
+					var eTop = Math.ceil((windowHeight - qikinnLoaderH) / 2) + parentScrollTop - iframeTop;
+
+					/*$.blockUI.defaults.css = { padding: 0, margin: 0, width: '30%', top: eTop+'px', 
+											   left: '35%', textAlign: 'center', color: '#000',  
+											   border: '3px solid #aaa', backgroundColor:'#fff', 
+											   cursor: 'wait' };
+					$.blockUI({ message: $('#qikinn_loader') });*/
+				}	
+			}else if(frameMsg.type == "popup"){
+				popHeight = frameMsg.body+"px";
+			}
+		}catch(e){}
+	}, urlSender[1].replace(/^(.*\/\/[^\/?#]*).*$/,"$1"));	// <-- regex is still confusing -,-"
+	loadContent(contentUrl, css, function(){
+		var side = $(".qikres_side_display");
+		var main = $(".qikres_main_display");
+		originalMargin = side.css("margin");
+		$(".qikres_content").css("height",popHeight);
+		side.css({
+			"margin-top" : "0px",
+		});
+		sideBottom = $("#side-bottom");
+		endBottom = $("#end-bottom");
+		if (endBottom.length > 0) XD.postMessage({"type" : "embedded", "endTopPos" : endBottom.offset().top}, urlSender, parent);
+		setTimeout(function(){
+			cartHeight = parseInt(winHeight) - parseInt(side.height());
+			resizeContent();
+		},1000);
+	});
+});
+
+//--><!]]>
+</script>
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body>
+<input type="hidden" id="myAvai" value="">
+<div id="wrapper" style="width: 1900px; height: 5px;">
+
+<style>
+.centerTop {
+	position:abosolute !important,
+  	top:200px !important
+}
+.zeroTop {
+	position:absolute !important,
+  	top:0px !important
+}
+
+</style>
+
+
+<div id="body" class="qikres_content">
+
+
+
+
+
+
+
+
+
+	<ul id="sellopt_step" class="qikres_steps">
+		<li id="step_search" class="selected">Search</li>
+		<li id="step_select" class="active">
+			
+			
+				Select
+			
+		</li>
+		<li id="step_review">
+			
+			
+				Review
+			
+		</li>
+		
+			<li id="step_payment">
+				
+				
+					Payment
+				
+			</li>
+		
+		<li id="step_confirm">Confirm</li>
+	</ul>
+
+ <div id="errorContents" class="errorContents" style="display:none" title="Error">
+     
+
+
+ </div>
+	<div class="qikres_main_display">
+	<input type="hidden" name="" value="LUXURY" id="defaultTheme">
+	<!--room type isSimplifyUI ==>  /  -->
+	
+	<div class="qikres_table">
+		
+		
+			
+			<h3 class="qikres_header_table">Luxury QikRes Hotel</h3>
+            <div class="qikres_body_table">
+            	
+                <div id="propertyImageCarousel" class="qikres_property_image jcarousel-container jcarousel-container-horizontal" style="display: block; position: relative;">
+                    
+                    
+                    
+                    
+                        <div class="jcarousel-clip jcarousel-clip-horizontal" style="overflow: hidden; position: relative;"><ul class="jcarousel-list jcarousel-list-horizontal" style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: 0px; width: 820px;">
+                        
+                            
+                            
+                                
+                                
+                                
+                                
+                            
+                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style="float: left; list-style: none;">
+                                
+                                <a title="Luxury QikRes Hotel" rel="propimage_4" href="http://210.1.224.42/wbe/dynamicImage/propertyImagePath.action?externalID=4&fileName=Madinah.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    <img id="prop_image_4" title="Luxury QikRes Hotel" alt="Luxury QikRes Hotel" src="propertyImagePath.action" width="150" height="150">
+                                </a>
+                            </li>
+                        
+                            
+                            
+                                
+                                
+                                
+                                
+                            
+                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-2 jcarousel-item-2-horizontal" jcarouselindex="2" style="float: left; list-style: none;">
+                                
+                                <a title="Luxury QikRes Hotel" rel="propimage_4" href="http://210.1.224.42/wbe/dynamicImage/propertyImagePath.action?externalID=4&fileName=entrance-hall.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    <img id="prop_image_4" title="Luxury QikRes Hotel" alt="Luxury QikRes Hotel" src="propertyImagePath(1).action" width="150" height="150">
+                                </a>
+                            </li>
+                        
+                            
+                            
+                                
+                                
+                                
+                                
+                            
+                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-3 jcarousel-item-3-horizontal" jcarouselindex="3" style="float: left; list-style: none;">
+                                
+                                <a title="Luxury QikRes Hotel" rel="propimage_4" href="http://210.1.224.42/wbe/dynamicImage/propertyImagePath.action?externalID=4&fileName=Luxury+Hotels.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    <img id="prop_image_4" title="Luxury QikRes Hotel" alt="Luxury QikRes Hotel" src="propertyImagePath(2).action" width="150" height="150">
+                                </a>
+                            </li>
+                        
+                            
+                            
+                                
+                                
+                                
+                                
+                            
+                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-4 jcarousel-item-4-horizontal" jcarouselindex="4" style="float: left; list-style: none;">
+                                
+                                <a title="Luxury QikRes Hotel" rel="propimage_4" href="http://210.1.224.42/wbe/dynamicImage/propertyImagePath.action?externalID=4&fileName=Resort+Entrance.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+                                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    
+                                    <img id="prop_image_4" title="Luxury QikRes Hotel" alt="Luxury QikRes Hotel" src="propertyImagePath(3).action" width="150" height="150">
+                                </a>
+                            </li>
+                        
+                        </ul></div><div class="jcarousel-prev jcarousel-prev-horizontal jcarousel-prev-disabled jcarousel-prev-disabled-horizontal" disabled="disabled" style="display: block;"></div><div class="jcarousel-next jcarousel-next-horizontal" style="display: block;"></div>
+                    
+                    
+                </div>
+                <div class="qikres_property_info">
+                    <p>
+                        
+                         
+                        
+                        
+                        
+                        
+            
+                    </p>
+                    <p>
+                        
+                        
+                        
+                    </p>
+            
+                    <div id="propertyDesc" class="ellipsis" style="height: 100px; overflow: hidden; display: block;">
+                        <div>
+                            
+                            Tucked away and hidden from the outside world on a small island found just off the unspoilt East Coast of tropical Malaysia. Considered to be one of the most beautiful island locations in the South China Sea, the isle of Redang is home to our natural, yet stylish resort found on one of the most spectacular bays surrounded by one of the bluest oceans on the earth.
+                        </div>
+                    </div>
+                        <a id="propdesc" style="" class="qikres_prop_desc" href="javascript: showMorePropertyInfo('show more','show less', 'propdesc');">show more</a>
+                </div>
+        	</div>
+        
+    </div>
+    
+    
+	
+	<div class="qikres_table" style="display:none;">
+		<div class="property-room-types" style="color:white;clear: both;padding-top:5px;margin-top:12px;	 -moz-border-radius: 3px;background: #Fff;border: 1px solid #346F97">
+			<span style="margin-left: 10px; padding-top: 10px;"><!--img src="themes//images/promotion_icon.png"--></span>
+			<span class="label " style="font-size:18px;color:#Cc0000;font-family:Verdana, Geneva, sans-serif">Promotions</span>
+		
+			<div class="promotion" style="clear: both; height: 110px;">                            
+				<ul id="mycarousel" class="jcarousel-skin-tango" style="clear: both;">
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">688.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="HLP" class="promoname">HLP</div>
+								<div class="label-small">From</div>
+								<div class="amount">1388.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<a title="Available 25 August" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#promo"> 
+							<div class="promo-price">
+								<div title="MOZT" class="promoname">MOZT</div>
+								<div class="label-small">From</div>
+								<div class="amount">688.000000000</div>
+								<div class="pricing-desc">Room / Night</div>
+							</div>
+						</a>
+					</li>
+					
+				</ul>
+				<div style="display:none">
+					<div id="promo">Popup for Promo</div>
+				</div>
+			</div>
+		</div>
+		<!--div class="hr" style="height: 3px; clear: both;"></div-->
+	</div>
+	
+	
+	<div class="qikres_table">
+    	<h3 class="qikres_header_table">Filter Results</h3>
+    	<div class="qikres_filter_button_pos">
+    		<a href="javascript:filterSellOptions();" class="asButton"><span class="filterBtn">Filter Results</span></a>
+    	</div>
+        <div class="qikres_body_table">
+            <!--h2 style="padding: 0; margin: 0; font-size: 14px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: #000;">Filter Results</h2-->
+                <form id="filterForm" name="filterForm" action="http://210.1.224.42/wbe/sellOption/filter.action" method="post">
+
+                <div class="qikres_price_pos">
+                    Sort By:<br>
+                    <select name="sortingCriteria" id="filterForm_sortingCriteria" onchange="javascript: null;">
+    <option value="PRICE_ASCENDING" selected="selected">Price ( Low to High )</option>
+    <option value="PRICE_DESCENDING">Price ( High to Low )</option>
+
+
+</select>
+
+
+                </div>
+                <div class="qikres_currency_pos" style="display:none;">
+                    Show in Currency :<br>
+                    <select name="sellOptionReqData.currencyCode" id="filterForm_sellOptionReqData_currencyCode">
+    <option value="AUD">AUD</option>
+    <option value="EUR">EUR</option>
+    <option value="IDR">IDR</option>
+    <option value="MYR" selected="selected">MYR</option>
+    <option value="SGD">SGD</option>
+    <option value="USD">USD</option>
+
+
+</select>
+
+
+                </div>
+                <div class="qikres_slider_pos">
+                    Nightly Rate:
+                    <div id="slider-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div class="ui-slider-range ui-widget-header" style="left: 0%; width: 100%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#" style="left: 100%;"></a></div>
+                        <input type="hidden" name="minRate" value="599" id="minRate">
+                        <input type="hidden" name="maxRate" value="1388" id="maxRate">
+                    <div>
+                    	
+                        <span id="minRateDisplay" style="float: left;" class="amountValue" data-amountvalue="599">599</span>
+                        
+                        <span id="maxRateDisplay" style="float:right;" class="amountValue" data-amountvalue="1388">1388</span>
+                    </div>
+                </div>
+                <div id="otherFilters" class="qikres_other_filter_pos" style="display: none;">
+                    <div class="qikres_other_filters">
+                        <table>
+                            <tbody><tr>
+                                <td>Keywords:<br>
+                                    <input type="text">
+                                    <div id="stars-wrapper2"></div>
+                                </td>
+                                <td>Rating:<br>
+                                    <select name="selrate">
+                                        <option value="1"> Very poor</option>
+                                        <option value="2"> Not that bad</option>
+                                        <option value="3"> Average</option>
+                                        <option value="4" selected="selected"> Good</option>
+                                        <option value="5"> Perfect</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">
+                                  Amenities:<br>
+                                    <select name="selectedAmmenities" size="2" id="ammenities" style="width: 95%;" multiple="multiple">
+    <option value="BATHRBS">Bathrobes</option>
+    <option value="SEATINGAR">Seating Area</option>
+    <option value="AMFMRAD">AM/FM Radio</option>
+    <option value="FRIDGE">Refrigerator</option>
+    <option value="INRMSFE">In Room Safe</option>
+    <option value="LEDLCDFLAT">LED/LCD Flatscreen</option>
+    <option value="CHLDFRDLY">Child Friendly</option>
+    <option value="AIRCOND">Air Conditioning</option>
+    <option value="CFFTEAFAC">Coffee / Tea Maker</option>
+    <option value="TELEPHONE">Telephone</option>
+    <option value="WIFI">Wirelress Internet</option>
+    <option value="BATHTUB">Bathtub</option>
+
+
+</select>
+
+    <input type="hidden" id="__multiselect_ammenities" name="__multiselect_selectedAmmenities" value="">
+
+                              </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+                </form>
+
+
+
+
+        </div>
+    </div>
+    
+    
+    <div id="sellOptionList" class="qikres_table">
+
+<style>
+.infodesc ul li {
+	width: 44%;
+	float: left;
+	margin-right: 20px;
+	word-wrap: break-word;
+}
+
+.tipsy-inner {
+	min-width: 250px;
+}
+</style>
+
+
+	<h3 class="qikres_header_table">3&nbsp;results found</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="hidden" id="propCurrencyCode" value="MYR">
+
+	<select id="exchangeCurrency" onchange="javascript:changeCurrency(this.value, $(this).find(&#39;:selected&#39;).data(&#39;exchange&#39;), true);">
+		<option value="MYR" data-exchange="1">Hotel Currency - MYR</option>
+		
+			
+			
+			 
+			
+				<option value="SGD" data-exchange="0.35830000">Singapore Dollar - SGD</option>
+			
+		
+			
+			
+			 
+			
+				<option value="EUR" data-exchange="0.23650000">Euro - EUR</option>
+			
+		
+			
+			
+			 
+			
+				<option value="USD" data-exchange="0.26820000">US Dollar - USD</option>
+			
+		
+			
+			
+			 
+			
+				<option value="IDR" data-exchange="3572.96410000">Indonesian Rupiah - IDR</option>
+			
+		
+			
+			
+			 
+			
+				<option value="AUD" data-exchange="0.34620000">Australian Dollar - AUD</option>
+			
+		
+	</select>
+
+
+<div id="taxDialogDiv" style="display:none">
+	
+
+
+
+<div id="taxDialog" class="qikres_daily_rates_dialog">
+	<table style="width:100%;text-align:center&quot;">
+ 		
+			
+				 
+				
+				
+					
+				
+        		<tbody><tr>
+            		<td align="left">AUD</td>
+            		<td align="right">MYR&nbsp;38.80</td>
+            	</tr>
+			
+				 
+				
+				
+					
+				
+        		<tr>
+            		<td align="left">AUD</td>
+            		<td align="right">MYR&nbsp;23.28</td>
+            	</tr>
+			
+		
+    </tbody></table>
+</div>
+</div>
+<!--pagination-->         
+
+<div class="qikres_pagination">
+	<form id="paginationForm" name="paginationForm" action="http://210.1.224.42/wbe/sellOption/getPage.action" method="post">
+
+		<input type="hidden" name="pagination.pageIndex" value="1" id="paginationIndex">
+		<input type="hidden" name="webSessionData.toCurrencyCode" value="" id="toCurrencyCode">
+		<input type="hidden" name="webSessionData.toExchangeRate" value="" id="toExchangeRate">
+		<input type="hidden" name="webSessionData.useHomeCurrency" value="false" id="useHomeCurrency">
+		
+			
+				Previous 
+			
+			
+			|
+			
+				
+				
+				&nbsp;1
+				
+				&nbsp;|&nbsp;
+			
+			
+				Next
+			
+			
+		
+	</form>
+
+
+
+
+</div>
+
+<!--search result-->
+<div class="qikres_body_table">
+	<table>
+		
+		
+			
+			
+			
+			
+				
+				
+				
+			
+			
+			
+
+				
+				<tbody><tr class="qikres_odd_row lessrates0" style="display:none">
+					<td class="qikres_room_image">&nbsp;</td>
+					<td class="qikres_room"><div class="qikres_room_type"></div></td>
+					<td>
+						<span class="qikres_noavailability" style="">
+							No Availability
+						</span>
+					</td>
+				</tr> 
+				<tr>
+					<td colspan="3">
+                		<div class="qikres_product_content">
+                			<div class="qikres_room_image qikres_product_photo">
+                				
+								
+								
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="Super Luxury Double" rel="image_198" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=198&externalType=Product&fileName=SuperDouble.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+												
+													
+													
+													
+													
+													
+													
+												
+												<img title="Super Luxury Double" alt="Super Luxury Double" relsrc="/wbe/dynamicImage/imagePath.action?externalID=198&amp;externalType=Product&amp;fileName=SuperDouble.jpg&amp;width=200&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath.action">
+											
+										</a>
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="Super Luxury Double" rel="image_198" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=198&externalType=Product&fileName=05_one_deluxe_hotel_room_thekutaplaya.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+										</a>
+									
+								
+								
+                			</div>
+                			<div class="qikres_product_detail">
+               					<h2>Super Luxury Double</h2>
+               					
+	                                <div class="qikres_sleeps">
+	                                    <span>Sleeps</span>
+	                                </div>
+	                                <div class="person guest-4" title="">&nbsp;</div>
+	                            
+	                            
+				            	<div id="desc_SLD" class="qikres_product_description multiline readmore" style="overflow: hidden;">
+				            		Sleek and expansive, our suites are ideal for discerning travellers or intimate special occasions. Sink into round designer beds and luxuriate in our plush bathtubs against the backdrop of a stunning view. Suite Room includes complimentary 1 way Limousine Airport Pickup, Buffet Breakfast, $50 F&amp;B Credit Daily, 4 pieces of laundry/Dry Clean daily per room(non-accumulative &amp; normal service), WIFI Access, Local Calls and Gourmet Bar (replenished once daily).
+                                    
+				            	</div>
+				            	
+				            	<div style="display:none">
+									<div class="qikres_popup_product_description" id="hidden_desc_SLD">
+										<h2 class="title">Super Luxury Double</h2>
+										<div class="content">
+											<div class="room">
+												
+													
+														
+														
+															
+																
+																
+																
+																
+																
+																
+																
+															
+															<img class="photo" title="Super Luxury Double" alt="Super Luxury Double" relsrc="/wbe/dynamicImage/imagePath.action?externalID=198&amp;externalType=Product&amp;fileName=SuperDouble.jpg&amp;width=312&amp;height=235&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath(1).action">
+														
+													
+														
+														
+													
+												
+												
+												<div class="amenities">
+													
+                        							
+                        								<strong>Amenities:</strong><br>
+                        								<ul>
+					                                        
+					                                            <li>Seating Area</li>
+					                                        
+					                                            <li>Bathrobes</li>
+					                                        
+					                                            <li>AM/FM Radio</li>
+					                                        
+					                                            <li>Child Friendly</li>
+					                                        
+					                                            <li>Air Conditioning</li>
+					                                        
+					                                            <li>Bathtub</li>
+					                                        
+					                                    </ul>
+                        							
+												</div>												
+											</div>
+											<div class="detail">
+												<div class="infodesc">
+													Sleek and expansive, our suites are ideal for discerning travellers or intimate special occasions. Sink into round designer beds and luxuriate in our plush bathtubs against the backdrop of a stunning view. Suite Room includes complimentary 1 way Limousine Airport Pickup, Buffet Breakfast, $50 F&amp;B Credit Daily, 4 pieces of laundry/Dry Clean daily per room(non-accumulative &amp; normal service), WIFI Access, Local Calls and Gourmet Bar (replenished once daily).
+												</div>
+												<div class="price">
+                                                	<div class="guestcount">
+                                                        
+                                                            <span>Sleeps :</span>
+                                                            <div class="person guest-4" title="">&nbsp;</div>
+                                                        
+                                                        
+                                                        &nbsp;	
+                                                    </div>
+													
+													
+													
+														
+														
+															
+															
+														
+														
+													
+														
+														
+														
+													
+														
+														
+														
+													
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                			<span class="qikres_ellipsis_desc">.....</span></div>
+                		</div>
+                		
+                        <a class="moreInfo" id="moreinfo_198" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#hidden_desc_SLD" style="display: inline;">read more</a>
+                        
+                        
+                            <div class="qikres_room_amenities">
+                                <span><a id="amenities_caller_multiple-amenities0" href="javascript:;" onclick="toggleDesc(&#39;multiple-amenities0&#39;,this)">[≡]</a>&nbsp;Amenities:</span>
+                                <div class="qikres_room_amenities_list" id="multiple-amenities0">
+                                    <ul>
+                                        
+                                            <li>Seating Area</li>
+                                        
+                                            <li>Bathrobes</li>
+                                        
+                                            <li>AM/FM Radio</li>
+                                        
+                                            <li>Child Friendly</li>
+                                        
+                                            <li>Air Conditioning</li>
+                                        
+                                            <li>Bathtub</li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        
+						<input type="hidden" name="availabilityCount" value="1" id="availabilityCount_0"> 
+						<input type="hidden" name="availabilityCount" value="0" id="availabilityCount_0">
+						<input type="hidden" name="physicalCount" value="997" id="physicalCount_0">
+						
+               			<div class="qikres_price_group">
+               				<div class="qikres_rowheader">
+	                            <div class="qikres_rate_name">Rate name</div>
+	                            <div class="qikres_room_price">Room/night</div>
+	                            <div class="qikres_room_number"># of room</div>
+	                        </div>
+							
+							
+	                        
+               				
+               					
+								
+								
+								
+								<div class="row ">
+									
+									
+									
+									
+									
+									<div class="name" title="Best Available Rate">
+										<a href="javascript:;" id="desc_caller_subdetail_SLD_BAR" onclick="toggleDesc(&#39;subdetail_SLD_BAR&#39;,this)">[≡]</a>
+										
+										<p>Best Available Rate</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_SLD_BAR&#39;, &#39;dailyRateDetails_SLD_BAR&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_SLD_BAR&#39;, &#39;dailyRateDetails_SLD_BAR&#39;, &#39;s&#39;)" id="showDailyRate_SLD_BAR" class="amountValue tipsy-comment" data-amountvalue="599.00">599.00</span>
+                       					<div id="dailyRateDetails_SLD_BAR" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="599.00">599.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                			 
+				                		
+				                		
+				                			 
+				                		
+										<input type="hidden" name="availabilityCount" value="997" id="availabilityCount_0_0">
+										<input type="hidden" name="physicalCount" value="997" id="physicalCount_0_0">
+										<div id="noAvail_0_0" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_0_0" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_0_0">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 0, 0)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_SLD_BAR">
+				                    	This is the best available rate in town
+			                            
+									    
+										
+											<a id="anchor0" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_SLD_BAR">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_SLD_BAR" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Best Available Rate :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               					
+								
+								
+								
+								<div class="row ">
+									
+									
+									
+									
+									
+									<div class="name" title="Super Luxury Rate">
+										<a href="javascript:;" id="desc_caller_subdetail_SLD_SLR" onclick="toggleDesc(&#39;subdetail_SLD_SLR&#39;,this)">[≡]</a>
+										
+										<p>Super Luxury Rate</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_SLD_SLR&#39;, &#39;dailyRateDetails_SLD_SLR&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_SLD_SLR&#39;, &#39;dailyRateDetails_SLD_SLR&#39;, &#39;s&#39;)" id="showDailyRate_SLD_SLR" class="amountValue tipsy-comment" data-amountvalue="788.00">788.00</span>
+                       					<div id="dailyRateDetails_SLD_SLR" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="788.00">788.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                		
+										<input type="hidden" name="availabilityCount" value="998" id="availabilityCount_0_1">
+										<input type="hidden" name="physicalCount" value="998" id="physicalCount_0_1">
+										<div id="noAvail_0_1" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_0_1" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_0_1">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 0, 1)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_SLD_SLR">
+				                    	Super Luxury Rate
+			                            
+									    
+										
+											<a id="anchor0" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_SLD_SLR">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_SLD_SLR" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Super Luxury Rate :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               					
+								
+								
+								
+		                        	
+		                            
+		                        
+								<div class="row qikres_ispromo">
+									<span class="qikres_promo_label">promo</span>
+									
+									
+									
+									
+									<div class="name" title="Honeymoon Luxury Promotions">
+										<a href="javascript:;" id="desc_caller_subdetail_SLD_HLP" onclick="toggleDesc(&#39;subdetail_SLD_HLP&#39;,this)">[≡]</a>
+										
+										<p>Honeymoon Luxury Promotions</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_SLD_HLP&#39;, &#39;dailyRateDetails_SLD_HLP&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_SLD_HLP&#39;, &#39;dailyRateDetails_SLD_HLP&#39;, &#39;s&#39;)" id="showDailyRate_SLD_HLP" class="amountValue tipsy-comment" data-amountvalue="1,388.00">1,388.00</span>
+                       					<div id="dailyRateDetails_SLD_HLP" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="1,388.00">1,388.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                		
+										<input type="hidden" name="availabilityCount" value="998" id="availabilityCount_0_2">
+										<input type="hidden" name="physicalCount" value="998" id="physicalCount_0_2">
+										<div id="noAvail_0_2" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_0_2" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_0_2">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 0, 2)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_SLD_HLP">
+				                    	Exclusive for Honeymooners! <br>Book now and enjoy your honeymoon with complimentary luxury honeymoon Cocktail and other special event activities such as: <br>• Private check-in and welcome cocktail (depending on time of arrival at the hotel)<br>• Special room for the bride and groom (privileged location, romantic decoration et VIP amenities)<br>• Flowers in the room<br>• Honeymoon breakfast in the room (once during the stay)<br>• Special Gift<br><br>*T&amp;C applied.
+			                            
+									    
+										
+											<a id="anchor0" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_SLD_HLP">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_SLD_HLP" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Honeymoon Luxury Promotions :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               			</div>
+					</td>
+				</tr>					
+			
+			<tr>
+				<td colspan="3" class="qikres_product_separator"></td>
+			</tr>
+		
+			
+			
+			
+			
+				
+				
+				
+			
+			
+			
+
+				
+				<tr class="qikres_even_row lessrates1" style="display:none">
+					<td class="qikres_room_image">&nbsp;</td>
+					<td class="qikres_room"><div class="qikres_room_type"></div></td>
+					<td>
+						<span class="qikres_noavailability" style="display: none">
+							No Availability
+						</span>
+					</td>
+				</tr> 
+				<tr>
+					<td colspan="3">
+                		<div class="qikres_product_content">
+                			<div class="qikres_room_image qikres_product_photo">
+                				
+								
+								
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="An Enchanted Evening" rel="image_289" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=289&externalType=Product&fileName=Kitaro_enchanted_evening.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+												
+													
+													
+													
+													
+													
+													
+												
+												<img title="An Enchanted Evening" alt="An Enchanted Evening" relsrc="/wbe/dynamicImage/imagePath.action?externalID=289&amp;externalType=Product&amp;fileName=Kitaro_enchanted_evening.jpg&amp;width=200&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath(2).action">
+											
+										</a>
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="An Enchanted Evening" rel="image_289" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=289&externalType=Product&fileName=6a00d834537f7169e20147e0971494970b-400wi.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+										</a>
+									
+								
+								
+                			</div>
+                			<div class="qikres_product_detail">
+               					<h2>An Enchanted Evening</h2>
+               					
+	                            
+				            	<div id="desc_KITARO" class="qikres_product_description multiline">
+				            		An Enchanted Evening...<br>&nbsp; &nbsp;A great performance by guitarist legendary Kitaro...
+                                    
+				            	</div>
+				            	
+				            	<div style="display:none">
+									<div class="qikres_popup_product_description" id="hidden_desc_KITARO">
+										<h2 class="title">An Enchanted Evening</h2>
+										<div class="content">
+											<div class="room">
+												
+													
+														
+														
+															
+																
+																
+																
+																
+																
+																
+																
+															
+															<img class="photo" title="An Enchanted Evening" alt="An Enchanted Evening" relsrc="/wbe/dynamicImage/imagePath.action?externalID=289&amp;externalType=Product&amp;fileName=Kitaro_enchanted_evening.jpg&amp;width=312&amp;height=235&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath(3).action">
+														
+													
+														
+														
+													
+												
+												
+												<div class="amenities">
+													
+                        							
+                        								<strong>Amenities:</strong><br>
+                        								<ul>
+					                                        
+					                                            <li>Refrigerator</li>
+					                                        
+					                                            <li>Air Conditioning</li>
+					                                        
+					                                            <li>Coffee / Tea Maker</li>
+					                                        
+					                                            <li>Wirelress Internet</li>
+					                                        
+					                                    </ul>
+                        							
+												</div>												
+											</div>
+											<div class="detail">
+												<div class="infodesc">
+													An Enchanted Evening...<br>&nbsp; &nbsp;A great performance by guitarist legendary Kitaro...
+												</div>
+												<div class="price">
+                                                	<div class="guestcount">
+                                                        
+                                                        
+                                                        &nbsp;	
+                                                    </div>
+													
+													
+													
+														
+														
+															
+															
+														
+														
+													
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                			</div>
+                		</div>
+                		
+                        <a class="moreInfo" id="moreinfo_289" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#hidden_desc_KITARO">read more</a>
+                        
+                        
+                            <div class="qikres_room_amenities">
+                                <span><a id="amenities_caller_multiple-amenities1" href="javascript:;" onclick="toggleDesc(&#39;multiple-amenities1&#39;,this)">[≡]</a>&nbsp;Amenities:</span>
+                                <div class="qikres_room_amenities_list" id="multiple-amenities1">
+                                    <ul>
+                                        
+                                            <li>Refrigerator</li>
+                                        
+                                            <li>Air Conditioning</li>
+                                        
+                                            <li>Coffee / Tea Maker</li>
+                                        
+                                            <li>Wirelress Internet</li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        
+						<input type="hidden" name="availabilityCount" value="1" id="availabilityCount_1"> 
+						<input type="hidden" name="availabilityCount" value="20" id="availabilityCount_1">
+						<input type="hidden" name="physicalCount" value="20" id="physicalCount_1">
+						
+               			<div class="qikres_price_group">
+               				<div class="qikres_rowheader">
+	                            <div class="qikres_rate_name">Rate name</div>
+	                            <div class="qikres_room_price">Room/night</div>
+	                            <div class="qikres_room_number"># of room</div>
+	                        </div>
+							
+							
+	                        
+               				
+               					
+								
+								
+								
+		                        	
+		                            
+		                        
+								<div class="row qikres_ispromo">
+									<span class="qikres_promo_label">promo</span>
+									
+									
+									
+									
+									<div class="name" title="Mozart">
+										<a href="javascript:;" id="desc_caller_subdetail_KITARO_MOZT" onclick="toggleDesc(&#39;subdetail_KITARO_MOZT&#39;,this)">[≡]</a>
+										
+										<p>Mozart</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_KITARO_MOZT&#39;, &#39;dailyRateDetails_KITARO_MOZT&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_KITARO_MOZT&#39;, &#39;dailyRateDetails_KITARO_MOZT&#39;, &#39;s&#39;)" id="showDailyRate_KITARO_MOZT" class="amountValue tipsy-comment" data-amountvalue="688.00">688.00</span>
+                       					<div id="dailyRateDetails_KITARO_MOZT" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="688.00">688.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                			 
+				                		
+				                		
+				                			 
+				                		
+										<input type="hidden" name="availabilityCount" value="20" id="availabilityCount_1_0">
+										<input type="hidden" name="physicalCount" value="20" id="physicalCount_1_0">
+										<div id="noAvail_1_0" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_1_0" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_1_0">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 1, 0)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_KITARO_MOZT">
+				                    	Whether you’re an avid fan of the latest chart toppers, a dedicated rocker, life long country and western fan or love the ambience of classical music, we have a dazzling array of concert tickets to suit all tastes! We offer a great number of music events in Singapore for indoor and spectacular outdoor concerts throughout the year. <br>Book your ticket today together with our fantastic room deals to enjoy the double rewards! <br>*T&amp;C applied.
+			                            
+									    
+										
+											<a id="anchor1" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_KITARO_MOZT">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_KITARO_MOZT" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Mozart :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               			</div>
+					</td>
+				</tr>					
+			
+			<tr>
+				<td colspan="3" class="qikres_product_separator"></td>
+			</tr>
+		
+			
+			
+			
+			
+				
+				
+				
+			
+			
+			
+
+				
+				<tr class="qikres_odd_row lessrates2" style="display:none">
+					<td class="qikres_room_image">&nbsp;</td>
+					<td class="qikres_room"><div class="qikres_room_type"></div></td>
+					<td>
+						<span class="qikres_noavailability" style="">
+							No Availability
+						</span>
+					</td>
+				</tr> 
+				<tr>
+					<td colspan="3">
+                		<div class="qikres_product_content">
+                			<div class="qikres_room_image qikres_product_photo">
+                				
+								
+								
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="Luxury King" rel="image_282" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=282&externalType=Product&fileName=LuxuryKing.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+												
+													
+													
+													
+													
+													
+													
+												
+												<img title="Luxury King" alt="Luxury King" relsrc="/wbe/dynamicImage/imagePath.action?externalID=282&amp;externalType=Product&amp;fileName=LuxuryKing.jpg&amp;width=200&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath(4).action">
+											
+										</a>
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="Luxury King" rel="image_282" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=282&externalType=Product&fileName=Luxury.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+										</a>
+									
+										
+										
+											
+											
+											
+											
+											
+										
+										
+										<a title="Luxury King" rel="image_282" href="http://210.1.224.42/wbe/dynamicImage/imagePath.action?externalID=282&externalType=Product&fileName=VenBathroom.jpg&mode=ORIGINAL&imgCustomerID=LUXURY">
+											
+										</a>
+									
+								
+								
+                			</div>
+                			<div class="qikres_product_detail">
+               					<h2>Luxury King</h2>
+               					
+	                            
+				            	<div id="desc_LKX" class="qikres_product_description multiline">
+				            		Every reach of your eye will be met with grace and beauty, while enjoying comfort in a relaxing atmosphere. From the Roman tub, plush king-sized bed with Egyptian cotton sheets to the sunken living complete with HD TVs and plush furnishings, you are living the good life.
+                                    
+				            	</div>
+				            	
+				            	<div style="display:none">
+									<div class="qikres_popup_product_description" id="hidden_desc_LKX">
+										<h2 class="title">Luxury King</h2>
+										<div class="content">
+											<div class="room">
+												
+													
+														
+														
+															
+																
+																
+																
+																
+																
+																
+																
+															
+															<img class="photo" title="Luxury King" alt="Luxury King" relsrc="/wbe/dynamicImage/imagePath.action?externalID=282&amp;externalType=Product&amp;fileName=LuxuryKing.jpg&amp;width=312&amp;height=235&amp;mode=THUMBNAIL&amp;imgCustomerID=LUXURY" src="imagePath(5).action">
+														
+													
+														
+														
+													
+														
+														
+													
+												
+												
+												<div class="amenities">
+													
+                        							
+                        								<strong>Amenities:</strong><br>
+                        								<ul>
+					                                        
+					                                            <li>Seating Area</li>
+					                                        
+					                                            <li>Bathrobes</li>
+					                                        
+					                                            <li>In Room Safe</li>
+					                                        
+					                                            <li>LED/LCD Flatscreen</li>
+					                                        
+					                                            <li>Telephone</li>
+					                                        
+					                                            <li>Coffee / Tea Maker</li>
+					                                        
+					                                            <li>Air Conditioning</li>
+					                                        
+					                                            <li>Bathtub</li>
+					                                        
+					                                    </ul>
+                        							
+												</div>												
+											</div>
+											<div class="detail">
+												<div class="infodesc">
+													Every reach of your eye will be met with grace and beauty, while enjoying comfort in a relaxing atmosphere. From the Roman tub, plush king-sized bed with Egyptian cotton sheets to the sunken living complete with HD TVs and plush furnishings, you are living the good life.
+												</div>
+												<div class="price">
+                                                	<div class="guestcount">
+                                                        
+                                                        
+                                                        &nbsp;	
+                                                    </div>
+													
+													
+													
+														
+														
+															
+															
+														
+														
+													
+														
+														
+														
+													
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+                			</div>
+                		</div>
+                		
+                        <a class="moreInfo" id="moreinfo_282" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#hidden_desc_LKX">read more</a>
+                        
+                        
+                            <div class="qikres_room_amenities">
+                                <span><a id="amenities_caller_multiple-amenities2" href="javascript:;" onclick="toggleDesc(&#39;multiple-amenities2&#39;,this)">[≡]</a>&nbsp;Amenities:</span>
+                                <div class="qikres_room_amenities_list" id="multiple-amenities2">
+                                    <ul>
+                                        
+                                            <li>Seating Area</li>
+                                        
+                                            <li>Bathrobes</li>
+                                        
+                                            <li>In Room Safe</li>
+                                        
+                                            <li>LED/LCD Flatscreen</li>
+                                        
+                                            <li>Telephone</li>
+                                        
+                                            <li>Coffee / Tea Maker</li>
+                                        
+                                            <li>Air Conditioning</li>
+                                        
+                                            <li>Bathtub</li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        
+						<input type="hidden" name="availabilityCount" value="1" id="availabilityCount_2"> 
+						<input type="hidden" name="availabilityCount" value="0" id="availabilityCount_2">
+						<input type="hidden" name="physicalCount" value="998" id="physicalCount_2">
+						
+               			<div class="qikres_price_group">
+               				<div class="qikres_rowheader">
+	                            <div class="qikres_rate_name">Rate name</div>
+	                            <div class="qikres_room_price">Room/night</div>
+	                            <div class="qikres_room_number"># of room</div>
+	                        </div>
+							
+							
+	                        
+               				
+               					
+								
+								
+								
+								<div class="row ">
+									
+									
+									
+									
+									
+									<div class="name" title="Best Available Rate">
+										<a href="javascript:;" id="desc_caller_subdetail_LKX_BAR" onclick="toggleDesc(&#39;subdetail_LKX_BAR&#39;,this)">[≡]</a>
+										
+										<p>Best Available Rate</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_LKX_BAR&#39;, &#39;dailyRateDetails_LKX_BAR&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_LKX_BAR&#39;, &#39;dailyRateDetails_LKX_BAR&#39;, &#39;s&#39;)" id="showDailyRate_LKX_BAR" class="amountValue tipsy-comment" data-amountvalue="999.00">999.00</span>
+                       					<div id="dailyRateDetails_LKX_BAR" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="999.00">999.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                			 
+				                		
+				                		
+				                			 
+				                		
+										<input type="hidden" name="availabilityCount" value="998" id="availabilityCount_2_0">
+										<input type="hidden" name="physicalCount" value="998" id="physicalCount_2_0">
+										<div id="noAvail_2_0" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_2_0" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_2_0">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 2, 0)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_LKX_BAR">
+				                    	This is the best available rate in town
+			                            
+									    
+										
+											<a id="anchor2" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_LKX_BAR">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_LKX_BAR" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Best Available Rate :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               					
+								
+								
+								
+								<div class="row ">
+									
+									
+									
+									
+									
+									<div class="name" title="Super Luxury Rate">
+										<a href="javascript:;" id="desc_caller_subdetail_LKX_SLR" onclick="toggleDesc(&#39;subdetail_LKX_SLR&#39;,this)">[≡]</a>
+										
+										<p>Super Luxury Rate</p>
+									</div>
+									<div class="detail">
+																				
+									</div>	
+									<div class="price">
+										<span class="from-curr">
+											
+												<span class="from">
+													From
+												</span>
+											
+											<span class="cur currencyCode">MYR</span>	
+										</span> 
+										
+											 
+										
+										
+                       					<span onmouseover="showToolTip(&#39;showDailyRate_LKX_SLR&#39;, &#39;dailyRateDetails_LKX_SLR&#39;, &#39;s&#39;)" onclick="showToolTip(&#39;showDailyRate_LKX_SLR&#39;, &#39;dailyRateDetails_LKX_SLR&#39;, &#39;s&#39;)" id="showDailyRate_LKX_SLR" class="amountValue tipsy-comment" data-amountvalue="1,088.00">1,088.00</span>
+                       					<div id="dailyRateDetails_LKX_SLR" style="display : none;background-color:rgb(51,51,51)" class="price">
+                       						<table style="width:450px%;text-align:center;" cellpadding="2" cellspacing="2">
+                                            	<tbody><tr>
+                                                	<td style="width:60%;min-width:140px;text-align:left;background-color:#222"><strong>Date</strong></td>
+                                                    <td style="width:40%;text-align:right;background-color:#222"><strong>Per night (<span class="currencyCode">MYR</span>)</strong></td>
+                                                </tr>
+                       								
+											 			<tr class="price">
+											            	<td style="min-width:140px;text-align:left;">
+											            		Jun 20, 2015
+											            		
+											            	</td>
+											            	
+											            	<td valign="top" align="right"><span class="amountValue" data-amountvalue="1,088.00">1,088.00</span></td>
+											            </tr>
+           											
+													<tr>
+                                                     	<td colspan="2"><hr color="#222" size="1"></td>
+                                                    </tr>
+											   </tbody></table>
+                       					</div>
+										
+									</div>
+				                	<div class="control">
+				                		
+				                		
+										<input type="hidden" name="availabilityCount" value="998" id="availabilityCount_2_1">
+										<input type="hidden" name="physicalCount" value="998" id="physicalCount_2_1">
+										<div id="noAvail_2_1" class="qikres_noavailability" style="display: none">
+											No Availability
+										</div>
+										
+										<span class="book_2_1" style="display:block">
+											<select name="selectedRoomCount" id="roomCount_2_1">
+    <option value="1" selected="selected">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+
+
+</select>
+
+
+											<a href="javascript:;" class="bookButton" onclick="addProduct(&#39;roomCount&#39;, 2, 1)">BOOK</a>
+										</span>
+				                    </div>
+				                    <div class="qikres_rate_desc" id="subdetail_LKX_SLR">
+				                    	Super Luxury Rate
+			                            
+									    
+										
+											<a id="anchor2" class="bookingPolicyFancyBox" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#data_LKX_SLR">
+												Policy
+											</a>	
+											<div style="display:none">
+												<div id="data_LKX_SLR" style="text-align: left;color: black;width: 500px;max-height: 400px;overflow-y: auto;">
+													<span>Policy Super Luxury Rate :</span><br>
+													Booking Policy:<br>This is Qikres Demo Testing Page. &nbsp;Any reservations made online through this webpage is not for any real hotel any where in the world. If you are seeing this reservation page it is solely for demo purposes.
+												</div>
+											</div>
+										
+				                    </div>
+								</div>	
+               				
+               			</div>
+					</td>
+				</tr>					
+			
+			<tr>
+				<td colspan="3" class="qikres_product_separator"></td>
+			</tr>
+		
+	</tbody></table>
+</div>
+
+</div>
+    			<!--room type-->
+	</div>
+    <div class="qikres_side_display" style="margin-top: 0px; top: 0px;">
+    
+    
+ 
+        <div id="modifySearch" class="scrollLimit" style="display:block">
+            <h3 class="qikres_header_table">Hotel Details</h3>
+            <div class="qikres_modify_search">
+                <form id="modifySearchForm" name="modifySearchForm" action="http://210.1.224.42/wbe/sellOption/listOption.action" method="post">
+
+                    <input type="hidden" name="reset" value="true" id="modifySearchForm_reset">
+                    <input type="hidden" id="alternate">
+                    <div class="qikres_location_result">
+                        Hotel/Location:
+                        <select name="selectedPropertyCode" id="selectedPropertyCode" onchange="checkCheckInDate(&#39;LUXURY&#39;)">
+    <option value="LUXURY" selected="selected">Luxury QikRes Hotel</option>
+
+
+</select>
+
+
+                    </div>
+                    
+					
+                        <div class="qikres_checkin_result">
+                            Check In Date:
+                            <input type="text" name="" value="2015-06-20" id="checkInDate" class="hasDatepicker">
+                            <input type="hidden" name="sellOptionReqData.checkInDateTimeStr" value="2015-06-20" id="altCheckInDate">
+                        </div>
+						<div class="qikres_checkout_result">
+							<label for="checkOutDate">Check Out Date :</label>
+							<input type="text" name="" value="2015-06-21" id="checkOutDate" class="datepicker required hasDatepicker">
+							<input type="hidden" name="sellOptionReqData.checkOutDateTimeStr" value="2015-06-21" id="altCheckOutDate">
+						</div>
+					
+                    
+                    
+                    <div class="qikres_adult_result">
+                        Adults:
+                        <select name="sellOptionReqData.adultCount" id="modifySearchForm_sellOptionReqData_adultCount">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected="selected">3</option>
+    <option value="4">4</option>
+
+
+</select>
+
+
+                    </div>
+                    <div class="qikres_children_result">
+                        Children:
+                        <select name="sellOptionReqData.childCount" id="modifySearchForm_sellOptionReqData_childCount">
+    <option value="0" selected="selected">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+
+
+</select>
+
+
+                    </div>
+                    
+                </form>
+
+
+
+
+                <div class="qikres_reservation_btn">
+                    <a class="asButton" href="javascript:resetSearchOption();"><span class="searchBtn">Search</span></a>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="cartInfo" class="qikres_cart_info">
+                
+
+
+
+
+
+	<!--div class="cart-info"-->
+           <h3 class="qikres_header_table">Booking Summary</h3>
+			
+		<div class="qikres_body_cart" style="height: auto;">
+			
+				
+			
+											
+		</div>
+           <table id="totalPayment">
+               
+               
+               <input type="hidden" id="propCurrencyCode" value="MYR">
+               
+            
+            	<tbody><tr id="roomTotal">
+            		<td>
+                       	<span class="qikres_sublabel">Sub Total</span>
+                           <div class="qikres_est_wrapper second">
+                           	<span class="subAmount" style="float:right">0.00</span>
+							<span class="currencyCode subAmount">MYR</span>
+                           </div>
+                       </td>
+            	</tr>
+        	   
+	
+               
+               <tr id="taxCharges">
+                   <td>
+          			
+					
+                   	<span class="qikres_sublabel"><a id="taxtipsy" href="javascript:;" onmouseover="javascript:;">Taxes and Charges</a></span>
+                       
+                       <div class="qikres_est_wrapper second">
+						
+                           <span class="amountValue" data-amountvalue="0.00">0.00</span>
+						<span class="currencyCode">MYR</span>&nbsp;
+                      	</div>
+                   </td>
+			</tr>
+			
+               <tr id="totalLabel">
+                   <td class="first"><span class="amountValue">Total</span></td>
+			</tr>
+
+			<tr id="totalAmount">
+				
+                   <td class="second">
+                   	<span class="currencyWrapper">
+                   		<span class="currencyNotice estCurrencyValue" style="float:left; display:none">(Est.)</span>
+                   		<span class="currencyCode">MYR</span>&nbsp;
+                   	</span>
+                   	<span class="amountValue" data-amountvalue="0.00">0.00</span>
+                   </td>
+               </tr>
+               <tr id="estNotice">
+            	<td class="second currencyNotice" style="display:none"><span class="estCurrencyValue subAmount">MYR</span>&nbsp;<span class="estAmountValue subAmount">0.00</span></td>
+            </tr>
+               
+			
+           </tbody></table>
+           <div class="qikres_footer_cart">
+				
+					
+					
+					
+					
+						
+					
+					
+		            
+		                <div class="qikres_click_confirm_inactive" onclick="javascript:void(0);">Click To Confirm &gt;&gt;</div>
+		            
+           	   	
+				
+               
+               
+           </div>
+	<!--/div-->
+
+        </div>
+        <div id="side-bottom" style="width:100%;float: left; margin-top:10px"></div>
+        <input type="hidden" id="side-bottom-var">
+    </div>
+    <div id="end-bottom" style="width:100%; float: left;clear: both;"></div>
+</div>
+
+
+	<!--room type end --></div>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	var gaInit = false;
+	
+	function trackPage(opt_pageURL) {
+		if(gaInit == false) return;
+	
+		if(opt_pageURL != null && opt_pageURL != 'undefined')
+			_gaq.push(['_trackPageview', opt_pageURL]);
+		else
+			_gaq.push(['_trackPageview']);
+	}
+	
+	function initGA(account) {
+		if(account == null || account == 'undefined') return;
+		
+		_gaq.push(['_setAccount', account]);
+		
+		//enable this for local testing
+		//_gaq.push(['_setDomainName', 'none']);
+		
+		gaInit = true;
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	}
+	
+	$(document).ready(function() {
+		
+			initGA('UA-39962293-1')
+		
+	});
+</script>
+
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-2" style="z-index: 3; clip: auto; width: 34em;"><div class="ui-datepicker-group ui-datepicker-group-first"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-left"><a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="Prev"><span class="ui-icon ui-icon-circle-triangle-w">Prev</span></a><div class="ui-datepicker-title"><select class="ui-datepicker-month" onchange="DP_jQuery_1434597168753.datepicker._selectMonthYear(&#39;#checkOutDate&#39;, this, &#39;M&#39;);"><option value="5" selected="selected">Jun</option><option value="6">Jul</option><option value="7">Aug</option><option value="8">Sep</option><option value="9">Oct</option><option value="10">Nov</option><option value="11">Dec</option></select><select class="ui-datepicker-year" onchange="DP_jQuery_1434597168753.datepicker._selectMonthYear(&#39;#checkOutDate&#39;, this, &#39;Y&#39;);"><option value="2015" selected="selected">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option></select></div></div><table class="ui-datepicker-calendar"><thead><tr><th><span title="Monday">Mo</span></th><th><span title="Tuesday">Tu</span></th><th><span title="Wednesday">We</span></th><th><span title="Thursday">Th</span></th><th><span title="Friday">Fr</span></th><th class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th><th class="ui-datepicker-week-end"><span title="Sunday">Su</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">1</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">2</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">3</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">4</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">5</span></td><td class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">6</span></td><td class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">7</span></td></tr><tr><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">8</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">9</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">10</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">11</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">12</span></td><td class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">13</span></td><td class=" ui-datepicker-week-end ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">14</span></td></tr><tr><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">15</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">16</span></td><td class=" ui-datepicker-unselectable ui-state-disabled "><span class="ui-state-default">17</span></td><td class=" ui-datepicker-unselectable ui-state-disabled  ui-datepicker-today"><span class="ui-state-default">18</span></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">19</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">20</a></td><td class=" ui-datepicker-week-end  ui-datepicker-current-day" onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default ui-state-active" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">21</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">22</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">23</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">24</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">25</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">26</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">27</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">28</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">29</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,5,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">30</a></td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div><div class="ui-datepicker-group ui-datepicker-group-last"><div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-right"><a class="ui-datepicker-next ui-corner-all" onclick="DP_jQuery_1434597168753.datepicker._adjustDate(&#39;#checkOutDate&#39;, +1, &#39;M&#39;);" title="Next"><span class="ui-icon ui-icon-circle-triangle-e">Next</span></a><div class="ui-datepicker-title"><span class="ui-datepicker-month">July</span>&nbsp;<span class="ui-datepicker-year">2015</span></div></div><table class="ui-datepicker-calendar"><thead><tr><th><span title="Monday">Mo</span></th><th><span title="Tuesday">Tu</span></th><th><span title="Wednesday">We</span></th><th><span title="Thursday">Th</span></th><th><span title="Friday">Fr</span></th><th class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th><th class="ui-datepicker-week-end"><span title="Sunday">Su</span></th></tr></thead><tbody><tr><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">1</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">2</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">3</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">4</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">5</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">6</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">7</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">8</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">9</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">10</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">11</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">12</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">13</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">14</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">15</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">16</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">17</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">18</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">19</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">20</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">21</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">22</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">23</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">24</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">25</a></td><td class=" ui-datepicker-week-end " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">26</a></td></tr><tr><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">27</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">28</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">29</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">30</a></td><td class=" " onclick="DP_jQuery_1434597168753.datepicker._selectDay(&#39;#checkOutDate&#39;,6,2015, this);return false;"><a class="ui-state-default" href="http://210.1.224.42/wbe/booking/simpleWebAction.action?tid=111248&cid=LUXURY&src=http%3A%2F%2F210.1.224.42%2Fwbe%2FsellOption%2FlistOption.action%3FcustomerID%3DLUXURY%26selectedPropertyCode%3DLUXURY%26selectedProductCode%3D%26arrivalDate%3D2015-06-20%26departureDate%3D2015-06-21%26childCount%3D0%26adultCount%3D3%26reset%3Dtrue%26referer%3Dhttp%253A%252F%252Fclients.manic.com.sg%252Fstrand%252Freservations%252F%26jsessionId%3Dundefined&cssPath=http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css&printCSSPath=undefined#">31</a></td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td><td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;</td></tr></tbody></table></div><div class="ui-datepicker-row-break"></div></div><div id="qikinn_loader" style="display: none;">
+	<table style="width:100%; height:100%;border:0;">
+		<tbody><tr>
+			<td style="text-align:center;">
+				<span id="progressbar" style="display: block;"><img alt="Loading..." src="qikres-loader.gif"></span>
+                <span id="loading-msg-header"></span><br>
+                <span id="loading-msg-footer"></span>
+			</td>
+		</tr>
+	</tbody></table>
+</div></body></html>

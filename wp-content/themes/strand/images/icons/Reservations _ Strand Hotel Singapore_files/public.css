@@ -1,0 +1,2558 @@
+/* version=1.0.1l */
+/* Ruby theme */
+/** ========================================================== START HTML SELECTOR ========================================================== **/
+@font-face {
+	font-family: 'tt0142m';
+	src: url('../fonts/tt0142m.eot');
+	src: local('tt0142m'), 
+		 url('../fonts/tt0142m.woff') format('woff'),
+		 url('../fonts/tt0142m.ttf') format('truetype'),
+		 url('../fonts/tt0142m.svg') format('truetype'),
+		 url('../fonts/tt0142m.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/tt0142m.svg#tt0142m') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.required{
+	background-color:#FFFCBA !important	
+}
+
+    .transition{
+		-webkit-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-moz-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-o-transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		transition: all 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */
+		
+		-webkit-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-moz-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		-o-transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+		transition-timing-function: cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */
+	}
+
+	html{
+		margin: 0;
+		padding: 0;
+		overflow-x:hidden
+	}
+	
+	*{
+		box-sizing: border-box;	
+		-webkit-box-sizing: border-box;	
+		-moz-box-sizing: border-box;
+		-webkit-padding-start: 0px;
+		-webkit-padding-before: 0px;
+		-webkit-padding-end: 0px;
+		-webkit-padding-after: 0px;
+	}
+	
+	body, h1, h2, h3, h4, ul, li{
+		margin: 0;
+		padding: 0;
+	}
+	
+	table{
+		border-spacing:0px; 
+		border-collapse:collapse;	
+	}
+
+	body {
+		text-align: center;
+		color: #74653D;
+		padding:0px;
+		margin:0px;
+		font-family:'tt0142m', Tahoma ,Verdana, serif;
+		font-size:15px;
+		color:#999;
+		line-height:20px;
+		font-weight:normal
+	}
+
+	a.buttonDisabled{
+		opacity:.4 !important;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		filter: alpha(opacity=40);
+		-moz-opacity: 0.4;
+		-khtml-opacity: 0.4;
+		color:#666 !important;
+		pointer-events: none !important;
+		cursor:not-allowed !important;
+	}
+	
+	a.asButton:hover{
+		color:#039;
+		border:1px solid #387497;
+		background:#599BC0;
+	}
+	
+	a.buttonDisabled:hover{
+		opacity:.4 !important;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+		filter: alpha(opacity=40);
+		-moz-opacity: 0.4;
+		-khtml-opacity: 0.4;
+		color:#666 !important;
+		border:2px solid #97A9E8 !important;
+	}
+		
+	.asButton{
+		padding:5px !important; 
+		border:1px solid #3F608A !important;
+		cursor:pointer  !important;
+		font-weight:inherit !important;
+		font-size:inherit !important;
+		background:#7BC3EC;
+	}
+
+	.asButton span{
+		margin:0px 3px -3px 0px !important;
+		border:0px !important;
+		width:14px !important;
+		height:14px !important;
+		background-repeat:no-repeat !important;
+		background-position:left center !important;
+		display:inline !important;
+		color:#000 !important;
+		font-size:inherit !important;
+		padding-left:12px !important;
+	}
+
+	.asButton .iconOnly{
+		padding:7px !important;
+		width:3px;
+		float:none;
+		margin:0px !important;
+	}
+	
+	a.bookButton{
+		padding:5px; 
+		margin-left:1px; 
+		font-size:13px;
+		font-weight:normal;
+		border:1px solid #FF8500; 
+		float:right;
+		color:#F00;
+		text-align:center;
+		background: #ffff90; /* Old browsers */
+	}
+	
+	a.bookButton:hover{
+		color:#000;
+	}
+	
+	a {
+		color: #CCC;
+		text-decoration:none
+	}
+	a:hover {
+		color:#FFFFFF
+	}
+	
+	a.data{
+		color:inherit	
+	}
+/** ========================================================== END HTML SELECTOR ========================================================== **/
+
+
+/* ============= start overwrite jqui ============ */
+.ui-datepicker td.holiday a {
+	background-color: #F33 !important;
+	border:1px solid #C82929 !important;
+	opacity:.6 !important;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	-khtml-opacity: 0.6;
+}
+
+td.holiday span {
+	background:transparent!important;
+	color: #ccc!important;
+}
+
+td.holiday a {
+	background:transparent!important;
+	color: #BA1A1A!important
+}
+
+.ui-datepicker .ui-datepicker-title select{
+	margin:0 !important	
+}
+
+.ui-datepicker-multi .ui-datepicker-group table{
+	color:#000 !important	
+}
+
+#errorContents ul li{
+	list-style:none;
+	text-align:left;
+	border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+}
+
+.infoContents{
+	color:#073261 !important
+}
+
+.errorContents{
+	color:#A94442 !important
+}
+
+.ui-state-error{
+	background:#f2dede !important;
+	border:0px none !important;
+	border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+}
+
+.ui-state-info{
+	background:#d9edf7 !important;
+	border:0px none !important;
+	border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+}
+
+.error{
+	background: #B83939; 
+	color:#FFF;
+	font-weight:bold;
+}
+
+.info{
+	color: #FFF;
+	background-color: #3071a9;
+	border-color: #bce8f1;
+	font-weight:bold;
+}
+
+
+/* ============= end overwrite jqui ============== */
+
+/** ========================================================== START PROPERTY SELECTOR ========================================================== **/
+.property-value{
+	width:100%;
+	display:table;
+	float:left;
+	padding-left:5px
+}
+
+.property-value li{
+	width: auto;
+	margin-right: 5px;
+	display:inline;
+	list-style: none;
+	border-right: 1px solid #999;
+	padding-right: 5px;
+}
+/** ========================================================== END PROPERTY SELECTOR ========================================================== **/
+
+/** ========================================================== START MERGE PROFILE ========================================================== **/
+
+.merge-profile .left{
+	width:40%;
+	height:auto; 
+	float:left
+}
+
+.merge-profile .right{
+	width:37%;
+	height:auto; 
+	float:left	
+}
+
+.merge-profile .left tr.current, .merge-profile .right tr.current{
+	background-color:#333;
+	color:#FFF
+}
+
+.merge-profile .left tr.left-profile{
+	border-bottom:1px dotted #C3C3C3;
+	vertical-align:top;
+	background-color:#F3F3F3;
+}
+
+.merge-profile .left tr.left-profile td{
+	padding-left:5px
+}
+
+.merge-profile .right tr.right-profile{
+	border-bottom:1px dotted #000;
+	vertical-align:top;
+	background-color:#CCCCCC;
+}
+
+.merge-profile .right table td{
+	padding-left:10px	
+}
+
+.merge-profile table{
+	width:100%;
+	background-color:#CCC
+}
+
+.merge-profile .prev-next{
+	float:right;
+	margin-right:220px
+}
+
+.merge-profile .pick-me{
+	padding:5px 0px 5px 0px;
+	text-align:right	
+}
+
+.merge-profile .merge-button{
+	margin:auto;
+	width:100%	
+}
+
+#multiple-profile li{
+	list-style:none;
+	float:left;
+	width:340px;
+	margin-left:0px;
+}
+/** ========================================================== END MERGE PROFILE ========================================================== **/
+
+/** ========================================================== START CONTACT US PAGE ========================================================== **/
+.map{
+	height:auto;
+	width:30%;
+	float:left;
+}
+
+.map img{
+	max-width:100%
+}
+
+.map a.asButton{
+	width: 100%;
+	display: table;
+	text-align: center;
+}
+
+.contact-information{
+	float:left;
+	width:70%;
+}
+
+.contact-us li{
+	width:50%;
+	float:left	
+}
+
+.contact-us h4{
+	margin-bottom:10px	
+}
+
+.contact-us ol li p{
+	float:left;
+	width:100%
+}
+
+.contact-addr-wrapper, .contact-phone-wrapper{
+	width:95%;
+	margin:auto
+}
+
+.contact-addr, .contact-phone{
+	width:100%;
+	height:auto;
+	margin-bottom:10px;
+	float:left	
+}
+
+.contact-addr p, .contact-phone p{
+	margin:0px !important
+}
+
+.contact-addr p img{
+	width:16px !important;	
+	height:16px !important;	
+	border:0px solid !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	margin:0px 10px 0px 0px
+}
+
+/** ========================================================== END CONTACT US PAGE ========================================================== **/
+
+/** ========================================================== START MISC PAGE/UI ========================================================== **/
+#timeout-page{
+	display: table;
+	width: 100%;
+	/*margin: -80px 0 0 -159px !important;*/
+	margin:0
+}
+
+#timeout{
+	width:100%;
+	margin:auto;
+	height:auto;
+	text-align:left;
+	display:table;
+	border:1px solid #872011;
+	padding:25px;
+}
+
+.timeout{
+	height: 100px;
+	width: auto;
+	font-size: 18px;
+	color: #000;
+	margin: auto;
+	line-height: 30px;
+	padding: 10px;
+}
+
+.timeout span{
+	background-color:#000;
+	color:#FFF;
+	padding:5px
+}
+
+.timeout a{
+	color:#FFF !important	
+}
+
+/** ========================================================== END MISC PAGE/UI ========================================================== **/
+
+/** ========================================================== START B2B LOGIN PAGE ========================================================== **/
+
+.b2blogin input[type="text"], .b2blogin input[type="password"]{
+	width:50%;	
+}
+
+/** ========================================================== END B2B LOGIN PAGE ========================================================== **/
+
+.password-recovery input[type="password"], .password-recovery input[type="text"]{
+	width:300px !important
+}
+
+.password-recovery{
+	width: 32%;
+	float: left;
+}
+
+/** ========================================================== START REGISTER PAGE ========================================================== **/
+
+.register input[type="text"], .register input[type="password"]{
+	width:94%;	
+}
+
+.register select{
+	width:94%
+}
+
+.reg-word{
+	float:left; 
+	width:48%;
+}
+
+.reg-username, .reg-firstname, .reg-password, .reg-email, .reg-lastame, .reg-confirm-password, .reg-answer{
+	float:left; width:49%;
+}
+
+.reg-answer{
+	float:left; width:100%;
+}
+
+.reg-answer input[type="text"]{
+	width:93%
+}
+
+.reg-button{
+	float: right;
+	margin-right: 50px;
+	margin-top: 124px;
+	text-align: left;
+	width: auto;
+}
+
+.reg-word #captcha-image{
+	float: left;
+	height: 70px !important;
+	margin-top: 10px;
+	width: 99% !important;
+}
+
+.register .reg-question{
+	float:left; width:100%
+}
+
+.reg-word input[type="text"]{
+	width:48%
+}
+
+.reg-question input[type="text"]{
+	width:93%;	
+}
+
+.reg-question select{
+	width:94%
+}
+
+/** ========================================================== END REGISTER PAGE ========================================================== **/
+
+/** ========================================================== START MAIN PAGE ========================================================== **/
+/* ---- wrapper ----- */
+	#wrapper {
+		text-align: left;
+		margin: auto;
+		width: 100%;
+		border-top:5px solid #333
+	}
+
+/* ---- header ----- */
+	#header {
+		width: 100%;
+		height: 100%;
+		position:fixed;
+		left:0px;
+		top:0px;
+		z-index:-1
+	}
+	
+	#roll{
+		position: relative;
+		width: 100%;
+		z-index:-10;
+		height:100% !important;
+background:url(../images/body/body-bg.png?1434426090874)
+	}
+
+	.banner {
+	  display: block;
+	  width: 100% !important;
+	  height: 100% !important;
+	  position:fixed;
+	  left:0px;
+	  right:0px;
+	}
+	
+	.banner img{
+		display:block;
+		width:100%;
+	}
+	
+/* ---- body ----- */	
+	#body{
+		float: left;
+		height: auto;
+		margin: 89px auto auto 10px;
+		width: 75%;
+		margin-left: 250px;
+	}
+	
+/* --- footer --- */	
+	#footer {
+		position:fixed;
+		width: 100%;
+		background: none transparent;
+		bottom:0px;
+		color:#000;
+		z-index:-1;
+		float:left
+	}
+	
+	.footer-wrapper{
+		width: 100%;
+	}
+	
+	.footer-wrapper table{
+		width: 100%;
+	}
+	
+	.footer-logo{
+		display:none
+	}
+	
+	.footer-logo img{
+		height:34px;
+	}
+	
+	.footer-desc{
+		display:none
+	}
+	
+	.footer-company{
+		padding: 5px;
+		text-align: right;
+		vertical-align: top;
+		width: auto;
+	}
+	
+	.socmed{
+
+	}
+	
+	.socmed a.socmed-button{
+		float:left;
+		margin-left:5px	
+	}
+
+	.socmed a.socmed-button img.img-fc{
+		display:block
+	}
+
+	.socmed a.socmed-button img.img-bw{
+		display:none
+	}
+
+/* --- login area --- */	
+	#user-name{
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-ms-text-overflow: ellipsis;
+		white-space: nowrap;
+		color:#FFF;
+		text-shadow:1px 1px #000;
+		padding-bottom:5px
+	}
+	
+	#user-area{
+		width: 200px; 
+		padding-top:5px;
+		float:right;
+		position:absolute;
+		right:0;
+		top:40px;
+		background: rgba(255,255,255,0.7); 
+		z-index:120 !important; 
+		height:auto;
+		visibility:hidden;
+		padding-bottom:5px;
+	}
+	
+	#user-area a.asButton{
+		text-shadow:none !important
+	}
+	
+	#user-menu{
+		margin: auto;
+		width: 95%;		
+	}
+	
+	#user-menu > div{
+		border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		-webkit-border-radius: 0 !important;
+	}
+	
+	#user-menu a{
+		color: #FFF;
+		font-weight: normal;
+	}
+	
+	#user-menu a:hover{
+		background: #000000;
+	}
+		
+	#user-menu h3{
+		text-shadow:none !important;
+		text-align:left;
+		border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		-webkit-border-radius: 0 !important;
+	}
+	
+	#user-logout{
+		width:auto;
+		padding-top:5px;
+		text-align:center
+	}
+	
+	#user-logout a{
+		width:40%;
+		margin:auto	
+	}	
+/** ========================================================== END MAIN PAGE ========================================================== **/
+
+/** ========================================================== START MAIN CONTENT ========================================================== **/
+	.web-content {
+		margin: auto;
+		text-align:left;
+		width:100%;
+		float:left;
+		border-top: 1px solid #000;
+		background:rgba(0,0,0,0.7)
+	}	
+	
+	.web-content img{
+		border: 2px solid #FFFFFF;
+		z-index: 100;
+		float:left;
+		margin:0px 15px 10px 0px;
+	}
+	
+	.web-content p {
+		padding:0px;
+	}
+	
+	.bookingbg{
+background: url(../images/body/booking-fx.png?1434426090874) bottom center no-repeat transparent !important;
+	}
+	
+	.no-bookingbg{
+		background: none !important;
+	}
+
+	.booking {
+		color: #CCC;
+		line-height: 20px;
+		z-index:1;
+		position:fixed;
+		background-color:rgba(0,0,0,0.5);
+		width:240px;
+		margin-left:10px;
+		left:0;
+		top:90px;
+		padding:10px;
+		font-size:13px
+	}
+	
+	#ui-datepicker-div{
+		background:rgba(255,255,255,0.7) !important;
+		z-index:100 !important
+	}
+	
+	.booking select, .booking input[type=text]{
+		padding:1px	
+	}
+	
+	#booking-location{
+		float: left;
+		white-space: nowrap;
+		width:100%;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		-ms-text-overflow: ellipsis;
+		overflow:hidden;
+		white-space: nowrap;
+	}
+
+	#booking-checkin, #booking-checkout{
+		float: left;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow:ellipsis;
+		-ms-text-overflow: ellipsis;
+		overflow:hidden;
+		white-space: nowrap;
+/* start old version */
+		width:100%;
+/* end old version */
+	}
+/* start old version */
+	#booking-checkout div:first-child{
+		width:30%;
+		float:left	
+	}
+
+	#booking-checkout div:last-child{
+		width:70%;
+		float:left	
+	}
+	
+	#booking-checkout div:first-child input[type="number"]{
+		border:1px solid #CCC;
+		float:left;
+		padding:5px
+	}
+/* end old version */
+
+	/* start if night number is shown */
+	/*#booking-checkout.shownight div:first-child input[type="number"]{
+		border:1px solid #CCC;
+		float:left;
+		padding:5px
+	}
+
+	#booking-checkin.shownight, #booking-checkout.shownight{
+		width:100%
+	}
+	
+	#booking-checkout.shownight div:first-child{
+		width:30%;
+		float:left
+	}
+	
+	#booking-checkout.shownight div:first-child input[type="number"]{
+		border:1px solid #CCC;
+		float:left;
+		padding:5px
+	}
+
+	#booking-checkout.shownight div:last-child{
+		width:70%;
+		float:left	
+	}*/
+	
+	/* end if night number is shown */
+	
+	/* start if night number is NOT shown */
+	/*#booking-checkin, #booking-checkout{
+		width:50%
+	}*/
+	
+	/* end if night number is NOT shown */
+	
+	#booking-adult,#booking-child{
+		float: left;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow:ellipsis;
+		-ms-text-overflow: ellipsis;
+		white-space: nowrap;
+		width:50%
+	}
+	
+	#booking-location select, #booking-adult select, #booking-child select{
+		float:left;
+	}
+	
+	#booking-checkin input[type="text"], #booking-checkout input[type="text"]{
+		border:1px solid #CCC;	
+background:url(../images/body/calendar.png?1434426090874) right center no-repeat #FFFFFF;
+		float:left;
+	}
+
+	.booking h2 {		
+		text-overflow: ellipsis;
+		-ms-text-overflow: ellipsis;
+		overflow:hidden;
+		white-space: nowrap;
+		font-family: "cubeOT-Light", Tahoma,verdana, Arial;
+		background: rgba(0,0,0,0.3);
+		padding: 5px;
+		margin-bottom: 10px;
+		font-weight: normal;
+		font-size: 20px;
+		margin-top: -10px;
+	}
+	
+	.booking select, .booking input[type="text"]{
+		margin-bottom:5px
+	}
+/** ========================================================== END MAIN CONTENT ========================================================== **/
+
+/* ------------------ start accomodation ------------------ */	
+	.room-group{
+		width:100%;
+		float:left	
+	}
+	
+	.rooms{
+		width:100%;
+		float:left;
+		display:none
+	}
+	
+	.room-list h1{
+		font-size:15px;
+		margin-bottom:10px
+	}
+	
+	.room-list h3{
+		color:#7A8BA0;
+		margin-bottom:10px
+	}
+	
+	.room-type{
+		-moz-border-top-right-radius: 5px;
+		-webkit-border-top-right-radius: 5px;
+		border-top-right-radius: 5px;
+		-moz-border-bottom-right-radius: 5px;
+		-webkit-border-bottom-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-right:1px solid #872011;
+		border-top:1px solid #872011;
+		border-bottom:1px solid #872011;
+		float: left;
+		height: 100%;
+		margin-left: -10px;
+		margin-right: 10px;
+		padding-left: 15px;
+		width: 15%;
+		background-color:#FFF;
+	}
+	
+	.room-type ul li a{
+		color: #666
+	}
+
+	.room-type ul li a:hover{
+		color: #000
+	}
+	
+	.room-type h3{
+		color:#000000;
+	}
+	
+	.room-type ul{
+		margin-left:20px;
+		margin-bottom:10px;
+		display:none
+	}
+	
+	.room .left-room{
+		width:100%;
+		float:left
+	}
+	
+	.room .left-room img{
+		width:100%;
+	}
+	
+	.room .right-room{
+		float:left; 
+		width:100%;
+		text-align:justify
+	}
+	
+	.room-type-description{
+		float:left;
+		width:100%;
+		display:none;
+		margin-right:7px
+	}
+	
+	.room-type-description h3{
+		background-color: #FFF;
+		color:#872011;
+		display: inline;
+		padding: 5px 10px;
+		width: auto;
+	}
+	
+	.room-facilities .title{
+		font-weight:bold;
+		color:#000
+	}
+	
+	.room-facilities ul li{
+		list-style:square	
+	}
+	
+	.room-facilities ul{
+		margin-left:20px	
+	}
+	
+/* ------------------ end accomodation ------------------ */
+	.register{
+		width: 70% !important;
+		height: auto;
+		float: left;
+		color: #CCC;
+		margin: 10px;
+	}
+	.promo-list, .property-list, .meeting-list, .dining-list, .wedding-list, .service, .album-categories, .album-detail, .contact-us, .b2blogin, .merge-profile, .get-password, .alt-login, .billing, .reservation, .membership, .personal, .security, .promo-detail, .room-list{
+		width: 99% !important;
+		height: auto;
+		float: left;
+		color: #CCC;
+		margin: 10px;
+	}
+	
+	.property-list span a{
+		color:#CCCCCC;
+		font-weight:bold
+	}
+
+	.property-list span a:hover{
+		color:#FFFFFF
+	}
+	
+	.service{
+		width:100%;
+		float:left;
+		margin-top:20px
+	}
+
+	.service ul{
+		width:33%;
+		float:left;
+		margin-bottom:20px
+	}
+	
+	.service ul span{
+		font-weight:bold	
+	}
+	
+	.service h4{
+		margin-bottom:10px;
+	}
+	
+	.meeting-list h3, .dining-list h3, .wedding-list h3{
+		font-size:15px;
+		margin-bottom:15px
+	}
+	
+	.dining, .meeting, .wedding, .room{
+		float:left;
+		width:100%;
+		margin-bottom:40px
+	}
+	
+	.dining h3, .meeting h3, .room h3{
+		width:100%;
+		padding-bottom:8px
+	}
+	
+	.dining-operation{
+		float:left;
+		width:100%	
+	}
+	
+	.dining-operation .contact, .dining-operation .opening{
+		color:#FFFFFF;
+		float:left;
+		padding:5px 0 5px 0;
+	}
+
+	.dining .dining-operation .value{
+		width:auto;
+		float:left;
+		margin-left:5px;
+		padding:5px 0px 5px 0px;
+	}
+	
+	.dining .left-dining, .meeting .left-meeting, .wedding .left-wedding, .room .left-room{
+		float:left; 
+		width:auto;
+	}
+
+	.dining .right-dining, .meeting .right-meeting, .wedding .right-wedding, .room .right-room{
+		float:left; 
+		width:80%;
+		text-align:justify
+	}
+	
+	.room-facilities .title{
+		font-weight:bold
+	}
+	
+	.room-facilities ul{
+		margin-left:20px	
+	}
+	
+	.web-content h4{
+		color:#FFFFFF;
+		font-size:15px
+	}
+	
+	.web-content .service ul li{
+		list-style:circle;
+		margin-left:20px	
+	}
+	
+	#reservation{
+		margin-top:-29px !important;
+	}
+	
+	#account{
+		margin-top:-72px !important;
+	}
+	
+	.signup a, .forgot-password a{
+		float:left !important
+	}
+	
+	.signup, .forgot-password{
+		float: left;
+		margin: 0;
+		padding: 0 !important;
+		text-align: left;
+		width: 100%;		
+	}
+
+	.signup a:hover, .forgot-password a:hover{
+		background-color:transparent !important;
+		color: #FFFFFF
+	}
+	
+	
+	#login {
+		background: rgba(255,255,255,0.7);
+		color: #000;
+		margin: auto auto auto -4px !important;
+		padding: 10px;
+		text-align: left !important;
+		float: right;
+		right: -210px;
+		top: 45px;
+		position: fixed;
+		width: 190px;
+	}
+	/*.nav li > div{
+		width:180px; 
+background: url(../images/body/nav.png?1434426090874) repeat #EFED48; 
+		z-index:120 !important; 
+		height:auto;
+		visibility:hidden;
+		padding-bottom:5px
+	}*/
+	
+	
+	#login a.asButton{
+		margin-right:10px	
+	}
+	
+	#login input[type="text"], #login input[type="password"]{
+		width:97%
+	}
+		
+	#login-block .type{
+		float: left;
+		width: 97%;
+		border: 1px solid #999;
+		padding: 1px 1px 1px 3px;
+		margin-top: 5px;
+	}
+	
+	#login-block .options{
+		float: left;
+		width: 76%;
+		margin-left: 5px;	
+	}
+	
+	#login-block .type select{
+		float:right;
+	}
+	
+	#login-block .label{
+		float:left;
+		margin-top:5px	
+	}
+
+#news-content {
+	color: #000000 !important;
+	z-index:2;
+	display:table;
+	position:relative
+}
+
+#sidebar_promotions{
+	float:right
+}
+
+#main-web-content {
+	position: relative;
+	display: table;
+	width: 100%;
+	z-index: 1;
+	margin-top: -4px;	
+	background: rgba(0,0,0,0.3);
+}
+
+#main-web-content div.qikin-link-header{
+	/*display:none*/
+}
+
+#main-web-content div.qikin-link-header a{
+	float:none !important
+}
+#home-page{
+	display:none !important
+}
+#home-page, #facilities-page, #global-page, #gallery-page, #contact-page, #register-page, #b2b-page, #promo-page, #merge-page, #forgot-password-page, #alt-login-page, #billing-page, #reservation-page, #membership-page, #personal-page, #security-page, #room-page{
+	padding: 0;
+	z-index: 100;
+	width: 100%;
+	margin-top: 10px;
+	height: 100%;
+	display: table;
+}
+
+#main-web-content h2 {
+	color: #FFFFFF;
+	display: inline;
+	font-size: 17px;
+	padding: 8px;
+	text-shadow: 1px 1px #000000;
+	width: auto;
+}
+
+#prev-promo{
+	float:left;
+background: url(../images/body/prev.png?1434426090874) center center no-repeat #222
+}
+
+.promo-content{
+	width:99%;
+	height:169px;
+}
+
+#prev-promo, #next-promo{
+	height: 20px;
+	width: 20px;
+	position:absolute;
+	top:5px;
+	cursor:pointer
+}
+
+#next-promo{
+	float:right;
+	right:0;
+background: url(../images/body/next.png?1434426090874) center center no-repeat #222
+}
+
+#next-promo:hover,#prev-promo:hover{
+	background-color:#000000
+}
+
+.noPromoImg{
+	width: 190px;
+	height: 120px;
+	float:left;
+background:url(../images/body/no-promo.jpg?1434426090874) no-repeat center center #FFF;
+	margin-bottom:10px;
+	border:1px solid #666;
+}
+
+
+.promo-info{
+	height: 200px;
+	width: 220px;
+	margin: 0;
+	background: rgba(235, 235, 235, 0.3);
+	border: 1px solid #333;
+}
+
+.promo-info table{
+	width:86%;
+	color:#FFF;
+	border-spacing:0px;
+	border-collapse:collapse;
+	margin-bottom:15px;
+	border-top:1px solid #666;
+	border-bottom:1px solid #666;
+	border-left:1px solid #666;
+}
+
+.promo-info table td{
+	padding:3px 3px 3px 5px;
+}
+
+.promo-info li{
+	width:188px;
+	margin:4px;
+	float:left;
+	padding:1px;
+	list-style:none;
+	height:138px
+}
+
+.promoDesc .description{
+	display:none	
+}
+
+.promo-info li h4 a{
+	float:left !important
+}
+
+.promo-info li div.price, .promo-info li div.promoDesc p, .promo-info a.bookButton{
+	display:none
+}
+
+.promo-info li div.promoDesc a.more{
+	display: none;
+	margin:20px 0px;
+}
+
+.promo-info ul li p{
+	text-align:left;
+	height:80%;
+	float:left
+}
+
+.promo-info img{
+	border: 1px solid #000000;
+	float: left;
+	height: 120px;
+	margin: 0px 10px 10px 0px;
+	width: 190px;
+}
+
+.promo-info ul li a{
+	float:right;
+}
+
+.promo-detail{
+	float:left; 
+	height:auto;
+	width:100%; 
+	text-align:justify;
+	padding-bottom:5px;
+	margin:0px 5px 10px 0px;
+}
+
+.promo-detail img{
+	width:227px;
+	height:110px;
+	float:left
+}
+
+.promo-detail div.promo h3{
+	color:#FFF;
+	padding:5px;
+	background: #872011
+}
+
+.promo-detail div.promo, .promo-detail div.desc{
+	height:auto;
+	width:100%;
+	float:left;
+	color:#000;
+}
+
+.promo-detail{
+	float:left; 
+	height:auto;
+	width:100%; 
+	text-align:justify;
+	padding-bottom:5px;
+	margin:0px 5px 10px 0px;
+}
+
+.promo-detail img{
+	width:227px;
+	height:110px;
+	float:left
+}
+
+.promo-detail div.promo h3{
+	color:#FFF;
+	padding:5px;
+	background: #872011
+}
+
+.promo-detail div.promo, .promo-detail div.desc{
+	height:auto;
+	width:100%;
+	float:left;
+	color:#000;
+}
+
+.promo-wrapper{
+	float: left;
+	width: 100%;
+}
+
+.promo-terms{
+	float:left
+}
+
+.promo-terms h4{
+	color:#000 !important;
+	cursor:pointer
+}
+
+.promo-terms ul{
+	margin-left:20px !important	
+}
+
+.promo-detail div.desc{
+	overflow:auto;
+	overflow-x:hidden;
+	height:auto;
+}
+
+.promo-detail div.promo div.promo-group{
+	float:left;
+	width:80%;
+}
+
+.promo-detail div.promo div.book-group{
+	float:right;
+	width:20%;
+}
+
+.promo-detail div.promo div.promo-group div.label{
+	color:#333;
+	margin-bottom:5px;
+}
+
+.promo-detail div.promo div.promo-group div.price{
+	font-size:25px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:10px;
+	float:left; 
+	width:60%;
+	padding:10px 10px 10px 30px;
+background:url(../images/body/price-tag2.png?1434426090874) left 7px no-repeat
+}
+
+.start-date-group, .end-date-group{
+	float:left;
+	width:35%
+}
+
+.start-date-group div.label, .end-date-group div.label{
+	color:#000;
+	width:70px;
+	float:left
+}
+
+.start-date-group div.start-date, .end-date-group div.end-date{
+	color:#000;
+	font-size:12px;
+	float:left;
+}
+
+.promo-detail p{
+	float:left;
+	width:100%;
+}
+
+.promo-detail h3{
+	color:#FFF;
+	margin:0px 0px 10px 0px
+}
+
+.reservation-btn{
+	float: left;
+	margin: 10px auto;
+	text-align: right;
+	width: 100%;
+}
+
+.reservation-btn > a{
+	width: 100%;
+	display: table;
+	padding: 10px 5px !important;
+	text-align: center;	
+	font-size:20px !important
+}
+
+.promo-info h3 {
+	color: #872011;
+	width: 100% !important;
+	padding:5px;
+	width:auto;
+	background: rgba(0,0,0,0.3);
+	text-align: center;
+	float:left;
+	padding-left:20px;
+	color:#FFF;
+	border-top: 1px solid #999;
+	font-weight:normal
+}
+
+.more-promotion{
+	float: right;
+	position: absolute;
+	bottom: 0px;
+	left: 10px;
+	z-index:3
+}
+
+.promo-wrapper{
+	width: 100%;
+}
+
+.promo-info ul li h4 {
+	color:#000;
+	font-size:14px;
+	text-overflow:ellipsis;
+	-ms-text-overflow: ellipsis;
+	overflow:hidden;
+	white-space: nowrap;
+	width:100%;
+}
+
+.top-menu{
+	width:100%; 
+	height:auto; 
+	margin:auto;
+	position:absolute;
+	z-index:100;
+}
+
+#logo {
+	text-align: left;
+	padding:0px;
+	margin-left:10px;
+	float:left;
+	width:240px;
+	height:80px;
+	position:fixed;
+	text-align: center;
+}
+
+#logo img{
+	border:0px none;
+	max-width:240px
+}
+
+/** ========================================================== START DROP DOWN MENU ========================================================== **/	
+
+	#welcome p{
+		margin:0px;
+		padding:0px;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		-ms-text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	
+	#welcome hr{
+		border-color: #CCC;
+	}
+	
+	#welcome .ui-accordion .ui-accordion-content{
+		padding:0px !important;
+		border:0px none !important
+	}
+	
+	#welcome .ui-state-active .ui-icon, #welcome .ui-state-default .ui-icon{
+		float:left !important	
+	}
+	
+	#welcome > a.hover{
+		-moz-border-bottom-right-radius: 0px !important;
+		-webkit-border-bottom-right-radius: 0px !important;
+		border-bottom-right-radius: 0px !important;
+		
+		-moz-border-bottom-left-radius: 0px !important;
+		-webkit-border-bottom-left-radius: 0px !important;
+		border-bottom-left-radius: 0px !important;
+		border:0px none
+	}
+	
+	#welcome > a{
+background: url(../images/body/submenu.gif?1434426090874) no-repeat 180px center;
+		color: #000000 !important
+	}
+	
+li.li-submenu{
+background: url(../images/body/submenu.gif?1434426090874) no-repeat 180px center;
+    /*-webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blink;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;*/
+}
+
+/*@-moz-keyframes blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blink {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}*/
+
+#fixedPos .nav{
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-top:1px solid #872011;
+	padding:0 !important
+}
+
+#fixedPos .nav li#login-block{
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.nav {
+	margin:auto;
+	position:relative;
+	background: rgba(0,0,0,0.3);
+	float:right;
+	width:auto
+}
+
+.nav ul{
+	position:absolute; 
+	background:rgba(255,255,255,0.8);
+	z-index:120 !important; 
+	height:auto;
+	margin-top:5px !important;
+	opacity:0;
+	visibility:hidden;
+	width:150px
+}
+
+.nav ul ul{
+	margin: 0 !important;
+	border-left: 1px solid #666
+}
+
+.nav ul li a{
+	color:#000 !important
+}
+
+.nav ul li a:hover{
+	color:#000 !important;
+}
+
+.nav li {
+	font-weight: bold;
+	list-style: none;
+	text-align: center;
+	width: auto;
+	float: left;
+	padding: 5px;
+}
+
+.nav li ul li{
+	width: 100%;
+	padding:0 !important;
+	text-align:left
+}
+
+.nav li div ul li{
+	border: 0px none !important;
+}
+
+#event li,#b2blogin li{
+	border:0px none !important;	
+}
+
+.nav li a{
+	color: #FFF;
+	text-decoration: none;
+	display: block;
+	width: auto;
+	padding:5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight:normal
+}
+
+#welcome{
+background: url(../images/body/login.png?1434426090874) no-repeat 5px center #FFFFFF;
+	padding-left: 20px;
+}
+
+.nav a.active-page {
+	background-color: #333333;
+	color: #FFFFFF;
+}
+
+#login a{
+	width:auto !important; 
+	padding:3px; 
+	float:right;
+	color: #000;
+	font-weight:normal
+}
+
+#login a:hover{
+	color:#FFFFFF	
+}
+
+.nav a:hover{
+	text-decoration: none;
+	color:#000;
+	background: #F1F1F1;
+}
+
+/** ========================================================== END DROP DOWN MENU ========================================================== **/	
+
+
+.full-page{
+	/*position:absolute !important;
+	margin:auto !important;
+	left:0;
+	right:0;
+	width:90% !important;*/
+	z-index:99 !important;
+	width:100% !important;
+}
+
+.more {
+	font-weight: bold;
+	font-size: 12px;
+	float:right;
+}
+
+.promo-book{
+	font-weight: bold;
+	font-size: 12px;
+	float:left !important;
+	color:#FF0
+}
+
+.dropshadow {
+  -moz-box-shadow: 0px 5px 5px 5px #666;
+  -webkit-box-shadow: 0px 5px 5px 5px #666;
+  box-shadow: 0px 5px 5px 5px #666;
+}
+
+.round-all{
+	-moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px; 
+}
+
+.round-bottom{
+	-moz-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; 
+	-moz-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px; 
+}
+
+input[type="text"], input[type="number"], input[type="password"], select, textarea{
+	padding:6px !important;
+	font-family:inherit;
+	resize:none;
+	width:100%;
+	font-size:15px
+}
+
+.noAvailability{
+	color:#F9F;
+	display:none
+}
+
+/* --- START AFTER LOGIN --- */
+/** ========================================================== START RESERVATION ========================================================== **/
+	#security-page input[type="text"], #security-page input[type="password"], #security-page select{
+		width:40%
+	}
+	
+	#list-view{
+		height: auto;
+		margin: 5px 0px 10px 0px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+	}
+
+	#list-view table thead tr th{
+		padding: 3px;
+		border-bottom: 1px solid #333;
+		font-size: 13px;
+		font-weight: normal;
+		color: #000;
+  	}
+
+	#list-view table tbody tr td{
+		padding:5px;
+	}
+
+	#list-view table tr.odd{
+		background-color:#F9F9F9;
+		color:#000;
+	}
+
+	#list-view table tr.even{
+		background-color:#DFDDDD;
+		color:#000;
+	}
+
+	#list-view table tr.odd:hover, #list-view table tr.even:hover{
+		background-color:#CCF;
+		color:#000;
+	}
+
+	#list-view table a.property{
+		color:#039
+	}
+
+	#list-view table a.property:hover{
+		color:#000
+	}
+
+	#list-view #property{
+		width:21%;
+	}
+	
+	#list-view #confirmation{
+		width:15%	
+	}
+
+	#list-view #arrival, #tile-view #departure{
+		width:13%
+	}
+
+	#list-view #status, #tile-view #amount{
+		width:10%
+	}
+
+	#list-view #action{
+		width:18%
+	}
+	
+	#list-view table{
+		width:100%;
+		border:1px solid #333333;
+		background-color:#A2A2A2;
+		border-spacing:0px; 
+		border-collapse:collapse;
+	}
+
+	#tile-view{
+		height: auto;
+		margin-top: 5px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+	}
+	
+	#tile-view ul li{
+		list-style:none;
+		float:left;
+		width: 32%;
+		margin:5px;
+		background-color:#666666;
+		color:#000;
+		font-size:11px;
+		height:auto;
+		padding:0px 0px 5px 0px
+	}
+	
+	#tile-view ul li table{
+		width:100%;
+		border:0px;
+		border-bottom:1px solid #333333;
+		background-color:#f7f7f7;
+		color:#000;
+		font-size:11px
+	}	
+	
+	#tile-view .tile-title{
+		color: #FFFFFF;
+		cursor: move;
+		display: block;
+		font-size: 14px;
+		padding: 5px;
+		text-transform: uppercase;
+		border-bottom:1px solid #333;
+		letter-spacing:1px
+	}
+	.confirmation-search{
+		width:100%;
+		text-align:left
+	}
+	
+	.confirmation-search table tr:nth-child(2) td:nth-child(3){
+		text-align:left
+	}
+
+	.adv-search{
+		display:none	
+	}
+
+	#tile-view table{
+		width:100%;
+		border:1px solid #333333;
+		background-color:#A2A2A2;
+		padding:10px
+	}
+			
+	#tile-view .grid-navigation{
+		margin-top:20px	
+	}
+	
+	.grid-navigation input[type="text"]{
+		width: 40px;
+		text-align: center;	
+	}
+
+	.grid-navigation div{
+		float:right;
+		margin-right: 20px;
+	}
+
+	.grid-navigation div span{
+		float:left;
+		padding-top:3px	
+	}
+
+	.grid-navigation div select{
+		width:auto;
+	}
+/** ========================================================== END RESERVATION BLOCK ========================================================== **/
+
+/** ========================================================== START PERSONAL INFO BLOCK AFTER LOGIN ========================================================== **/
+	.tileview ul li table td a.asButton{
+		margin: 5px 0px 5px 0px;
+		display: inline-block;
+	}
+	
+	.basic-information{
+		width:100%; 
+		margin-bottom:20px;
+	}
+	
+	.basic-information input[type="text"], .basic-information input[type="password"], .basic-information select{
+		width:45%	
+	}
+	
+	.basic-information .form-edit select{
+		width:100%	
+	}
+	
+	.basic-information h4{
+		padding:2px;
+		margin-bottom:10px;
+		width:auto !important;
+		float:left;
+		font-weight:normal
+	}
+	
+	.basic-information span{
+		margin-right: 13px;
+	}
+		
+	.basic-information table{
+		color: #000;;
+		background:#F9F9F9;
+		table-layout:fixed;
+		width:99%;
+		border-spacing:0px; 
+		border-collapse:collapse;
+	}
+
+	.basic-information table tr td{
+		margin:15px 0px 15px 0px
+	}
+
+	.basic-information table tr.odd{
+		background-color:#F9F9F9;
+		color:#000;
+	}
+
+	.basic-information table tr.even{
+		color:#000;
+	}
+
+	.basic-information table tr.preferred{
+		background-color:#069 !important;
+		color:#FFF !important;
+	}
+
+	.basic-information table tr.preferred a{
+		color:#FFF !important;
+	}
+
+	.basic-information table tr.odd:hover, .basic-information table tr.even:hover{
+		background-color:#CCF;
+		color:#000;
+	}
+	
+	.basic-information table tr th{
+		font-weight:bold;
+		padding:3px;
+		background:#666666;
+		color:#FFFFFF;
+		text-shadow:1px 1px #000000
+	}
+	
+	.basic-information table tr td{
+		padding:5px;
+		text-overflow: ellipsis;
+		-ms-text-overflow: ellipsis;
+		overflow:hidden;
+		white-space: nowrap;
+	}
+	
+	.table-new-edit input[type="text"], .table-new-edit select{
+		width:95%	
+	}
+	
+	.table-new-edit .new-addr-label{
+		width:11%;
+		text-align:right;
+	}
+
+	.table-new-edit .new-addr-value{
+		width:39%;
+	}
+
+	.table-new-edit .new-membership-label{
+		width:25%;
+		text-align:right
+	}
+
+	.table-new-edit .new-membership-value{
+		width:25%;
+	}
+	
+	#billingTable .table-new-edit input[type="text"], #billingTable .table-new-edit select{
+		width:45%
+	}
+	
+	#addrTable .table-new-edit input[type="text"], #addrTable .table-new-edit select, #telNumTable input[type="text"], #telNumTable select, #emailTable input[type="text"], #emailTable select{
+		width:90%	
+	}
+		
+	.basic-information table tr td.label{
+		width:25%;
+		text-align:right
+	}
+	
+	.basic-information table tr td.value{
+		width:75%	
+	}
+
+	.basic-information th.cc-type{
+		width:12%
+	}
+
+	.basic-information th.cc-number{
+		width:23%
+	}
+
+	.basic-information th.cc-name{
+		width:40%
+	}
+
+	.basic-information th.cc-exp{
+		width:13%
+	}
+
+	.basic-information th.cc-action{
+		width:12%
+	}
+
+	.basic-information th.membership-name{
+		width:14%
+	}
+
+	.basic-information th.membership-level{
+		width:10%
+	}
+
+	.basic-information th.membership-number{
+		width:18%
+	}
+	.basic-information th.membership-holder{
+		width:20%
+	}
+
+	.basic-information th.membership-signup{
+		width:10%
+	}
+
+	.basic-information th.membership-exp{
+		width:10%
+	}
+
+	.basic-information th.membership-action{
+		width:11%
+	}
+
+	.basic-information th.addr-type{
+		width:18%
+	}
+
+	.basic-information th.addr-name{
+		width:22%
+	}
+
+	.basic-information th.addr-city{
+		width:13%
+	}
+
+	.basic-information th.addr-state{
+		width:13%
+	}
+
+	.basic-information th.addr-country{
+		width:13%
+	}
+
+	.basic-information th.addr-zip{
+		width:10%
+	}
+
+	.basic-information th.addr-action{
+		width:11%
+	}
+
+	.basic-information th.phone-email-type{
+		width:18%
+	}	
+
+	.basic-information th.phone-email-value{
+		width:71%
+	}	
+
+	.basic-information th.phone-email-action{
+		width:11%
+	}	
+		
+	.addMembership table tr td, .addPhone td, .addEmail td, .editAddress table tr td{
+
+	}
+	
+/** ========================================================== END PERSONAL INFO BLOCK ========================================================== **/
+/* --- END AFTER LOGIN --- */
+
+/** ========================================================== START ALT LOGIN ========================================================== **/
+.alt-login input[type="text"], .alt-login input[type="password"]{
+	width:400px	
+}
+
+.alt-login h3{
+	color:#000;
+	float:left;
+	width:auto !important
+}
+
+.alt-login p{
+	width:100% !important;
+	float:left !important;
+	margin-top:0px
+}
+/** ========================================================== END ALT LOGIN ========================================================== **/
+
+/** ========================================================== START GALLERY ========================================================== **/
+.galery{
+	text-align:center;
+	width:100px;
+	height:100px;
+	float:left;
+	margin:0px 40px 50px 0px
+}
+
+.gallery-label {
+	bottom: 11px !important;
+	left: 1px !important;
+	width:100% !important;
+}
+
+.galery img{
+	width:100px !important;
+	height:100px !important
+}
+
+.album-categories h4{
+	width:100%;
+}
+
+.album-categories fieldset{
+	border: 1px solid #CCCCCC;
+	float: left;
+	margin-top: 20px;
+	width: 95%;	
+	-moz-border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	border-radius: 5px !important; 
+}
+
+.album-categories fieldset:hover{
+	border-color:#666;
+}
+
+.album-categories legend{
+	color:#690;
+	font-weight:bold;
+	font-size:14px
+}
+
+.album-categories legend span{
+	font-size:11px;
+	font-weight:normal;
+	color:#333
+}
+
+.category{
+	width:100%;
+}
+
+.albumwrapper {
+	float: left;
+	height: auto;
+	margin-right: 50px;
+	width: 166px;
+}
+.albumname {
+	float: left;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+
+.album-detail-control{
+	width:100%;
+	margin:auto;
+	text-align:center;
+	float:left
+}
+
+.album-detail .image-stack {
+	height: auto;
+	margin: 0 0 10px;
+	z-index: 0;
+}
+
+.album-detail .image-stack img { /* css style for photo stack */
+	width: 150px;
+	height: 150px;
+	border: 1px solid #CCCCCC;
+	z-index: 10;
+	/* Firefox */
+	-moz-transition: all 0.2s ease;
+	/* WebKit */
+	-webkit-transition: all 0.2s ease;
+	/* Opera */
+	-o-transition: all 0.2s ease;
+	/* Standard */
+	transition: all 0.2s ease;
+}
+
+.album-categories .image-stack {
+	float: left;
+	height: 150px;
+	margin: 0 0 40px;
+	width: 150px;
+	z-index: 0;
+}
+.album-categories .image-stack img { /* css style for photo stack */
+	width: 150px;
+	height: 150px;
+	border: 1px solid #CCC;
+	z-index: 10;
+	/* Firefox */
+	-moz-transition: all 0.2s ease;
+	/* WebKit */
+	-webkit-transition: all 0.2s ease;
+	/* Opera */
+	-o-transition: all 0.2s ease;
+	/* Standard */
+	transition: all 0.2s ease;
+}
+.photo1 {  /* position of last photo in the stack */
+    left: 12px;
+    position: relative;
+    top: 14px;
+}
+.photo2 {/* position of middle photo in the stack */
+	left: 6px;
+    position: relative;
+    top: -152px;
+}
+.photo3 {/* position of first photo at the top in the stack */
+	left: 0px;
+    position: relative;
+    top: -318px;
+}
+.rotate1 {/* rotate last image 15 degrees to the right */
+	-webkit-transform: rotate(15deg); /* safari and chrome */
+	-moz-transform: rotate(15deg);/*firefox browsers */
+	transform: rotate(15deg);/*other */
+	-ms-transform:rotate(15deg); /* Internet Explorer 9 */
+	-o-transform:rotate(15deg); /* Opera */
+	cursor: pointer;
+}
+.rotate2 {/* css not used*/
+	-webkit-transform: rotate(0deg); /* safari and chrome */
+	-moz-transform: rotate(0deg);/*firefox browsers */
+	transform: rotate(0deg);/*other */
+	-ms-transform:rotate(0deg); /* Internet Explorer 9 */
+	-o-transform:rotate(0deg); /* Opera */
+	cursor: pointer;
+}
+
+.rotate3 {/*rotate first image 15 degrees to the left*/
+	-webkit-transform: rotate(-15deg); /* safari and chrome */
+	-moz-transform: rotate(-15deg); /*firefox browsers */
+	transform: rotate(-15deg);/*other */
+	-ms-transform:rotate(-15deg); /* Internet Explorer 9 */
+	-o-transform:rotate(-15deg); /* Opera */
+	cursor: pointer;
+}
+
+ul.pics li {/*css style for the single photo only **/
+	display: inline;
+ 	-webkit-transition: all .2s ease-in-out;
+ 	-moz-transition: all .2s ease-in-out;
+ 	-o-transition: all .2s ease-in-out;
+ 	-ms-transition: all .2s ease-in-out;
+ 	transition: all .2s ease-in-out;
+	float:left
+}
+
+ul.pics li:hover {/*css style for the single photo only **/
+	-moz-transform: scale(1.1) rotate(0deg);
+	-webkit-transform: scale(1.1) rotate(0deg);
+	-o-transform: scale(1.1) rotate(0deg);
+	-ms-transform: scale(1.1) rotate(0deg);
+	transform: scale(1.1) rotate(0deg);
+}
+
+/** ========================================================== END GALLERY ========================================================== **/
+
+/** ========================================================== START BUTTON CLASS ========================================================== **/
+	.searchBtn{
+background:url(../images/buttons/reservation.gif?1434426090874);*/
+	}
+	.loginBtn{
+background:url(../images/buttons/login.gif?1434426090874);
+	}
+	.cancelBtn{
+background:url(../images/buttons/cancel.gif?1434426090874);
+	}
+	.registerBtn{
+background:url(../images/buttons/register.gif?1434426090874);
+	}
+	.addBtn{
+background:url(../images/buttons/add.gif?1434426090874);
+	}
+	.saveBtn{
+background:url(../images/buttons/save.gif?1434426090874);
+	}
+	.printBtn{
+background:url(../images/buttons/printer.gif?1434426090874);
+	}
+	.trashBtn{
+background:url(../images/buttons/trash.gif?1434426090874);
+	}
+	.editBtn{
+background:url(../images/buttons/edit.gif?1434426090874);
+	}
+	.refreshBtn{
+background:url(../images/buttons/refresh.gif?1434426090874);
+	}
+	.troleyAddBtn{
+background:url(../images/buttons/trolley-add.gif?1434426090874);
+	}
+	.breakdownBtn{
+background:url(../images/buttons/breakdown.gif?1434426090874);
+	}
+	.guestinfoBtn{
+background:url(../images/buttons/guestinfo.gif?1434426090874);
+	}
+	.policyBtn{
+background:url(../images/buttons/policy.gif?1434426090874);
+	}
+	.guestBtn{
+background:url(../images/buttons/guesticon.gif?1434426090874);
+	}
+	.guestGreyBtn{
+background:url(../images/buttons/guestgreyicon.gif?1434426090874);
+	}
+	.filterBtn{
+background:url(../images/buttons/filter.gif?1434426090874);*/
+	}
+	.cancelModifyBtn{
+background:url(../images/buttons/cancel-modify.gif?1434426090874);
+	}
+	.modifyBtn{
+background:url(../images/buttons/modify.gif?1434426090874);
+	}
+	.closeBtn{
+background:url(../images/buttons/close.gif?1434426090874);
+	}
+	.gridViewBtn{
+background:url(../images/buttons/view-details.gif?1434426090874);
+	}
+	.tileViewBtn{
+background:url(../images/buttons/tile.gif?1434426090874);
+	}
+	.nextBtn{
+background:url(../images/buttons/next.gif?1434426090874) !important;
+	}
+	.prevBtn{
+background:url(../images/buttons/prev.gif?1434426090874) !important;
+	}
+	.checkinBtn{
+background:url(../images/buttons/checkin.gif?1434426090874);
+	}
+	.checkoutBtn{
+background:url(../images/buttons/checkout.gif?1434426090874);
+	}
+	.folioBtn{
+background:url(../images/buttons/folio.gif?1434426090874);
+	}
+/** ========================================================== END BUTTON CLASS ========================================================== **/
+
+/** ========================================================== START TOOLTIP ========================================================== **/
+	.tipsy { 
+		padding: 5px; 
+		font-size: 10px; 
+		position: absolute; 
+		z-index: 100000; 
+	}
+	.tipsy-inner { 
+		padding: 5px 8px 4px 8px; 
+		background-color: #333; 
+		color: white; 
+		max-width: 200px; 
+		text-align: center; 
+	}
+	.tipsy-inner { 
+		border-radius: 3px; 
+		-moz-border-radius:3px; 
+		-webkit-border-radius:3px; 
+	}
+	.tipsy-arrow { 
+		position: absolute; 
+background: url(../images/tipsy.gif?1434426090874) no-repeat top left; 
+		width: 9px; 
+		height: 5px; 
+	}
+	.tipsy-n .tipsy-arrow { 
+		top: 0; 
+		left: 50%; 
+		margin-left: -4px; 
+	}
+	.tipsy-nw .tipsy-arrow { 
+		top: 0; 
+		left: 10px; 
+	}
+	.tipsy-ne .tipsy-arrow { 
+		top: 0; 
+		right: 10px; 
+	}
+	.tipsy-s .tipsy-arrow { 
+		bottom: 0; 
+		left: 50%; 
+		margin-left: -4px; 
+		background-position: bottom left; 
+	}
+	.tipsy-sw .tipsy-arrow { 
+		bottom: 0; 
+		left: 10px; 
+		background-position: bottom left; 
+	}
+	.tipsy-se .tipsy-arrow { 
+		bottom: 0; 
+		right: 10px; 
+		background-position: bottom left; 
+	}
+	.tipsy-e .tipsy-arrow { 
+		top: 50%; 
+		margin-top: -4px; 
+		right: 0; 
+		width: 5px; 
+		height: 9px; 
+		background-position: top right; 
+	}
+	.tipsy-w .tipsy-arrow { 
+		top: 50%; 
+		margin-top: -4px; 
+		left: 0; 
+		width: 5px; 
+		height: 9px; 
+	}
+	
+/** ========================================================== END TOOLTIP ========================================================== **/
+
+/** ========================================================== FOR CA ONLY. DO NOT TOUCH ========================================================== **/
+
+/* preview addition */
+.divBannerIndex {
+	width: 80%;
+	height: 100%;
+	float: right;
+}
+.divBanner {
+	width: 100%;
+	height: 100%;
+}
+.divBanner img, .divBannerIndex img {
+	width: 100px;
+	height: 100px;
+	padding: 1px;
+}
+fieldset.editableArea1 {
+	border: 1px dashed #000000;
+	height: inherit;
+}
+fieldset.editableArea1  legend{
+ color: #000000;
+}
+fieldset.editableArea2 {
+	border: 1px dashed #000000;
+	height: inherit;
+}
+fieldset.editableArea2  legend{
+ color: #000000;
+}
+.readjust {
+	height: 297px !important;
+	overflow-y: scroll !important;
+	position: relative;
+}
+/** ========================================================== FOR CA ONLY. DO NOT TOUCH ========================================================== **/
+
+/* start addition for dynamic pager */
+#pager{
+	position: fixed;
+	bottom: 100px;
+	z-index: 100;
+	right: 100px;
+	font-size: 25px;
+	font-weight: 
+	bold;color: #333;
+}
+
+#pager div{
+	width:30px;	
+	height:30px;
+	float: left;
+	margin-right: 10px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	opacity:.5;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+}
+
+#pager div:hover{
+	opacity:1;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+}
+
+#pager div:first-child{
+	float:left;
+background: url(../images/body/prevbanner.png?1434426090874)
+}
+
+#pager div:last-child{
+	float:right;
+background: url(../images/body/nextbanner.png?1434426090874)
+}
+/* end addition for dynamic pager */
+div[id^="errorMsg_"] {
+	float:left;
+    background: #f2dede;
+	padding: 2px;
+	color: #a94442;
+	border: 1px solid rgb(233, 183, 183);
+	display:none;
+	width: 98%;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}

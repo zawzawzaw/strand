@@ -1,0 +1,2805 @@
+/* version=1.0.1j */
+/* Ruby theme */
+/* start overriding public css */
+#qikinn_loader{
+	background:#FFF;
+	border:1px solid #000
+}
+#qikinn_loader #loading-msg-header{
+	font-weight:bold; 
+	font-size:14px;
+	color:#333	
+}
+#qikinn_loader #loading-msg-header:after{
+	content:"QikRes";
+	letter-spacing:1px;
+	font-size:20px
+}
+
+#qikinn_loader #loading-msg-footer{
+	text-align:center;
+	line-height:20px;
+	font-weight:bold;
+	color:#666	
+}
+
+#qikinn_loader #loading-msg-footer:after{
+	content:"Searching...";
+}
+
+/* start addition for mobile */
+#qikres_cart_panel{
+	display:none;
+background: url(../images/body/cart.png?1433992104011) no-repeat center center #eaeaea;
+	border: 1px solid #CCC;
+}
+
+#qikres_cart_counter{
+	background: #F00;
+	text-align: center;
+	float: right;
+	color: #FFF;
+	padding: 0px 5px;	
+}
+
+#blocker{
+	opacity:0;
+	visibility:hidden
+}
+
+#hoteldetails{
+	display:none;
+}
+/* end addition for mobile */
+
+@font-face {
+	font-family: 'tt0142m';
+	src: url('../fonts/tt0142m.eot');
+	src: local('tt0142m'), 
+		 url('../fonts/tt0142m.woff') format('woff'),
+		 url('../fonts/tt0142m.ttf') format('truetype'),
+		 url('../fonts/tt0142m.svg') format('truetype'),
+		 url('../fonts/tt0142m.eot?#iefix') format('embedded-opentype'),
+		 url('../fonts/tt0142m.svg#tt0142m') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	text-align: center;
+	color: #74653D;
+	padding:0px;
+	margin:0px;
+	overflow-x:hidden;
+	font-family:'tt0142m', Tahoma ,Verdana, serif;
+	font-size:14px;
+	color:#999;
+	line-height:20px;
+	background:none !important;
+	font-weight:normal;
+}
+
+#body{
+	background:none !important;
+	border:0px none !important
+}
+
+#wrapper{
+	border:0px !important;
+	background-image:none !important;
+	display:block !important;
+	width: 70%!important;
+}
+
+/* end overriding public css */
+
+/* start override jqui */
+.ui-datepicker .ui-datepicker-title select{
+	margin:0 !important	
+}
+/* end override jqui */
+
+.popup{
+	width:80% !important	
+}
+
+.required{
+	background-color:#FFFCBA !important	
+}
+
+#resvCartBar{
+	margin:0px 0px 0px 5px !important;
+}
+
+.qikres_side_display {
+  	display: inline-block;
+  	width: 30%;
+	vertical-align: top;
+	float: right;
+}
+
+.qikres_modify_search .qikres_reservation_btn{
+	float:right;
+	margin:5px 1px 5px 5px	
+}
+
+.qikres_cart_info{
+	float:left;
+	background-color:rgba(255,255,255,0.7);
+	width:100%
+}
+
+.dd-select{
+	width: 295px !important;
+	margin-bottom: 5px;
+}
+
+.dd-select small{
+	font-size:15px !important;
+	margin-top:5px
+}
+
+.qikres_body_cart .message{
+	color:#F00;
+	text-align:center
+}
+
+.qikres_body_cart{
+	float:left; 
+	width:100% !important;
+	overflow:auto;
+	overflow-x:hidden;
+}
+
+#totalPayment{
+	width:100%;
+	color:#000;
+	background:#FFF;
+	border-bottom:1px solid #CCC;
+	border-top:1px solid #CCC
+}
+
+#totalPayment td.first{
+	font-weight:bold;
+	padding-left:5px;
+	/*color:#FFF;*/
+	border-bottom:1px dashed #FFF;
+	font-size:12px
+}
+
+#totalPayment td.second{
+	text-align:left;
+	font-weight:bold;
+	padding:3px;
+	font-size:20px;
+}
+
+.qikres_footer_cart{
+	width: 98%;
+	margin: 3px;
+	display: table;
+}
+
+.qikres_cart_info .cart-info{
+	margin-bottom:80px;
+	float:left;
+	width:99%;
+}
+
+.item-separator{
+	background-color:#F1F1F1;
+	float:left;
+	height:auto;
+	padding:5px 0px 10px 5px;
+	border-bottom:1px dashed #666;
+	width:100%
+}
+
+.item-separator .item-nights {
+	font-size:10px;
+	color: #333;
+	width:100%;
+	float:left
+}
+
+.item-separator .item-name{
+	width:90%; 
+	float:left;
+	color:#000;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	font-weight:bold
+}
+
+.item-separator .item-tax {
+	float:left;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	color:#999;
+	width:100%
+}
+
+.item-separator .addon-name{
+	width:auto; 
+	float:left;
+	color:#000;
+	margin-top:5px;
+}
+
+.item-separator .addon-price{
+	width:60%;
+	float:right;
+	text-align:right;
+	color:#039;
+	margin-top:5px;
+	font-size:12px;
+	padding-right:10px
+}
+
+.item-separator .item-name_red{
+	width:92%; 
+	float:left;
+	color:#000;
+background:url(../images/icons/alert.gif?1433992104011) no-repeat left top;
+	padding-left:18px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.item-separator .item-name_green{
+	width:92%; 
+	float:left;
+	color:#000;
+background:url(../images/icons/green-alert.gif?1433992104011) no-repeat left top;
+	padding-left:18px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden
+}
+
+.item-separator .item-price{
+	width:97%;
+	float:right;
+	text-align:right;
+	color:#872011;
+	font-size:14px;
+	font-weight:bold
+}
+
+.item-separator .item-price .currencyNotice{
+	font-size:11px	
+}
+
+.item-separator .item-delete{
+	padding:2px 3px 10px 5px;
+	display:block !important;
+	position:relative;
+	background-color:#F9C;
+	border:1px solid red;
+	width:25px;
+	height:25px;
+	float:right;
+	background-color:#FF99CC;
+	border:1px solid red;
+	color:red; font-family:verdana,tahoma,arial;
+	font-weight:bold;
+	margin-top:-6px; 
+	text-align:center;
+	opacity:.5;
+	filter: alpha(opacity = 50);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+}
+
+.item-separator a .item-delete:hover{
+	background-color:red;
+	color:#FFF;
+	opacity:1;
+	filter: alpha(opacity = 100);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+}
+
+.qikres_click_back_active{
+	text-align: center;
+	background-color: #CCC;
+	width: 98%;
+	padding: 5px 3px;
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+	border: 1px solid #999;
+}
+
+.qikres_click_add_rooms{
+	width: 49%;
+	padding: 6px;
+	cursor: pointer;
+	text-align: center;
+	float: left;
+	color: #000;
+	font-weight: bold;
+	background: #599BC0;
+	border: 1px solid #1E54A5;
+}
+
+.qikres_click_review_active, .qikres_click_review_inactive {
+	background-color: #42A202;
+	float: left;
+	padding: 6px;
+	text-align: center;
+	width: 48%;
+}
+
+.qikres_click_review_active#confirmBooking{
+	border: 1px solid #468812;
+	background: #84f539;
+	color:#000;
+	cursor:pointer;
+	width:49%;
+	float:right;
+	font-weight: bold;
+}
+
+.qikres_click_confirm_inactive,.qikres_click_review_inactive{
+	text-shadow: 1px 1px #CCC;
+	color:#333;
+	background-color:#666;
+	border:1px solid #999;
+}
+
+.qikres_click_confirm_active, .qikres_click_confirm_inactive{
+	width:auto;
+	padding:5px;
+	cursor:pointer;
+	text-align:center;
+	color:#777;
+}
+
+.qikres_click_pay{
+	background-color: #66FF00 !important;
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 5px 0;
+	text-align: center;
+	width: 98%;
+	-moz-border-radius: 5px !important;
+	-webkit-border-radius: 5px !important;
+	border-radius: 5px !important;
+	border:1px solid #690
+}
+
+.qikres_click_unpay{
+	width:99%;
+	text-shadow: 1px 1px #CCC;
+	color:#333;
+	background-color:#666;
+	text-align:center;
+}
+
+.qikres_click_confirm_active{
+	border:1px solid #468812;
+	cursor:pointer;
+	font-weight: bold;
+	font-size: 15px;
+	background: #84f539; 
+	color:#390
+}
+
+.qikres_click_confirm_active a, .qikres_click_pay a{
+	color:#000 !important
+	
+}
+
+.qikres_click_confirm_inactive{
+	background-color:#CCC;
+}
+
+.qikres_click_confirm_inactive a{
+	color:#333;
+	text-shadow: 1px 1px #CCC;
+	
+}
+
+.qikres_main_display{
+	display: inline-block;
+	width: 69%;	
+	height: 100%;	
+	margin-bottom: 10px;
+	color: #333333;
+	vertical-align: top;
+	float: left;
+}
+
+.qikres_final_confirm {
+	width: 100%;
+	color: #000;
+	padding:0 !important
+}
+
+.qikres_final_confirm .reservation-btn a{
+	display: table;
+	padding: 5px !important;
+	text-align: center;
+	float: right;
+	width:auto
+}
+
+.qikres_final_confirm .qikres_body_table{
+	background: #EAEAEA !important	
+}
+
+.qikres_final_confirm h3{
+	background:#000;
+	padding:6px
+}
+
+.qikres_print_header{
+	height: 150px !important;
+	width: 200px !important;
+	margin:auto;
+	display:table;
+	border:0px none
+}
+
+.qikres_print_div{
+	margin:auto;
+	width:99%;
+	text-align:center;
+	float:left;
+	display:block
+}
+
+.qikres_final_confirm .qikres_conf_data{
+	float: left;
+	width: 100%;
+}
+
+.qikres_print_footer {
+	display:none
+}
+
+.qikres_footer_image {
+	display:none
+}
+
+.qikres_final_confirm .reservation-btn{
+	float: right;
+	height: 30px;
+	margin: 5px auto;
+	background-color: transparent !important;
+}
+
+.qikres_final_confirm .qikres_body_table{
+	width:99%;
+	margin:0px;
+	padding:5px
+}
+
+.qikres_booking_successful{
+	padding: 5px;
+	background: #FFF;
+	color: #000;
+}
+
+.qikres_final_confirm table{
+	width:100%;
+	border:0px none !important
+}
+
+.qikres_final_confirm td.value{
+	text-align:left;
+}
+
+.qikres_final_confirm td.label, .qikres_final_confirm td.price{
+	width:21%;
+	font-weight:bold;
+	vertical-align:top;
+	padding-right:10px
+}
+
+.qikres_final_confirm td.price span, .qikres_final_confirm td.value span{
+	color:#000
+}
+
+.qikres_final_confirm td.value{
+	width:35%;
+	vertical-align:top;
+	color:#000;
+}
+
+.qikres_steps {
+	background-color: #000;
+	float: left;
+	width: 100%;
+	height: 26px;
+	margin-bottom: 10px;
+}
+
+.qikres_steps li {
+	color: #999;
+	float: left;
+	list-style: none outside none;
+	margin-bottom: 0;
+	padding: 3px;
+	z-index: 0;
+	width:18%;
+	text-align:center;
+}
+
+li.active{
+	color:#000;
+	z-index:10;
+	font-weight:bold;
+	text-shadow: none;
+	background:#FFFFFF
+}
+
+.qikres_fieldError{
+	border:1px solid #F00 !important	
+}
+
+.qikres_content{
+	margin: 0px !important;
+	width: auto !important;
+	z-index:100;
+	border:0px none
+}
+
+.qikres_modify{
+	border-bottom:3px solid #000;
+	border-top:3px solid #000;	
+	background-color: #FFFFCC;
+	color:#000;
+}
+
+.qikres_result_summary, .qikres_modify_search{
+	float:left; 
+	padding:3px 2px 3px 3px; 
+	display:block;
+	color:#000;
+	width:98%
+}
+
+.reservation-btn{
+	display:block !important	
+}
+
+.qikres_result_summary span{
+	color:#000; 
+	font-weight:bold	
+}
+
+.qikres_modify_title{
+	padding: 5px 0px 5px 10px; 
+	font-size: 14px; 	
+	font-weight: bold; 
+	color: #000;	
+	background-color:#C8D5F2;
+}
+
+.qikres_property_image{
+	cursor: pointer;
+	float:left;
+	width:27%;
+	max-width:180px;
+	margin:5px
+}
+
+.qikres_property_image img{
+	width:180px;
+	height:100px;
+}
+
+.qikres_property_info{		
+	font-family: "brandon-grotesque",sans-serif;
+	font-size:14px;
+	color:#333333;
+	float: left;
+	width: 68%;
+}
+
+.qikres_property_info p{
+	margin:0px;
+	padding:0px	
+}
+
+.qikres_property_info a{
+	float:left;
+	width:100%;
+	color:#599BC0;
+	text-align:right;
+}
+
+.qikres_result{
+	float:left;
+	padding:10px;
+	background-color:#446282;
+}
+
+.qikres_price{
+	position:relative;
+    border: 1px solid #B36937;
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;	
+    float: left;
+    font-size: 11px;
+    height: 55px !important;
+    margin: auto;
+    padding: 5px;
+    width: 96% !important;
+	background: #ffff90; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmY5MCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhODU5MjQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #ffff90 0%, #a85924 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffff90), color-stop(100%,#a85924)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffff90 0%,#a85924 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffff90 0%,#a85924 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffff90 0%,#a85924 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffff90 0%,#a85924 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff90', endColorstr='#a85924',GradientType=0 ); /* IE6-8 */
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffff90', endColorStr='#a85924' )
+}
+
+.qikres_subrate .qikres_price{
+	width: 74% !important;
+	float: left !important;
+	margin-left: 130px;
+}
+
+.qikres_subrate .qikres_room:nth-child(4){
+	width:98%
+}
+
+.qikres_subrate .qikres_room:nth-child(4) > div{
+	float: left;
+	min-width: 36%;
+	color: red;
+	text-align: right;
+}
+
+.qikres_subrate .qikres_room_desc div{
+	margin:0px 5px 0px 100px;
+}
+
+.qikres_subrate .qikres_room{
+background:url(../images/body/sub-rate.gif?1433992104011) 82px top no-repeat
+}
+
+.qikres_subrate .qikres_room_type{
+	color: #000000;
+	float: left !important;
+	font-size: 12px !important;
+	font-weight: bold !important;
+	margin-left: 130px !important;
+	text-align: left !important;
+	width: 73% !important;
+}
+
+.noAvailability{
+	color:#F9F;
+	display:none
+}
+
+.qikres_noavailability{
+	color:red
+}
+
+.qikres_other_filters{
+	width: 100%;
+	display: block; 
+	float:left		
+}
+
+.qikres_other_filters input[type="text"], select{
+	font-family:inherit !important;
+	float:left
+}
+
+.qikres_price .label{
+	color: #000;
+	margin-bottom:5px;
+	width:100px
+}
+
+.qikres_product_detail .person{
+	position: absolute;
+	width: 50px;
+	height: 18px;
+	right: 0;
+	top: 0;
+}
+
+.guest-1{
+background:url(../images/icons/1-person.gif?1433992104011) center center no-repeat
+}
+
+.guest-2{
+background:url(../images/icons/2-person.gif?1433992104011) center center no-repeat
+}
+
+.guest-3{
+background:url(../images/icons/3-person.gif?1433992104011) center center no-repeat
+}
+
+.guest-4{
+background:url(../images/icons/4-person.gif?1433992104011) center center no-repeat
+}
+
+.guest-5{
+background:url(../images/icons/5-person.gif?1433992104011) center center no-repeat
+}
+
+.guest-5-plus{
+background:url(../images/icons/5-plus-person.gif?1433992104011) center center no-repeat
+}
+
+.qikres_product_detail span.amountText{
+	font-weight:bold;
+	color:#000
+}
+
+.qikres_product_detail span.amountText span.amountValue{
+	font-size:20px !important;
+}
+
+.qikres_product_detail span.amountText span.currencyCode{
+	font-size:12px !important;
+}
+
+.qikres_product_detail .desc-wrapper{
+	float:right;
+	width: 100px;
+	margin:-50px 15px 0 0;
+}
+
+.qikres_product_detail .desc-wrapper .sleep-label{
+	float:right;
+	width: 80px;
+	text-align: center	
+}
+
+/* START PROMO */
+
+.qikres_promotion_conditions_list{
+	padding:0px 10px 0px 10px;
+	list-style:none
+}
+
+.qikres_nopromoimg{
+	border: 1px solid #999;
+	float: left;
+	width: 370px;
+	height: 110px;
+	padding: 4px;
+	margin-right: 10px;
+background:url(../images/icons/no-promo.jpg?1433992104011) no-repeat center center #FFF
+}
+
+.qikres_promo_detail_wrapper{
+	display: table;
+	margin-bottom: 20px;
+	width: 98% !important;
+}
+
+.book-group{
+	float: left;
+	margin-top:10px
+}
+
+.qikres_promo_group {
+	width:100%
+}
+
+.qikres_promo_group .qikres_start_date_group, .qikres_promo_group .qikres_end_date_group{
+	float: left;
+	width: 17%;
+	margin-top: 10px;
+	margin-right: 5px;
+	padding:0px 5px 0px 40px;
+background:url(../images/icons/promo-date.png?1433992104011) center left no-repeat
+}
+
+.qikres_start_date_group .label, .qikres_end_date_group .label{
+	font-weight:bold	
+}
+
+.qikres_promo_group .price{
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	width: 45%;
+	text-align: left;
+	display:table
+}
+
+.qikres_promo{
+	display: table;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.qikres_promo .desc{
+	display: table;
+	float: left;
+	width: 56%;
+}
+
+.qikres_promo .qikres_promo_terms{
+	float: left;
+	display: table;
+	cursor:pointer
+}
+
+.qikres_promo .qikres_promo_terms ul{
+	margin-left:20px	
+}
+
+.qikres_promo h3{
+	color: #FFFFFF;
+	display: inline;
+	width: auto;
+}
+
+#qikres_promo_page > #promotionListing > .qikres_promo_detail > .qikres_promo > .qikres_promo_group {
+	min-height: 0 !important;
+}
+
+#qikres_promo_page{	
+	height: 100%;
+	display:table;
+	width: 100% !important;
+}
+
+.qikres_promo_detail{
+	width: 96% !important;
+	height: auto;
+	float: left;
+	color: #CCC;
+	background-color: rgba(0,0,0,0.6);
+	padding: 10px 10px 5px;
+	margin: 10px 20px 10px 20px
+}
+
+.qikres_promo_detail img{
+	width:370px;
+	height:184px;
+	padding:4px;
+	float:left;
+	margin-right:10px;
+}
+
+.noPromoImg{
+	border:3px solid #FFFFFF;
+	width: 370px !important;
+	height: 184px !important;
+	float: left !important;
+	margin:0px 10px 0px 5px !important;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) !important;
+	-moz-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) !important;
+	-webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6) !important;
+}
+
+.qikres_promotion {
+	background-color: #FFFFCC;
+	color: #000000;
+	height: auto;
+	width: 100%;
+}
+
+.qikres_promotion img{
+	background-color: #000000;
+	float: left;
+	height: 100px;
+	margin-top: -5px;
+	padding: 5px;
+	width: 104px;
+}
+/* END PROMO */
+
+.qikres_price .amount .label{
+	float:right
+}
+
+.qikres_noimage{
+	width:100%;
+	height:90px;
+background:url(../images/icons/no-room.gif?1433992104011) no-repeat center center;
+}
+
+.qikres_room{
+	width:400px;
+	padding-left:10px
+}
+
+.qikres_room > a{
+	float: right !important;
+	margin-top: 0;
+	margin-right: 5px;
+}
+
+.qikres_room > a > div{
+	height:16px;
+background:url(../images/buttons/negotiatedrate.gif?1433992104011) !important
+}
+
+.qikres_book{
+	width:110px;
+}
+
+.qikres_book span.amountValue{
+	font-weight:bold	
+}
+
+.qikres_subrate .qikres_book{
+	width:110px;
+	vertical-align:baseline
+}
+
+.qikres_odd_row .qikres_room_desc{
+	vertical-align:top;
+	text-align:justify;
+	color:#000;
+	background-color:#EFEFEF;
+	border-top:1px solid #EFEFEF;
+	border-bottom:1px solid #EFEFEF;
+	padding:10px
+}
+
+.qikres_even_row .qikres_room_desc{
+	vertical-align:top;
+	text-align:justify;
+	color:#000;
+	background-color:#D9D9D9;
+	padding:10px
+}
+
+.qikres_room_desc div{
+	margin:0px 5px 0px 20px	
+}
+
+/*.qikres_odd_row td, .qikres_even_row td{
+	color:#000; 
+	padding:5px	
+}*/
+
+.qikres_multiple_rates_even td {
+	background: #CBCBCB;
+	color:#000 !important;
+	padding:5px;
+	border-bottom:1px solid #CBCBCB;
+}
+
+.qikres_multiple_rates_odd td {
+	background: #CBCBCB;
+	color:#000 !important;
+	padding:5px;
+	border-bottom:1px solid #666;
+}
+
+.qikres_even_row {
+	background:#D9D9D9;
+	color:#333;
+}
+
+.qikres_even_row hr, .qikres_odd_row hr{
+	size:0;
+	color:red
+}
+
+.qikres_result h3{
+	color:#0CF	
+}
+
+.qikres_less_property_desc, .qikres_less_property_desc > div, .qikres_less_property_desc > ul, .qikres_less_property_desc > p{
+	width:538px;
+	height:auto;
+	float:right;
+	text-align:justify;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	color:#000
+}
+
+.qikres_less_property_desc a, .qikres_more_property_desc a{
+	color: #F00;
+    font-weight: normal;	
+	float: left
+}
+
+.qikres_less_property_desc a:hover, .qikres_more_property_desc a:hover{
+    font-weight: bold;	
+}
+
+.qikres_table {
+	float: left;
+	margin-bottom: 5px;
+	padding: 5px 0px 0px 1px;
+	width: 100%;
+	background:#333333
+}
+
+.qikres_table #exchangeCurrency{
+	width: auto !important;
+	margin: 0px 0px 0px 27px !important;
+}
+
+.qikres_table h2{
+	margin-top: -6px;
+	padding: 7px 5px;
+	color:#CCCCCC
+}
+
+.qikres_cart_info h3{
+	background-color: #333333;
+	display: block !important;
+	width:100%;
+}
+
+.qikres_header_table{
+	font-family: "brandon-grotesque",sans-serif;
+	font-weight: normal;
+	float: left;
+	padding: 3px 5px 3px 5px;
+	display: inline-block;
+	color: #CCCCCC;
+	width: auto;
+	margin-bottom: 0px;
+}
+
+#searchSummary h3, #cancelModify h3, #modifySearch h3{
+	background-color:#333333; 
+	width:100% !important;
+	padding:6px 5px 6px 6px ; 
+	display:inline !important;
+	float: left;
+}
+
+/* start daily rate dialog */
+
+.qikres_daily_rates_dialog{
+	display: none;
+	height:auto !important;
+	max-height:200px;
+	padding:5px !important
+}
+
+.qikres_daily_rates_dialog table{
+	width:100%;
+	border-spacing:0px; 
+	border-collapse:collapse;
+	border:1px solid #333;
+	margin-bottom:10px
+}
+
+.qikres_daily_rates_dialog table th{
+	border-bottom: 1px dashed #666;
+	color:#FFF;
+	padding:10px 5px;
+	font-weight: normal;
+	background:#303030
+}
+
+.qikres_daily_rates_dialog table td{
+	padding: 6px;
+	color: #A5A5A5;
+}
+
+/* end daily rate dialog */
+
+.qikres_click_pay_active, .qikres_click_pay_inactive{
+	margin:5px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.qikres_click_pay_active{
+	background-color: #84f539;
+	color: #000;
+	border: 1px solid #468812;
+	float:right;
+	cursor:pointer;
+	margin: auto 5px auto auto;
+	padding: 6px;
+}
+
+.qikres_click_pay_active#payBooking2{
+	width: 44%;
+}
+
+.qikres_click_pay_active#payBooking{
+	width: 95%;
+	float:none;
+	margin:auto
+}
+
+.qikres_click_pay_active.pay{
+	width: 94% !important;
+}
+
+.qikres_click_pay_inactive{
+	background-color:#666;
+	color:#333;
+	text-shadow: 1px 1px #CCC;
+}
+
+.qikres_add_on_dialog input[type="text"]{
+	width:81%;
+}
+
+.headerpos div:nth-child(5){
+	float:right
+}
+
+.headerpos div{
+	float:left;
+}
+
+.headerpos .category{
+	width:12%
+}
+
+td.add_on_name{
+	width:40% !important
+}
+
+.add_on_name{
+	width:53%;
+	text-align:left
+}
+
+.category{
+	width:10%;
+	text-align:left
+}
+.price{
+	width:8%;
+	text-align:right
+}
+td.qty{
+	width:1%;
+	text-align:right
+}
+
+div.qty{
+	width:10%;
+	text-align:right
+}
+
+.sub_total{
+	width:12%;
+	text-align:right
+}
+
+.add_on_dialog{
+	color:#000;
+	overflow-y: auto;
+	width: 100% !important;
+	padding: 0px !important;
+}
+
+.add_on_dialog table{
+	border:none	
+}
+
+.add_on_dialog td{
+	padding:5px
+}
+
+.qikres_cart_breakdown_body{
+	float:left; 
+	height:100%; 
+	width:100%;
+	margin-bottom:20px;
+}
+
+.qikres_sub_room_type .reservation-btn{
+	background-color:transparent !important;
+	width: auto;
+	float: right;
+	margin-right: 20px;
+}
+
+.qikres_cart_breakdown_body table{
+	width:100%;
+	padding:1px;
+	margin-top:5px
+}
+
+.qikres_room_breakdown{
+	font-size:16px;
+	font-weight:bold; 
+	color:#000	
+}
+
+.qikres_body_table {
+	background-color: #F7F7F7;
+	float: left;
+	margin-top: 5px;
+	width: 100% !important;
+	padding-bottom:10px
+}
+
+.qikres_body_table table{
+	width:99%;
+	height:100%;
+	border-spacing:0px; 
+	margin:auto;
+	border-collapse:collapse;
+}
+
+.qikres_body_table table td.qikres_button_control{
+	text-align:right
+}
+
+.qikres_body_table table td.qikres_button_control a span{
+	padding-left:5px !important;
+	background: none !important
+}
+
+.qikres_body_table table td span{
+	color:#000;
+}
+
+.qikres_payment,.qikres_review{
+	width:98%;
+	text-align:left;
+	margin:5px;
+	display:table
+}
+
+.qikres_payment .group1, .qikres_payment .group2{
+	width: 100%;
+	float:left	
+}
+
+.qikres_payment fieldset{
+	border: 1px solid #999 !important;
+	width: 95% !important;	
+	padding:10px
+}
+
+.qikres_reservation_list_popup, .qikres_add_on_dialog{
+	width:100%;
+	overflow-y: auto;
+	max-height:300px;
+	height:auto;
+	text-align:left;	
+	padding:0px
+}
+
+.qikres_print_preview_popup{
+	width:100%;
+	overflow-y: scroll;
+	text-align:left;	
+	padding:0px !important;
+}
+
+.qikres_print_preview_popup iframe{
+	height:88%;
+	width:100%;
+	border:0px	
+}
+
+.qikres_reservation_list_form div.title{
+	width:auto;
+	float:left;
+	width:18%
+}
+
+.qikres_reservation_list_form .group1, .qikres_reservation_list_form .group2{
+	width:82%;
+	float:right
+}
+
+.qikres_reservation_list_form .group1, .qikres_reservation_list_form .group2{
+	width: 82%;
+	border: 1px solid;
+	display: table;
+	float: right;
+	padding: 0;
+}
+
+.qikres_reservation_list_form div.first, .qikres_reservation_list_form div.last, .qikres_reservation_list_form div.email, .qikres_reservation_list_form div.phone{
+	width:48%;
+	float:left;
+	margin-right:5px
+}
+
+.qikres_reservation_list_form select{
+	width:94%;
+	float:left;
+	padding:5px !important;
+}
+
+.qikres_reservation_list_form{
+	margin-bottom:10px;
+	float:left;
+	padding-bottom:20px;
+	border:1px dashed #333;
+	padding:5px;
+	background:#F7F7F7 !important;
+	color:#333
+}
+
+.qikres_payment div.cc-number, .qikres_payment div.cc-type, .qikres_payment div.cc-holder, .qikres_payment div.cc-exp{
+	width:50%;
+	float:left;
+}
+
+.qikres_payment div.cc-type > div[id^="errorMsg_"], .qikres_payment div.cc-exp > div[id^="errorMsg_"], .qikres_payment div.city > div[id^="errorMsg_"], .qikres_payment div.zip > div[id^="errorMsg_"], .qikres_payment div.addr > div[id^="errorMsg_"], .qikres_payment div.country > div[id^="errorMsg_"]{
+	width:100%
+}
+
+
+.qikres_payment div.cc-exp select{
+	width:49% !important;
+}
+
+.qikres_payment div.cc-exp select:nth-of-type(2){
+	float:right;
+}
+
+.qikres_payment div.cc-exp select:nth-of-type(1), .qikres_payment div.country > div[id^="errorMsg_"], .addonsprice .addonsitemprice{
+	float:left
+}
+
+.qikres_payment div.addr{
+	width:100%;
+	float:left;
+}
+
+.qikres_payment div.addr > div[id^="errorMsg_"] {
+	margin-top:-6px;
+}
+
+.qikres_payment div.city, .qikres_payment div.country, .qikres_payment div.state, .qikres_payment div.zip{
+	width:50%;
+	float:left;
+}
+
+.qikres_review div.title{
+	width:auto;
+	float:left;
+	height:auto;
+	width:15%
+}
+
+.qikres_multiple_guest{
+	width:100%;
+	float:right;
+	text-align:right	
+}
+
+.qikres_review .group1, .qikres_review .group2{
+	width:84%;
+	float:right	
+}
+
+.qikres_review div.first, .qikres_review div.last, .qikres_review div.phone, .qikres_review div.email{
+	width:50%;
+	float:left;
+}
+
+/*.qikres_payment input[type="text"], .qikres_review input[type="text"]{
+	width:98% !important
+}*/
+
+.qikres_payment textarea{
+	width:100% !important
+}
+
+.qikres_review select{
+	float: left;
+	padding: 4px !important;
+	width: 90%;
+}
+
+.qikres_review .all-reservation{
+	float: right;
+	width: 84%;
+	position: relative;
+}
+
+.qikres_review .all-reservation .transportation{
+	position: absolute; 
+	right: 20px;
+	top: 10px;
+}
+
+.scrollLimit {
+	float: left;
+	margin-bottom:5px;
+	color:#333;
+	background: rgba(255,255,255,0.8);
+}
+
+.qikres_payment	div.city input[type="text"], .qikres_payment div.zip input[type="text"], .qikres_payment div.cc-type select{
+	width:100% !important
+}
+
+.qikres_payment div.country select, .qikres_payment div.state select{
+	width:98%;
+}
+
+.qikres_payment input[type="checkbox"], .qikres_review input[type="checkbox"]{
+	margin-top:10px
+}
+
+.qikres_body_table h2{
+	margin: 0; 
+	padding: 0; 
+	font-weight: bold; 
+	color: #000;
+}
+
+.qikres_body_table input[type="text"]:hover, .qikres_body_table textarea:hover, .qikres_body_table select:hover, .qikres_table #exchangeCurrency:hover{
+	border-color:#000
+}
+
+.qikres_body_table input[type="text"]:focus, .qikres_body_table textarea:focus, .qikres_body_table select:focus{
+	border-color:#000
+}
+
+.qikres_body_table input[type="text"], .qikres_body_table textarea, .qikres_body_table select, .qikres_reservation_list_form input[type="text"]{
+	border:1px solid #999;
+	font-family:inherit;
+	padding:5px;
+	resize: none;
+}
+
+.qikres_body_table input[type="text"], .qikres_body_table textarea, .qikres_body_table select{
+	width:98%
+}
+
+.qikres_reservation_list_form input[type="text"]{
+	width: 99%;
+}
+
+.qikres_room_type {
+	font-size:14px;
+	font-weight:bold;
+	margin-left:3px;
+	color:#000;
+	float:left
+}
+
+.qikres_sub_room_type{
+	background-color: #CECECE;
+    border: 1px dashed #999;
+    margin: 5px;
+    padding: 10px;
+	float:left;
+	width:95%;
+	color: #000 !important;
+	display:none
+}
+
+.qikres_room_description {
+	color: #000000 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.qikres_more{
+	color:#000;
+	font-size:11px;
+	float:right;
+	font-weight:bold
+}
+
+.qikres_more:hover{
+	color:red	
+}
+
+.qikres_location_result{
+	float:left;
+	width:100%;
+	margin-bottom:5px
+}
+
+.qikres_checkin_result, .qikres_checkout_result, .qikres_adult_result, .qikres_children_result{
+	float:left;
+	margin-bottom:5px
+}
+
+/* start if night number is shown */
+	.qikres_checkin_result.qikres_show_night, .qikres_checkout_result.qikres_show_night{
+		width:100%
+	}
+	
+	.qikres_checkout_result.qikres_show_night div:first-child{
+		width:30%;
+		float:left
+	}
+	
+	.qikres_checkout_result.qikres_show_night div:first-child input[type="number"]{
+		border:1px solid #CCC;
+		float:left;
+		padding:5px
+	}
+
+	.qikres_checkout_result.qikres_show_night div:last-child{
+		width:70%;
+		float:left	
+	}
+	
+	/* end if night number is shown */
+/* start old version */
+	.qikres_checkin_result, .qikres_checkout_result{
+		width:50%
+	}
+	.qikres_checkout_result div:first-child input[type="number"]{
+		border:1px solid #CCC;
+		float:left;
+		padding:7px !important
+	}
+
+/* end old version */
+
+/* start if night number is NOT shown */
+/*
+	.qikres_checkin_result, .qikres_checkout_result{
+		width:50%
+	}
+*/
+
+.qikres_children_result, .qikres_adult_result{
+	width:50%;	
+}
+
+.qikres_checkout_result div:first-child{
+	float: left;
+	width: 27%;	
+}
+
+.qikres_checkout_result div:first-child input[type="number"]{
+	border: 1px solid #CCC;
+	padding: 5px;
+	width: 94%;
+	font-size:13px
+}
+
+.qikres_checkout_result div:last-child{
+	float: left;
+	width: 72%;	
+}
+
+#checkInDate, #checkOutDate{
+background:url(../images/icons/calendar.png?1433992104011) right center no-repeat #FFFFFF;
+	border:1px solid #999;
+}
+
+.qikres_detail{
+	background-color:#EEEEEE	
+}
+
+.qikres_less_rates a, .qikres_more_rates a{
+	color:#000 !important;
+}
+
+.qikres_less_rates, .qikres_more_rates{
+	font-size:11px;
+	padding-left:20px
+}
+
+.qikres_more_rates{
+background:url(../images/icons/price-open.png?1433992104011) top left no-repeat;
+	margin-top: 45px;
+}
+
+.qikres_less_rates{
+background:url(../images/icons/price-close.png?1433992104011) top left no-repeat;
+	display:none;
+	margin-top: 45px;
+}
+
+.qikres_result_item_found{
+	float: left;	
+	color:#FFFFFF
+}
+
+.qikres_pagination{
+	float:right; 
+	color:#CCCCCC;
+	margin-right:10px;
+	margin-top:5px
+}
+
+.qikres_guest_information{
+	margin:10px 0px 10px 0px	
+}
+
+.qikres_guest_information div.title{
+	width:auto;
+	float:left
+}
+
+.qikres_guest_information div.first, .qikres_guest_information div.last{
+	width:40%;
+	float:left;
+	margin-right:5px
+}
+
+.qikres_guest_information div.phone{
+	width:40%; 
+	float:left;	
+}
+
+.qikres_guest_information div.email{
+	width:57%; 
+	float:left;
+}
+
+.qikres_guest_information input[type="text"]{
+	width:95%
+}
+
+.qikres_guest_information select{
+	width:auto;
+	margin-right:5px;
+	float:left;
+	padding:2px !important
+}
+
+.qikres_guest_information input[type="checkbox"]{
+	margin-top:10px
+}
+
+.qikres_add_on {
+	margin:0;
+	padding:10px;
+	margin-top:20px;
+	position:relative;
+	width:97%;
+	display:table
+}
+
+.qikres_add_on > a{
+	color: #000000 !important
+}
+
+.qikres_add_on img{
+	width:100px;
+	height:74px;
+	float:left;
+	margin-right:5px 	
+}
+
+.qikres_add_on .next, .qikres_add_on .prev{
+	width: auto;
+	position: absolute;
+	top: 50px;
+	height: 23px;
+	padding: 3px;
+}
+
+.qikres_add_on .prev{
+	left: 10px;
+}
+
+.qikres_add_on .next{
+	right: 10px;
+}
+
+.qikres_add_on .addon_content{
+	width:90%;
+	margin:auto
+}
+
+.qikres_add_on .addon_content ul{
+	width:100%	!important
+}
+
+.qikres_add_on .addon_content a{ 
+	color:#000;
+	font-weight:bold
+}
+
+.qikres_add_on .addon_content a:hover{ 
+	color:red
+}
+
+.qikres_add_on table{
+	width:100%;
+	color:#000;
+	padding:0px;
+	border:0px none
+}
+
+.qikres_add_on table td{
+	vertical-align:top;
+	border-bottom:1px dotted #FFF;
+	color:#000
+}
+
+.qikres_add_on .desc{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	width:45%;
+}
+
+.qikres_add_on .qty, .qikres_add_on .price{
+	width:25%;
+	text-align:right
+}
+
+.qikres_add_on .qty input[type="text"]{
+	width:40%;
+	text-align:right
+}
+
+.qikres_add_on .control{
+	width:9%;
+	text-align:right	
+}
+
+.qikres_add_on div{
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	width:100%;
+	font-size:11px;
+}
+
+.qikres_add_on input[type="text"]{
+	width:50px	
+}
+
+.qikres_add_on ul li{
+	float:left; 
+	border:1px solid #CCCCCC;
+	height:auto; 
+	width:46%; 
+	list-style:none; 
+	margin:0 6px;
+	padding:5px;
+	background-color:#FFFFFF;
+	color:#000;
+	font-size:11px;
+	line-height:15px
+}
+
+.qikres_billing_addr{
+	border-bottom:1px solid #036; 
+	margin-bottom:10px
+}
+
+.qikres_conf_number {
+	float: left;
+	width: 23%;
+}
+
+.qikres_conf_number h2{
+	font-weight:bold;
+	color:#000	
+}
+
+.qikres_conf_number .qikres_body_table table tr td h1{
+	font-size: 30px;
+	color:#000;
+}
+
+.qikres_conf_number .qikres_body_table{
+	height:110px !important;
+	width:100%
+}
+
+div[id$="label"]{
+	font-weight:bold	
+}
+
+div[class*="value"]{
+	width:56%;
+	float:left;	
+}
+div[class*="label"]{
+	font-weight:bold;
+	width:44%;
+	float:left;	
+}
+
+.price{
+	text-align:right	
+}
+
+/* ###### start qikres_conf_address / hotel detail ###### */
+
+.qikres_conf_address{
+	margin-bottom:10px; 
+	float:left; 
+	width:77%;
+}
+
+.qikres_conf_address .qikres_body_table{
+	width:100% !important;
+	height:110px;
+	border-left:0px !important
+}
+
+.qikres_conf_address #col1, .qikres_conf_address #col2{
+	width:50%;
+	float:left
+}
+
+.qikres_conf_address #col1 #propertylabel, .qikres_conf_address #col1 #propertyvalue{
+	width:100%;
+	float:left	
+}
+
+.qikres_conf_address #col2 div{
+	width:50%;
+	float:left
+}
+
+/* ###### end qikres_conf_address / hotel detail ###### */
+
+/* ###### start qikres_conf_payment / payment detail ###### */
+
+.qikres_conf_payment #col1{
+	width:55%;	
+	float:left
+}
+
+.qikres_conf_payment #col2{
+	width:45%;	
+	float:left
+}
+
+.qikres_conf_payment div[id$="label"], .qikres_conf_detail div[id$="label"]{
+	width:44%;
+	float:left;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.qikres_conf_payment div[id$="value"], .qikres_conf_detail div[id$="value"]{
+	width:55%;
+	float:left
+}
+
+/* ###### end qikres_conf_payment / payment detail ###### */
+
+/* ###### start qikres_conf_detail / reservation detail ###### */
+
+.qikres_conf_detail #confheader{
+	width:100%;
+	background:#f5f5f5;
+	padding: 10px;
+	font-size: 15px;
+	font-weight: bold;
+	border: 1px solid #CCC;
+	display:table
+}
+
+.qikres_conf_detail #confheader .productname{
+	width:55%;
+	float:left
+}
+
+.qikres_conf_detail #confheader .ticketnumberlabel{
+	width:25%;
+	float:left
+}
+
+.qikres_conf_detail #confheader .ticketnumbervalue{
+	width:20%;
+	float:left;
+	text-align:right
+}
+
+.qikres_conf_detail #col2{
+	width:53%;
+	float:left;
+	padding-left:10px
+}
+
+.qikres_conf_detail #col3{
+	width:45%;
+	float:right;
+}
+
+.qikres_conf_detail #col4{
+	width:100%;
+	display:table;
+	border-top: 1px dashed #999;
+	padding-top: 10px;
+}
+
+.qikres_conf_detail #col4 #subtotal{
+	width:44%;
+	float:right;
+}
+
+/* start addons */
+
+div.addons{
+	width: 45%;
+	float: right;	
+}
+
+.addonslabels{
+	width:100% !important
+}
+
+.addonsprice{
+	width:96%;
+	display:table;
+	margin-right: 5px;
+	float:right	
+}
+
+.addonsprice .addonsvalues{
+	width: 58% !important;
+	float: left;
+	padding-right: 15px;
+}
+
+.addonsprice .addonsvalues:before{
+	content:"\2022"
+}
+
+.addonsprice .addonstotalprice{
+	float: right;
+}
+
+/* end addons */
+
+
+/* ###### end qikres_conf_detail / reservation detail ###### */
+
+.qikres_conf_payment, .qikres_conf_detail, .qikres_conf_terms, .qikres_conf_org{
+	margin-bottom:10px; 
+	float:left; 
+	width:100%;
+}
+
+.qikres_conf_terms{
+	margin-bottom:30px; 
+	text-align:justify
+}
+
+.qikres_conf_terms fieldset{
+	border:0px none;
+	height:auto	
+}
+
+.qikres_conf_detail span{
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold
+}
+
+/* --- login -- */
+
+.qikres_login_page, .qikres_forgot_page, .qikres_register_page{
+	background-color: #446282;
+	float:left;
+	width: 709px;
+}
+
+.qikres_login, .qikres_forgot, .qikres_register{
+	font-size:11px;
+	text-align:left;
+	border: 1px solid #09F;
+	margin:10px;
+	width: auto;
+	border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-webkit-border-top-right-radius: 5px; 
+	border-top-left-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px; 
+}
+
+.qikres_login_header, .qikres_forgot_header, .qikres_register_header{
+	background: #2b6794;
+	color: #fff; 
+	font-size: 12px;
+	font-weight: bold; 
+	margin: 0; 
+	padding: 5px; 
+	text-shadow: 1px 1px #333;
+	border-top-right-radius: 4px;
+	-moz-border-top-right-radius: 4px;
+	-webkit-border-top-right-radius: 4px; 
+
+	border-top-left-radius: 4px;
+	-moz-border-top-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px; 
+}
+
+.qikres_login_body, .qikres_forgot_body, .qikres_register_body{
+	background: #BDCCE1;
+	color:#000 !important;
+    width: auto;
+	padding:20px;	
+}
+
+.qikres_personal_info{
+	background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 1px solid #5592C1;
+    color: #333333 !important;
+    float: left;
+    width: auto;
+	padding-right: 7px;
+}
+
+.qikres_billing_info, .qikres_membership, .qikres_security, .qikres_reservation{
+	background: #FFF;
+	color:#333 !important;
+    width: 708px;
+	float:left;
+	border-right:1px solid #5592C1	
+}
+
+.qikres_billing_info_desc, .qikres_membership_desc, .qikres_security_desc{
+	float:left; 
+	width:auto; 
+	padding:15px
+}
+
+.qikres_login_body input[type="text"], .qikres_body_table textarea, .qikres_body_table select, .qikres_login_body input[type="password"],
+.qikres_forgot_body input[type="text"], .qikres_forgot_body input[type="password"],
+.qikres_register_body input[type="text"], .qikres_register_body input[type="password"], .qikres_register_body select, .qikres_table #exchangeCurrency
+{
+	border:1px solid #999;
+	font-family:inherit;
+	font-size:14px;
+	padding:5px;
+	resize: none;
+}
+
+/* --- login -- */
+
+/* -- ads -- */
+.qikres_ads {
+    float: right;
+    width: 237px;
+	height:100%
+}
+/* -- ads -- */
+
+/* start control position */
+.qikres_cancel_modify_button_pos, .qikres_modify_button_pos{
+	float:right;
+	margin:-26px 2px 0px 0px;
+}
+
+.qikres_filter_button_pos{
+	float:right;
+	margin-top:4px;
+	margin-right:5px
+}
+
+.qikres_price_pos, .qikres_currency_pos{
+	float:left;
+	margin-left:5px
+}
+
+.qikres_price_pos select, .qikres_currency_pos select{
+	width:auto
+}
+
+.qikres_slider_pos{
+	width:55%; 
+	float:right; 
+	height:1px;
+	margin-right:15px;
+	text-align:center
+}
+
+.qikres_slider_pos #minValue{
+	float:left	
+}
+
+.qikres_slider_pos #maxValue{
+	float:right
+}
+.qikres_other_filter_pos{
+	float:left;
+	width:100%;	
+}
+
+.qikres_other_filters .rating{
+	width:56%
+}
+
+.qikres_other_filters .keyword{
+	width:44%
+}
+
+/* end control position */
+
+/* --------- start addition #1 */
+#totalPayment .qikres_sublabel{
+	float:left;
+	margin-left:5px
+}
+
+#totalPayment .qikres_sublabel a{
+	color:#777	
+}
+
+/*#totalPayment .qikres_sublabel a{
+	color:#FFF !important
+}*/
+
+#totalPayment .qikres_sublabel a:hover{
+	color:#999 !important
+}
+
+#totalPayment .qikres_est_wrapper{
+	display:block;
+	float:right;
+	font-size:12px;
+	margin-right: 5px;
+}
+
+#totalPayment .qikres_est_wrapper .amountValue, #totalPayment .qikres_est_wrapper .currencyCode, #totalPayment td.second span.amountValue{
+	float:right	
+}
+
+#totalPayment .qikres_est_wrapper .currencyCode{
+	margin-right:5px	
+}
+
+#totalPayment span.estCurrencyNotice{
+	float:left;
+	font-size:10px
+}
+
+#totalPayment .currencyNotice td{
+	text-align:center	
+}
+
+#totalPayment .qikres_est_wrapper span.estAmountValue{
+	float:right
+}
+
+#totalPayment span.estCurrencyValue{
+	font-size: 11px;
+	float:left
+}
+
+#totalPayment span.estAmountValue{
+	font-size: 11px;
+	margin-left: 34px;
+	float:right
+}
+
+.item-separator .item-tax p, .item-separator .item-tax div, .item-separator .item-tax span{
+	padding:0px !important;
+	margin:0px !important;
+	float:none !important;
+	display:inline;
+}
+
+/*.qikres_subrate_ispromo{
+background:url(../images/body/promo-offer.png?1433992104011) no-repeat top right;
+}
+
+.qikres_ispromo span.qikres_ispromo_content{
+	width: 80px;
+	height: 80px;
+	position: absolute;
+background:url(../images/body/promo.png?1433992104011) no-repeat top left;
+}
+
+.qikres_ispromo span.qikres_subrate_ispromo_content{
+	width: 70px;
+	height: 66px;
+	position: absolute;
+background:url(../images/body/subrate-promo.png?1433992104011) no-repeat top left;
+	left: -1px;
+}*/
+
+.item-separator .item-tax div.tax-desc {
+	float: left !important;
+	width: 57%;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.item-separator .item-tax div.tax-desc a{
+	color:#666
+}
+
+.item-separator .item-tax div.tax-value {
+	float: right !important;
+	margin-right:1px !important;
+	text-align:right;
+	width:42%;
+}
+
+#totalPayment .qikres_sublabel a#taxtipsy{
+	/*color:#F00*/
+}
+
+.qikres_promo_category{
+	margin: auto;
+	width: 95%;
+}
+
+.qikres_promo_category li.selected-promo a{
+	color: #FFFFFF !important
+}
+
+.qikres_promo_category li a{
+	color: #666666 !important;
+	text-decoration:none
+}
+
+.qikres_promo_category li{
+	width: auto;
+	display: inline;
+	float: left;
+	margin: 10px 5px -11px 0;
+	font-weight: bold;
+	background-color: #000;
+	padding: 10px;
+}
+
+div[id^="errorMsg_"] {
+    background: #f2dede;
+	padding: 2px 3px 2px 2px;
+	color: #a94442;
+	border: 1px solid rgb(233, 183, 183);
+	display:none;
+	float:left
+}
+#guestResevList div.reservation-btn{
+	float:right	!important;
+	width:auto
+}
+/* --------- end addition #1 */
+
+/*---------------------- start new selloption */
+#sellOptionList .qikres_body_table{
+	position:relative	
+}
+
+.qikres_room_image{
+	width:180px;
+	text-align:center
+}
+
+.qikres_prop_desc a{
+	color:#FFFFFF	
+}
+
+.moreInfo{
+	color: #333;
+	font-weight: bold;
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	display:none
+}
+
+.moreInfo:hover{
+	color:#F00;
+}
+
+.qikres_room_image img{
+	width: 100%;
+	height: 90px;
+	max-width: 180px;
+}
+.qikres_product_separator{
+	height:3px;
+	background:#333
+}
+
+div.qikres_product_photo{
+	text-align:center;
+	display: table;
+	float: left;
+	margin-top: 5px;
+	width:27%;
+}
+
+.qikres_product_photo img{
+	height:90px;
+	max-width:180px;
+	width:100%;
+	color:#000
+}
+
+.qikres_rowheader{
+	width:100%;
+	display:table;
+	font-weight: bold;
+	float:left
+}
+
+.qikres_rowheader div{
+	float:left;
+	font-size: 9px; 
+	letter-spacing: 1px;
+}
+.qikres_rowheader .qikres_rate_name{
+	width: 48%;
+}
+
+.qikres_rowheader .qikres_room_price{
+	width:35%;
+}
+
+.qikres_rowheader .qikres_room_number{
+	width:17%;
+}
+
+/* start popup product description */
+.qikres_popup_product_description{
+	text-align: left;
+	color: black;
+	width: 800px;
+}
+
+	.qikres_popup_product_description .title{
+		width: 100%;
+		margin: 0 0 5px 0;
+	}
+	
+	.qikres_popup_product_description .content{
+		display:table;
+		border: 1px solid #cecece;
+	}
+
+		.qikres_popup_product_description .content .room{
+			width:35%;
+			padding: 10px;
+			float: left;
+			margin:0 !important;
+		}
+
+			.qikres_popup_product_description .content .room .amenities{
+				float:left;
+				width:100%;
+			}
+
+				.qikres_popup_product_description .content .room .amenities ul{
+					padding:0; margin:0;
+					overflow-x:hidden;
+					overflow-y: auto;
+					height:117px
+				}
+
+			.qikres_popup_product_description .content .room .photo, .qikres_popup_product_description .content .room .qikres_noimage{
+				width:100%;
+			}
+
+		.qikres_popup_product_description .content .detail{
+			float:left;
+			width:65%;
+			border-left: 1px solid #cecece;
+		}
+
+			.qikres_popup_product_description .content .detail .infodesc{
+				height: 300px;
+				overflow-x: hidden;
+				overflow-y: auto;
+				border-bottom: 1px solid #cecece;
+				padding: 0 10px;
+				float:left;
+				color:#333
+			}
+	
+			.qikres_popup_product_description .content .detail .price{
+				width:100%;
+				float:left;
+				margin:20px 0
+			}
+
+				.qikres_popup_product_description .content .detail .price .guestcount{
+					float:left;
+					width:30%;
+					padding-left:10px
+				}
+	
+					.qikres_popup_product_description .content .detail .price .guestcount span{
+						float:left
+					}
+
+			.qikres_popup_product_description .content .detail .price .price-amount{
+				float:left;
+				width:64%
+			}
+
+				.qikres_popup_product_description .content .detail .price .price-amount .amount{
+					font-size: 20px;
+					float: right;
+					margin: 10px 0px 0px 10px;
+				}
+
+			.qikres_popup_product_description .content .detail .price .amount-label{
+				float: right;
+				line-height: 16px;
+				width: 14%;
+				font-weight: normal;
+				font-size: 10px
+			}
+/* end popup product description */
+
+.qikres_product_content{
+	margin-bottom: 10px auto;
+	width:100%;
+	display: table; 	
+}
+
+.qikres_price_group .row .isPromo{
+	border: 1px solid #FDC820;	
+}
+
+.qikres_price_group{
+	display: table;
+	width: 100%;
+	margin-top: 30px;	
+}
+
+.qikres_price_group .row{
+	width: 100%;
+	float: left;
+	padding-top: 8px;
+	border-top: 1px dotted #CCC;
+	padding-bottom: 5px;
+	position: relative;
+}
+
+.qikres_price_group .row .name{
+	width: 48%;
+	float:left;
+}
+
+.qikres_price_group .row .name > a{
+	float: left;
+	margin-top: 7px;
+	color: #000;
+}
+
+.qikres_price_group .row .name > a:hover{
+	color:#F00
+}
+
+.qikres_price_group .row .name > p{
+	float: right;
+	width: 91%;
+	margin: 7px 0 0 0;
+	padding:0;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+.qikres_price_group .row .nego, .qikres_price_group .row .policy{
+	float:left;
+	width:26px;
+	height:26px;
+}
+
+.qikres_price_group .row .nego{
+background:url(../images/icons/negotiated-price.png?1433992104011) center center no-repeat;
+	margin-right:5px
+}
+
+.qikres_price_group .row .policy{
+background:url(../images/icons/policy.png?1433992104011) center center no-repeat;
+	cursor:pointer
+}
+
+.qikres_price_group .row .detail{
+	width: 9%;
+	float: left;
+}
+
+.qikres_price_group .row .price{
+	width: 33%;
+	float: left;
+	padding-top: 5px;
+}
+
+.qikres_price_group .row .price .amountValue{
+	font-size: 18px;
+	float: left;
+	padding-right:20px;
+}
+
+.qikres_price_group .row .price .nett{
+	background: #b32317; 
+	letter-spacing: 2px; 
+	margin-left: 5px; 
+	padding: 1px 3px; 
+	color: #FFF; 
+	font-family: helvetica;
+	font-size:10px;
+	text-shadow: 1px 1px #000;
+}
+
+.qikres_price_group .row .price .from-curr{
+	float: left;
+	line-height: 12px;
+	margin: -5px 10px auto auto;
+	width: 14%;
+	font-size: 12px;
+}
+
+.qikres_price_group .row .price .from-curr .from, .qikres_price_group .row .price .from-curr{
+	font-size: 9px;
+	letter-spacing:2px
+}
+
+.qikres_price_group .row .control{
+	width: 16%;
+	float: right;
+	text-align: left;
+	margin-top: 1px;
+	margin-right: 5px;
+}
+
+.qikres_price_group .control select{
+	width:auto !important
+}
+
+.qikres_sleeps{
+	position: absolute;
+	right: 97px;
+	top: 0;
+	height: 18px;
+}
+
+.qikres_sleeps > span{
+	top: 3px;
+	position: absolute;
+	left: 0;
+	margin-top: -4px;
+}
+
+.qikres_product_detail{
+	float: left;
+	width: 69%;
+	margin: 5px 0 0 7px;
+	position:relative
+}
+
+.qikres_product_detail .qikres_ellipsis_desc{
+	width: 90px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	text-align:right;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjElIiBzdG9wLWNvbG9yPSIjZjdmN2Y3IiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDxzdG9wIG9mZnNldD0iNzklIiBzdG9wLWNvbG9yPSIjZjdmN2Y3IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(left,  rgba(247,247,247,0) 0%, rgba(247,247,247,0) 1%, rgba(247,247,247,1) 79%, rgba(247,247,247,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(247,247,247,0)), color-stop(1%,rgba(247,247,247,0)), color-stop(79%,rgba(247,247,247,1)), color-stop(100%,rgba(247,247,247,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 79%,rgba(247,247,247,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 79%,rgba(247,247,247,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 79%,rgba(247,247,247,1) 100%); /* IE10+ */
+	background: linear-gradient(to right,  rgba(247,247,247,0) 0%,rgba(247,247,247,0) 1%,rgba(247,247,247,1) 79%,rgba(247,247,247,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f7f7f7', endColorstr='#f7f7f7',GradientType=1 ); /* IE6-8 */
+}
+
+.qikres_product_detail > h2{
+	margin: 0;
+	float: left;
+	width: 82%;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.qikres_product_description{
+	line-height: 1.5em;
+	height: 6em;
+	width: 100%;
+	margin-top: 5px;
+	float: left;
+	overflow-y:hidden !important;
+	color:#666
+}
+
+/*.readmore{
+	box-shadow: inset 0 -10px 10px -10px #999;
+    -moz-box-shadow: inset 0 -10px 10px -10px #999;
+    -webkit-box-shadow: inset 0 -10px 10px -10px #999;
+	border-bottom:1px solid #CCC
+}*/
+
+.qikres_product_description .multiline {
+	white-space: normal;
+}
+
+.qikres_product_description p{
+	margin:0;
+	padding:0;
+	float:none;
+}
+
+.qikres_rate_desc{
+	width: 99%;
+	background-color: #FFF;
+	float: left;
+	border: 1px solid #CECECE;
+	padding: 5px;
+	margin: 5px 0 0 4px;
+	display:none
+}
+
+.qikres_rate_desc a.bookingPolicyFancyBox{
+	text-decoration:underline;
+	color:blue;
+	display:table
+}
+
+.qikres_rate_desc p {
+	margin:0;
+	padding:0	
+}
+
+.rate_desc{
+	float:left;
+	width:100%;	
+}
+
+.qikres_room_amenities > span a{
+	color: #000;
+}
+
+.qikres_room_amenities > span a:hover{
+	color:#F00
+}
+
+.qikres_room_amenities{
+	width:100%;
+	float:left;
+}
+
+.qikres_room_amenities > span{
+	font-weight:bold	
+}
+
+.qikres_room_amenities_list{
+	display:none	
+}
+
+.qikres_room_amenities_list ul li{
+	background-color: #333;
+	color: #FFF;
+	display: inline;
+	float: left;
+	width: auto;
+	margin: 3px 3px 0px 0px;
+	padding: 0px 4px;
+	font-size: 10px;
+	letter-spacing:1px
+}
+
+.qikres_ispromo{
+	border:1px solid #80A6B8 !important;
+	padding-top: 18px !important;
+	margin-bottom: 5px !important;
+}
+
+.qikres_promo_label{
+	background: #80A6B8;
+	padding: 0px 3px;
+	position: absolute;
+	top: 0;
+	left:0;
+	letter-spacing: 2px;
+}
+
+.qikres_policy {
+	width: 96%;
+	margin: auto;
+	display:none
+}
+#confirmation_number{
+	font-size: 20px;
+	padding: 10px;
+}
+#transportation{
+	display:none	
+}
+#transportation a{
+	color:#666
+}
+.transportation a{
+	color:#666	
+}
+.transportation a:hover{
+	color:#000
+}
+.estimatedDate {
+	width: 50%; 
+	float: left; 
+	margin-right: 5px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.estimatedTime {
+	width: 48%; 
+	float: left; 
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.transportType {
+	width: 100%; 
+	float: left; 
+}
+#etaDate, #etdDate{
+	width: 81% !important;
+background:url(../images/icons/calendar.png?1433992104011) right center no-repeat #FFFFFF;
+}
+#etaTN, #etdTN{
+	width: 98%;	
+}
+
+#etaTimeHour, #etaTimeMinute, #etdTimeHour, #etdTimeMinute{
+	width: 45% !important;
+	float:none;
+}
+#etaTransportType, #etdTransportType{
+	width: 72% !important;
+	float : left;
+}
+
+.qikres_review div.arrival, .qikres_review div.departure {
+	width: 50%;
+	float: left;
+}
+
+.qikres_review div.arrival select, .qikres_review div.departure select{
+	width: 44% !important;
+	padding: 4px !important;
+	float: right;
+}
+
+/*
+***
+***
+*/
+
+a.bookButton {
+	background-color: #959595;
+	font-family: "brandon-grotesque", sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 0.08em;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
+	padding: 8px 10px;
+	margin-top: 20px;
+	display: inline-block;
+}
+
+/*---------------------- end new selloption */
+
+/* mobile */
+
+@media all and (max-width: 992px) {
+	.qikres_main_display {
+		width: 100%;
+	}
+	.qikres_side_display {
+		width: 100%;
+	}
+}

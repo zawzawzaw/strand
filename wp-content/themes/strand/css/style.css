@@ -161,25 +161,29 @@ strong {
 }
 @font-face {
   font-family: 'HarrietDisplay-Bold';
-  src: url('../fonts/HarrietDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/HarrietDisplay-Bold.woff') format('woff'), url('../fonts/HarrietDisplay-Bold.ttf') format('truetype'), url('../fonts/HarrietDisplay-Bold.svg#HarrietDisplay-Bold') format('svg');
+  src: url('../fonts/harrietdisplay-bold-v4-webfont.eot');
+  src: url('../fonts/harrietdisplay-bold-v4-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/harrietdisplay-bold-v4-webfont.woff2') format('woff2'), url('../fonts/harrietdisplay-bold-v4-webfont.woff') format('woff'), url('../fonts/harrietdisplay-bold-v4-webfont.ttf') format('truetype'), url('../fonts/harrietdisplay-bold-v4-webfont.svg#HarrietDisplay-Bold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'HarrietDisplay-BoldItalic';
-  src: url('../fonts/HarrietDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/HarrietDisplay-BoldItalic.woff') format('woff'), url('../fonts/HarrietDisplay-BoldItalic.ttf') format('truetype'), url('../fonts/HarrietDisplay-BoldItalic.svg#HarrietDisplay-BoldItalic') format('svg');
+  src: url('../fonts/harrietdisplay-bolditalic-v4-webfont.eot');
+  src: url('../fonts/harrietdisplay-bolditalic-v4-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/harrietdisplay-bolditalic-v4-webfont.woff2') format('woff2'), url('../fonts/harrietdisplay-bolditalic-v4-webfont.woff') format('woff'), url('../fonts/harrietdisplay-bolditalic-v4-webfont.ttf') format('truetype'), url('../fonts/harrietdisplay-bolditalic-v4-webfont.svg#HarrietDisplay-BoldItalic') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'HarrietDisplay-MediumItalic';
-  src: url('../fonts/HarrietDisplay-MediumItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/HarrietDisplay-MediumItalic.woff') format('woff'), url('../fonts/HarrietDisplay-MediumItalic.ttf') format('truetype'), url('../fonts/HarrietDisplay-MediumItalic.svg#HarrietDisplay-MediumItalic') format('svg');
+  src: url('../fonts/harrietdisplay-mediumitalic-v4-webfont.eot');
+  src: url('../fonts/harrietdisplay-mediumitalic-v4-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/harrietdisplay-mediumitalic-v4-webfont.woff2') format('woff2'), url('../fonts/harrietdisplay-mediumitalic-v4-webfont.woff') format('woff'), url('../fonts/harrietdisplay-mediumitalic-v4-webfont.ttf') format('truetype'), url('../fonts/harrietdisplay-mediumitalic-v4-webfont.svg#HarrietDisplay-MediumItalic') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'HarrietDisplay-RegularItalic';
-  src: url('../fonts/HarrietDisplay-RegularItalic.eot?#iefix') format('embedded-opentype'), url('../fonts/HarrietDisplay-RegularItalic.woff') format('woff'), url('../fonts/HarrietDisplay-RegularItalic.ttf') format('truetype'), url('../fonts/HarrietDisplay-RegularItalic.svg#HarrietDisplay-RegularItalic') format('svg');
+  src: url('../fonts/harrietdisplay-regularitalic-v4-webfont.eot');
+  src: url('../fonts/harrietdisplay-regularitalic-v4-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/harrietdisplay-regularitalic-v4-webfont.woff2') format('woff2'), url('../fonts/harrietdisplay-regularitalic-v4-webfont.woff') format('woff'), url('../fonts/harrietdisplay-regularitalic-v4-webfont.ttf') format('truetype'), url('../fonts/harrietdisplay-regularitalic-v4-webfont.svg#HarrietDisplay-RegularItalic') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -244,7 +248,6 @@ body {
   color: #323132;
   font-size: 17px;
   line-height: 18px;
-  overflow-x: hidden;
 }
 body,
 html {
@@ -257,10 +260,9 @@ body {
   margin: 0;
   padding: 0;
 }
-@media all and (max-width: 1200px) {
-  html,
-  body {
-    overflow-x: hidden;
+@media all and (max-width: 420px) {
+  br {
+    display: none;
   }
 }
 #page-wrapper {
@@ -271,6 +273,7 @@ body {
   position: fixed;
   top: 0px;
   width: 100%;
+  height: 50px;
   z-index: 9999;
 }
 #page-wrapper #header-wrapper header#main-header {
@@ -295,7 +298,7 @@ body {
   right: 25px;
   z-index: 1;
   width: 280px;
-  padding: 45px 20px 30px 20px;
+  padding: 45px 20px 34px 20px;
 }
 #page-wrapper .reservation-widget .form-control-feedback {
   top: 17px!important;
@@ -616,6 +619,7 @@ body {
 #page-wrapper .carousel,
 #page-wrapper .item {
   height: 98%;
+  overflow: hidden;
 }
 @media all and (max-width: 992px) {
   #page-wrapper .carousel,
@@ -658,6 +662,9 @@ body {
   background-image: url('../images/content/whats-nearby-banner.jpg');
   background-position: center top;
 }
+#page-wrapper .slider-wrapper .carousel-inner .whats-nearby-bg1 .carousel-caption .caption-text p {
+  width: 485px!important;
+}
 #page-wrapper .slider-wrapper .carousel-inner .shopping-bg1 {
   background-image: url('../images/content/shopping-banner.jpg');
   background-position: center center;
@@ -678,7 +685,7 @@ body {
   background-color: #777;
 }
 #page-wrapper .slider-wrapper .carousel-inner .item .carousel-caption {
-  z-index: 10;
+  z-index: 0;
 }
 #page-wrapper .slider-wrapper .carousel-inner .item .item-cta {
   position: absolute;
@@ -755,16 +762,17 @@ body {
 #page-wrapper .slider-wrapper div.item div.carousel-caption div.caption-text h5 {
   font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 16px;
   letter-spacing: 0.13em;
   text-shadow: 0 1px 100px #000000;
-  margin-bottom: 20px;
   text-transform: uppercase;
 }
 #page-wrapper .slider-wrapper div.item div.carousel-caption div.caption-text hr {
   border-bottom: 3px solid #ffffff;
-  margin: 30px auto;
+  margin: 0px auto;
+  margin-top: 17px;
+  margin-bottom: 20px;
   width: 45px;
   display: block;
 }
@@ -814,13 +822,16 @@ body {
     width: 310px!important;
   }
 }
+#page-wrapper #content-wrapper {
+  overflow: hidden;
+}
 #page-wrapper #footer-wrapper {
   height: auto;
   width: 100%;
   left: 0;
   bottom: 48px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 38px;
+  padding-bottom: 38px;
   background-color: #1e1e1e;
 }
 #page-wrapper #footer-wrapper.fixed-footer {
@@ -839,8 +850,8 @@ body {
 }
 #page-wrapper .trip-advisor {
   background-color: #313131;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 #page-wrapper .trip-advisor img {
   text-align: center;
@@ -1154,7 +1165,7 @@ span.close {
 .infoBox .infoBox-text p {
   font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.01em;
   color: #636363;
@@ -1375,11 +1386,13 @@ span.close {
 }
 .home .discover-us .img-content .inner {
   display: table-cell;
-  padding-left: 25px;
   width: 215px;
   height: 160px;
   background-color: #afc7cd;
   vertical-align: middle;
+  padding-left: 23px;
+  padding-top: 27px;
+  padding-bottom: 16px;
 }
 .home .discover-us .img-content .inner i.globe {
   background: url('../images/icons/globe-icon.png') no-repeat;
@@ -1390,8 +1403,8 @@ span.close {
 }
 .home .discover-us .img-content .inner h4 {
   font-family: "HarrietDisplay-RegularItalic", Verdana, sans-serif;
-  font-size: 17px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 21px;
   color: #ffffff;
 }
 .home .discover-us .img-content .inner-2 {
@@ -1542,7 +1555,7 @@ span.close {
   line-height: 23px;
   letter-spacing: 0.06em;
   color: #242424;
-  margin-bottom: 25px;
+  margin-bottom: 8px;
 }
 .home .whats-new .img-content p {
   font-family: "brandon-grotesque", sans-serif;
@@ -1551,6 +1564,7 @@ span.close {
   font-size: 16px;
   line-height: 20px;
   color: #636363;
+  width: 95%;
 }
 .home .whats-new .img-content .mansonry-2-item {
   width: 190px;
@@ -1570,11 +1584,11 @@ span.close {
 }
 .home .whats-new .img-content .mansonry-2-item.medium {
   width: 285px;
-  height: 190px;
+  height: 220px;
 }
 .home .whats-new .img-content .mansonry-2-item.large {
   width: 285px;
-  height: 260px;
+  height: 230px;
 }
 .home .whats-new .img-content .mansonry-2-item.x-large {
   width: 290px;
@@ -1582,9 +1596,9 @@ span.close {
 }
 .home .whats-new .img-content .inner {
   display: table-cell;
-  padding-left: 35px;
+  padding-left: 30px;
   width: 285px;
-  height: 260px;
+  height: 230px;
   vertical-align: middle;
 }
 .home .whats-new .img-content .see-destinations {
@@ -1597,7 +1611,7 @@ span.close {
   font-size: 11px;
   line-height: 28px;
   letter-spacing: 0.08em;
-  margin-top: 25px;
+  margin-top: 15px;
   display: inline-block;
 }
 .home .whats-new .img-content .see-destinations:hover {
@@ -1668,9 +1682,14 @@ span.close {
   padding-top: 1px;
 }
 .home .whats-new .whats-on ul li h5 {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 300;
   float: left;
 }
 .home .whats-new .whats-on ul li p {
+  font-family: "HarrietDisplay-ThinItalic", Verdana, sans-serif;
+  font-size: 13px;
   float: right;
 }
 @media all and (max-width: 420px) {
@@ -1915,14 +1934,14 @@ span.close {
   background-size: cover;
   background-image: url('../images/content/bg.png');
   background-position: center top;
-  height: 560px;
+  height: 520px;
   position: relative;
 }
 .home .classic-hotel .caption {
   width: 470px;
   position: absolute;
   left: 50%;
-  top: 22%;
+  top: 24%;
 }
 .home .classic-hotel .caption .caption-text {
   position: relative;
@@ -1965,7 +1984,9 @@ span.close {
 .home .classic-hotel hr.small {
   width: 50px;
   border-top: 3px solid #ffffff;
-  margin: 35px auto;
+  margin: 0px auto;
+  margin-top: 29px;
+  margin-bottom: 33px;
 }
 .home .classic-hotel p {
   font-family: "brandon-grotesque", sans-serif;
@@ -1989,7 +2010,7 @@ span.close {
   letter-spacing: 0.08em;
   text-align: center;
   display: block;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .home .classic-hotel a i {
   text-align: center;
@@ -2067,6 +2088,9 @@ span.close {
     margin-top: 13px!important;
     margin-bottom: 27px!important;
   }
+  .rooms .rooms-suites .heading br {
+    display: none;
+  }
 }
 .rooms .rooms-suites .rooms-img-slider {
   height: auto!important;
@@ -2080,12 +2104,14 @@ span.close {
 .rooms .rooms-suites .rooms-img-slider .carousel-caption {
   position: absolute;
   bottom: 0px;
-  left: 840px;
-  width: 340px;
+  left: 850px;
+  width: 330px;
   background: #363636;
   text-align: left;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .rooms .rooms-suites .rooms-img-slider .carousel-caption p {
   font-family: "HarrietDisplay-ThinItalic", Verdana, sans-serif;
@@ -2114,7 +2140,7 @@ span.close {
   width: 40px;
   height: 40px;
   bottom: 10px!important;
-  top: initial;
+  top: auto!important;
   -moz-opacity: 1;
   -khtml-opacity: 1;
   -webkit-opacity: 1;
@@ -2200,14 +2226,13 @@ span.close {
 }
 .rooms .rooms-suites .img-content .inner {
   display: table-cell;
-  padding-left: 30px;
   width: 285px;
   height: 170px;
   vertical-align: middle;
 }
 .rooms .rooms-suites .img-content .inner-2 {
   display: table-cell;
-  padding-left: 30px;
+  padding-left: 20px;
   width: 285px;
   height: 170px;
   vertical-align: bottom;
@@ -2219,6 +2244,8 @@ span.close {
 .rooms .rooms-suites .img-content .inner-2 i {
   color: #427e9a;
   display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
   margin-right: 5px;
 }
 .rooms .rooms-suites .img-content .inner-2 h5 {
@@ -2227,7 +2254,7 @@ span.close {
   line-height: 15px;
   color: #427e9a;
   display: inline-block;
-  width: 170px;
+  width: 175px;
   vertical-align: top;
 }
 @media all and (max-width: 1200px) {
@@ -2317,6 +2344,7 @@ span.close {
   text-align: left;
   color: #427e9a;
   margin-bottom: 15px;
+  width: 93%;
 }
 .rooms .rooms-suites .ultimate-experience h3 {
   text-align: left;
@@ -2333,8 +2361,9 @@ span.close {
 }
 .rooms .rooms-suites .ultimate-experience hr.small {
   border-top: 2px solid #242424;
-  width: 35px;
-  margin: 19px 0px;
+  width: 47px;
+  margin-top: 27px;
+  margin-bottom: 30px;
 }
 .rooms .rooms-suites .ultimate-experience p {
   font-family: "brandon-grotesque", sans-serif;
@@ -2343,6 +2372,7 @@ span.close {
   font-size: 16px;
   line-height: 22px;
   color: #636363;
+  width: 93%;
 }
 .rooms .available-rooms {
   background-repeat: no-repeat;
@@ -2434,19 +2464,21 @@ span.close {
   line-height: 19px;
   text-align: center;
   color: #636363;
+  width: 92%;
+  margin: 0 auto;
 }
 .rooms .available-rooms .rooms-list .each-room a {
   text-align: center;
 }
 .rooms .available-rooms .rooms-list .each-room hr {
-  width: 30px;
-  border-top: 1px solid #242424;
-  margin: 20px auto;
+  width: 31px;
+  border-top: 2px solid #242424;
+  margin: 13px auto;
 }
 .rooms .available-rooms .rooms-list .each-room .room-info {
   background-color: #ffffff;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 38px;
+  padding-bottom: 32px;
   padding-right: 25px;
   padding-left: 25px;
   margin-top: -4px;
@@ -2939,12 +2971,12 @@ span.close {
 .deluxe-room .rooms-suites .third-content .deluxe-features .feature-details h3,
 .family-room .rooms-suites .third-content .deluxe-features .feature-details h3,
 .standard-room .rooms-suites .third-content .deluxe-features .feature-details h3 {
-  font-family: 'HarrietDisplay-BoldItalic', Verdana, sans-serif;
+  font-family: "HarrietDisplay-MediumItalic", Verdana, sans-serif;
   font-size: 20px;
   line-height: 24px;
   color: #427e9a;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 18px;
+  padding-bottom: 14px;
 }
 .deluxe-room .rooms-suites .third-content .deluxe-features .feature-details h4.panel-title,
 .family-room .rooms-suites .third-content .deluxe-features .feature-details h4.panel-title,
@@ -3294,23 +3326,23 @@ span.close {
 }
 .whats-nearby .first-content .content-section:nth-child(2) .text-content:after {
   content: " ";
-  background: url("../images/content/stamp.png") no-repeat top right;
-  width: 148px;
-  height: 170px;
+  background: url("../images/content/stamp-2.png") no-repeat top right;
+  width: 96px;
+  height: 81px;
   display: block;
   position: absolute;
-  top: -33px;
-  right: -35px;
+  top: 0;
+  right: 40px;
 }
 @media all and (max-width: 1200px) {
   .whats-nearby .first-content .content-section:nth-child(2) .text-content:after {
     top: -55px;
-    right: -1px;
+    right: 60px;
   }
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 992px) {
   .whats-nearby .first-content .content-section:nth-child(2) .text-content:after {
-    background: none;
+    background: none!important;
   }
 }
 .whats-nearby .first-content .content-section:nth-child(2) .img-content {
@@ -3321,6 +3353,27 @@ span.close {
   .whats-nearby .first-content .content-section:nth-child(2) .text-content {
     margin: 0 auto;
     margin-top: 30px;
+  }
+}
+.whats-nearby .first-content .content-section:nth-child(3) .text-content:after {
+  content: " ";
+  background: url("../images/content/stamp-3.png") no-repeat top right;
+  width: 89px;
+  height: 88px;
+  display: block;
+  position: absolute;
+  top: 315px;
+  left: 10px;
+}
+@media all and (max-width: 1200px) {
+  .whats-nearby .first-content .content-section:nth-child(3) .text-content:after {
+    top: -55px;
+    right: -1px;
+  }
+}
+@media all and (max-width: 992px) {
+  .whats-nearby .first-content .content-section:nth-child(3) .text-content:after {
+    background: none!important;
   }
 }
 .whats-nearby .first-content .content-section:last-child {
@@ -3531,11 +3584,14 @@ span.close {
 }
 .whats-nearby .neighborhood .places {
   margin-top: 45px;
+  display: block;
+  text-align: center;
 }
 .whats-nearby .neighborhood .places .each-place {
   display: inline-block;
   width: 390px;
   text-align: center;
+  vertical-align: top;
 }
 @media all and (max-width: 1200px) {
   .whats-nearby .neighborhood .places .each-place {
@@ -3579,7 +3635,7 @@ span.close {
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 23px;
   color: #636363;
 }
 .whats-nearby .neighborhood .places .each-place ul li a:hover {
@@ -3641,22 +3697,37 @@ span.close {
   display: block;
   position: absolute;
   top: -22px;
-  right: -90px;
+  right: 0px;
 }
 @media all and (max-width: 992px) {
   .shopping .first-content .content-section:first-child .extra-content .text-content:after,
   .attraction .first-content .content-section:first-child .extra-content .text-content:after,
   .food .first-content .content-section:first-child .extra-content .text-content:after {
     content: "";
-    background: none;
+    background: none!important;
   }
 }
-.shopping .first-content .content-section:nth-child(2n),
-.attraction .first-content .content-section:nth-child(2n),
-.food .first-content .content-section:nth-child(2n) {
+.shopping .first-content .content-section:last-child,
+.attraction .first-content .content-section:last-child,
+.food .first-content .content-section:last-child {
   border: 0px;
   padding-bottom: 0px;
   margin-bottom: 0px;
+}
+.shopping .first-content .content-section:last-child:after,
+.attraction .first-content .content-section:last-child:after,
+.food .first-content .content-section:last-child:after {
+  border: 0px;
+}
+.shopping .first-content .content-section:nth-child(2n) .actual-content .img-content-2,
+.attraction .first-content .content-section:nth-child(2n) .actual-content .img-content-2,
+.food .first-content .content-section:nth-child(2n) .actual-content .img-content-2 {
+  margin-right: 86px!important;
+}
+.shopping .first-content .content-section:nth-child(2n) .actual-content .text-content-2,
+.attraction .first-content .content-section:nth-child(2n) .actual-content .text-content-2,
+.food .first-content .content-section:nth-child(2n) .actual-content .text-content-2 {
+  margin-right: 0px!important;
 }
 @media all and (max-width: 1200px) {
   .shopping .first-content .content-section:nth-child(2n) .extra-content .img-content,
@@ -3673,11 +3744,6 @@ span.close {
   .food .first-content .content-section:nth-child(2n) .extra-content .img-content {
     width: 30%;
   }
-}
-.shopping .first-content .content-section:nth-child(2n):after,
-.attraction .first-content .content-section:nth-child(2n):after,
-.food .first-content .content-section:nth-child(2n):after {
-  border: 0px;
 }
 .shopping .first-content .content-section:after,
 .attraction .first-content .content-section:after,
@@ -3746,8 +3812,9 @@ span.close {
 .food .first-content .content-section .actual-content .text-content hr {
   border-bottom: 4px solid #242424;
   width: 60px;
-  margin: 22px auto;
-  margin-bottom: 27px;
+  margin: 0px auto;
+  margin-bottom: 22px;
+  margin-top: 24px;
 }
 .shopping .first-content .content-section .actual-content .text-content p,
 .attraction .first-content .content-section .actual-content .text-content p,
@@ -3759,7 +3826,7 @@ span.close {
   line-height: 23px;
   color: #636363;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 23px;
 }
 .shopping .first-content .content-section .actual-content .text-content a.discover-more,
 .attraction .first-content .content-section .actual-content .text-content a.discover-more,
@@ -3917,12 +3984,21 @@ span.close {
   line-height: 23px;
   letter-spacing: 0.08em;
   color: #242424;
+  letter-spacing: 0px;
 }
 .shopping .first-content .content-section .extra-content .text-content hr.small,
 .attraction .first-content .content-section .extra-content .text-content hr.small,
 .food .first-content .content-section .extra-content .text-content hr.small {
   border-top: 2px solid #242424;
   width: 30px;
+  margin-top: 9px;
+  margin-bottom: 17px;
+}
+.shopping .first-content .content-section .extra-content .text-content hr.small-2,
+.attraction .first-content .content-section .extra-content .text-content hr.small-2,
+.food .first-content .content-section .extra-content .text-content hr.small-2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .shopping .first-content .content-section .extra-content .text-content ul,
 .attraction .first-content .content-section .extra-content .text-content ul,
@@ -3949,7 +4025,9 @@ span.close {
   font-weight: 300;
   font-size: 16px;
   color: #636363;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  width: 435px;
+  line-height: 23px;
 }
 .shopping .first-content .content-section .extra-content .text-content .inner-2,
 .attraction .first-content .content-section .extra-content .text-content .inner-2,
@@ -3958,7 +4036,7 @@ span.close {
   vertical-align: bottom;
   position: absolute;
   bottom: 0px;
-  right: 4px;
+  right: 20px;
 }
 @media all and (max-width: 420px) {
   .shopping .first-content .content-section .extra-content .text-content .inner-2,
@@ -3997,7 +4075,7 @@ span.close {
   line-height: 15px;
   color: #427e9a;
   display: inline-block;
-  width: 170px;
+  width: 185px;
   vertical-align: top;
 }
 .shopping .where-to-shop,
@@ -4094,7 +4172,7 @@ span.close {
 .shopping .where-to-shop .shopping-spots .each-shopping-spot img,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot img,
 .food .where-to-shop .shopping-spots .each-shopping-spot img {
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 @media all and (max-width: 1200px) {
   .shopping .where-to-shop .shopping-spots .each-shopping-spot img,
@@ -4106,8 +4184,8 @@ span.close {
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info,
 .food .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 28px;
+  padding-left: 28px;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info h3,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info h3,
@@ -4118,14 +4196,17 @@ span.close {
   font-size: 17px;
   letter-spacing: 0.08em;
   color: #242424;
+  text-transform: uppercase;
+  text-align: center;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info hr.small,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info hr.small,
 .food .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info hr.small {
   width: 30px;
   border-top: 2px solid #242424;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 0 auto;
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info p,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info p,
@@ -4134,9 +4215,10 @@ span.close {
   font-style: normal;
   font-weight: 300;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 21px;
   color: #636363;
   margin-bottom: 15px;
+  width: 95%;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a,
@@ -4144,11 +4226,11 @@ span.close {
   font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.075em;
   color: #427e9a;
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 19px;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a:hover,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info a:hover,
@@ -4173,7 +4255,9 @@ span.close {
 .attraction .where-to-shop .shopping-spots .each-shopping-spot div.center,
 .food .where-to-shop .shopping-spots .each-shopping-spot div.center {
   display: table;
-  margin: 20px auto;
+  margin: 0px auto;
+  margin-top: 18px;
+  margin-bottom: 26px;
 }
 .shopping .where-to-shop .shopping-spots .each-shopping-spot div.center div.v-align,
 .attraction .where-to-shop .shopping-spots .each-shopping-spot div.center div.v-align,
@@ -4221,6 +4305,12 @@ span.close {
 .food .where-to-shop .shopping-spots .each-shopping-spot div.center div.v-align a.see-on-map:hover i {
   background-color: #427e9a;
 }
+.attraction .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info p {
+  width: 96%;
+}
+.food .where-to-shop .shopping-spots .each-shopping-spot .shopping-spot-info p {
+  width: 100%;
+}
 .amenities .container {
   padding: 0px;
 }
@@ -4256,7 +4346,7 @@ span.close {
   letter-spacing: 0.08em;
   color: #427e9a;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 11px;
 }
 .amenities .first-content .content-section .actual-content .text-content h2,
 .amenities .last-content .content-section .actual-content .text-content h2 {
@@ -4291,6 +4381,7 @@ span.close {
   color: #636363;
   text-align: left;
   margin-bottom: 30px;
+  width: 95%;
 }
 .amenities .first-content .content-section .actual-content .text-content ul,
 .amenities .last-content .content-section .actual-content .text-content ul {
@@ -4542,7 +4633,7 @@ span.close {
 .amenities .accomodation .text-content {
   display: inline-block;
   width: 475px;
-  height: 380px;
+  height: 100%;
   vertical-align: middle;
   position: relative;
 }
@@ -4553,8 +4644,8 @@ span.close {
   height: 170px;
   display: block;
   position: absolute;
-  top: -50px;
-  right: -70px;
+  top: -20px;
+  right: 0px;
 }
 .amenities .accomodation .text-content h3 {
   font-family: "brandon-grotesque", sans-serif;
@@ -4565,7 +4656,7 @@ span.close {
   letter-spacing: 0.08em;
   color: #427e9a;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 11px;
 }
 .amenities .accomodation .text-content h2 {
   font-family: "HarrietDisplay-MediumItalic", Verdana, sans-serif;
@@ -4596,6 +4687,7 @@ span.close {
   color: #636363;
   text-align: left;
   margin-bottom: 30px;
+  width: 95%;
 }
 .amenities .accomodation .text-content p:last-child {
   margin-bottom: 0px;
@@ -4608,7 +4700,7 @@ span.close {
   }
   .amenities .accomodation .text-content:after {
     content: "";
-    background: none;
+    background: none!important;
   }
 }
 .amenities .last-content .content-section .actual-content .text-content {
@@ -4634,7 +4726,13 @@ span.close {
   }
 }
 .amenities .last-content .content-section .extra-content .text-content {
-  height: 250px;
+  height: 100%;
+}
+.amenities .last-content .content-section .extra-content .text-content .child-text-content {
+  margin-bottom: 0px!important;
+}
+.amenities .last-content .content-section .extra-content .text-content .child-text-content ul li {
+  padding-bottom: 2px!important;
 }
 @media all and (max-width: 1200px) {
   .amenities .last-content .content-section .extra-content .img-content {
@@ -5200,7 +5298,7 @@ span.close {
   display: inline-block;
   vertical-align: top;
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 992px) {
   .faqs .first-content .side-menu,
   .privacy-policy .first-content .side-menu,
   .terms-and-condition .first-content .side-menu {
@@ -5243,7 +5341,7 @@ span.close {
   padding-left: 120px;
   border-left: 1px solid #d7d7d7;
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 992px) {
   .faqs .first-content .info-content,
   .privacy-policy .first-content .info-content,
   .terms-and-condition .first-content .info-content {
@@ -5278,7 +5376,7 @@ span.close {
   margin-right: 68px;
   margin-bottom: 15px;
 }
-@media all and (max-width: 420px) {
+@media all and (max-width: 992px) {
   .faqs .first-content .info-content ul,
   .privacy-policy .first-content .info-content ul,
   .terms-and-condition .first-content .info-content ul {
@@ -5311,11 +5409,12 @@ span.close {
 div#footer-wrapper h4 {
   font-family: "brandon-grotesque", sans-serif;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   color: #959595;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 @media all and (max-width: 320px) {
   div#footer-wrapper h4 {
@@ -5330,7 +5429,7 @@ div#footer-wrapper .links ul {
   display: inline-block;
   margin-right: 140px;
   vertical-align: top;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 div#footer-wrapper .links ul li a {
   font-family: "brandon-grotesque", sans-serif;
@@ -5397,6 +5496,9 @@ div#footer-wrapper .mailing-list a.social:hover i {
 }
 div#footer-wrapper .mailing-list .form-group {
   margin-bottom: 0px;
+}
+div#footer-wrapper .mailing-list .form-group .mc4wp-form {
+  margin: 0!important;
 }
 div#footer-wrapper .mailing-list .form-control-feedback {
   top: -2px;
@@ -5500,7 +5602,7 @@ div#copyright-wrapper .container {
   padding-bottom: 13px;
 }
 div#copyright-wrapper hr.big {
-  border-top: 1px solid #959595;
+  border-top: 1px solid #555555;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -5512,7 +5614,8 @@ div#copyright-wrapper p {
   color: #959595;
   float: left;
   line-height: 16px;
-  margin-top: 10px;
+  margin-top: 13px;
+  text-transform: capitalize;
 }
 div#copyright-wrapper ul {
   float: right;
@@ -5529,11 +5632,16 @@ div#copyright-wrapper ul li a {
   letter-spacing: 0.13em;
   color: #959595;
   padding-right: 10px;
-  border-right: 1px solid #959595;
 }
 div#copyright-wrapper ul li:last-child a {
   border-right: 0px;
   padding-left: 10px;
+}
+div#copyright-wrapper ul li div.verticalLine {
+  border-right: 1px solid #959595;
+  display: block;
+  width: 1px;
+  height: 9px;
 }
 @media all and (max-width: 1200px) {
   div#copyright-wrapper ul {

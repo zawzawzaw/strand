@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+.ellipsis { 
+	/*overflow : hidden;
+	height: 150px;*/
+	line-height: 20px;
+	display:table
+}
+
+.ellipsis:before {
+	content: "";
+	float: left;
+	width: 5px;
+	height: 150px;
+}
+
+.ellipsis>*:first-child {
+	float: right;
+	width: 100%;
+	margin-left: -5px;
+}
+
+.ellipsis:after {
+	content: "\02026";
+	float: right;
+	position: relative;
+	top: -25px;
+	left: 100%;
+	margin-left: 3em; margin-left: -3em;
+	padding-right: 5px;
+	text-align: right;
+}

@@ -105,10 +105,11 @@
 					<div class="col-md-12">
 						<hr class="big"></hr>
 
-						<p>&copy; <?php echo date('Y'); ?> The Strand Hotel Singapore. All Rights Reserved.</p>		
+						<p>&copy; <?php echo date('Y'); ?> The <?php bloginfo('name'); ?>. All Rights Reserved.</p>		
 
 						<ul>
 							<li><a href="<?php echo get_permalink(get_page_by_title('Terms and Condition')); ?>">TERMS & CONDITIONS</a></li>
+                            <li><div class="verticalLine"></li>
 							<li><a href="<?php echo get_permalink(get_page_by_title('Privacy Policy')); ?>">PRIVACY POLICY</a></li>
 						</ul>
 						<div class="clearfix"></div>	
@@ -168,23 +169,29 @@
         
         // if(requireSafariFix ==1)
         //     return;
-            
-        Qikres.render({
-            propertyCode: 'LUXURY',
-            checkInDate: formatted_checkInDate,
-            checkOutDate: formatted_checkOutDate,
-            adult: NoOfAdult,
-            children: NoOfChildren,
-            customerID: 'LUXURY',   
-            window: 'embedded', // embedded | popup
-            embeddedContainer: "templatemo_content", // defined if embedded,
-            // style: "http://192.168.0.88:8080/wbe/crossroads.css",
-            // printStyle: 'http://192.168.0.201/hoteldemo/crossroads/css/print.css',
-            popupDraggable : true,
-            module : module,
-            external : 1,
-            popupFullScreen : true,
-        });
+        
+        try {
+            Qikres.render({
+                propertyCode: 'LUXURY',
+                checkInDate: formatted_checkInDate,
+                checkOutDate: formatted_checkOutDate,
+                adult: NoOfAdult,
+                children: NoOfChildren,
+                customerID: 'LUXURY',   
+                window: 'embedded', // embedded | popup
+                embeddedContainer: "templatemo_content", // defined if embedded,
+                style: "http://clients.manic.com.sg/strand/wp-content/themes/strand/css/reservation.css",
+                // style: "http://192.168.0.88:8080/wbe/crossroads.css",
+                // printStyle: 'http://192.168.0.201/hoteldemo/crossroads/css/print.css',
+                popupDraggable : true,
+                module : module,
+                external : 1,
+                popupFullScreen : true,
+            });
+        }catch(err) {
+            alert('Error! Your phone browser has limited session storage. Please try again using browser\'s (non-private/incognito mode) ' + err);
+        }
+        
         
         $('#content_left').hide();
 
